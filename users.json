@@ -1238,5 +1238,13 @@
     "password": "hashed_password_mock",
     "teamId": "team_1787070878105_64",
     "solvedChallenges": []
+  },
+  {
+    "id": "1787074829185",
+    "username": "yoyoyo",
+    "email": "yoyo@gmail.com",
+    "password": "$2b$10$vawTpcEWvXRX29UfhJKCW.jRPc3J7UpU3772YQEmZBYrvb/Y3iTaK",
+    "teamId": null,
+    "solvedChallenges": []
   }
 ]
