@@ -582,7 +582,7 @@
       teamsData.forEach((team, i) => {
         const item = document.createElement('div');
         item.className = 'standing-item';
-        const color = teamColors[i % teamColors.length];
+        const color = stringToColor(team.teamName);
         item.innerHTML = `
           <div class="team-info">
             <div class="team-color" style="background-color: ${color};"></div>
