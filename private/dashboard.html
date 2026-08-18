@@ -318,6 +318,9 @@
           const profileDiv = document.getElementById('profileInfo');
           if (!profileDiv) return;
           if (data.error) {
+            profileDiv.innerHTML = `<p style="color:var(--warning);">${data.error}</p>`;
+          } else {
+            const teamText = data.teamName ? data.teamName : 'No Team';
             profileDiv.innerHTML = `
               <div id="displayUsernameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
                 <h3 style="font-size: 2rem; margin: 0;" id="displayUsername">${data.username}</h3>
@@ -356,16 +359,10 @@
                 if(resp.error) {
                   document.getElementById('profileMessage').textContent = resp.error;
                 } else {
-                  fetchProfile(); // reload profile
+                  fetchProfile();
                 }
               }).catch(err => console.error(err));
             });
-          } else {
-            const teamText = data.teamName ? data.teamName : 'No Team';
-            profileDiv.innerHTML = `
-              <h3 style="font-size: 2rem; margin-bottom: 1rem;">${data.username}</h3>
-              <p style="font-size: 1.2rem;">Team: ${teamText}</p>
-            `;
           }
         })
         .catch(err => console.error('Error fetching profile:', err));
@@ -725,6 +722,7 @@
       updateChallengeBoxesFromTeam();
       
       const socket = io();
+      socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); });
       socket.on('teamsUpdate', () => {
         fetchTeamScores();
       });

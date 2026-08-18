@@ -1,3 +1,6 @@
 make a admin portal for add the challenges and there hashed password using the already made script 
 
 make the random data for 50+ team with just 2 members in each team 
+
+web sockets for the craetion of the name and database and teams
+

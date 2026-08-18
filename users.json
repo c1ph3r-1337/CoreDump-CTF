@@ -1246,5 +1246,13 @@
     "password": "$2b$10$vawTpcEWvXRX29UfhJKCW.jRPc3J7UpU3772YQEmZBYrvb/Y3iTaK",
     "teamId": null,
     "solvedChallenges": []
+  },
+  {
+    "id": "1787075026351",
+    "username": "Jaskaran",
+    "email": "jaskaran052006@gmail.com",
+    "password": "$2b$10$auOE7eKRjdfc1Rsds/hG1e6P3hBkax8e44OouL9qXEEY6.HZ/HvKW",
+    "teamId": null,
+    "solvedChallenges": []
   }
 ]
