@@ -302,7 +302,7 @@
         if (targetId === 'users-section') fetchUsers();
         if (targetId === 'profile-section') fetchProfile();
         if (targetId === 'scoreboard-section') {
-          fetchTeamScores();
+          fetchTeamScores(); fetchTeams(); fetchMyTeam();
           updateChallengeBoxesFromTeam();
         }
         document.body.classList.remove('mobile-menu-open');
@@ -684,7 +684,7 @@
                     } else {
                       fetchMyTeam();
                       fetchProfile();
-                      fetchTeamScores();
+                      fetchTeamScores(); fetchTeams(); fetchMyTeam();
                     }
                   })
                   .catch(err => console.error(err));
@@ -714,7 +714,7 @@
                   document.getElementById('teamMessage').textContent = resp.error;
                 } else {
                   fetchMyTeam(); // reload team
-                  fetchTeamScores(); // update global standings to reflect new name
+                  fetchTeamScores(); fetchTeams(); fetchMyTeam(); // update global standings to reflect new name
                 }
               }).catch(err => console.error(err));
             });
@@ -729,13 +729,13 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       setupScoreboardTabs();
-      fetchTeamScores();
+      fetchTeamScores(); fetchTeams(); fetchMyTeam();
       updateChallengeBoxesFromTeam();
       
       const socket = io();
-      socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); });
+      socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); });
       socket.on('teamsUpdate', () => {
-        fetchTeamScores();
+        fetchTeamScores(); fetchTeams(); fetchMyTeam();
       });
       
       // Set up auto-refresh for scoreboard every 5 minutes as a fallback
@@ -985,7 +985,7 @@
                 solvedBox.style.backgroundColor = "#2467ea";
               }
             }
-            fetchTeamScores();
+            fetchTeamScores(); fetchTeams(); fetchMyTeam();
             updateChallengeBoxesFromTeam();
           })
           .catch(err => {
