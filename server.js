@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 const http = require('http');
 const { Server } = require('socket.io');
 
@@ -15,10 +16,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Set up session middleware
 app.use(session({
-  secret: 'someRandomSecretKey', // Change this in production!
+  store: new FileStore({ path: './sessions', logFn: function(){} }),
+  secret: 'someRandomSecretKey',
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 1000 * 60 * 60 } // 1 hour
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }
 }));
 
 // -----------------------

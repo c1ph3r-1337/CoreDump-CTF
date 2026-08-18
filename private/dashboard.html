@@ -316,6 +316,7 @@
         .then(data => {
           const profileDiv = document.getElementById('profileInfo');
           if (!profileDiv) return;
+          if (data.error === "Not logged in") { window.location.href = "/"; return; }
           if (data.error) {
             profileDiv.innerHTML = `<p style="color:var(--warning);">${data.error}</p>`;
           } else {
@@ -653,6 +654,7 @@
           const myTeamInfo = document.getElementById('myTeamInfo');
           const noTeamActions = document.getElementById('noTeamActions');
           if (!myTeamInfo || !noTeamActions) return;
+          if (data.error === "Not logged in") { window.location.href = "/"; return; }
           if (data.team) {
             const members = data.team.membersNames && data.team.membersNames.length ? data.team.membersNames.join(', ') : 'No members';
             myTeamInfo.innerHTML = `
@@ -896,7 +898,8 @@
             .then(res => res.json())
             .then(data => {
               const joinTeamMessage = document.getElementById('joinTeamMessage');
-              if (data.error) {
+              if (data.error === "Not logged in") { window.location.href = "/"; return; }
+          if (data.error) {
                 joinTeamMessage.innerText = data.error;
               } else {
                 joinTeamMessage.innerText = data.message;
@@ -923,7 +926,8 @@
             .then(res => res.json())
             .then(data => { 
               const createTeamMessage = document.getElementById('createTeamMessage');
-              if (data.error) {
+              if (data.error === "Not logged in") { window.location.href = "/"; return; }
+          if (data.error) {
                 createTeamMessage.innerText = data.error;
               } else {
                 createTeamMessage.innerText = data.message;
