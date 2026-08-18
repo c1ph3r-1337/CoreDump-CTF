@@ -326,6 +326,36 @@ app.post('/api/team/update', (req, res) => {
   res.json({ message: 'Team name updated successfully.', teamName: teams[teamIndex].teamName });
 });
 
+
+// Leave Team Endpoint
+app.post('/api/team/leave', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || !currentUser.teamId) {
+    return res.status(400).json({ error: 'You are not in a team.' });
+  }
+
+  const teamIndex = teams.findIndex(t => t.id === currentUser.teamId);
+  if (teamIndex !== -1) {
+    const team = teams[teamIndex];
+    team.members = team.members.filter(m => m !== req.session.userId);
+    // Optional: if team is empty, you could delete it, but let's keep it simple and just remove member
+    if (team.members.length === 0) {
+      teams.splice(teamIndex, 1);
+    }
+  }
+
+  currentUser.teamId = null;
+
+  fs.writeFileSync(teamsFilePath, JSON.stringify(teams, null, 2));
+  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+  io.emit('teamsUpdate');
+  io.emit('usersUpdate');
+
+  res.json({ message: 'Left team successfully.' });
+});
+
 app.get('/dashboard', (req, res) => {
   if (!req.session.userId) return res.redirect('/');
   res.sendFile(path.join(__dirname, 'private', 'dashboard.html'));

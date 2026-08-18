@@ -193,7 +193,6 @@
 
   <!-- MY TEAM SECTION -->
   <section id="team-section" class="info-section" style="display: none;">
-    <h1>Core Dump 2.0 - My Team</h1>
     <section id="myTeamSection">
       <h2>My Team</h2>
       <div id="myTeamInfo"></div>
@@ -669,9 +668,29 @@
                  <button id="cancelTeamNameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
               </div>
               <br/><span style="font-size: 1.1rem;">Members: ${members}</span><br/><span style="font-size: 1.1rem;">Score: ${data.team.score || 0} pts</span>
+              <div style="margin-top: 1.5rem;">
+                <button id="leaveTeamBtn" style="padding:0.5rem 1rem; border:1px solid rgba(245,158,11,0.5); background:rgba(245,158,11,0.1); color:var(--warning); border-radius:9999px; cursor:pointer; font-size: 0.85rem; transition: all 0.2s;">Leave Team</button>
+              </div>
               <p id="teamMessage" style="margin-top: 1rem; color: var(--warning);"></p>
             `;
             
+            document.getElementById('leaveTeamBtn').addEventListener('click', () => {
+              if (confirm("Are you sure you want to leave this team? If you are the last member, the team will be permanently deleted.")) {
+                fetch('/api/team/leave', { method: 'POST' })
+                  .then(res => res.json())
+                  .then(resp => {
+                    if (resp.error) {
+                      document.getElementById('teamMessage').textContent = resp.error;
+                    } else {
+                      fetchMyTeam();
+                      fetchProfile();
+                      fetchTeamScores();
+                    }
+                  })
+                  .catch(err => console.error(err));
+              }
+            });
+
             document.getElementById('editTeamNameBtn').addEventListener('click', () => {
               document.getElementById('displayTeamNameContainer').style.display = 'none';
               document.getElementById('editTeamNameForm').style.display = 'flex';
