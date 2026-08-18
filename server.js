@@ -171,7 +171,8 @@ app.post('/api/team/create', (req, res) => {
     password: hashedPassword,
     members: [userId],
     score: 0,
-    solvedChallenges: {}
+    solvedChallenges: {},
+    scoreHistory: [{ timestamp: Date.now(), score: 0 }]
   };
   teams.push(newTeam);
   try {
@@ -249,6 +250,10 @@ app.post('/api/challenge/flag', (req, res) => {
   }
   currentUser.solvedChallenges.push(category);
   team.score += 500;
+  if (!team.scoreHistory) {
+    team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score - 500 }];
+  }
+  team.scoreHistory.push({ timestamp: Date.now(), score: team.score });
   
   try {
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));

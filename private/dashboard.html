@@ -467,7 +467,7 @@
           const topTeams = sortedTeams.slice(0, 10);
           
           updateTeamScoreDisplay();
-          updateBarChart(topTeams);
+          updateTimeSeriesChart(topTeams);
           updateStandings(topTeams);
         })
         .catch(err => console.error('Error fetching teams:', err));
@@ -487,28 +487,64 @@
         .catch(err => console.error(err));
     }
     
-    function updateBarChart(topTeams) {
+    function updateTimeSeriesChart(topTeams) {
       const ctx = document.getElementById('scoreChart').getContext('2d');
       
-      const labels = topTeams.map(team => team.teamName);
-      const data = topTeams.map(team => team.score);
-      const backgroundColors = topTeams.map((team, index) => teamColors[index % teamColors.length]);
+      const allTimestamps = new Set();
+      let earliestTime = Date.now();
+      
+      topTeams.forEach(team => {
+        if (team.scoreHistory) {
+          team.scoreHistory.forEach(point => {
+            allTimestamps.add(point.timestamp);
+            if (point.timestamp < earliestTime) earliestTime = point.timestamp;
+          });
+        }
+      });
+      
+      // Ensure we have a starting point at least 1 hour before earliest activity
+      allTimestamps.add(earliestTime - (60 * 60 * 1000));
+      
+      const sortedTimestamps = Array.from(allTimestamps).sort((a, b) => a - b);
+      
+      const labels = sortedTimestamps.map(timestamp => {
+        const date = new Date(timestamp);
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + 
+               ' ' + date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+      });
+      
+      const datasets = topTeams.map((team, index) => {
+        const color = teamColors[index % teamColors.length];
+        
+        const data = sortedTimestamps.map(timestamp => {
+          if (!team.scoreHistory || team.scoreHistory.length === 0) return 0;
+          const historyPoints = team.scoreHistory.filter(point => point.timestamp <= timestamp);
+          if (historyPoints.length === 0) return 0;
+          return historyPoints[historyPoints.length - 1].score;
+        });
+        
+        return {
+          label: team.teamName,
+          data: data,
+          borderColor: color,
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 3,
+          pointHoverRadius: 5,
+          tension: 0.1,
+          stepped: true
+        };
+      });
       
       // Destroy previous chart if it exists
       if (scoreChart) scoreChart.destroy();
       
-      // Create new bar chart
+      // Create new chart
       scoreChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
           labels: labels,
-          datasets: [{
-            label: 'Score',
-            data: data,
-            backgroundColor: backgroundColors,
-            borderWidth: 1,
-            borderColor: 'rgba(255, 255, 255, 0.1)'
-          }]
+          datasets: datasets
         },
         options: {
           responsive: true,
@@ -525,12 +561,17 @@
               grid: { color: 'rgba(255, 255, 255, 0.1)' }
             },
             x: {
+              title: {
+                display: true,
+                text: 'Time',
+                color: 'var(--text)'
+              },
               ticks: { 
                 color: 'var(--text)',
                 maxRotation: 45,
                 minRotation: 45
               },
-              grid: { display: false }
+              grid: { color: 'rgba(255, 255, 255, 0.1)' }
             }
           },
           plugins: {
@@ -538,17 +579,31 @@
               display: false // Hide the default legend
             },
             tooltip: {
+              mode: 'index',
+              intersect: false,
               backgroundColor: 'rgba(0,0,0,0.8)',
               titleColor: '#fff',
               bodyColor: '#fff',
               borderColor: 'rgba(255, 255, 255, 0.2)',
-              borderWidth: 1
+              borderWidth: 1,
+              callbacks: {
+                title: function(tooltipItems) {
+                  return tooltipItems[0].label;
+                },
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y + ' pts';
+                }
+              }
             }
+          },
+          interaction: {
+            mode: 'nearest',
+            axis: 'x',
+            intersect: false
           }
         }
       });
       
-      // Create custom legend
       updateChartLegend(topTeams);
     }
     

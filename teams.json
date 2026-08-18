@@ -11,6 +11,12 @@
     "score": 2500,
     "solvedChallenges": [
       "Forensics"
+    ],
+    "scoreHistory": [
+      {
+        "timestamp": 1787065882163,
+        "score": 2500
+      }
     ]
   },
   {
@@ -23,7 +29,13 @@
       "1740852168960"
     ],
     "score": 1500,
-    "solvedChallenges": []
+    "solvedChallenges": [],
+    "scoreHistory": [
+      {
+        "timestamp": 1787065882163,
+        "score": 1500
+      }
+    ]
   },
   {
     "id": "1741022852911",
@@ -33,6 +45,12 @@
       "1741019461873"
     ],
     "score": 0,
-    "solvedChallenges": []
+    "solvedChallenges": [],
+    "scoreHistory": [
+      {
+        "timestamp": 1787065882163,
+        "score": 0
+      }
+    ]
   }
 ]
