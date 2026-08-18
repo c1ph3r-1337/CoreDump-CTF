@@ -555,13 +555,7 @@
           },
           plugins: {
             legend: {
-              display: true,
-              position: 'bottom',
-              labels: {
-                color: "#ffffff",
-                usePointStyle: true,
-                boxWidth: 8
-              }
+              display: false
             },
             tooltip: {
               usePointStyle: true,
@@ -612,7 +606,6 @@
         const color = stringToColor(team.teamName);
         item.innerHTML = `
           <div class="team-info">
-            <div class="team-color" style="background-color: ${color};"></div>
             <span class="team-name">${team.rank}. ${team.teamName}</span>
           </div>
           <span class="team-score">${team.score} pts</span>
