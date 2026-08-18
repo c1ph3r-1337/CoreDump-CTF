@@ -234,6 +234,8 @@ body {
 }
 .container.sign-up-mode .panels-container {
   order: 1;
+  border-left: none;
+  border-right: 1px solid var(--border);
 }
 
 /* ===================================== */
