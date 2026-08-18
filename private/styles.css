@@ -365,27 +365,6 @@ body {
 }
 
 .users-search label, .teams-search label {
-  color: var(--text);
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.users-search input, .teams-search input,
-#joinTeamName, #joinTeamPassword, 
-#createTeamName, #createTeamPassword {
-  padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 12px;
-  outline: none;
-  background: transparent;
-  color: var(--text);
-  font-size: 0.95rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  min-width: 250px;
-}
-
-.users-search input:focus, .teams-search input:focus,
-#joinTeamName:focus, #joinTeamPassword:focus,
 #createTeamName:focus, #createTeamPassword:focus {
   border-color: var(--primary);
   box-shadow: none;
