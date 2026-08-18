@@ -248,7 +248,7 @@
 
     <div class="card">
       <div class="card-header">
-        <h2>Top 10 Teams</h2>
+        <h2>Team Rankings</h2>
         <div class="tabs">
           <button class="tab-btn active" data-tab="score-graph">Score Graph</button>
           <button class="tab-btn" data-tab="standings">Current Standings</button>
@@ -417,7 +417,7 @@
           
           updateTeamScoreDisplay();
           updateTimeSeriesChart(topTeams);
-          updateStandings(topTeams);
+          updateStandings(sortedTeams);
         })
         .catch(err => console.error('Error fetching teams:', err));
     }
