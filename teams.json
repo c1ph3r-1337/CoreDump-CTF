@@ -3196,9 +3196,25 @@
     ]
   },
   {
+    "id": "1787076064324",
+    "teamName": "Admin",
+    "password": "$2b$10$g1UDDtJ70wxbgm1PKAHSWOH1OV4Hy99vHKgena6PToOII5hVfwtHa",
+    "members": [
+      "user_admin_1"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787076064324,
+        "score": 0
+      }
+    ]
+  },
+  {
     "id": "team_admin_1",
-    "teamName": "CoreDump_Admin",
-    "password": "hashed",
+    "teamName": "admin",
+    "password": "$2b$10$2M5hlPz/B9Ydo/LBKHHtr.QR75uH3QvOMugAAvJGscgF/inI.avsS",
     "members": [
       "user_admin_1"
     ],
@@ -3206,26 +3222,51 @@
       "admin"
     ],
     "score": 5000,
-    "solvedChallenges": {},
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_admin_1",
+        "timestamp": 1787072696729
+      },
+      "Crypto": {
+        "solvedBy": "user_admin_1",
+        "timestamp": 1787073696729
+      },
+      "Forensics": {
+        "solvedBy": "user_admin_1",
+        "timestamp": 1787074696729
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_admin_1",
+        "timestamp": 1787075696729
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_admin_1",
+        "timestamp": 1787076296729
+      }
+    },
     "scoreHistory": [
       {
-        "timestamp": 1787056658257,
+        "timestamp": 1786989896729,
         "score": 0
       },
       {
-        "timestamp": 1787060258257,
-        "score": 1500
+        "timestamp": 1787072696729,
+        "score": 1000
       },
       {
-        "timestamp": 1787063858257,
+        "timestamp": 1787073696729,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787074696729,
         "score": 3000
       },
       {
-        "timestamp": 1787071057257,
-        "score": 4500
+        "timestamp": 1787075696729,
+        "score": 4000
       },
       {
-        "timestamp": 1787071423645,
+        "timestamp": 1787076296729,
         "score": 5000
       }
     ]
