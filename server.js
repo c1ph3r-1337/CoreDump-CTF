@@ -361,7 +361,6 @@ app.get('/dashboard', (req, res) => {
 });
 
 app.get('/dashboard-styles.css', (req, res) => {
-  if (!req.session.userId) return res.status(403).send('Not authorized');
   res.sendFile(path.join(__dirname, 'private', 'styles.css'));
 });
 

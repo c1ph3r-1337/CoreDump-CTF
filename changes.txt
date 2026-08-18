@@ -4,7 +4,7 @@ make the random data for 50+ team with just 2 members in each team  - done
 
 web sockets for the craetion of the name and database and teams -  done 
 
-change team option or leave team option and in the team section remove  "Core Dump 2.0 - My Team" 
+change team option or leave team option and in the team section remove  "Core Dump 2.0 - My Team" -  done
 
 
 
