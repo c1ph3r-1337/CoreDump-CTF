@@ -454,7 +454,7 @@ body {
 /* My Team Section */
 #myTeamSection {
   margin-bottom: 2.5rem;
-  text-align: left;
+  text-align: center;
 }
 
 #myTeamSection h2 {
@@ -468,7 +468,7 @@ body {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 25%;
   width: 50%;
   height: 3px;
   background: linear-gradient(to right, var(--primary), var(--accent));
@@ -481,6 +481,9 @@ body {
   border-radius: 12px;
   border: 1px solid var(--border);
   line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 #myTeamInfo strong {
@@ -493,6 +496,7 @@ body {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Join & Create Team Sections */
@@ -502,7 +506,7 @@ body {
   background: transparent;
   border-radius: 12px;
   border: 1px solid var(--border);
-  text-align: left;
+  text-align: center;
   animation: slideDown 0.3s ease;
 }
 
@@ -524,7 +528,7 @@ body {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 25%;
   width: 50%;
   height: 3px;
   background: linear-gradient(to right, var(--primary), var(--accent));
@@ -535,11 +539,11 @@ body {
   display: block;
   width: 100%;
   max-width: 400px;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
 }
 
 #joinTeamSection button, #createTeamSection button {
-  margin-right: 1rem;
+  margin: 0.5rem;
   margin-bottom: 1rem;
 }
 
