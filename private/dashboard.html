@@ -261,6 +261,10 @@
           </div>
         </div>
         <div class="tab-content" id="standings">
+          <div class="standings-search" style="margin-bottom: 1rem; display: flex; gap: 0.5rem;">
+            <input type="text" id="standingsSearchInput" placeholder="Search standings..." style="flex:1; padding:0.5rem; border-radius:4px; border:1px solid rgba(255,255,255,0.1); background:var(--background-light); color:#fff;">
+            <button id="standingsSearchBtn" style="padding:0.5rem 1rem; border:none; background:var(--primary); color:white; border-radius:4px; cursor:pointer;">Search</button>
+          </div>
           <div class="standings-list" id="standingsList"></div>
         </div>
       </div>
@@ -404,20 +408,26 @@
     // Scoreboard Functions (Updated for time-series chart)
     let scoreChart;
     let teamScoreHistory = {}; // Store score history for each team
+    let allStandingsData = [];
     
     function fetchTeamScores() {
       fetch('/api/teams')
         .then(res => res.json())
         .then(data => {
-          // Sort teams by current score
-          const sortedTeams = data.sort((a, b) => b.score - a.score);
+          // Sort teams by current score and append rank
+          const sortedTeams = data.sort((a, b) => b.score - a.score).map((t, idx) => {
+            t.rank = idx + 1;
+            return t;
+          });
+          
+          allStandingsData = sortedTeams;
           
           // Take only top 10 teams
           const topTeams = sortedTeams.slice(0, 10);
           
           updateTeamScoreDisplay();
           updateTimeSeriesChart(topTeams);
-          updateStandings(sortedTeams);
+          renderStandings();
         })
         .catch(err => console.error('Error fetching teams:', err));
     }
@@ -578,23 +588,41 @@
     }
     
     
-    function updateStandings(teamsData) {
+    function renderStandings() {
+      const searchInput = document.getElementById('standingsSearchInput');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      
+      const filteredTeams = allStandingsData.filter(team => 
+        team.teamName.toLowerCase().includes(query)
+      );
+
       const standingsList = document.getElementById('standingsList');
+      if (!standingsList) return;
       standingsList.innerHTML = '';
-      teamsData.forEach((team, i) => {
+      
+      filteredTeams.forEach((team) => {
         const item = document.createElement('div');
         item.className = 'standing-item';
         const color = stringToColor(team.teamName);
         item.innerHTML = `
           <div class="team-info">
             <div class="team-color" style="background-color: ${color};"></div>
-            <span class="team-name">${i + 1}. ${team.teamName}</span>
+            <span class="team-name">${team.rank}. ${team.teamName}</span>
           </div>
           <span class="team-score">${team.score} pts</span>
         `;
         standingsList.appendChild(item);
       });
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const standingsSearchBtn = document.getElementById('standingsSearchBtn');
+      const standingsSearchInput = document.getElementById('standingsSearchInput');
+      if (standingsSearchBtn && standingsSearchInput) {
+        standingsSearchBtn.addEventListener('click', () => renderStandings());
+        standingsSearchInput.addEventListener('keyup', () => renderStandings());
+      }
+    });
     
     function setupScoreboardTabs() {
       const tabButtons = document.querySelectorAll('#scoreboard-section .tab-btn');
