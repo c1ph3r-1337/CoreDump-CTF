@@ -18,10 +18,10 @@
 }
 
 :root {
-  --primary: #2467ea;
-  --primary-dark: #1d54c9;
+  --primary: #fafafa;
+  --primary-dark: #d4d4d8;
   --secondary: #7c3aed;
-  --accent: #07b2d5;
+  --accent: #a1a1aa;
   --background: #09090b;
   --background-light: #09090b;
   --card-bg: rgba(255, 255, 255, 0.02);
@@ -140,7 +140,7 @@ body {
   left: 50%;
   width: 0;
   height: 2px;
-  background: var(--primary);
+  background: var(--text); color: var(--background);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -234,15 +234,14 @@ body {
 }
 
 .tab-btn {
-  padding: 0.75rem 1.5rem;
-  background: none;
-  border: none;
-  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  border-radius: 9999px;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.2s ease;
-  color: var(--text-muted);
-  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
 .tab-btn:hover {
@@ -251,9 +250,9 @@ body {
 }
 
 .tab-btn.active {
-  background-color: var(--primary);
-  color: white;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card-content {
@@ -376,7 +375,7 @@ body {
 #createTeamName, #createTeamPassword {
   padding: 0.75rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   outline: none;
   background: transparent;
   color: var(--text);
@@ -396,10 +395,10 @@ body {
 #submitJoinTeam, #submitCreateTeam,
 #showJoinForm, #showCreateForm {
   padding: 0.75rem 1.25rem;
-  background: var(--primary);
-  color: white;
+  background: var(--text); color: var(--background);
+  color: var(--background);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -433,7 +432,7 @@ body {
   background: transparent;
   color: var(--text-muted);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -447,8 +446,8 @@ body {
 }
 
 #usersPagination button.active, #teamsPagination button.active {
-  background: var(--primary);
-  color: white;
+  background: var(--text); color: var(--background);
+  color: var(--background);
   border-color: var(--primary);
 }
 
@@ -547,7 +546,7 @@ body {
 #joinTeamMessage, #createTeamMessage {
   margin-top: 1.5rem;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
   background: rgba(245, 158, 11, 0.1);
   border: 1px solid var(--warning);
   color: var(--warning);
@@ -564,20 +563,22 @@ body {
 
 .challenge-box {
   background: transparent;
-  border: none;
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
   padding: 1.5rem;
   text-align: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 500;
+  color: var(--text-muted);
 }
 
 .challenge-box:hover {
-  background: transparent;
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 /* Modal styling */
@@ -619,7 +620,7 @@ body {
   padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   background: transparent;
   color: var(--text);
   font-size: 1rem;
@@ -634,10 +635,10 @@ body {
 
 .modal-content button {
   padding: 0.75rem 1.5rem;
-  background: var(--primary);
-  color: white;
+  background: var(--text); color: var(--background);
+  color: var(--background);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -667,7 +668,7 @@ body {
   margin-top: 1.5rem;
   font-weight: 500;
   padding: 0.75rem;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .modal-content p#flagResult:empty {
@@ -689,9 +690,9 @@ body {
 #downloadScoreboardBtn {
   padding: 0.75rem 1.5rem;
   background: var(--accent);
-  color: white;
+  color: var(--background);
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   margin-bottom: 1.5rem;
   font-weight: 500;
@@ -715,7 +716,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background: var(--text); color: var(--background);
   border-radius: 4px;
 }
 
@@ -885,4 +886,19 @@ body {
     margin: 5% auto;
     padding: 1.5rem;
   }
+}
+
+
+button {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px !important;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+button:active {
+  transform: scale(0.96);
 }

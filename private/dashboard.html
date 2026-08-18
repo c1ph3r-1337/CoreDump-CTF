@@ -262,8 +262,8 @@
         </div>
         <div class="tab-content" id="standings">
           <div class="standings-search" style="margin-bottom: 1rem; display: flex; gap: 0.5rem;">
-            <input type="text" id="standingsSearchInput" placeholder="Search standings..." style="flex:1; padding:0.5rem; border-radius:4px; border:1px solid var(--border); background:transparent; color:#fff;">
-            <button id="standingsSearchBtn" style="padding:0.5rem 1rem; border:none; background:var(--primary); color:white; border-radius:4px; cursor:pointer; box-shadow:none;">Search</button>
+            <input type="text" id="standingsSearchInput" placeholder="Search standings..." style="flex:1; padding:0.5rem; border-radius:9999px; padding-left: 1rem; padding-right: 1rem; border:1px solid var(--border); background:transparent; color:var(--text);">
+            <button id="standingsSearchBtn" style="padding:0.5rem 1rem; border:none; background:var(--primary); color:var(--background); border-radius:9999px; padding-left: 1rem; padding-right: 1rem; cursor:pointer; box-shadow:none;">Search</button>
           </div>
           <div class="standings-list" id="standingsList"></div>
         </div>
@@ -697,7 +697,7 @@
                 solvedSet.forEach(category => {
                   const box = document.querySelector(`.challenge-box[data-category="${category}"]`);
                   if (box) {
-                    box.style.backgroundColor = "#2467ea";  
+                    box.style.backgroundColor = "rgba(255, 255, 255, 0.1)"; box.style.borderColor = "var(--text)"; box.style.color = "var(--text)";  
                   }
                 });
               })
