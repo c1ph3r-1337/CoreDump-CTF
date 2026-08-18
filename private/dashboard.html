@@ -460,15 +460,21 @@
         }
       });
       
-      // Ensure we have a starting point at least 1 hour before earliest activity
-      allTimestamps.add(earliestTime - (60 * 60 * 1000));
+      const startTime = earliestTime - (15 * 60 * 1000); // Baseline 15 mins before first activity
+      allTimestamps.add(startTime);
       
       const sortedTimestamps = Array.from(allTimestamps).sort((a, b) => a - b);
       
       const labels = sortedTimestamps.map(timestamp => {
-        const date = new Date(timestamp);
-        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + 
-               ' ' + date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+        const diffMs = timestamp - startTime;
+        const diffMins = Math.floor(diffMs / 60000);
+        const hours = Math.floor(diffMins / 60);
+        const mins = diffMins % 60;
+        
+        if (hours <= 0 && mins <= 0) return 'Start';
+        if (hours === 0) return `${mins}m`;
+        if (mins === 0) return `${hours}h`;
+        return `${hours}h ${mins}m`;
       });
       
       const datasets = topTeams.map((team) => {
@@ -524,7 +530,9 @@
                 color: "#ffffff"
               },
               ticks: { 
-                display: false
+                color: "#ffffff",
+                maxRotation: 45,
+                minRotation: 45
               },
               grid: { color: 'rgba(255, 255, 255, 0.1)' }
             }
