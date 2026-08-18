@@ -83,9 +83,49 @@ registerForm.addEventListener('submit', async (e) => {
     if (!res.ok) {
       registerError.textContent = data.error || 'Registration failed.';
     } else {
-      alert(data.message); // e.g. "User registered successfully!"
+      // Create a custom popup modal
+      const popup = document.createElement('div');
+      popup.style.position = 'fixed';
+      popup.style.top = '50%';
+      popup.style.left = '50%';
+      popup.style.transform = 'translate(-50%, -50%)';
+      popup.style.background = 'var(--card-bg, #18181b)';
+      popup.style.padding = '2rem';
+      popup.style.borderRadius = '16px';
+      popup.style.border = '1px solid var(--border, rgba(255,255,255,0.1))';
+      popup.style.color = 'var(--text, #fafafa)';
+      popup.style.zIndex = '10000';
+      popup.style.textAlign = 'center';
+      popup.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)';
+      
+      popup.innerHTML = `
+        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Success!</h3>
+        <p style="margin-bottom: 1.5rem; color: var(--text-muted, #a1a1aa);">${data.message}</p>
+        <button id="closePopupBtn" style="padding: 0.75rem 1.5rem; background: var(--text, #fafafa); color: var(--background, #09090b); border: none; border-radius: 9999px; cursor: pointer; font-weight: 500;">Login Now</button>
+      `;
+      
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.background = 'rgba(0,0,0,0.7)';
+      overlay.style.zIndex = '9999';
+      overlay.style.backdropFilter = 'blur(4px)';
+      
+      document.body.appendChild(overlay);
+      document.body.appendChild(popup);
+      
+      document.getElementById('closePopupBtn').addEventListener('click', () => {
+        document.body.removeChild(popup);
+        document.body.removeChild(overlay);
+      });
+
+      // Auto-fill email
+      document.getElementById('loginEmail').value = email;
+      
       registerForm.reset();
-      // Optionally switch back to sign-in form
       container.classList.remove('sign-up-mode');
     }
   } catch (err) {
