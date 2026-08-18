@@ -341,9 +341,6 @@ app.post('/api/team/leave', (req, res) => {
     const team = teams[teamIndex];
     team.members = team.members.filter(m => m !== req.session.userId);
     // Optional: if team is empty, you could delete it, but let's keep it simple and just remove member
-    if (team.members.length === 0) {
-      teams.splice(teamIndex, 1);
-    }
   }
 
   currentUser.teamId = null;

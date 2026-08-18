@@ -675,7 +675,7 @@
             `;
             
             document.getElementById('leaveTeamBtn').addEventListener('click', () => {
-              if (confirm("Are you sure you want to leave this team? If you are the last member, the team will be permanently deleted.")) {
+              if (confirm("Are you sure you want to leave this team? ")) {
                 fetch('/api/team/leave', { method: 'POST' })
                   .then(res => res.json())
                   .then(resp => {
