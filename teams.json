@@ -1,55 +1,3197 @@
 [
   {
-    "id": "1740870327549",
-    "teamName": "cipher23",
-    "password": "$2b$10$rFT55tenwEZGBbg/jol4jOh3TxCrh6s/.lNawn0Mxv8S2B0te2ugC",
+    "id": "team_1787070878104_0",
+    "teamName": "CyberCats663",
+    "password": "hashed_password_mock",
     "members": [
-      "user1",
-      "1740853273623",
-      "1740856466124"
+      "user_1787070878104_0_0",
+      "user_1787070878104_0_1"
     ],
-    "score": 2500,
-    "solvedChallenges": [
-      "Forensics"
+    "membersNames": [
+      "user_NullWolves315",
+      "user_CryptoProtocol50"
     ],
+    "score": 3500,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_CryptoProtocol50",
+        "timestamp": 1787059742810
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_CryptoProtocol50",
+        "timestamp": 1787060371983
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_CryptoProtocol50",
+        "timestamp": 1787060860471
+      },
+      "Crypto": {
+        "solvedBy": "user_NullWolves315",
+        "timestamp": 1787066284548
+      },
+      "OSINT": {
+        "solvedBy": "user_NullWolves315",
+        "timestamp": 1787067601744
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_NullWolves315",
+        "timestamp": 1787068124291
+      },
+      "Forensics": {
+        "solvedBy": "user_CryptoProtocol50",
+        "timestamp": 1787069470353
+      }
+    },
     "scoreHistory": [
       {
-        "timestamp": 1787065882163,
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059742810,
+        "score": 500
+      },
+      {
+        "timestamp": 1787060371983,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787060860471,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787066284548,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787067601744,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787068124291,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787069470353,
+        "score": 3500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_1",
+    "teamName": "DarkKnights379",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_1_0",
+      "user_1787070878104_1_1"
+    ],
+    "membersNames": [
+      "user_BlueVipers486",
+      "user_NeonHackers452"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_2",
+    "teamName": "IronShadows545",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_2_0",
+      "user_1787070878104_2_1"
+    ],
+    "membersNames": [
+      "user_RogueDragons596",
+      "user_QuantumShadows583"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "Binary Analysis": {
+        "solvedBy": "user_QuantumShadows583",
+        "timestamp": 1787054769228
+      },
+      "Forensics": {
+        "solvedBy": "user_QuantumShadows583",
+        "timestamp": 1787055314967
+      },
+      "Steganography": {
+        "solvedBy": "user_RogueDragons596",
+        "timestamp": 1787059813622
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_RogueDragons596",
+        "timestamp": 1787068723162
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_RogueDragons596",
+        "timestamp": 1787069366272
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787054769228,
+        "score": 500
+      },
+      {
+        "timestamp": 1787055314967,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787059813622,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787068723162,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787069366272,
         "score": 2500
       }
     ]
   },
   {
-    "id": "1741017954277",
-    "teamName": "hello",
-    "password": "$2b$10$bHFMfg40zYqI2/zxizwTOu91H0QT8yH0Zs9CgiMr3xAzXWzmp8mG6",
+    "id": "team_1787070878104_3",
+    "teamName": "DarkCats759",
+    "password": "hashed_password_mock",
     "members": [
-      "user1",
-      "1740856466124",
-      "1740852168960"
+      "user_1787070878104_3_0",
+      "user_1787070878104_3_1"
     ],
-    "score": 1500,
-    "solvedChallenges": [],
+    "membersNames": [
+      "user_RedShells800",
+      "user_CryptoBytes776"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_CryptoBytes776",
+        "timestamp": 1787062751536
+      },
+      "Forensics": {
+        "solvedBy": "user_RedShells800",
+        "timestamp": 1787063714420
+      }
+    },
     "scoreHistory": [
       {
-        "timestamp": 1787065882163,
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787062751536,
+        "score": 500
+      },
+      {
+        "timestamp": 1787063714420,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_4",
+    "teamName": "VoidVipers106",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_4_0",
+      "user_1787070878104_4_1"
+    ],
+    "membersNames": [
+      "user_RedShadows843",
+      "user_BlueShadows815"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_RedShadows843",
+        "timestamp": 1787062390223
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_RedShadows843",
+        "timestamp": 1787062578144
+      },
+      "Steganography": {
+        "solvedBy": "user_BlueShadows815",
+        "timestamp": 1787064213958
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787062390223,
+        "score": 500
+      },
+      {
+        "timestamp": 1787062578144,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787064213958,
         "score": 1500
       }
     ]
   },
   {
-    "id": "1741022852911",
-    "teamName": "night_YO",
-    "password": "$2b$10$9X54ryes5oG.gygC5TFq4edXoMem8mTtZp4Ux7j21wWlGMiXUOEku",
+    "id": "team_1787070878104_5",
+    "teamName": "RedShells864",
+    "password": "hashed_password_mock",
     "members": [
-      "1741019461873"
+      "user_1787070878104_5_0",
+      "user_1787070878104_5_1"
     ],
-    "score": 0,
-    "solvedChallenges": [],
+    "membersNames": [
+      "user_BlueShells955",
+      "user_BlueBytes916"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_BlueBytes916",
+        "timestamp": 1787053477859
+      },
+      "Crypto": {
+        "solvedBy": "user_BlueShells955",
+        "timestamp": 1787053752325
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_BlueShells955",
+        "timestamp": 1787054019470
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_BlueBytes916",
+        "timestamp": 1787059734714
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_BlueShells955",
+        "timestamp": 1787064278002
+      }
+    },
     "scoreHistory": [
       {
-        "timestamp": 1787065882163,
+        "timestamp": 1787052878104,
         "score": 0
+      },
+      {
+        "timestamp": 1787053477859,
+        "score": 500
+      },
+      {
+        "timestamp": 1787053752325,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787054019470,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787059734714,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787064278002,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_6",
+    "teamName": "GhostPhantom824",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_6_0",
+      "user_1787070878104_6_1"
+    ],
+    "membersNames": [
+      "user_IronDragons874",
+      "user_RogueVipers711"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_RogueVipers711",
+        "timestamp": 1787056366942
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_RogueVipers711",
+        "timestamp": 1787057429288
+      },
+      "OSINT": {
+        "solvedBy": "user_IronDragons874",
+        "timestamp": 1787065856066
+      },
+      "Steganography": {
+        "solvedBy": "user_IronDragons874",
+        "timestamp": 1787069938525
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787056366942,
+        "score": 500
+      },
+      {
+        "timestamp": 1787057429288,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787065856066,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787069938525,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_7",
+    "teamName": "RogueShadows105",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_7_0",
+      "user_1787070878104_7_1"
+    ],
+    "membersNames": [
+      "user_GhostShells930",
+      "user_RedBytes296"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_GhostShells930",
+        "timestamp": 1787056708433
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_RedBytes296",
+        "timestamp": 1787057847358
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_RedBytes296",
+        "timestamp": 1787065154498
+      },
+      "Crypto": {
+        "solvedBy": "user_RedBytes296",
+        "timestamp": 1787066694333
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787056708433,
+        "score": 500
+      },
+      {
+        "timestamp": 1787057847358,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787065154498,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787066694333,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_8",
+    "teamName": "VoidNinjas155",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_8_0",
+      "user_1787070878104_8_1"
+    ],
+    "membersNames": [
+      "user_DarkProtocol862",
+      "user_NeonVipers388"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_DarkProtocol862",
+        "timestamp": 1787058039277
+      },
+      "OSINT": {
+        "solvedBy": "user_NeonVipers388",
+        "timestamp": 1787065957108
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787058039277,
+        "score": 500
+      },
+      {
+        "timestamp": 1787065957108,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_9",
+    "teamName": "NullShells731",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_9_0",
+      "user_1787070878104_9_1"
+    ],
+    "membersNames": [
+      "user_ZeroWolves516",
+      "user_GhostCats154"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_10",
+    "teamName": "VoidHackers363",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_10_0",
+      "user_1787070878104_10_1"
+    ],
+    "membersNames": [
+      "user_NullNinjas345",
+      "user_NeonKnights594"
+    ],
+    "score": 3000,
+    "solvedChallenges": {
+      "Binary Analysis": {
+        "solvedBy": "user_NeonKnights594",
+        "timestamp": 1787053919399
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_NeonKnights594",
+        "timestamp": 1787054983766
+      },
+      "Crypto": {
+        "solvedBy": "user_NullNinjas345",
+        "timestamp": 1787055094943
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_NeonKnights594",
+        "timestamp": 1787055265504
+      },
+      "Steganography": {
+        "solvedBy": "user_NullNinjas345",
+        "timestamp": 1787064758102
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_NeonKnights594",
+        "timestamp": 1787066478521
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053919399,
+        "score": 500
+      },
+      {
+        "timestamp": 1787054983766,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787055094943,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787055265504,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787064758102,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787066478521,
+        "score": 3000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_11",
+    "teamName": "VoidPhantom953",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_11_0",
+      "user_1787070878104_11_1"
+    ],
+    "membersNames": [
+      "user_DarkVipers162",
+      "user_NullShadows246"
+    ],
+    "score": 500,
+    "solvedChallenges": {
+      "Crypto": {
+        "solvedBy": "user_DarkVipers162",
+        "timestamp": 1787056639480
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787056639480,
+        "score": 500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_12",
+    "teamName": "NullDragons460",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_12_0",
+      "user_1787070878104_12_1"
+    ],
+    "membersNames": [
+      "user_BlueProtocol232",
+      "user_CryptoKnights885"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_BlueProtocol232",
+        "timestamp": 1787059864260
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_CryptoKnights885",
+        "timestamp": 1787059976758
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_BlueProtocol232",
+        "timestamp": 1787066700856
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059864260,
+        "score": 500
+      },
+      {
+        "timestamp": 1787059976758,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787066700856,
+        "score": 1500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_13",
+    "teamName": "VoidNinjas948",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_13_0",
+      "user_1787070878104_13_1"
+    ],
+    "membersNames": [
+      "user_CryptoVipers945",
+      "user_CyberBytes256"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Binary Analysis": {
+        "solvedBy": "user_CyberBytes256",
+        "timestamp": 1787053968559
+      },
+      "Forensics": {
+        "solvedBy": "user_CyberBytes256",
+        "timestamp": 1787060848427
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_CyberBytes256",
+        "timestamp": 1787068212803
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053968559,
+        "score": 500
+      },
+      {
+        "timestamp": 1787060848427,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787068212803,
+        "score": 1500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_14",
+    "teamName": "CryptoKnights266",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_14_0",
+      "user_1787070878104_14_1"
+    ],
+    "membersNames": [
+      "user_ZeroDragons337",
+      "user_GhostHackers988"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_ZeroDragons337",
+        "timestamp": 1787058018993
+      },
+      "Forensics": {
+        "solvedBy": "user_ZeroDragons337",
+        "timestamp": 1787059441543
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_ZeroDragons337",
+        "timestamp": 1787061563596
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_ZeroDragons337",
+        "timestamp": 1787066862102
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787058018993,
+        "score": 500
+      },
+      {
+        "timestamp": 1787059441543,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787061563596,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787066862102,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_15",
+    "teamName": "VoidVipers132",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_15_0",
+      "user_1787070878104_15_1"
+    ],
+    "membersNames": [
+      "user_StealthVipers827",
+      "user_ZeroVipers27"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_16",
+    "teamName": "StealthShadows757",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_16_0",
+      "user_1787070878104_16_1"
+    ],
+    "membersNames": [
+      "user_NeonDragons423",
+      "user_QuantumProtocol515"
+    ],
+    "score": 3000,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_NeonDragons423",
+        "timestamp": 1787053315847
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_NeonDragons423",
+        "timestamp": 1787057992490
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_NeonDragons423",
+        "timestamp": 1787059832985
+      },
+      "OSINT": {
+        "solvedBy": "user_NeonDragons423",
+        "timestamp": 1787060684413
+      },
+      "Crypto": {
+        "solvedBy": "user_NeonDragons423",
+        "timestamp": 1787066451853
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_QuantumProtocol515",
+        "timestamp": 1787069364452
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053315847,
+        "score": 500
+      },
+      {
+        "timestamp": 1787057992490,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787059832985,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787060684413,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787066451853,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787069364452,
+        "score": 3000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_17",
+    "teamName": "VoidShadows60",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_17_0",
+      "user_1787070878104_17_1"
+    ],
+    "membersNames": [
+      "user_ZeroCats668",
+      "user_GhostShadows661"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "Binary Analysis": {
+        "solvedBy": "user_GhostShadows661",
+        "timestamp": 1787064201837
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_ZeroCats668",
+        "timestamp": 1787067111438
+      },
+      "Crypto": {
+        "solvedBy": "user_GhostShadows661",
+        "timestamp": 1787067808801
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_GhostShadows661",
+        "timestamp": 1787069632108
+      },
+      "OSINT": {
+        "solvedBy": "user_GhostShadows661",
+        "timestamp": 1787069954785
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787064201837,
+        "score": 500
+      },
+      {
+        "timestamp": 1787067111438,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787067808801,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787069632108,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787069954785,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_18",
+    "teamName": "VoidWolves979",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_18_0",
+      "user_1787070878104_18_1"
+    ],
+    "membersNames": [
+      "user_ZeroBytes923",
+      "user_ZeroShells959"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "Crypto": {
+        "solvedBy": "user_ZeroBytes923",
+        "timestamp": 1787057043795
+      },
+      "OSINT": {
+        "solvedBy": "user_ZeroShells959",
+        "timestamp": 1787057292764
+      },
+      "Forensics": {
+        "solvedBy": "user_ZeroBytes923",
+        "timestamp": 1787057351941
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_ZeroShells959",
+        "timestamp": 1787062407684
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_ZeroShells959",
+        "timestamp": 1787064696775
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787057043795,
+        "score": 500
+      },
+      {
+        "timestamp": 1787057292764,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787057351941,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787062407684,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787064696775,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_19",
+    "teamName": "GhostHackers170",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_19_0",
+      "user_1787070878104_19_1"
+    ],
+    "membersNames": [
+      "user_CryptoDragons266",
+      "user_StealthProtocol155"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Reverse Engineering": {
+        "solvedBy": "user_StealthProtocol155",
+        "timestamp": 1787056357025
+      },
+      "Crypto": {
+        "solvedBy": "user_CryptoDragons266",
+        "timestamp": 1787057236080
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_CryptoDragons266",
+        "timestamp": 1787064397011
+      },
+      "Steganography": {
+        "solvedBy": "user_StealthProtocol155",
+        "timestamp": 1787068675029
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787056357025,
+        "score": 500
+      },
+      {
+        "timestamp": 1787057236080,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787064397011,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787068675029,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_20",
+    "teamName": "ZeroKnights11",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_20_0",
+      "user_1787070878104_20_1"
+    ],
+    "membersNames": [
+      "user_DarkBytes325",
+      "user_IronNinjas252"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_21",
+    "teamName": "CyberKnights72",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_21_0",
+      "user_1787070878104_21_1"
+    ],
+    "membersNames": [
+      "user_CryptoKnights24",
+      "user_DarkShells596"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Reverse Engineering": {
+        "solvedBy": "user_DarkShells596",
+        "timestamp": 1787064300456
+      },
+      "Forensics": {
+        "solvedBy": "user_DarkShells596",
+        "timestamp": 1787066668575
+      },
+      "Steganography": {
+        "solvedBy": "user_CryptoKnights24",
+        "timestamp": 1787069392402
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787064300456,
+        "score": 500
+      },
+      {
+        "timestamp": 1787066668575,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787069392402,
+        "score": 1500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_22",
+    "teamName": "RedHackers992",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_22_0",
+      "user_1787070878104_22_1"
+    ],
+    "membersNames": [
+      "user_ZeroHackers374",
+      "user_DarkCats260"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Binary Analysis": {
+        "solvedBy": "user_DarkCats260",
+        "timestamp": 1787056085980
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_ZeroHackers374",
+        "timestamp": 1787056724777
+      },
+      "OSINT": {
+        "solvedBy": "user_ZeroHackers374",
+        "timestamp": 1787058454750
+      },
+      "Steganography": {
+        "solvedBy": "user_DarkCats260",
+        "timestamp": 1787059994579
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787056085980,
+        "score": 500
+      },
+      {
+        "timestamp": 1787056724777,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787058454750,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787059994579,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878104_23",
+    "teamName": "BlueCats366",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878104_23_0",
+      "user_1787070878104_23_1"
+    ],
+    "membersNames": [
+      "user_BlueShadows2",
+      "user_QuantumKnights114"
+    ],
+    "score": 3500,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_QuantumKnights114",
+        "timestamp": 1787055689654
+      },
+      "Steganography": {
+        "solvedBy": "user_QuantumKnights114",
+        "timestamp": 1787057325240
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_BlueShadows2",
+        "timestamp": 1787057743436
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_BlueShadows2",
+        "timestamp": 1787058072469
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_QuantumKnights114",
+        "timestamp": 1787065375436
+      },
+      "Forensics": {
+        "solvedBy": "user_BlueShadows2",
+        "timestamp": 1787067892529
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_BlueShadows2",
+        "timestamp": 1787069624132
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787055689654,
+        "score": 500
+      },
+      {
+        "timestamp": 1787057325240,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787057743436,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787058072469,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787065375436,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787067892529,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787069624132,
+        "score": 3500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_24",
+    "teamName": "BlueBytes962",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_24_0",
+      "user_1787070878105_24_1"
+    ],
+    "membersNames": [
+      "user_VoidPhantom456",
+      "user_CryptoKnights845"
+    ],
+    "score": 3000,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_VoidPhantom456",
+        "timestamp": 1787057532083
+      },
+      "Crypto": {
+        "solvedBy": "user_CryptoKnights845",
+        "timestamp": 1787059268411
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_CryptoKnights845",
+        "timestamp": 1787060582894
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_VoidPhantom456",
+        "timestamp": 1787060739308
+      },
+      "OSINT": {
+        "solvedBy": "user_CryptoKnights845",
+        "timestamp": 1787062092673
+      },
+      "Forensics": {
+        "solvedBy": "user_VoidPhantom456",
+        "timestamp": 1787064128907
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787057532083,
+        "score": 500
+      },
+      {
+        "timestamp": 1787059268411,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787060582894,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787060739308,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787062092673,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787064128907,
+        "score": 3000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_25",
+    "teamName": "RoguePhantom811",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_25_0",
+      "user_1787070878105_25_1"
+    ],
+    "membersNames": [
+      "user_CyberKnights149",
+      "user_IronCats524"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_IronCats524",
+        "timestamp": 1787057500392
+      },
+      "Crypto": {
+        "solvedBy": "user_IronCats524",
+        "timestamp": 1787058128359
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_CyberKnights149",
+        "timestamp": 1787059287359
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787057500392,
+        "score": 500
+      },
+      {
+        "timestamp": 1787058128359,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787059287359,
+        "score": 1500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_26",
+    "teamName": "StealthWolves446",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_26_0",
+      "user_1787070878105_26_1"
+    ],
+    "membersNames": [
+      "user_QuantumHackers823",
+      "user_QuantumPhantom441"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Reverse Engineering": {
+        "solvedBy": "user_QuantumHackers823",
+        "timestamp": 1787057345325
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_QuantumPhantom441",
+        "timestamp": 1787060560800
+      },
+      "Forensics": {
+        "solvedBy": "user_QuantumHackers823",
+        "timestamp": 1787061123057
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787057345325,
+        "score": 500
+      },
+      {
+        "timestamp": 1787060560800,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787061123057,
+        "score": 1500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_27",
+    "teamName": "VoidDragons363",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_27_0",
+      "user_1787070878105_27_1"
+    ],
+    "membersNames": [
+      "user_NullProtocol768",
+      "user_GhostDragons116"
+    ],
+    "score": 500,
+    "solvedChallenges": {
+      "Web Exploitation": {
+        "solvedBy": "user_NullProtocol768",
+        "timestamp": 1787053221315
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053221315,
+        "score": 500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_28",
+    "teamName": "BlueBytes76",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_28_0",
+      "user_1787070878105_28_1"
+    ],
+    "membersNames": [
+      "user_NullBytes404",
+      "user_NullShadows672"
+    ],
+    "score": 3500,
+    "solvedChallenges": {
+      "Web Exploitation": {
+        "solvedBy": "user_NullShadows672",
+        "timestamp": 1787053057071
+      },
+      "Forensics": {
+        "solvedBy": "user_NullShadows672",
+        "timestamp": 1787055746116
+      },
+      "OSINT": {
+        "solvedBy": "user_NullBytes404",
+        "timestamp": 1787057021720
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_NullShadows672",
+        "timestamp": 1787057033871
+      },
+      "Crypto": {
+        "solvedBy": "user_NullBytes404",
+        "timestamp": 1787057369772
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_NullBytes404",
+        "timestamp": 1787068652473
+      },
+      "Steganography": {
+        "solvedBy": "user_NullBytes404",
+        "timestamp": 1787070380541
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053057071,
+        "score": 500
+      },
+      {
+        "timestamp": 1787055746116,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787057021720,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787057033871,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787057369772,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787068652473,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787070380541,
+        "score": 3500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_29",
+    "teamName": "IronNinjas383",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_29_0",
+      "user_1787070878105_29_1"
+    ],
+    "membersNames": [
+      "user_DarkVipers922",
+      "user_IronVipers945"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_30",
+    "teamName": "DarkHackers901",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_30_0",
+      "user_1787070878105_30_1"
+    ],
+    "membersNames": [
+      "user_NeonShadows992",
+      "user_CryptoPhantom861"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Web Exploitation": {
+        "solvedBy": "user_NeonShadows992",
+        "timestamp": 1787058940328
+      },
+      "Crypto": {
+        "solvedBy": "user_CryptoPhantom861",
+        "timestamp": 1787063938536
+      },
+      "Forensics": {
+        "solvedBy": "user_NeonShadows992",
+        "timestamp": 1787067948266
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787058940328,
+        "score": 500
+      },
+      {
+        "timestamp": 1787063938536,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787067948266,
+        "score": 1500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_31",
+    "teamName": "StealthHackers668",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_31_0",
+      "user_1787070878105_31_1"
+    ],
+    "membersNames": [
+      "user_ZeroWolves541",
+      "user_DarkNinjas241"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_32",
+    "teamName": "QuantumKnights135",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_32_0",
+      "user_1787070878105_32_1"
+    ],
+    "membersNames": [
+      "user_GhostWolves338",
+      "user_StealthShadows477"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_StealthShadows477",
+        "timestamp": 1787060070352
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_StealthShadows477",
+        "timestamp": 1787067386958
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787060070352,
+        "score": 500
+      },
+      {
+        "timestamp": 1787067386958,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_33",
+    "teamName": "BlueVipers841",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_33_0",
+      "user_1787070878105_33_1"
+    ],
+    "membersNames": [
+      "user_QuantumBytes216",
+      "user_IronShells455"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Web Exploitation": {
+        "solvedBy": "user_IronShells455",
+        "timestamp": 1787064340754
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_IronShells455",
+        "timestamp": 1787066445121
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_QuantumBytes216",
+        "timestamp": 1787069669568
+      },
+      "Crypto": {
+        "solvedBy": "user_IronShells455",
+        "timestamp": 1787069682180
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787064340754,
+        "score": 500
+      },
+      {
+        "timestamp": 1787066445121,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787069669568,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787069682180,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_34",
+    "teamName": "IronProtocol115",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_34_0",
+      "user_1787070878105_34_1"
+    ],
+    "membersNames": [
+      "user_IronCats193",
+      "user_NeonBytes83"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_IronCats193",
+        "timestamp": 1787053305858
+      },
+      "OSINT": {
+        "solvedBy": "user_IronCats193",
+        "timestamp": 1787059307587
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053305858,
+        "score": 500
+      },
+      {
+        "timestamp": 1787059307587,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_35",
+    "teamName": "CyberDragons959",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_35_0",
+      "user_1787070878105_35_1"
+    ],
+    "membersNames": [
+      "user_StealthVipers344",
+      "user_NullKnights824"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_36",
+    "teamName": "GhostNinjas958",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_36_0",
+      "user_1787070878105_36_1"
+    ],
+    "membersNames": [
+      "user_CyberVipers705",
+      "user_NullWolves77"
+    ],
+    "score": 3000,
+    "solvedChallenges": {
+      "Crypto": {
+        "solvedBy": "user_CyberVipers705",
+        "timestamp": 1787056396618
+      },
+      "Forensics": {
+        "solvedBy": "user_CyberVipers705",
+        "timestamp": 1787056503416
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_CyberVipers705",
+        "timestamp": 1787064851512
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_CyberVipers705",
+        "timestamp": 1787069725731
+      },
+      "OSINT": {
+        "solvedBy": "user_CyberVipers705",
+        "timestamp": 1787070066602
+      },
+      "Steganography": {
+        "solvedBy": "user_NullWolves77",
+        "timestamp": 1787070709395
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787056396618,
+        "score": 500
+      },
+      {
+        "timestamp": 1787056503416,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787064851512,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787069725731,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787070066602,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787070709395,
+        "score": 3000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_37",
+    "teamName": "VoidDragons472",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_37_0",
+      "user_1787070878105_37_1"
+    ],
+    "membersNames": [
+      "user_StealthCats647",
+      "user_NullWolves584"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_38",
+    "teamName": "CyberKnights849",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_38_0",
+      "user_1787070878105_38_1"
+    ],
+    "membersNames": [
+      "user_GhostWolves464",
+      "user_RedBytes265"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_RedBytes265",
+        "timestamp": 1787061368148
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_GhostWolves464",
+        "timestamp": 1787061514413
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787061368148,
+        "score": 500
+      },
+      {
+        "timestamp": 1787061514413,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_39",
+    "teamName": "VoidKnights459",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_39_0",
+      "user_1787070878105_39_1"
+    ],
+    "membersNames": [
+      "user_IronVipers128",
+      "user_CryptoShells384"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Binary Analysis": {
+        "solvedBy": "user_IronVipers128",
+        "timestamp": 1787057343357
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_IronVipers128",
+        "timestamp": 1787057373298
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_CryptoShells384",
+        "timestamp": 1787058674440
+      },
+      "Steganography": {
+        "solvedBy": "user_CryptoShells384",
+        "timestamp": 1787067626740
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787057343357,
+        "score": 500
+      },
+      {
+        "timestamp": 1787057373298,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787058674440,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787067626740,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_40",
+    "teamName": "BlueCats210",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_40_0",
+      "user_1787070878105_40_1"
+    ],
+    "membersNames": [
+      "user_GhostPhantom956",
+      "user_NullNinjas868"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "Crypto": {
+        "solvedBy": "user_NullNinjas868",
+        "timestamp": 1787058374348
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_NullNinjas868",
+        "timestamp": 1787061151809
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_GhostPhantom956",
+        "timestamp": 1787061343894
+      },
+      "Forensics": {
+        "solvedBy": "user_NullNinjas868",
+        "timestamp": 1787061846821
+      },
+      "Steganography": {
+        "solvedBy": "user_NullNinjas868",
+        "timestamp": 1787062711063
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787058374348,
+        "score": 500
+      },
+      {
+        "timestamp": 1787061151809,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787061343894,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787061846821,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787062711063,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_41",
+    "teamName": "QuantumShadows280",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_41_0",
+      "user_1787070878105_41_1"
+    ],
+    "membersNames": [
+      "user_NullKnights250",
+      "user_IronVipers750"
+    ],
+    "score": 500,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_IronVipers750",
+        "timestamp": 1787053184987
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053184987,
+        "score": 500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_42",
+    "teamName": "RogueWolves73",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_42_0",
+      "user_1787070878105_42_1"
+    ],
+    "membersNames": [
+      "user_QuantumBytes856",
+      "user_RogueHackers399"
+    ],
+    "score": 500,
+    "solvedChallenges": {
+      "Web Exploitation": {
+        "solvedBy": "user_RogueHackers399",
+        "timestamp": 1787055504746
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787055504746,
+        "score": 500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_43",
+    "teamName": "ZeroBytes501",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_43_0",
+      "user_1787070878105_43_1"
+    ],
+    "membersNames": [
+      "user_IronWolves490",
+      "user_NeonShells538"
+    ],
+    "score": 3500,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_NeonShells538",
+        "timestamp": 1787059535204
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_IronWolves490",
+        "timestamp": 1787061365189
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_IronWolves490",
+        "timestamp": 1787064448476
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_IronWolves490",
+        "timestamp": 1787064805175
+      },
+      "OSINT": {
+        "solvedBy": "user_NeonShells538",
+        "timestamp": 1787067303337
+      },
+      "Forensics": {
+        "solvedBy": "user_IronWolves490",
+        "timestamp": 1787067354327
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_NeonShells538",
+        "timestamp": 1787067654276
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059535204,
+        "score": 500
+      },
+      {
+        "timestamp": 1787061365189,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787064448476,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787064805175,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787067303337,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787067354327,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787067654276,
+        "score": 3500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_44",
+    "teamName": "IronProtocol919",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_44_0",
+      "user_1787070878105_44_1"
+    ],
+    "membersNames": [
+      "user_RogueProtocol498",
+      "user_DarkKnights322"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_DarkKnights322",
+        "timestamp": 1787061657647
+      },
+      "Forensics": {
+        "solvedBy": "user_DarkKnights322",
+        "timestamp": 1787067350912
+      },
+      "OSINT": {
+        "solvedBy": "user_RogueProtocol498",
+        "timestamp": 1787068405061
+      },
+      "Steganography": {
+        "solvedBy": "user_RogueProtocol498",
+        "timestamp": 1787070345801
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787061657647,
+        "score": 500
+      },
+      {
+        "timestamp": 1787067350912,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787068405061,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787070345801,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_45",
+    "teamName": "VoidDragons817",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_45_0",
+      "user_1787070878105_45_1"
+    ],
+    "membersNames": [
+      "user_RedBytes939",
+      "user_IronShadows641"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_46",
+    "teamName": "IronDragons455",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_46_0",
+      "user_1787070878105_46_1"
+    ],
+    "membersNames": [
+      "user_GhostCats636",
+      "user_RogueWolves888"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_RogueWolves888",
+        "timestamp": 1787059066634
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_RogueWolves888",
+        "timestamp": 1787059962636
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_GhostCats636",
+        "timestamp": 1787063036627
+      },
+      "Steganography": {
+        "solvedBy": "user_GhostCats636",
+        "timestamp": 1787069130992
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_GhostCats636",
+        "timestamp": 1787070707012
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059066634,
+        "score": 500
+      },
+      {
+        "timestamp": 1787059962636,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787063036627,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787069130992,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787070707012,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_47",
+    "teamName": "NullVipers689",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_47_0",
+      "user_1787070878105_47_1"
+    ],
+    "membersNames": [
+      "user_QuantumShadows915",
+      "user_BlueHackers362"
+    ],
+    "score": 3500,
+    "solvedChallenges": {
+      "Web Exploitation": {
+        "solvedBy": "user_QuantumShadows915",
+        "timestamp": 1787054145099
+      },
+      "Crypto": {
+        "solvedBy": "user_BlueHackers362",
+        "timestamp": 1787061948590
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_QuantumShadows915",
+        "timestamp": 1787062534696
+      },
+      "Steganography": {
+        "solvedBy": "user_QuantumShadows915",
+        "timestamp": 1787062629709
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_BlueHackers362",
+        "timestamp": 1787063135025
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_QuantumShadows915",
+        "timestamp": 1787065900776
+      },
+      "OSINT": {
+        "solvedBy": "user_QuantumShadows915",
+        "timestamp": 1787066616654
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787054145099,
+        "score": 500
+      },
+      {
+        "timestamp": 1787061948590,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787062534696,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787062629709,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787063135025,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787065900776,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787066616654,
+        "score": 3500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_48",
+    "teamName": "QuantumHackers948",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_48_0",
+      "user_1787070878105_48_1"
+    ],
+    "membersNames": [
+      "user_BlueCats507",
+      "user_ZeroShadows629"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_ZeroShadows629",
+        "timestamp": 1787053815047
+      },
+      "Forensics": {
+        "solvedBy": "user_BlueCats507",
+        "timestamp": 1787069229112
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053815047,
+        "score": 500
+      },
+      {
+        "timestamp": 1787069229112,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_49",
+    "teamName": "IronHackers953",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_49_0",
+      "user_1787070878105_49_1"
+    ],
+    "membersNames": [
+      "user_RogueWolves567",
+      "user_NullKnights808"
+    ],
+    "score": 3000,
+    "solvedChallenges": {
+      "Reverse Engineering": {
+        "solvedBy": "user_NullKnights808",
+        "timestamp": 1787057932749
+      },
+      "Forensics": {
+        "solvedBy": "user_NullKnights808",
+        "timestamp": 1787060463586
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_NullKnights808",
+        "timestamp": 1787060590043
+      },
+      "Crypto": {
+        "solvedBy": "user_NullKnights808",
+        "timestamp": 1787068116656
+      },
+      "Steganography": {
+        "solvedBy": "user_RogueWolves567",
+        "timestamp": 1787070048060
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_NullKnights808",
+        "timestamp": 1787070148147
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787057932749,
+        "score": 500
+      },
+      {
+        "timestamp": 1787060463586,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787060590043,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787068116656,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787070048060,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787070148147,
+        "score": 3000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_50",
+    "teamName": "NeonProtocol692",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_50_0",
+      "user_1787070878105_50_1"
+    ],
+    "membersNames": [
+      "user_NeonCats490",
+      "user_NullCats215"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "Crypto": {
+        "solvedBy": "user_NeonCats490",
+        "timestamp": 1787053249112
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_NullCats215",
+        "timestamp": 1787053517175
+      },
+      "Steganography": {
+        "solvedBy": "user_NeonCats490",
+        "timestamp": 1787057599530
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_NullCats215",
+        "timestamp": 1787058565980
+      },
+      "Forensics": {
+        "solvedBy": "user_NeonCats490",
+        "timestamp": 1787061172085
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787053249112,
+        "score": 500
+      },
+      {
+        "timestamp": 1787053517175,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787057599530,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787058565980,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787061172085,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_51",
+    "teamName": "VoidCats661",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_51_0",
+      "user_1787070878105_51_1"
+    ],
+    "membersNames": [
+      "user_NullVipers952",
+      "user_CryptoProtocol370"
+    ],
+    "score": 3500,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_CryptoProtocol370",
+        "timestamp": 1787059296766
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_NullVipers952",
+        "timestamp": 1787060653435
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_NullVipers952",
+        "timestamp": 1787062826936
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_NullVipers952",
+        "timestamp": 1787065765744
+      },
+      "Steganography": {
+        "solvedBy": "user_CryptoProtocol370",
+        "timestamp": 1787067354239
+      },
+      "OSINT": {
+        "solvedBy": "user_NullVipers952",
+        "timestamp": 1787067957166
+      },
+      "Crypto": {
+        "solvedBy": "user_CryptoProtocol370",
+        "timestamp": 1787070190819
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059296766,
+        "score": 500
+      },
+      {
+        "timestamp": 1787060653435,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787062826936,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787065765744,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787067354239,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787067957166,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787070190819,
+        "score": 3500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_52",
+    "teamName": "VoidKnights282",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_52_0",
+      "user_1787070878105_52_1"
+    ],
+    "membersNames": [
+      "user_NullPhantom835",
+      "user_CryptoWolves434"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_NullPhantom835",
+        "timestamp": 1787059047391
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_CryptoWolves434",
+        "timestamp": 1787067014507
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059047391,
+        "score": 500
+      },
+      {
+        "timestamp": 1787067014507,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_53",
+    "teamName": "NeonVipers656",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_53_0",
+      "user_1787070878105_53_1"
+    ],
+    "membersNames": [
+      "user_RogueNinjas436",
+      "user_NeonWolves37"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_NeonWolves37",
+        "timestamp": 1787058343812
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_RogueNinjas436",
+        "timestamp": 1787060154800
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_RogueNinjas436",
+        "timestamp": 1787061291177
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_RogueNinjas436",
+        "timestamp": 1787061972345
+      },
+      "Forensics": {
+        "solvedBy": "user_NeonWolves37",
+        "timestamp": 1787062737675
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787058343812,
+        "score": 500
+      },
+      {
+        "timestamp": 1787060154800,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787061291177,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787061972345,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787062737675,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_54",
+    "teamName": "IronCats830",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_54_0",
+      "user_1787070878105_54_1"
+    ],
+    "membersNames": [
+      "user_QuantumNinjas313",
+      "user_ZeroShells209"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_QuantumNinjas313",
+        "timestamp": 1787057416287
+      },
+      "Steganography": {
+        "solvedBy": "user_ZeroShells209",
+        "timestamp": 1787062137202
+      },
+      "Forensics": {
+        "solvedBy": "user_ZeroShells209",
+        "timestamp": 1787062356484
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_ZeroShells209",
+        "timestamp": 1787067474628
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787057416287,
+        "score": 500
+      },
+      {
+        "timestamp": 1787062137202,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787062356484,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787067474628,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_55",
+    "teamName": "ZeroVipers600",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_55_0",
+      "user_1787070878105_55_1"
+    ],
+    "membersNames": [
+      "user_QuantumNinjas625",
+      "user_NullShadows588"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "solvedBy": "user_NullShadows588",
+        "timestamp": 1787054961590
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_NullShadows588",
+        "timestamp": 1787065105427
+      },
+      "Steganography": {
+        "solvedBy": "user_NullShadows588",
+        "timestamp": 1787065705939
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787054961590,
+        "score": 500
+      },
+      {
+        "timestamp": 1787065105427,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787065705939,
+        "score": 1500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_56",
+    "teamName": "RedPhantom738",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_56_0",
+      "user_1787070878105_56_1"
+    ],
+    "membersNames": [
+      "user_VoidDragons175",
+      "user_IronProtocol977"
+    ],
+    "score": 2500,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_IronProtocol977",
+        "timestamp": 1787055319277
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_IronProtocol977",
+        "timestamp": 1787055922183
+      },
+      "Forensics": {
+        "solvedBy": "user_VoidDragons175",
+        "timestamp": 1787061256414
+      },
+      "Crypto": {
+        "solvedBy": "user_IronProtocol977",
+        "timestamp": 1787066619673
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_IronProtocol977",
+        "timestamp": 1787068670228
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787055319277,
+        "score": 500
+      },
+      {
+        "timestamp": 1787055922183,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787061256414,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787066619673,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787068670228,
+        "score": 2500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_57",
+    "teamName": "CyberHackers259",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_57_0",
+      "user_1787070878105_57_1"
+    ],
+    "membersNames": [
+      "user_QuantumProtocol183",
+      "user_StealthProtocol745"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_StealthProtocol745",
+        "timestamp": 1787059056889
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_StealthProtocol745",
+        "timestamp": 1787068478438
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059056889,
+        "score": 500
+      },
+      {
+        "timestamp": 1787068478438,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_58",
+    "teamName": "StealthProtocol326",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_58_0",
+      "user_1787070878105_58_1"
+    ],
+    "membersNames": [
+      "user_DarkDragons877",
+      "user_CryptoHackers448"
+    ],
+    "score": 1000,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_CryptoHackers448",
+        "timestamp": 1787067624679
+      },
+      "Crypto": {
+        "solvedBy": "user_DarkDragons877",
+        "timestamp": 1787068449999
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787067624679,
+        "score": 500
+      },
+      {
+        "timestamp": 1787068449999,
+        "score": 1000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_59",
+    "teamName": "ZeroProtocol96",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_59_0",
+      "user_1787070878105_59_1"
+    ],
+    "membersNames": [
+      "user_IronVipers604",
+      "user_NeonWolves452"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_IronVipers604",
+        "timestamp": 1787058829409
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_IronVipers604",
+        "timestamp": 1787061937858
+      },
+      "Crypto": {
+        "solvedBy": "user_NeonWolves452",
+        "timestamp": 1787065996047
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_NeonWolves452",
+        "timestamp": 1787068656665
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787058829409,
+        "score": 500
+      },
+      {
+        "timestamp": 1787061937858,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787065996047,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787068656665,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_60",
+    "teamName": "VoidProtocol933",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_60_0",
+      "user_1787070878105_60_1"
+    ],
+    "membersNames": [
+      "user_StealthBytes795",
+      "user_CyberKnights795"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_61",
+    "teamName": "RogueWolves795",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_61_0",
+      "user_1787070878105_61_1"
+    ],
+    "membersNames": [
+      "user_CyberCats49",
+      "user_NeonDragons63"
+    ],
+    "score": 2000,
+    "solvedChallenges": {
+      "OSINT": {
+        "solvedBy": "user_CyberCats49",
+        "timestamp": 1787059575068
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_NeonDragons63",
+        "timestamp": 1787061090788
+      },
+      "Forensics": {
+        "solvedBy": "user_CyberCats49",
+        "timestamp": 1787061787955
+      },
+      "Crypto": {
+        "solvedBy": "user_NeonDragons63",
+        "timestamp": 1787063453452
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059575068,
+        "score": 500
+      },
+      {
+        "timestamp": 1787061090788,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787061787955,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787063453452,
+        "score": 2000
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_62",
+    "teamName": "QuantumProtocol225",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_62_0",
+      "user_1787070878105_62_1"
+    ],
+    "membersNames": [
+      "user_RogueDragons532",
+      "user_ZeroHackers369"
+    ],
+    "score": 3500,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_RogueDragons532",
+        "timestamp": 1787059990018
+      },
+      "Crypto": {
+        "solvedBy": "user_RogueDragons532",
+        "timestamp": 1787061353790
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_ZeroHackers369",
+        "timestamp": 1787061703639
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_RogueDragons532",
+        "timestamp": 1787062093475
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_RogueDragons532",
+        "timestamp": 1787063388773
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_RogueDragons532",
+        "timestamp": 1787063744414
+      },
+      "OSINT": {
+        "solvedBy": "user_RogueDragons532",
+        "timestamp": 1787068563029
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787059990018,
+        "score": 500
+      },
+      {
+        "timestamp": 1787061353790,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787061703639,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787062093475,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787063388773,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787063744414,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787068563029,
+        "score": 3500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_63",
+    "teamName": "BlueCats401",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_63_0",
+      "user_1787070878105_63_1"
+    ],
+    "membersNames": [
+      "user_QuantumBytes342",
+      "user_StealthPhantom318"
+    ],
+    "score": 500,
+    "solvedChallenges": {
+      "Steganography": {
+        "solvedBy": "user_StealthPhantom318",
+        "timestamp": 1787054394377
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787054394377,
+        "score": 500
+      }
+    ]
+  },
+  {
+    "id": "team_1787070878105_64",
+    "teamName": "CryptoNinjas502",
+    "password": "hashed_password_mock",
+    "members": [
+      "user_1787070878105_64_0",
+      "user_1787070878105_64_1"
+    ],
+    "membersNames": [
+      "user_QuantumProtocol235",
+      "user_NullShadows749"
+    ],
+    "score": 3500,
+    "solvedChallenges": {
+      "Forensics": {
+        "solvedBy": "user_QuantumProtocol235",
+        "timestamp": 1787054476364
+      },
+      "Miscellaneous": {
+        "solvedBy": "user_QuantumProtocol235",
+        "timestamp": 1787056562517
+      },
+      "Reverse Engineering": {
+        "solvedBy": "user_QuantumProtocol235",
+        "timestamp": 1787058582727
+      },
+      "Web Exploitation": {
+        "solvedBy": "user_QuantumProtocol235",
+        "timestamp": 1787063571671
+      },
+      "Steganography": {
+        "solvedBy": "user_QuantumProtocol235",
+        "timestamp": 1787064008826
+      },
+      "OSINT": {
+        "solvedBy": "user_QuantumProtocol235",
+        "timestamp": 1787064048541
+      },
+      "Binary Analysis": {
+        "solvedBy": "user_QuantumProtocol235",
+        "timestamp": 1787070551184
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787052878104,
+        "score": 0
+      },
+      {
+        "timestamp": 1787054476364,
+        "score": 500
+      },
+      {
+        "timestamp": 1787056562517,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787058582727,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787063571671,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787064008826,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787064048541,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787070551184,
+        "score": 3500
       }
     ]
   }

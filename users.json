@@ -1,33 +1,1232 @@
 [
   {
-    "id": "1740852168960",
-    "username": "66634g",
-    "email": "vexifok410@halbov.com",
-    "password": "$2b$10$M0r3TsWyq3cVNdg4.jgVZ.wqhv84gcUYd5gOskm8kIi5ElzOPngAu",
-    "teamId": "1741017954277"
+    "id": "user_1787070878104_0_0",
+    "username": "user_NullWolves315",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_0",
+    "solvedChallenges": [
+      "Crypto",
+      "OSINT",
+      "Reverse Engineering"
+    ]
   },
   {
-    "id": "1740853273623",
-    "username": "c1ph3r1337",
-    "email": "jaskaran052006@gmail.com",
-    "password": "$2b$10$YhRxSEdUXEbKNmS7buqvFOl1m8TrItMe4Rp8g7sqmRqwxH7kv9ZRS",
-    "teamId": "1740870327549",
+    "id": "user_1787070878104_0_1",
+    "username": "user_CryptoProtocol50",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_0",
+    "solvedChallenges": [
+      "Steganography",
+      "Binary Analysis",
+      "Miscellaneous",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878104_1_0",
+    "username": "user_BlueVipers486",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_1",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_1_1",
+    "username": "user_NeonHackers452",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_1",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_2_0",
+    "username": "user_RogueDragons596",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_2",
+    "solvedChallenges": [
+      "Steganography",
+      "Web Exploitation",
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878104_2_1",
+    "username": "user_QuantumShadows583",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_2",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878104_3_0",
+    "username": "user_RedShells800",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_3",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878104_3_1",
+    "username": "user_CryptoBytes776",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_3",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_4_0",
+    "username": "user_RedShadows843",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_4",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878104_4_1",
+    "username": "user_BlueShadows815",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_4",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_5_0",
+    "username": "user_BlueShells955",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_5",
+    "solvedChallenges": [
+      "Crypto",
+      "Miscellaneous",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878104_5_1",
+    "username": "user_BlueBytes916",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_5",
     "solvedChallenges": [
       "Forensics",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878104_6_0",
+    "username": "user_IronDragons874",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_6",
+    "solvedChallenges": [
+      "OSINT",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_6_1",
+    "username": "user_RogueVipers711",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_6",
+    "solvedChallenges": [
+      "Forensics",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878104_7_0",
+    "username": "user_GhostShells930",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_7",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_7_1",
+    "username": "user_RedBytes296",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_7",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Miscellaneous",
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878104_8_0",
+    "username": "user_DarkProtocol862",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_8",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878104_8_1",
+    "username": "user_NeonVipers388",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_8",
+    "solvedChallenges": [
       "OSINT"
     ]
   },
   {
-    "id": "1740856466124",
-    "username": "R1ckRul3s",
-    "email": "windows3005@gmail.com",
-    "password": "$2b$10$x7ebscGcKZxDfy.Ztr.Fd.FvKz4U8ArZoU4D7YyJ561w4Ed8HCX4u",
-    "teamId": "1740870327549"
+    "id": "user_1787070878104_9_0",
+    "username": "user_ZeroWolves516",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_9",
+    "solvedChallenges": []
   },
   {
-    "id": "1741019461873",
-    "username": "hopeless",
-    "email": "",
-    "password": "$2b$10$tgC58Nh1i6DLeMQzQH/AiuymsCgJtQZFZ8mivfeSRUlzpLh.raKK."
+    "id": "user_1787070878104_9_1",
+    "username": "user_GhostCats154",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_9",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_10_0",
+    "username": "user_NullNinjas345",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_10",
+    "solvedChallenges": [
+      "Crypto",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_10_1",
+    "username": "user_NeonKnights594",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_10",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Miscellaneous",
+      "Web Exploitation",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878104_11_0",
+    "username": "user_DarkVipers162",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_11",
+    "solvedChallenges": [
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878104_11_1",
+    "username": "user_NullShadows246",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_11",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_12_0",
+    "username": "user_BlueProtocol232",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_12",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878104_12_1",
+    "username": "user_CryptoKnights885",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_12",
+    "solvedChallenges": [
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878104_13_0",
+    "username": "user_CryptoVipers945",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_13",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_13_1",
+    "username": "user_CyberBytes256",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_13",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Forensics",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878104_14_0",
+    "username": "user_ZeroDragons337",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_14",
+    "solvedChallenges": [
+      "OSINT",
+      "Forensics",
+      "Web Exploitation",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878104_14_1",
+    "username": "user_GhostHackers988",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_14",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_15_0",
+    "username": "user_StealthVipers827",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_15",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_15_1",
+    "username": "user_ZeroVipers27",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_15",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_16_0",
+    "username": "user_NeonDragons423",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_16",
+    "solvedChallenges": [
+      "Steganography",
+      "Miscellaneous",
+      "Reverse Engineering",
+      "OSINT",
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878104_16_1",
+    "username": "user_QuantumProtocol515",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_16",
+    "solvedChallenges": [
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878104_17_0",
+    "username": "user_ZeroCats668",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_17",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878104_17_1",
+    "username": "user_GhostShadows661",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_17",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Crypto",
+      "Web Exploitation",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878104_18_0",
+    "username": "user_ZeroBytes923",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_18",
+    "solvedChallenges": [
+      "Crypto",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878104_18_1",
+    "username": "user_ZeroShells959",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_18",
+    "solvedChallenges": [
+      "OSINT",
+      "Binary Analysis",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878104_19_0",
+    "username": "user_CryptoDragons266",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_19",
+    "solvedChallenges": [
+      "Crypto",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878104_19_1",
+    "username": "user_StealthProtocol155",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_19",
+    "solvedChallenges": [
+      "Reverse Engineering",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_20_0",
+    "username": "user_DarkBytes325",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_20",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_20_1",
+    "username": "user_IronNinjas252",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_20",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878104_21_0",
+    "username": "user_CryptoKnights24",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_21",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_21_1",
+    "username": "user_DarkShells596",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_21",
+    "solvedChallenges": [
+      "Reverse Engineering",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878104_22_0",
+    "username": "user_ZeroHackers374",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_22",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878104_22_1",
+    "username": "user_DarkCats260",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_22",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878104_23_0",
+    "username": "user_BlueShadows2",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_23",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Reverse Engineering",
+      "Forensics",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878104_23_1",
+    "username": "user_QuantumKnights114",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878104_23",
+    "solvedChallenges": [
+      "OSINT",
+      "Steganography",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878105_24_0",
+    "username": "user_VoidPhantom456",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_24",
+    "solvedChallenges": [
+      "Steganography",
+      "Binary Analysis",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_24_1",
+    "username": "user_CryptoKnights845",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_24",
+    "solvedChallenges": [
+      "Crypto",
+      "Reverse Engineering",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878105_25_0",
+    "username": "user_CyberKnights149",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_25",
+    "solvedChallenges": [
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878105_25_1",
+    "username": "user_IronCats524",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_25",
+    "solvedChallenges": [
+      "Steganography",
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878105_26_0",
+    "username": "user_QuantumHackers823",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_26",
+    "solvedChallenges": [
+      "Reverse Engineering",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_26_1",
+    "username": "user_QuantumPhantom441",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_26",
+    "solvedChallenges": [
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_27_0",
+    "username": "user_NullProtocol768",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_27",
+    "solvedChallenges": [
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878105_27_1",
+    "username": "user_GhostDragons116",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_27",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_28_0",
+    "username": "user_NullBytes404",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_28",
+    "solvedChallenges": [
+      "OSINT",
+      "Crypto",
+      "Reverse Engineering",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_28_1",
+    "username": "user_NullShadows672",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_28",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Forensics",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_29_0",
+    "username": "user_DarkVipers922",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_29",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_29_1",
+    "username": "user_IronVipers945",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_29",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_30_0",
+    "username": "user_NeonShadows992",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_30",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_30_1",
+    "username": "user_CryptoPhantom861",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_30",
+    "solvedChallenges": [
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878105_31_0",
+    "username": "user_ZeroWolves541",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_31",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_31_1",
+    "username": "user_DarkNinjas241",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_31",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_32_0",
+    "username": "user_GhostWolves338",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_32",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_32_1",
+    "username": "user_StealthShadows477",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_32",
+    "solvedChallenges": [
+      "OSINT",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_33_0",
+    "username": "user_QuantumBytes216",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_33",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_33_1",
+    "username": "user_IronShells455",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_33",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Reverse Engineering",
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878105_34_0",
+    "username": "user_IronCats193",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_34",
+    "solvedChallenges": [
+      "Steganography",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878105_34_1",
+    "username": "user_NeonBytes83",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_34",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_35_0",
+    "username": "user_StealthVipers344",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_35",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_35_1",
+    "username": "user_NullKnights824",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_35",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_36_0",
+    "username": "user_CyberVipers705",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_36",
+    "solvedChallenges": [
+      "Crypto",
+      "Forensics",
+      "Binary Analysis",
+      "Miscellaneous",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878105_36_1",
+    "username": "user_NullWolves77",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_36",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_37_0",
+    "username": "user_StealthCats647",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_37",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_37_1",
+    "username": "user_NullWolves584",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_37",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_38_0",
+    "username": "user_GhostWolves464",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_38",
+    "solvedChallenges": [
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878105_38_1",
+    "username": "user_RedBytes265",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_38",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_39_0",
+    "username": "user_IronVipers128",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_39",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_39_1",
+    "username": "user_CryptoShells384",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_39",
+    "solvedChallenges": [
+      "Reverse Engineering",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_40_0",
+    "username": "user_GhostPhantom956",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_40",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_40_1",
+    "username": "user_NullNinjas868",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_40",
+    "solvedChallenges": [
+      "Crypto",
+      "Reverse Engineering",
+      "Forensics",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_41_0",
+    "username": "user_NullKnights250",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_41",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_41_1",
+    "username": "user_IronVipers750",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_41",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_42_0",
+    "username": "user_QuantumBytes856",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_42",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_42_1",
+    "username": "user_RogueHackers399",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_42",
+    "solvedChallenges": [
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878105_43_0",
+    "username": "user_IronWolves490",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_43",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Reverse Engineering",
+      "Binary Analysis",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_43_1",
+    "username": "user_NeonShells538",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_43",
+    "solvedChallenges": [
+      "Steganography",
+      "OSINT",
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_44_0",
+    "username": "user_RogueProtocol498",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_44",
+    "solvedChallenges": [
+      "OSINT",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_44_1",
+    "username": "user_DarkKnights322",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_44",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_45_0",
+    "username": "user_RedBytes939",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_45",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_45_1",
+    "username": "user_IronShadows641",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_45",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_46_0",
+    "username": "user_GhostCats636",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_46",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Steganography",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878105_46_1",
+    "username": "user_RogueWolves888",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_46",
+    "solvedChallenges": [
+      "OSINT",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878105_47_0",
+    "username": "user_QuantumShadows915",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_47",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Binary Analysis",
+      "Steganography",
+      "Miscellaneous",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878105_47_1",
+    "username": "user_BlueHackers362",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_47",
+    "solvedChallenges": [
+      "Crypto",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878105_48_0",
+    "username": "user_BlueCats507",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_48",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_48_1",
+    "username": "user_ZeroShadows629",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_48",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_49_0",
+    "username": "user_RogueWolves567",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_49",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_49_1",
+    "username": "user_NullKnights808",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_49",
+    "solvedChallenges": [
+      "Reverse Engineering",
+      "Forensics",
+      "Web Exploitation",
+      "Crypto",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_50_0",
+    "username": "user_NeonCats490",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_50",
+    "solvedChallenges": [
+      "Crypto",
+      "Steganography",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_50_1",
+    "username": "user_NullCats215",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_50",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_51_0",
+    "username": "user_NullVipers952",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_51",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Reverse Engineering",
+      "Miscellaneous",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878105_51_1",
+    "username": "user_CryptoProtocol370",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_51",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878105_52_0",
+    "username": "user_NullPhantom835",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_52",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_52_1",
+    "username": "user_CryptoWolves434",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_52",
+    "solvedChallenges": [
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "user_1787070878105_53_0",
+    "username": "user_RogueNinjas436",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_53",
+    "solvedChallenges": [
+      "Reverse Engineering",
+      "Web Exploitation",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_53_1",
+    "username": "user_NeonWolves37",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_53",
+    "solvedChallenges": [
+      "OSINT",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_54_0",
+    "username": "user_QuantumNinjas313",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_54",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_54_1",
+    "username": "user_ZeroShells209",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_54",
+    "solvedChallenges": [
+      "Steganography",
+      "Forensics",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_55_0",
+    "username": "user_QuantumNinjas625",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_55",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_55_1",
+    "username": "user_NullShadows588",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_55",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Reverse Engineering",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_56_0",
+    "username": "user_VoidDragons175",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_56",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_56_1",
+    "username": "user_IronProtocol977",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_56",
+    "solvedChallenges": [
+      "Steganography",
+      "Binary Analysis",
+      "Crypto",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878105_57_0",
+    "username": "user_QuantumProtocol183",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_57",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_57_1",
+    "username": "user_StealthProtocol745",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_57",
+    "solvedChallenges": [
+      "OSINT",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_58_0",
+    "username": "user_DarkDragons877",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_58",
+    "solvedChallenges": [
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878105_58_1",
+    "username": "user_CryptoHackers448",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_58",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_59_0",
+    "username": "user_IronVipers604",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_59",
+    "solvedChallenges": [
+      "OSINT",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_59_1",
+    "username": "user_NeonWolves452",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_59",
+    "solvedChallenges": [
+      "Crypto",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "user_1787070878105_60_0",
+    "username": "user_StealthBytes795",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_60",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_60_1",
+    "username": "user_CyberKnights795",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_60",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_61_0",
+    "username": "user_CyberCats49",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_61",
+    "solvedChallenges": [
+      "OSINT",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "user_1787070878105_61_1",
+    "username": "user_NeonDragons63",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_61",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Crypto"
+    ]
+  },
+  {
+    "id": "user_1787070878105_62_0",
+    "username": "user_RogueDragons532",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_62",
+    "solvedChallenges": [
+      "Forensics",
+      "Crypto",
+      "Reverse Engineering",
+      "Web Exploitation",
+      "Binary Analysis",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "user_1787070878105_62_1",
+    "username": "user_ZeroHackers369",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_62",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "user_1787070878105_63_0",
+    "username": "user_QuantumBytes342",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_63",
+    "solvedChallenges": []
+  },
+  {
+    "id": "user_1787070878105_63_1",
+    "username": "user_StealthPhantom318",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_63",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "user_1787070878105_64_0",
+    "username": "user_QuantumProtocol235",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_64",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "Reverse Engineering",
+      "Web Exploitation",
+      "Steganography",
+      "OSINT",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "user_1787070878105_64_1",
+    "username": "user_NullShadows749",
+    "password": "hashed_password_mock",
+    "teamId": "team_1787070878105_64",
+    "solvedChallenges": []
   }
 ]
