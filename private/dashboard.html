@@ -160,6 +160,7 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -599,12 +600,43 @@
       });
     }
     
+    function fetchMyTeam() {
+      fetch('/api/myteam')
+        .then(response => response.json())
+        .then(data => {
+          const myTeamInfo = document.getElementById('myTeamInfo');
+          const noTeamActions = document.getElementById('noTeamActions');
+          if (!myTeamInfo || !noTeamActions) return;
+          if (data.team) {
+            const members = data.team.membersNames && data.team.membersNames.length ? data.team.membersNames.join(', ') : 'No members';
+            myTeamInfo.innerHTML = `<strong>${data.team.teamName}</strong><br/>Members: ${members}<br/>Score: ${data.team.score || 0} pts`;
+            noTeamActions.style.display = 'none';
+          } else {
+            myTeamInfo.innerHTML = '<p>You are not in a team.</p>';
+            noTeamActions.style.display = 'block';
+          }
+        })
+        .catch(err => console.error('Error fetching my team:', err));
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       setupScoreboardTabs();
       fetchTeamScores();
       updateChallengeBoxesFromTeam();
       
-      // Set up auto-refresh for scoreboard every 5 minutes
+      const socket = io();
+      socket.on('teamsUpdate', () => {
+        fetchTeamScores();
+        fetchTeams();
+        updateChallengeBoxesFromTeam();
+        fetchMyTeam();
+        fetchProfile();
+      });
+      socket.on('usersUpdate', () => {
+        fetchUsers();
+      });
+      
+      // Set up auto-refresh for scoreboard every 5 minutes as a fallback
       setInterval(fetchTeamScores, 5 * 60 * 1000);
     });
 
@@ -691,22 +723,7 @@
         searchInput.addEventListener('keyup', () => { currentPage = 1; renderTeams(); });
       }
       fetchTeams();
-      fetch('/api/myteam')
-        .then(response => response.json())
-        .then(data => {
-          const myTeamInfo = document.getElementById('myTeamInfo');
-          const noTeamActions = document.getElementById('noTeamActions');
-          if (!myTeamInfo || !noTeamActions) return;
-          if (data.team) {
-            const members = data.team.membersNames && data.team.membersNames.length ? data.team.membersNames.join(', ') : 'No members';
-            myTeamInfo.innerHTML = `<strong>${data.team.teamName}</strong><br/>Members: ${members}<br/>Score: ${data.team.score || 0} pts`;
-            noTeamActions.style.display = 'none';
-          } else {
-            myTeamInfo.innerHTML = '<p>You are not in a team.</p>';
-            noTeamActions.style.display = 'block';
-          }
-        })
-        .catch(err => console.error('Error fetching my team:', err));
+      fetchMyTeam();
       const showJoinFormBtn = document.getElementById('showJoinForm');
       const showCreateFormBtn = document.getElementById('showCreateForm');
       const joinTeamSection = document.getElementById('joinTeamSection');
@@ -742,17 +759,7 @@
                 joinTeamMessage.innerText = data.error;
               } else {
                 joinTeamMessage.innerText = data.message;
-                fetch('/api/myteam')
-                  .then(res => res.json())
-                  .then(myData => {
-                    const myTeamInfo = document.getElementById('myTeamInfo');
-                    const noTeamActions = document.getElementById('noTeamActions');
-                    if (myData.team) {
-                      const members = myData.team.membersNames && myData.team.membersNames.length ? myData.team.membersNames.join(', ') : 'No members';
-                      myTeamInfo.innerHTML = `<strong>${myData.team.teamName}</strong><br/>Members: ${members}<br/>Score: ${myData.team.score || 0} pts`;
-                      noTeamActions.style.display = 'none';
-                    }
-                  });
+                fetchMyTeam();
                 joinTeamSection.style.display = 'none';
               }
             })
@@ -779,17 +786,7 @@
                 createTeamMessage.innerText = data.error;
               } else {
                 createTeamMessage.innerText = data.message;
-                fetch('/api/myteam')
-                  .then(res => res.json())
-                  .then(myData => {
-                    const myTeamInfo = document.getElementById('myTeamInfo');
-                    const noTeamActions = document.getElementById('noTeamActions');
-                    if (myData.team) {
-                      const members = myData.team.membersNames && myData.team.membersNames.length ? myData.team.membersNames.join(', ') : 'No members';
-                      myTeamInfo.innerHTML = `<strong>${myData.team.teamName}</strong><br/>Members: ${members}<br/>Score: ${myData.team.score || 0} pts`;
-                      noTeamActions.style.display = 'none';
-                    }
-                  });
+                fetchMyTeam();
                 createTeamSection.style.display = 'none';
               }
             })

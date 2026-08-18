@@ -3,8 +3,13 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const http = require('http');
+const { Server } = require('socket.io');
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -73,6 +78,7 @@ app.post('/api/register', (req, res) => {
     console.error("Error writing users.json:", err);
     return res.status(500).json({ error: 'Internal server error.' });
   }
+  io.emit('usersUpdate');
   res.json({ message: 'User registered successfully!' });
 });
 
@@ -176,6 +182,8 @@ app.post('/api/team/create', (req, res) => {
     return res.status(500).json({ error: 'Internal server error.' });
   }
   user.teamId = newTeam.id;
+  io.emit('teamsUpdate');
+  io.emit('usersUpdate');
   res.json({ message: 'Team created successfully!', team: newTeam });
 });
 
@@ -205,6 +213,8 @@ app.post('/api/team/join', (req, res) => {
     console.error("Error writing users.json:", err);
     return res.status(500).json({ error: 'Internal server error.' });
   }
+  io.emit('teamsUpdate');
+  io.emit('usersUpdate');
   res.json({ message: `Joined team ${team.teamName} successfully.`, team });
 });
 
@@ -248,6 +258,8 @@ app.post('/api/challenge/flag', (req, res) => {
     return res.status(500).json({ error: 'Internal server error.' });
   }
   
+  io.emit('teamsUpdate');
+  io.emit('usersUpdate');
   return res.json({ message: 'Correct flag! 500 points added to your team.' });
 });
 
@@ -272,6 +284,6 @@ app.get('/logout', (req, res) => {
 app.use(express.static('public'));
 
 const PORT = 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
