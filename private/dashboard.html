@@ -627,13 +627,6 @@
       const socket = io();
       socket.on('teamsUpdate', () => {
         fetchTeamScores();
-        fetchTeams();
-        updateChallengeBoxesFromTeam();
-        fetchMyTeam();
-        fetchProfile();
-      });
-      socket.on('usersUpdate', () => {
-        fetchUsers();
       });
       
       // Set up auto-refresh for scoreboard every 5 minutes as a fallback
