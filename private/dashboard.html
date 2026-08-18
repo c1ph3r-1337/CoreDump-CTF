@@ -456,72 +456,20 @@
     let teamScoreHistory = {}; // Store score history for each team
     
     function fetchTeamScores() {
-      // Simulate fetching team scores with timestamps
-      // In a real app, you would fetch this from your API
-      simulateTeamScoreData()
+      fetch('/api/teams')
+        .then(res => res.json())
         .then(data => {
-          // Sort teams by current score (latest timestamp)
-          const sortedTeams = Object.keys(data).map(teamName => {
-            const scoreHistory = data[teamName];
-            const latestScore = scoreHistory[scoreHistory.length - 1].score;
-            return { teamName, score: latestScore, history: scoreHistory };
-          }).sort((a, b) => b.score - a.score);
+          // Sort teams by current score
+          const sortedTeams = data.sort((a, b) => b.score - a.score);
           
           // Take only top 10 teams
           const topTeams = sortedTeams.slice(0, 10);
           
-          // Store the score history
-          teamScoreHistory = {};
-          topTeams.forEach(team => {
-            teamScoreHistory[team.teamName] = team.history;
-          });
-          
           updateTeamScoreDisplay();
-          updateTimeSeriesChart(topTeams);
+          updateBarChart(topTeams);
           updateStandings(topTeams);
         })
         .catch(err => console.error('Error fetching teams:', err));
-    }
-    
-    // Simulate fetching team score data with timestamps
-    function simulateTeamScoreData() {
-      return new Promise((resolve) => {
-        // Get current time and go back 24 hours
-        const now = new Date();
-        const startTime = new Date(now.getTime() - (24 * 60 * 60 * 1000));
-        
-        // Generate team names
-        const teamNames = [
-          "Binary Bandits", "Cyber Sentinels", "Hack Attack", "Digital Defenders",
-          "Code Breakers", "Security Savants", "Packet Pirates", "Firewall Fighters",
-          "Shell Shock", "Crypto Crusaders", "Zero Day Heroes", "Buffer Overflow",
-          "SQL Injectors", "Malware Marauders", "Network Ninjas"
-        ];
-        
-        // Generate random score history for each team
-        const teamData = {};
-        teamNames.slice(0, 15).forEach((teamName, index) => {
-          const scoreHistory = [];
-          let currentScore = 0;
-          
-          // Create 10 time points with increasing scores
-          for (let i = 0; i < 10; i++) {
-            const timePoint = new Date(startTime.getTime() + (i * 2.4 * 60 * 60 * 1000));
-            // Random score increase (weighted by team index to create different rankings)
-            const scoreIncrease = Math.floor(Math.random() * 100) + (15 - index) * 5;
-            currentScore += scoreIncrease;
-            
-            scoreHistory.push({
-              timestamp: timePoint,
-              score: currentScore
-            });
-          }
-          
-          teamData[teamName] = scoreHistory;
-        });
-        
-        resolve(teamData);
-      });
     }
     
     function updateTeamScoreDisplay() {
@@ -538,60 +486,28 @@
         .catch(err => console.error(err));
     }
     
-    function updateTimeSeriesChart(topTeams) {
+    function updateBarChart(topTeams) {
       const ctx = document.getElementById('scoreChart').getContext('2d');
       
-      // Get all unique timestamps across all teams
-      const allTimestamps = new Set();
-      Object.values(teamScoreHistory).forEach(history => {
-        history.forEach(point => {
-          allTimestamps.add(point.timestamp.getTime());
-        });
-      });
-      
-      // Sort timestamps chronologically
-      const sortedTimestamps = Array.from(allTimestamps).sort((a, b) => a - b);
-      
-      // Format timestamps for display
-      const labels = sortedTimestamps.map(timestamp => {
-        const date = new Date(timestamp);
-        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + 
-               ' ' + date.toLocaleDateString([], { month: 'short', day: 'numeric' });
-      });
-      
-      // Create datasets for each team
-      const datasets = topTeams.map((team, index) => {
-        const color = teamColors[index % teamColors.length];
-        
-        // Map team's score history to the common timestamp points
-        const data = sortedTimestamps.map(timestamp => {
-          // Find the closest score point that's less than or equal to this timestamp
-          const historyPoints = team.history.filter(point => point.timestamp.getTime() <= timestamp);
-          if (historyPoints.length === 0) return 0;
-          return historyPoints[historyPoints.length - 1].score;
-        });
-        
-        return {
-          label: team.teamName,
-          data: data,
-          borderColor: color,
-          backgroundColor: 'transparent',
-          borderWidth: 2,
-          pointRadius: 3,
-          pointHoverRadius: 5,
-          tension: 0.1
-        };
-      });
+      const labels = topTeams.map(team => team.teamName);
+      const data = topTeams.map(team => team.score);
+      const backgroundColors = topTeams.map((team, index) => teamColors[index % teamColors.length]);
       
       // Destroy previous chart if it exists
       if (scoreChart) scoreChart.destroy();
       
-      // Create new chart
+      // Create new bar chart
       scoreChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
           labels: labels,
-          datasets: datasets
+          datasets: [{
+            label: 'Score',
+            data: data,
+            backgroundColor: backgroundColors,
+            borderWidth: 1,
+            borderColor: 'rgba(255, 255, 255, 0.1)'
+          }]
         },
         options: {
           responsive: true,
@@ -608,17 +524,12 @@
               grid: { color: 'rgba(255, 255, 255, 0.1)' }
             },
             x: {
-              title: {
-                display: true,
-                text: 'Time',
-                color: 'var(--text)'
-              },
               ticks: { 
                 color: 'var(--text)',
                 maxRotation: 45,
                 minRotation: 45
               },
-              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+              grid: { display: false }
             }
           },
           plugins: {
@@ -626,27 +537,12 @@
               display: false // Hide the default legend
             },
             tooltip: {
-              mode: 'index',
-              intersect: false,
               backgroundColor: 'rgba(0,0,0,0.8)',
               titleColor: '#fff',
               bodyColor: '#fff',
               borderColor: 'rgba(255, 255, 255, 0.2)',
-              borderWidth: 1,
-              callbacks: {
-                title: function(tooltipItems) {
-                  return tooltipItems[0].label;
-                },
-                label: function(context) {
-                  return context.dataset.label + ': ' + context.parsed.y + ' pts';
-                }
-              }
+              borderWidth: 1
             }
-          },
-          interaction: {
-            mode: 'nearest',
-            axis: 'x',
-            intersect: false
           }
         }
       });
