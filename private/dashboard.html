@@ -400,19 +400,11 @@
       });
       renderUsersPagination(totalPages);
     }
-    function renderUsersPagination(totalPages) {
-      const paginationDiv = document.getElementById('usersPagination');
-      paginationDiv.innerHTML = '';
-      for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = i;
-        if (i === currentUsersPage) btn.classList.add('active');
-        btn.addEventListener('click', () => {
-          currentUsersPage = i;
-          renderUsersList();
-        });
-        paginationDiv.appendChild(btn);
-      }
+        function renderUsersPagination(totalPages) {
+      createSmartPagination(totalPages, currentUsersPage, 'usersPagination', (page) => {
+        currentUsersPage = page;
+        renderUsersList();
+      });
     }
     document.addEventListener('DOMContentLoaded', () => {
       const userSearchBtn = document.getElementById('userSearchBtn');
@@ -794,17 +786,56 @@
       }
       renderPagination(totalPages);
     }
-    function renderPagination(totalPages) {
-      const paginationDiv = document.getElementById('teamsPagination');
+        function createSmartPagination(totalPages, activePage, containerId, renderCallback) {
+      const paginationDiv = document.getElementById(containerId);
       if (!paginationDiv) return;
       paginationDiv.innerHTML = '';
-      for (let i = 1; i <= totalPages; i++) {
+      if (totalPages <= 1) return;
+
+      const addBtn = (pageNum, isEllipsis = false) => {
         const btn = document.createElement('button');
-        btn.textContent = i;
-        if (i === currentPage) btn.classList.add('active');
-        btn.addEventListener('click', () => { currentPage = i; renderTeams(); });
+        btn.textContent = pageNum;
+        if (isEllipsis) {
+          btn.disabled = true;
+          btn.style.cursor = 'default';
+          btn.style.background = 'transparent';
+          btn.style.border = 'none';
+          btn.style.color = 'var(--text-muted)';
+        } else {
+          if (pageNum === activePage) btn.classList.add('active');
+          btn.addEventListener('click', () => { renderCallback(pageNum); });
+        }
         paginationDiv.appendChild(btn);
+      };
+
+      if (totalPages <= 7) {
+        for (let i = 1; i <= totalPages; i++) addBtn(i);
+      } else {
+        if (activePage <= 4) {
+          for (let i = 1; i <= 5; i++) addBtn(i);
+          addBtn('...', true);
+          addBtn(totalPages);
+        } else if (activePage >= totalPages - 3) {
+          addBtn(1);
+          addBtn('...', true);
+          for (let i = totalPages - 4; i <= totalPages; i++) addBtn(i);
+        } else {
+          addBtn(1);
+          addBtn('...', true);
+          addBtn(activePage - 1);
+          addBtn(activePage);
+          addBtn(activePage + 1);
+          addBtn('...', true);
+          addBtn(totalPages);
+        }
       }
+    }
+
+    function renderPagination(totalPages) {
+      createSmartPagination(totalPages, currentPage, 'teamsPagination', (page) => {
+        currentPage = page;
+        renderTeams();
+      });
     }
     document.addEventListener('DOMContentLoaded', () => {
       const searchBtn = document.getElementById('teamSearchBtn');
