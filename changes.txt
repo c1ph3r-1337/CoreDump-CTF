@@ -1,0 +1,3 @@
+from the navbar remove the , rules , prizes , notifications and settings 
+
+make a admin portal for add the challenges and there hashed password using the already made script 
