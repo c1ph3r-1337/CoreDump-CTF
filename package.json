@@ -13,7 +13,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +21,8 @@
   "type": "commonjs",
   "allowScripts": {
     "bcrypt@5.1.1": true
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
