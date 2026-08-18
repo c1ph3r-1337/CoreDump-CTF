@@ -3194,5 +3194,36 @@
         "score": 3500
       }
     ]
+  },
+  {
+    "id": "team_admin_1",
+    "teamName": "CoreDump_Admin",
+    "password": "hashed",
+    "members": [
+      "user_admin_1"
+    ],
+    "membersNames": [
+      "admin"
+    ],
+    "score": 4500,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787056658257,
+        "score": 0
+      },
+      {
+        "timestamp": 1787060258257,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787063858257,
+        "score": 3000
+      },
+      {
+        "timestamp": 1787071057257,
+        "score": 4500
+      }
+    ]
   }
 ]

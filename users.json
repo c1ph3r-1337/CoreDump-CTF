@@ -4,7 +4,7 @@
     "username": "admin",
     "email": "admin@ctf.com",
     "password": "$2b$10$qkWNaiXIgzGSPeYudot9P.AWVstHeV4uw57i9imXzXEG5qQ7Ts7LW",
-    "teamId": null,
+    "teamId": "team_admin_1",
     "solvedChallenges": []
   },
   {
