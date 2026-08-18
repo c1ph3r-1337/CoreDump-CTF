@@ -287,7 +287,6 @@
           <div class="chart-container">
             <canvas id="scoreChart"></canvas>
           </div>
-          <div id="chart-legend"></div>
         </div>
         <div class="tab-content" id="standings">
           <div class="standings-list" id="standingsList"></div>
@@ -438,20 +437,6 @@
       }
     });
 
-    // Team colors for the chart and standings
-    const teamColors = [
-      '#2467ea', // Primary color
-      '#07b2d5', // Accent color
-      '#f67019', // Orange
-      '#f53794', // Pink
-      '#537bc4', // Blue-purple
-      '#4bc0c0', // Teal
-      '#a05195', // Purple
-      '#d45087', // Pink-red
-      '#2f4b7c', // Dark blue
-      '#665191'  // Indigo
-    ];
-
     // Scoreboard Functions (Updated for time-series chart)
     let scoreChart;
     let teamScoreHistory = {}; // Store score history for each team
@@ -513,8 +498,8 @@
                ' ' + date.toLocaleDateString([], { month: 'short', day: 'numeric' });
       });
       
-      const datasets = topTeams.map((team, index) => {
-        const color = teamColors[index % teamColors.length];
+      const datasets = topTeams.map((team) => {
+        const color = stringToColor(team.teamName);
         
         const data = sortedTimestamps.map(timestamp => {
           if (!team.scoreHistory || team.scoreHistory.length === 0) return 0;
@@ -527,12 +512,11 @@
           label: team.teamName,
           data: data,
           borderColor: color,
-          backgroundColor: 'transparent',
+          backgroundColor: color,
           borderWidth: 2,
           pointRadius: 3,
           pointHoverRadius: 5,
-          tension: 0.1,
-          stepped: true
+          tension: 0.4
         };
       });
       
@@ -576,7 +560,13 @@
           },
           plugins: {
             legend: {
-              display: false // Hide the default legend
+              display: true,
+              position: 'bottom',
+              labels: {
+                color: 'var(--text)',
+                usePointStyle: true,
+                boxWidth: 8
+              }
             },
             tooltip: {
               mode: 'index',
@@ -603,25 +593,8 @@
           }
         }
       });
-      
-      updateChartLegend(topTeams);
     }
     
-    function updateChartLegend(topTeams) {
-      const legendContainer = document.getElementById('chart-legend');
-      legendContainer.innerHTML = '';
-      
-      topTeams.forEach((team, index) => {
-        const color = teamColors[index % teamColors.length];
-        const legendItem = document.createElement('div');
-        legendItem.className = 'legend-item';
-        legendItem.innerHTML = `
-          <div class="legend-color" style="background-color: ${color};"></div>
-          <span>${team.teamName}</span>
-        `;
-        legendContainer.appendChild(legendItem);
-      });
-    }
     
     function updateStandings(teamsData) {
       const standingsList = document.getElementById('standingsList');
