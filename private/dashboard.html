@@ -496,13 +496,6 @@
           if (historyPoints.length === 0) return 0;
           return historyPoints[historyPoints.length - 1].score;
         });
-
-        const pointRadii = sortedTimestamps.map(timestamp => {
-          const solvedHere = team.scoreHistory && team.scoreHistory.some(p => p.timestamp === timestamp);
-          return solvedHere ? 4 : 0;
-        });
-        
-        const pointHoverRadii = pointRadii.map(r => r > 0 ? 6 : 0);
         
         return {
           label: team.teamName,
@@ -510,8 +503,8 @@
           borderColor: color,
           backgroundColor: color,
           borderWidth: 2,
-          pointRadius: pointRadii,
-          pointHoverRadius: pointHoverRadii,
+          pointRadius: 3,
+          pointHoverRadius: 5,
           tension: 0.4
         };
       });
