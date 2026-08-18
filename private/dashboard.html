@@ -319,26 +319,28 @@
           if (!profileDiv) return;
           if (data.error) {
             profileDiv.innerHTML = `
-              <h3 style="font-size: 2rem; margin-bottom: 1rem;" id="displayUsername">${data.username}</h3>
+              <div id="displayUsernameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <h3 style="font-size: 2rem; margin: 0;" id="displayUsername">${data.username}</h3>
+                <button id="editUsernameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:50%; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Username">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </button>
+              </div>
               <div id="editUsernameForm" style="display: none; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
                  <input type="text" id="newUsernameInput" value="${data.username}" style="padding:0.5rem 1rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
                  <button id="saveUsernameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer;">Save</button>
                  <button id="cancelUsernameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
               </div>
-              <button id="editUsernameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:9999px; cursor:pointer; margin-bottom:1rem; transition: all 0.2s;">Edit Username</button>
               <p style="font-size: 1.2rem;">Team: ${teamText}</p>
               <p id="profileMessage" style="margin-top: 1rem; color: var(--warning);"></p>
             `;
 
             document.getElementById('editUsernameBtn').addEventListener('click', () => {
-              document.getElementById('displayUsername').style.display = 'none';
-              document.getElementById('editUsernameBtn').style.display = 'none';
+              document.getElementById('displayUsernameContainer').style.display = 'none';
               document.getElementById('editUsernameForm').style.display = 'flex';
             });
             
             document.getElementById('cancelUsernameBtn').addEventListener('click', () => {
-              document.getElementById('displayUsername').style.display = 'block';
-              document.getElementById('editUsernameBtn').style.display = 'inline-block';
+              document.getElementById('displayUsernameContainer').style.display = 'flex';
               document.getElementById('editUsernameForm').style.display = 'none';
               document.getElementById('profileMessage').textContent = '';
             });
@@ -666,26 +668,28 @@
           if (data.team) {
             const members = data.team.membersNames && data.team.membersNames.length ? data.team.membersNames.join(', ') : 'No members';
             myTeamInfo.innerHTML = `
-              <div id="displayTeamName" style="font-size: 1.5rem; margin-bottom: 0.5rem;"><strong>${data.team.teamName}</strong></div>
+              <div id="displayTeamNameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <div id="displayTeamName" style="font-size: 1.5rem; margin: 0;"><strong>${data.team.teamName}</strong></div>
+                <button id="editTeamNameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:50%; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Team Name">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </button>
+              </div>
               <div id="editTeamNameForm" style="display: none; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
                  <input type="text" id="newTeamNameInput" value="${data.team.teamName}" style="padding:0.5rem 1rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
                  <button id="saveTeamNameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer;">Save</button>
                  <button id="cancelTeamNameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
               </div>
-              <button id="editTeamNameBtn" style="padding:0.25rem 0.75rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:9999px; cursor:pointer; font-size: 0.85rem; margin-bottom:1rem; transition: all 0.2s;">Edit Team Name</button>
               <br/><span style="font-size: 1.1rem;">Members: ${members}</span><br/><span style="font-size: 1.1rem;">Score: ${data.team.score || 0} pts</span>
               <p id="teamMessage" style="margin-top: 1rem; color: var(--warning);"></p>
             `;
             
             document.getElementById('editTeamNameBtn').addEventListener('click', () => {
-              document.getElementById('displayTeamName').style.display = 'none';
-              document.getElementById('editTeamNameBtn').style.display = 'none';
+              document.getElementById('displayTeamNameContainer').style.display = 'none';
               document.getElementById('editTeamNameForm').style.display = 'flex';
             });
             
             document.getElementById('cancelTeamNameBtn').addEventListener('click', () => {
-              document.getElementById('displayTeamName').style.display = 'block';
-              document.getElementById('editTeamNameBtn').style.display = 'inline-block';
+              document.getElementById('displayTeamNameContainer').style.display = 'flex';
               document.getElementById('editTeamNameForm').style.display = 'none';
               document.getElementById('teamMessage').textContent = '';
             });
