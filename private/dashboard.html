@@ -458,22 +458,28 @@
     function updateTimeSeriesChart(topTeams) {
       const ctx = document.getElementById('scoreChart').getContext('2d');
       
-      const allTimestamps = new Set();
       let earliestTime = Date.now();
       
       topTeams.forEach(team => {
         if (team.scoreHistory) {
           team.scoreHistory.forEach(point => {
-            allTimestamps.add(point.timestamp);
             if (point.timestamp < earliestTime) earliestTime = point.timestamp;
           });
         }
       });
       
       const startTime = earliestTime - (15 * 60 * 1000); // Baseline 15 mins before first activity
-      allTimestamps.add(startTime);
+      const now = Date.now();
+      const intervalMs = 15 * 60 * 1000; // 15 minute intervals
       
-      const sortedTimestamps = Array.from(allTimestamps).sort((a, b) => a - b);
+      const sortedTimestamps = [];
+      for (let t = startTime; t <= now; t += intervalMs) {
+        sortedTimestamps.push(t);
+      }
+      // Ensure the very current time is also included at the end
+      if (sortedTimestamps[sortedTimestamps.length - 1] < now) {
+        sortedTimestamps.push(now);
+      }
       
       const labels = sortedTimestamps.map(timestamp => {
         const diffMs = timestamp - startTime;

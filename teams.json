@@ -3205,7 +3205,7 @@
     "membersNames": [
       "admin"
     ],
-    "score": 4500,
+    "score": 5000,
     "solvedChallenges": {},
     "scoreHistory": [
       {
@@ -3223,6 +3223,10 @@
       {
         "timestamp": 1787071057257,
         "score": 4500
+      },
+      {
+        "timestamp": 1787071423645,
+        "score": 5000
       }
     ]
   }

@@ -5,7 +5,9 @@
     "email": "admin@ctf.com",
     "password": "$2b$10$qkWNaiXIgzGSPeYudot9P.AWVstHeV4uw57i9imXzXEG5qQ7Ts7LW",
     "teamId": "team_admin_1",
-    "solvedChallenges": []
+    "solvedChallenges": [
+      "OSINT"
+    ]
   },
   {
     "id": "user_1787070878104_0_0",
