@@ -140,7 +140,7 @@ body {
   left: 50%;
   width: 0;
   height: 2px;
-  background: var(--text); color: var(--background);
+  background: var(--text);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -157,7 +157,7 @@ body {
 .mobile-menu-toggle {
   display: none;
   background: none;
-  border: none;
+  border: 1px solid var(--border);
   color: var(--text);
   font-size: 1.5rem;
   cursor: pointer;
@@ -175,7 +175,7 @@ body {
   border-radius: 16px;
   text-align: center;
   box-shadow: none;
-  border: none;
+  border: 1px solid var(--border);
 }
 
 .info-section h1 {
@@ -206,7 +206,7 @@ body {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: none;
-  border: none;
+  border: 1px solid var(--border);
 }
 
 .card-header {
@@ -296,7 +296,7 @@ body {
   background: transparent;
   border-radius: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: none;
+  border: 1px solid var(--border);
 }
 
 .standing-item:hover {
@@ -336,7 +336,7 @@ body {
   background: transparent;
   border-radius: 12px;
   overflow: hidden;
-  border: none;
+  border: 1px solid var(--border);
 }
 
 .user-item, .team-item {
@@ -374,7 +374,7 @@ body {
 #joinTeamName, #joinTeamPassword, 
 #createTeamName, #createTeamPassword {
   padding: 0.75rem 1rem;
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 12px;
   outline: none;
   background: transparent;
@@ -395,9 +395,9 @@ body {
 #submitJoinTeam, #submitCreateTeam,
 #showJoinForm, #showCreateForm {
   padding: 0.75rem 1.25rem;
-  background: var(--text); color: var(--background);
+  background: var(--text);
   color: var(--background);
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
@@ -431,7 +431,7 @@ body {
   padding: 0.6rem 1rem;
   background: transparent;
   color: var(--text-muted);
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
@@ -446,7 +446,7 @@ body {
 }
 
 #usersPagination button.active, #teamsPagination button.active {
-  background: var(--text); color: var(--background);
+  background: var(--text);
   color: var(--background);
   border-color: var(--primary);
 }
@@ -479,7 +479,7 @@ body {
   padding: 1.5rem;
   background: transparent;
   border-radius: 12px;
-  border: none;
+  border: 1px solid var(--border);
   line-height: 1.8;
 }
 
@@ -501,7 +501,7 @@ body {
   padding: 2rem;
   background: transparent;
   border-radius: 12px;
-  border: none;
+  border: 1px solid var(--border);
   text-align: left;
   animation: slideDown 0.3s ease;
 }
@@ -600,7 +600,7 @@ body {
   background: var(--card-bg);
   margin: 10% auto;
   padding: 2rem;
-  border: none;
+  border: 1px solid var(--border);
   width: 90%;
   max-width: 500px;
   border-radius: 16px;
@@ -619,7 +619,7 @@ body {
   width: 100%;
   padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 12px;
   background: transparent;
   color: var(--text);
@@ -635,9 +635,9 @@ body {
 
 .modal-content button {
   padding: 0.75rem 1.5rem;
-  background: var(--text); color: var(--background);
+  background: var(--text);
   color: var(--background);
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 12px;
   cursor: pointer;
   font-weight: 500;
@@ -684,14 +684,14 @@ body {
   padding: 1rem;
   background: transparent;
   border-radius: 12px;
-  border: none;
+  border: 1px solid var(--border);
 }
 
 #downloadScoreboardBtn {
   padding: 0.75rem 1.5rem;
   background: var(--accent);
   color: var(--background);
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 12px;
   cursor: pointer;
   margin-bottom: 1.5rem;
@@ -716,7 +716,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--text); color: var(--background);
+  background: var(--text);
   border-radius: 4px;
 }
 
