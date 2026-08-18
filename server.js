@@ -272,6 +272,60 @@ app.post('/api/challenge/flag', (req, res) => {
 // Protected Routes & Static Files
 // -----------------------
 
+
+// -----------------------
+// Update Endpoints
+// -----------------------
+
+// Update Username Endpoint
+app.post('/api/profile/update', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const { newUsername } = req.body;
+  if (!newUsername || newUsername.trim() === '') {
+    return res.status(400).json({ error: 'Username cannot be empty.' });
+  }
+  
+  // Check if username is already taken
+  if (users.find(u => u.username.toLowerCase() === newUsername.trim().toLowerCase() && u.id !== req.session.userId)) {
+    return res.status(400).json({ error: 'Username already taken.' });
+  }
+
+  const userIndex = users.findIndex(u => u.id === req.session.userId);
+  if (userIndex === -1) return res.status(404).json({ error: 'User not found.' });
+
+  users[userIndex].username = newUsername.trim();
+  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+  io.emit('usersUpdate');
+  res.json({ message: 'Username updated successfully.', username: users[userIndex].username });
+});
+
+// Update Team Name Endpoint
+app.post('/api/team/update', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const { newTeamName } = req.body;
+  if (!newTeamName || newTeamName.trim() === '') {
+    return res.status(400).json({ error: 'Team name cannot be empty.' });
+  }
+
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || !currentUser.teamId) {
+    return res.status(400).json({ error: 'You are not in a team.' });
+  }
+
+  // Check if team name is already taken
+  if (teams.find(t => t.teamName.toLowerCase() === newTeamName.trim().toLowerCase() && t.id !== currentUser.teamId)) {
+    return res.status(400).json({ error: 'Team name already taken.' });
+  }
+
+  const teamIndex = teams.findIndex(t => t.id === currentUser.teamId);
+  if (teamIndex === -1) return res.status(404).json({ error: 'Team not found.' });
+
+  teams[teamIndex].teamName = newTeamName.trim();
+  fs.writeFileSync(teamsFilePath, JSON.stringify(teams, null, 2));
+  io.emit('teamsUpdate');
+  res.json({ message: 'Team name updated successfully.', teamName: teams[teamIndex].teamName });
+});
+
 app.get('/dashboard', (req, res) => {
   if (!req.session.userId) return res.redirect('/');
   res.sendFile(path.join(__dirname, 'private', 'dashboard.html'));
