@@ -1043,15 +1043,40 @@
       
       
       fetchConfig();
+      function updateAdminStartButton() {
+        const btn = document.getElementById('adminStartCtfBtn');
+        if (!btn) return;
+        if (ctfStartTime) {
+          btn.innerHTML = '🛑 Stop CTF';
+          btn.style.background = 'transparent';
+          btn.style.border = '1px solid var(--warning)';
+          btn.style.color = 'var(--warning)';
+        } else {
+          btn.innerHTML = '▶ Start CTF';
+          btn.style.background = 'var(--text)';
+          btn.style.border = 'none';
+          btn.style.color = 'var(--background)';
+        }
+      }
+
       const adminStartCtfBtn = document.getElementById('adminStartCtfBtn');
       if (adminStartCtfBtn) {
         adminStartCtfBtn.addEventListener('click', () => {
-          showCustomConfirm("Start CTF?", "Are you sure you want to START the CTF timer? (This will NOT wipe data)", false, (res) => {
-            if(!res) return;
-            fetch('/api/admin/start', { method: 'POST' }).then(r=>r.json()).then(d => {
-              if(d.error) showCustomConfirm("Error", d.error, true, null);
+          if (ctfStartTime) {
+            showCustomConfirm("Stop CTF?", "Are you sure you want to STOP the CTF? Players won't be able to submit flags.", false, (res) => {
+              if(!res) return;
+              fetch('/api/admin/stop', { method: 'POST' }).then(r=>r.json()).then(d => {
+                if(d.error) showCustomConfirm("Error", d.error, true, null);
+              });
             });
-          });
+          } else {
+            showCustomConfirm("Start CTF?", "Are you sure you want to START the CTF timer? (This will NOT wipe data)", false, (res) => {
+              if(!res) return;
+              fetch('/api/admin/start', { method: 'POST' }).then(r=>r.json()).then(d => {
+                if(d.error) showCustomConfirm("Error", d.error, true, null);
+              });
+            });
+          }
         });
       }
 
@@ -1072,6 +1097,7 @@
       socket.on('configUpdate', (data) => {
          ctfStartTime = data.ctfStartTime;
          startLocalTimer();
+         updateAdminStartButton();
          // If started, refresh everything to show wiped scores
          fetchChallenges(); fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers();
       });
@@ -1302,18 +1328,19 @@
     let timerInterval = null;
 
     function formatTime(ms) {
-      if (ms < 0) return "00:00";
+      if (ms < 0) return "00:00:00";
       const totalSeconds = Math.floor(ms / 1000);
       const h = Math.floor(totalSeconds / 3600);
       const m = Math.floor((totalSeconds % 3600) / 60);
-      return [h, m].map(v => v.toString().padStart(2, '0')).join(':');
+      const s = totalSeconds % 60;
+      return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
     }
 
     function updateTimerUI() {
       const display = document.getElementById('ctfTimerDisplay');
       if (!display) return;
       if (!ctfStartTime) {
-        display.textContent = '--:--';
+        display.textContent = '--:--:--';
         display.style.color = 'var(--text-muted)';
         return;
       }
@@ -1331,6 +1358,7 @@
       fetch('/api/config').then(r => r.json()).then(data => {
         ctfStartTime = data.ctfStartTime;
         startLocalTimer();
+        updateAdminStartButton();
       });
     }
 
@@ -1424,7 +1452,7 @@
     });
   </script>
 
-  <div id="ctfTimerDisplay" style="position: fixed; bottom: 20px; right: 20px; font-family: monospace; font-size: 2rem; color: var(--text); font-weight: bold; background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); z-index: 10000; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">--:--</div>
+  <div id="ctfTimerDisplay" style="position: fixed; bottom: 20px; right: 20px; font-family: monospace; font-size: 2rem; color: var(--text); font-weight: bold; background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); z-index: 10000; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">--:--:--</div>
 </body>
 </html>
 

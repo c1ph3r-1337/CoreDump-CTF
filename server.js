@@ -63,6 +63,18 @@ app.post('/api/admin/start', (req, res) => {
   res.json({ message: 'CTF Started!', config: ctfConfig });
 });
 
+app.post('/api/admin/stop', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
+  
+  ctfConfig.ctfStartTime = null;
+  fs.writeFileSync(configFilePath, JSON.stringify(ctfConfig, null, 2));
+  io.emit('configUpdate', ctfConfig);
+  
+  res.json({ message: 'CTF Stopped!', config: ctfConfig });
+});
+
 app.post('/api/admin/wipe', (req, res) => {
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const currentUser = users.find(u => u.id === req.session.userId);
