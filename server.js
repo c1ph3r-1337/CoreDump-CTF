@@ -107,7 +107,7 @@ app.get('/api/challenges', (req, res) => {
   const flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
   const safeData = {};
   for (const key in flagsData) {
-    safeData[key] = { text: flagsData[key].text };
+    safeData[key] = { text: flagsData[key].text, points: flagsData[key].points || 500 };
   }
   res.json(safeData);
 });
@@ -117,7 +117,7 @@ app.post('/api/admin/challenges', (req, res) => {
   const currentUser = users.find(u => u.id === req.session.userId);
   if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
-  const { category, text, flag } = req.body;
+  const { category, text, flag, points } = req.body;
   if (!category || !text) return res.status(400).json({ error: 'Category and text required.' });
   
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
@@ -130,6 +130,7 @@ app.post('/api/admin/challenges', (req, res) => {
     flagsData[category] = {};
   }
   flagsData[category].text = text;
+  flagsData[category].points = parseInt(points) || 500;
   if (flag) {
     flagsData[category].hash = bcrypt.hashSync(flag, 10);
   }
@@ -309,9 +310,10 @@ app.post('/api/challenge/flag', (req, res) => {
     currentUser.solvedChallenges = [];
   }
   currentUser.solvedChallenges.push(category);
-  team.score += 500;
+  const pointsEarned = challengeObj.points !== undefined ? Number(challengeObj.points) : 500;
+  team.score += pointsEarned;
   if (!team.scoreHistory) {
-    team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score - 500 }];
+    team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score - pointsEarned }];
   }
   team.scoreHistory.push({ timestamp: Date.now(), score: team.score });
   

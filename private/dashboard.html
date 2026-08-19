@@ -281,6 +281,7 @@
         <input type="text" id="adminCatInput" placeholder="Category Name (e.g. Forensics)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically, optional if updating text)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <button id="adminSubmitBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: 500;">Save Challenge</button>
         <p id="adminMsg" style="margin:0;"></p>
       </div>
@@ -369,7 +370,7 @@
           const div = document.createElement('div');
           div.className = 'challenge-box';
           div.setAttribute('data-category', category);
-          div.textContent = category;
+          div.innerHTML = `<div style="font-weight: 600;">${category}</div><div style="font-size:0.85rem; margin-top:0.25rem; opacity:0.9;">${info.points || 500} pts</div>`;
           catContainer.appendChild(div);
         }
         
@@ -378,7 +379,8 @@
           div.style.cssText = 'display:flex; flex-direction:column; justify-content:space-between; padding:1.25rem; background:var(--card-bg); border:1px solid var(--border); border-radius:16px; min-height: 140px;';
           div.innerHTML = `
             <div style="margin-bottom: 1.25rem;">
-              <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">${category}</div>
+              <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem;">${category}</div>
+              <div style="font-size:0.8rem; color:var(--primary); font-weight: 600; margin-bottom: 0.5rem;">${info.points || 500} pts</div>
               <div style="font-size:0.85rem; color:var(--text-muted); line-height: 1.4;">${info.text}</div>
             </div>
             <div style="display:flex; gap:0.5rem; margin-top:auto;"><button onclick="editChallenge('${category}')" style="flex:1; padding:0.5rem; background:transparent; color:var(--text); border:1px solid var(--border); border-radius:9999px; cursor:pointer; font-weight:500; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Edit</button><button onclick="deleteChallenge('${category}')" style="flex:1; padding:0.5rem; background:transparent; color:var(--text); border:1px solid var(--border); border-radius:9999px; cursor:pointer; font-weight:500; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Delete</button></div>
@@ -397,6 +399,8 @@
       document.getElementById('adminCatInput').value = category;
       document.getElementById('adminTextInput').value = currentChallenges[category].text;
       document.getElementById('adminFlagInput').value = '';
+      document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
+              document.getElementById('adminPointsInput').value = '';
       document.getElementById('adminFormCard').style.display = 'block';
       document.getElementById('adminCatInput').focus();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -435,12 +439,13 @@
           const category = document.getElementById('adminCatInput').value;
           const text = document.getElementById('adminTextInput').value;
           const flag = document.getElementById('adminFlagInput').value;
+          const points = document.getElementById('adminPointsInput').value;
           const msg = document.getElementById('adminMsg');
           
           fetch('/api/admin/challenges', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ category, text, flag })
+            body: JSON.stringify({ category, text, flag, points })
           })
           .then(res => res.json())
           .then(data => {
