@@ -300,6 +300,20 @@
 
 
 
+  
+  <!-- Custom Confirm Modal -->
+  <div id="customConfirmModal" class="modal" style="z-index: 10000;">
+    <div class="modal-content" style="max-width: 400px; text-align: center; padding: 2rem;">
+      <h3 id="customConfirmTitle" style="margin-bottom: 1rem; font-size: 1.5rem;">Confirm</h3>
+      <p id="customConfirmMessage" style="margin-bottom: 2rem; color: var(--text-muted);"></p>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <button id="customConfirmCancelBtn" style="padding: 0.75rem 2rem; border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 9999px; cursor: pointer; transition: all 0.2s;">Cancel</button>
+        <button id="customConfirmOkBtn" style="padding: 0.75rem 2rem; border: none; background: var(--text); color: var(--background); border-radius: 9999px; cursor: pointer; font-weight: 500;">OK</button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- Challenge Modal -->
   <div id="challengeModal" class="modal">
     <div class="modal-content">
@@ -407,14 +421,16 @@
     }
     
     function deleteChallenge(category) {
-      if(!confirm('Are you sure you want to delete ' + category + '?')) return;
-      fetch('/api/admin/challenges/delete', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ category })
-      }).then(res => res.json()).then(data => {
-         if(data.error) alert(data.error);
-         else fetchChallenges();
+      showCustomConfirm("Delete Challenge", "Are you sure you want to delete " + category + "?", false, (confirmed) => {
+        if (!confirmed) return;
+        fetch('/api/admin/challenges/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ category })
+        }).then(res => res.json()).then(data => {
+           if(data.error) showCustomConfirm("Error", data.error, true, null);
+           else fetchChallenges();
+        });
       });
     }
     
@@ -856,20 +872,22 @@
             `;
             
             document.getElementById('leaveTeamBtn').addEventListener('click', () => {
-              if (confirm("Are you sure you want to leave this team? ")) {
-                fetch('/api/team/leave', { method: 'POST' })
-                  .then(res => res.json())
-                  .then(resp => {
-                    if (resp.error) {
-                      document.getElementById('teamMessage').textContent = resp.error;
-                    } else {
-                      fetchMyTeam();
-                      fetchProfile();
-                      fetchTeamScores(); fetchTeams(); fetchMyTeam();
-                    }
-                  })
-                  .catch(err => console.error(err));
-              }
+              showCustomConfirm("Leave Team", "Are you sure you want to leave this team?", false, (confirmed) => {
+                if (confirmed) {
+                  fetch('/api/team/leave', { method: 'POST' })
+                    .then(res => res.json())
+                    .then(resp => {
+                      if (resp.error) {
+                        document.getElementById('teamMessage').textContent = resp.error;
+                      } else {
+                        fetchMyTeam();
+                        fetchProfile();
+                        fetchTeamScores(); fetchTeams(); fetchMyTeam();
+                      }
+                    })
+                    .catch(err => console.error(err));
+                }
+              });
             });
 
             document.getElementById('editTeamNameBtn').addEventListener('click', () => {
@@ -913,6 +931,35 @@
       fetchTeamScores(); fetchTeams(); fetchMyTeam();
       updateChallengeBoxesFromTeam();
       
+      
+    let customConfirmCallback = null;
+    
+    function showCustomConfirm(title, message, isAlert, callback) {
+      document.getElementById('customConfirmTitle').textContent = title;
+      document.getElementById('customConfirmMessage').textContent = message;
+      document.getElementById('customConfirmModal').style.display = 'flex';
+      
+      const cancelBtn = document.getElementById('customConfirmCancelBtn');
+      if (isAlert) {
+        cancelBtn.style.display = 'none';
+      } else {
+        cancelBtn.style.display = 'block';
+      }
+      
+      customConfirmCallback = callback;
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('customConfirmCancelBtn').addEventListener('click', () => {
+        document.getElementById('customConfirmModal').style.display = 'none';
+        if (customConfirmCallback) customConfirmCallback(false);
+      });
+      document.getElementById('customConfirmOkBtn').addEventListener('click', () => {
+        document.getElementById('customConfirmModal').style.display = 'none';
+        if (customConfirmCallback) customConfirmCallback(true);
+      });
+    });
+
       const socket = io();
       socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); });
       socket.on('challengesUpdate', fetchChallenges);
