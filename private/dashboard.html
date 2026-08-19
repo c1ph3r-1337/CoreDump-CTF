@@ -410,6 +410,7 @@
         body: JSON.stringify({ category })
       }).then(res => res.json()).then(data => {
          if(data.error) alert(data.error);
+         else fetchChallenges();
       });
     }
     
@@ -452,17 +453,13 @@
               document.getElementById('adminCatInput').value = '';
               document.getElementById('adminTextInput').value = '';
               document.getElementById('adminFlagInput').value = '';
+              fetchChallenges(); // Force local update instantly
             }
           });
         });
       }
     });
 
-    if (typeof socket !== 'undefined') {
-      socket.on('challengesUpdate', () => {
-        fetchChallenges();
-      });
-    }
 
 
     function fetchProfile() {
@@ -892,6 +889,7 @@
       
       const socket = io();
       socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); });
+      socket.on('challengesUpdate', fetchChallenges);
       socket.on('teamsUpdate', () => {
         fetchTeamScores(); fetchTeams(); fetchMyTeam();
       });
