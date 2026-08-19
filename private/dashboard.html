@@ -464,7 +464,15 @@
       const fileInput = document.getElementById('adminResourceInput');
       if (fileInput) fileInput.value = '';
       const fileDisplay = document.getElementById('fileNameDisplay');
-      if (fileDisplay) fileDisplay.textContent = 'No file chosen';
+      if (fileDisplay) {
+        if (currentChallenges[category].originalResourceName) {
+           fileDisplay.textContent = 'Current: ' + currentChallenges[category].originalResourceName;
+        } else if (currentChallenges[category].resource) {
+           fileDisplay.textContent = 'Current: ' + currentChallenges[category].resource;
+        } else {
+           fileDisplay.textContent = 'No file chosen';
+        }
+      }
       const removeCb = document.getElementById('adminRemoveResource');
       if (removeCb) removeCb.checked = false;
       document.getElementById('adminFormCard').style.display = 'block';
@@ -546,6 +554,12 @@
               document.getElementById('adminCatInput').value = '';
               document.getElementById('adminTextInput').value = '';
               document.getElementById('adminFlagInput').value = '';
+              const fInput = document.getElementById('adminResourceInput');
+              if(fInput) fInput.value = '';
+              const fDisplay = document.getElementById('fileNameDisplay');
+              if(fDisplay) fDisplay.textContent = 'No file chosen';
+              const rCb = document.getElementById('adminRemoveResource');
+              if(rCb) rCb.checked = false;
               fetchChallenges(); // Force local update instantly
             }
           });
