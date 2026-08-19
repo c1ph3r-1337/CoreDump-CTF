@@ -685,7 +685,25 @@
         .then(res => res.json())
         .then(data => {
           // Sort teams by current score and append rank
-          const sortedTeams = data.sort((a, b) => b.score - a.score).map((t, idx) => {
+          const sortedTeams = data.sort((a, b) => {
+            if (b.score !== a.score) return b.score - a.score;
+            const getLastSolve = (team) => {
+              if (!team.solvedChallenges) return Infinity;
+              const keys = Object.keys(team.solvedChallenges);
+              if (keys.length === 0) return Infinity;
+              let max = 0;
+              for (const key of keys) {
+                if (team.solvedChallenges[key].timestamp > max) {
+                  max = team.solvedChallenges[key].timestamp;
+                }
+              }
+              return max;
+            };
+            const timeA = getLastSolve(a);
+            const timeB = getLastSolve(b);
+            if (timeA === Infinity && timeB === Infinity) return 0;
+            return timeA - timeB;
+          }).map((t, idx) => {
             t.rank = idx + 1;
             return t;
           });
