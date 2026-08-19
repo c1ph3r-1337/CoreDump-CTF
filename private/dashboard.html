@@ -968,7 +968,18 @@
       
       const socket = io();
       socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); });
-      socket.on('challengesUpdate', fetchChallenges);
+      socket.on('challengesUpdate', () => {
+        fetchChallenges();
+        // Live update the modal if it's currently open
+        if (typeof currentCategory !== 'undefined' && currentCategory) {
+          setTimeout(() => {
+            if (currentChallenges[currentCategory] && document.getElementById('challengeModal').style.display === 'flex') {
+              document.getElementById('challengeDescription').textContent = currentChallenges[currentCategory].text;
+              document.getElementById('modalTitle').textContent = currentCategory + ' Challenge';
+            }
+          }, 300); // Wait for fetchChallenges to populate data
+        }
+      });
       socket.on('teamsUpdate', () => {
         fetchTeamScores(); fetchTeams(); fetchMyTeam();
       });
@@ -1188,8 +1199,9 @@
       const catContainer = document.getElementById('challengeCategoriesContainer');
       if (catContainer) {
         catContainer.addEventListener('click', (e) => {
-          if (e.target.classList.contains('challenge-box')) {
-            currentCategory = e.target.getAttribute('data-category');
+          const box = e.target.closest('.challenge-box');
+          if (box) {
+            currentCategory = box.getAttribute('data-category');
             modalTitle.textContent = currentCategory + ' Challenge';
             
             // Set dynamic text from currentChallenges
