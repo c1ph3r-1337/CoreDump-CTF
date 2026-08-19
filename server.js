@@ -151,8 +151,49 @@ app.post('/api/admin/challenges/delete', (req, res) => {
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
   if (fs.existsSync(flagsFilePath)) {
     let flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
-    delete flagsData[category];
-    fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
+    const challengeObj = flagsData[category];
+    
+    if (challengeObj) {
+      const pointsToDeduct = challengeObj.points !== undefined ? Number(challengeObj.points) : 500;
+      
+      // Remove points from teams that solved it
+      let teamsChanged = false;
+      teams.forEach(team => {
+        const teamSolvedIt = team.members.some(memberId => {
+          const member = users.find(u => u.id === memberId);
+          return member && Array.isArray(member.solvedChallenges) && member.solvedChallenges.includes(category);
+        });
+        
+        if (teamSolvedIt) {
+          team.score -= pointsToDeduct;
+          if (!team.scoreHistory) {
+            team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score + pointsToDeduct }];
+          }
+          team.scoreHistory.push({ timestamp: Date.now(), score: team.score });
+          teamsChanged = true;
+        }
+      });
+      
+      // Remove challenge from all users' solved lists
+      let usersChanged = false;
+      users.forEach(user => {
+        if (Array.isArray(user.solvedChallenges) && user.solvedChallenges.includes(category)) {
+          user.solvedChallenges = user.solvedChallenges.filter(c => c !== category);
+          usersChanged = true;
+        }
+      });
+      
+      // Save data
+      delete flagsData[category];
+      fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
+      
+      if (usersChanged || teamsChanged) {
+        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
+        fs.writeFileSync(path.join(__dirname, 'teams.json'), JSON.stringify(teams, null, 2));
+        io.emit('usersUpdate');
+        io.emit('teamsUpdate');
+      }
+    }
   }
   io.emit('challengesUpdate');
   res.json({ message: 'Challenge deleted successfully.' });
