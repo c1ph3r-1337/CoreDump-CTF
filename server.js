@@ -311,9 +311,10 @@ app.get('/api/profile', (req, res) => {
 app.post('/api/team/create', (req, res) => {
   const userId = req.session.userId;
   if (!userId) return res.status(403).json({ error: 'Not logged in' });
-  const { teamName, password } = req.body;
-  if (!teamName || !password) return res.status(400).json({ error: 'Team name and password required.' });
-  const existingTeam = teams.find(t => t.teamName.toLowerCase() === teamName.toLowerCase());
+  let { teamName, password } = req.body;
+  if (!teamName || !teamName.trim() || !password) return res.status(400).json({ error: 'Team name and password required.' });
+  teamName = teamName.trim();
+  const existingTeam = teams.find(t => t.teamName.trim().toLowerCase() === teamName.toLowerCase());
   if (existingTeam) return res.status(400).json({ error: 'Team already exists.' });
   const user = users.find(u => u.id === userId);
   if (!user) return res.status(404).json({ error: 'User not found.' });
@@ -468,7 +469,7 @@ app.post('/api/team/update', (req, res) => {
   }
 
   // Check if team name is already taken
-  if (teams.find(t => t.teamName.toLowerCase() === newTeamName.trim().toLowerCase() && t.id !== currentUser.teamId)) {
+  if (teams.find(t => t.teamName.trim().toLowerCase() === newTeamName.trim().toLowerCase() && t.id !== currentUser.teamId)) {
     return res.status(400).json({ error: 'Team name already taken.' });
   }
 
