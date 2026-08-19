@@ -1,7 +1,8 @@
 {
   "Forensics": {
     "hash": "$2b$10$VSqzy6/j4Pa8p/tHFcVBx.K4p09a915OuMrO79ddlG6Oh.Na1TmC6",
-    "text": "Solve the Forensics challenge and submit your flag."
+    "text": "Solve the Forensics challenge and submit your flag.",
+    "points": 500
   },
   "Reverse Engineering": {
     "hash": "$2b$10$D6aKZyJ3q6q5Hf1eBfE1neZt0Xxq3P9YwW6I5i8p7D9e0Zk1aB2Ce",
@@ -12,12 +13,14 @@
     "text": "Solve the Web Exploitation challenge and submit your flag."
   },
   "OSINT": {
-    "hash": "$2b$10$p.k52dWADvP7XVD0mpxGyeLx1/rLktEX.FKC.8KeUkJjte9x8eXvO",
-    "text": "Solve the OSINT challenge and submit your flag."
+    "hash": "$2b$10$2uiJDsVkodKi2LiiVSb4muA4Du/.69ZnJnSXa5joFy48cT3sc6enm",
+    "text": "Solve the OSINT challenge and submit your flag.",
+    "points": 600
   },
   "Crypto": {
-    "hash": "$2b$10$K1nX8pJ6tR3qS9wD4fG2BeYuV5iO7mL0aZ6cQ8rT3pF1sH9lD2kC7Ge",
-    "text": "Solve the Crypto challenge and submit your flag."
+    "hash": "$2b$10$aWplibE47e.IhXohaXLAoOqqIiE11TrszGr70dul1.nzsPUCHBXlW",
+    "text": "Solve the Crypto challenge and submit your flag.",
+    "points": 500
   },
   "Steganography": {
     "hash": "$2b$10$M2aL9rP6qT3wF8sK1dE0BeYuV4iO6nL7zQ5rS3pF8tH0uJ2cB1dE9K",
