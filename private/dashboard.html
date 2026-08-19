@@ -827,7 +827,28 @@
                  <button id="saveTeamNameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer;">Save</button>
                  <button id="cancelTeamNameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
               </div>
-              <br/><span style="font-size: 1.1rem;">Members: ${members}</span><br/><span style="font-size: 1.1rem;">Score: ${data.team.score || 0} pts</span>
+              
+              <div style="font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;">Total Team Score: <span style="color:var(--primary);">${data.team.score || 0} pts</span></div>
+              ${(() => {
+                let html = '<div style="margin-top: 1.5rem; text-align: left; display: block; margin: 0 auto; width: 100%; max-width: 400px;">';
+                if (data.team.memberDetails) {
+                  data.team.memberDetails.forEach(m => {
+                    html += '<div style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px;">';
+                    html += '<div style="font-weight: 600; font-size: 1.1rem; display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><span>' + m.username + '</span> <span style="color:var(--primary); font-size:1rem;">' + m.totalPoints + ' pts</span></div>';
+                    if (m.solvedChallenges && m.solvedChallenges.length > 0) {
+                      m.solvedChallenges.forEach(c => {
+                        html += '<div style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem; padding: 0.25rem 0;"><span>' + c.category + '</span><span style="opacity:0.7;">' + c.points + ' pts</span></div>';
+                      });
+                    } else {
+                      html += '<div style="font-size:0.9rem; opacity:0.5; font-style:italic; text-align:center; margin-top:0.5rem;">No challenges solved yet</div>';
+                    }
+                    html += '</div>';
+                  });
+                }
+                html += '</div>';
+                return html;
+              })()}
+
               <div style="margin-top: 1.5rem;">
                 <button id="leaveTeamBtn" style="padding:0.5rem 1rem; border:1px solid rgba(245,158,11,0.5); background:rgba(245,158,11,0.1); color:var(--warning); border-radius:9999px; cursor:pointer; font-size: 0.85rem; transition: all 0.2s;">Leave Team</button>
               </div>
