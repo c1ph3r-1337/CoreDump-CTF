@@ -328,6 +328,35 @@
 
   <!-- MAIN SCRIPT -->
   <script>
+
+    let customConfirmCallback = null;
+    
+    function showCustomConfirm(title, message, isAlert, callback) {
+      document.getElementById('customConfirmTitle').textContent = title;
+      document.getElementById('customConfirmMessage').textContent = message;
+      document.getElementById('customConfirmModal').style.display = 'flex';
+      
+      const cancelBtn = document.getElementById('customConfirmCancelBtn');
+      if (isAlert) {
+        cancelBtn.style.display = 'none';
+      } else {
+        cancelBtn.style.display = 'block';
+      }
+      
+      customConfirmCallback = callback;
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('customConfirmCancelBtn').addEventListener('click', () => {
+        document.getElementById('customConfirmModal').style.display = 'none';
+        if (customConfirmCallback) customConfirmCallback(false);
+      });
+      document.getElementById('customConfirmOkBtn').addEventListener('click', () => {
+        document.getElementById('customConfirmModal').style.display = 'none';
+        if (customConfirmCallback) customConfirmCallback(true);
+      });
+    });
+
     // Dashboard Tab Switching
     const navLinks = document.querySelectorAll('.nav-links a[data-target]');
     const sections = document.querySelectorAll('.info-section');
@@ -937,34 +966,6 @@
       updateChallengeBoxesFromTeam();
       
       
-    let customConfirmCallback = null;
-    
-    function showCustomConfirm(title, message, isAlert, callback) {
-      document.getElementById('customConfirmTitle').textContent = title;
-      document.getElementById('customConfirmMessage').textContent = message;
-      document.getElementById('customConfirmModal').style.display = 'flex';
-      
-      const cancelBtn = document.getElementById('customConfirmCancelBtn');
-      if (isAlert) {
-        cancelBtn.style.display = 'none';
-      } else {
-        cancelBtn.style.display = 'block';
-      }
-      
-      customConfirmCallback = callback;
-    }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('customConfirmCancelBtn').addEventListener('click', () => {
-        document.getElementById('customConfirmModal').style.display = 'none';
-        if (customConfirmCallback) customConfirmCallback(false);
-      });
-      document.getElementById('customConfirmOkBtn').addEventListener('click', () => {
-        document.getElementById('customConfirmModal').style.display = 'none';
-        if (customConfirmCallback) customConfirmCallback(true);
-      });
-    });
-
       const socket = io();
       socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); });
       socket.on('challengesUpdate', fetchChallenges);
