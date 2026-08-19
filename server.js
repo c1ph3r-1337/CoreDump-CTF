@@ -415,7 +415,12 @@ app.post('/api/team/leave', (req, res) => {
 
 app.get('/dashboard', (req, res) => {
   if (!req.session.userId) return res.redirect('/');
-  res.sendFile(path.join(__dirname, 'private', 'dashboard.html'));
+  const currentUser = users.find(u => u.id === req.session.userId);
+  let html = fs.readFileSync(path.join(__dirname, 'private', 'dashboard.html'), 'utf8');
+  if (currentUser && currentUser.id === 'user_admin_1') {
+    html = html.replace('<li id="adminNavLi" style="display:none;">', '<li id="adminNavLi">');
+  }
+  res.send(html);
 });
 
 app.get('/dashboard-styles.css', (req, res) => {
