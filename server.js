@@ -60,10 +60,16 @@ app.post('/api/admin/start', (req, res) => {
   fs.writeFileSync(configFilePath, JSON.stringify(ctfConfig, null, 2));
   io.emit('configUpdate', ctfConfig);
   
-  // Reset all teams' score history to start exactly at this new start time!
+  res.json({ message: 'CTF Started!', config: ctfConfig });
+});
+
+app.post('/api/admin/wipe', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
+  
   teams.forEach(team => {
-      // Clear old history
-      team.scoreHistory = [{ timestamp: ctfConfig.ctfStartTime, score: 0 }];
+      team.scoreHistory = ctfConfig.ctfStartTime ? [{ timestamp: ctfConfig.ctfStartTime, score: 0 }] : [];
       team.score = 0;
       team.solvedChallenges = {};
   });
@@ -75,7 +81,7 @@ app.post('/api/admin/start', (req, res) => {
   io.emit('teamsUpdate');
   io.emit('usersUpdate');
   
-  res.json({ message: 'CTF Started! All scores reset.', config: ctfConfig });
+  res.json({ message: 'All scores and solves have been securely wiped.' });
 });
 
 
