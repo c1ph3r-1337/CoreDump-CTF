@@ -412,9 +412,8 @@
       if (!currentChallenges[category]) return;
       document.getElementById('adminCatInput').value = category;
       document.getElementById('adminTextInput').value = currentChallenges[category].text;
-      document.getElementById('adminFlagInput').value = '';
+      document.getElementById('adminFlagInput').value = '********';
       document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
-              document.getElementById('adminPointsInput').value = '';
       document.getElementById('adminFormCard').style.display = 'block';
       document.getElementById('adminCatInput').focus();
       window.scrollTo({ top: 0, behavior: 'smooth' });

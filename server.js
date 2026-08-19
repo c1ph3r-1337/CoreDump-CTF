@@ -136,8 +136,10 @@ app.post('/api/admin/challenges', (req, res) => {
   flagsData[category].text = text;
   flagsData[category].points = newPoints;
   
-  if (flag) {
+  if (flag && flag !== '********') {
     flagsData[category].hash = bcrypt.hashSync(flag, 10);
+  } else if (!flagsData[category].hash) {
+    return res.status(400).json({ error: 'Valid flag required for new challenges.' });
   }
   
   fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
