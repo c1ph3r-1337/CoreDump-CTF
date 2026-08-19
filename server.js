@@ -26,6 +26,18 @@ const io = new Server(server);
 
 app.use(express.json());
 
+
+app.use(express.urlencoded({ extended: false }));
+
+// Set up session middleware
+app.use(session({
+  store: new FileStore({ path: './sessions', logFn: function(){} }),
+  secret: 'someRandomSecretKey',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }
+}));
+
 // Load Config
 const configFilePath = path.join(__dirname, 'private', 'config.json');
 let ctfConfig = { ctfStartTime: null };
@@ -66,16 +78,6 @@ app.post('/api/admin/start', (req, res) => {
   res.json({ message: 'CTF Started! All scores reset.', config: ctfConfig });
 });
 
-app.use(express.urlencoded({ extended: false }));
-
-// Set up session middleware
-app.use(session({
-  store: new FileStore({ path: './sessions', logFn: function(){} }),
-  secret: 'someRandomSecretKey',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 1000 * 60 * 60 * 24 }
-}));
 
 // -----------------------
 // Load Users

@@ -1287,24 +1287,23 @@
     let timerInterval = null;
 
     function formatTime(ms) {
-      if (ms < 0) return "00:00:00";
+      if (ms < 0) return "00:00";
       const totalSeconds = Math.floor(ms / 1000);
       const h = Math.floor(totalSeconds / 3600);
       const m = Math.floor((totalSeconds % 3600) / 60);
-      const s = totalSeconds % 60;
-      return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
+      return [h, m].map(v => v.toString().padStart(2, '0')).join(':');
     }
 
     function updateTimerUI() {
       const display = document.getElementById('ctfTimerDisplay');
       if (!display) return;
       if (!ctfStartTime) {
-        display.textContent = 'Waiting to Start...';
+        display.textContent = '--:--';
         display.style.color = 'var(--text-muted)';
         return;
       }
       display.style.color = 'var(--primary)';
-      display.textContent = 'Elapsed: ' + formatTime(Date.now() - ctfStartTime);
+      display.textContent = formatTime(Date.now() - ctfStartTime);
     }
 
     function startLocalTimer() {
@@ -1409,6 +1408,8 @@
       }
     });
   </script>
+
+  <div id="ctfTimerDisplay" style="position: fixed; bottom: 20px; left: 20px; font-family: monospace; font-size: 2rem; color: var(--text); font-weight: bold; background: rgba(0,0,0,0.6); padding: 0.5rem 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); z-index: 10000; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">--:--</div>
 </body>
 </html>
 
