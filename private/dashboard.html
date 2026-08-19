@@ -1019,7 +1019,7 @@
       
       
       const socket = io();
-      socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam(); });
+      socket.on('usersUpdate', () => { fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam(); });
       socket.on('challengesUpdate', () => {
         fetchChallenges();
         // Live update the modal if it's currently open
@@ -1033,7 +1033,7 @@
         }
       });
       socket.on('teamsUpdate', () => {
-        fetchTeamScores(); fetchTeams(); fetchMyTeam();
+        fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam();
       });
       
       // Set up auto-refresh for scoreboard every 5 minutes as a fallback
