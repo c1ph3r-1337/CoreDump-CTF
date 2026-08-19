@@ -36,7 +36,7 @@
 
 /* Body: dark theme with gradient overlay */
 body {
-  zoom: 0.8;
+  zoom: 0.9;
   background: var(--background);
   color: var(--text);
   min-height: 100vh;
@@ -839,7 +839,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-  zoom: 0.8;
+  zoom: 0.9;
     padding-top: 60px;
   }
   
