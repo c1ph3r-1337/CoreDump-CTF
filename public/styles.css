@@ -31,6 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
   background: var(--background);
   color: var(--text);
   line-height: 1.6;
