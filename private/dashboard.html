@@ -387,6 +387,7 @@
         .then(data => {
           currentChallenges = data;
           renderChallenges();
+          updateChallengeBoxesFromTeam();
         });
     }
 
@@ -967,7 +968,7 @@
       
       
       const socket = io();
-      socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); });
+      socket.on('usersUpdate', () => { fetchProfile(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam(); });
       socket.on('challengesUpdate', () => {
         fetchChallenges();
         // Live update the modal if it's currently open
@@ -1008,7 +1009,7 @@
                 solvedSet.forEach(category => {
                   const box = document.querySelector(`.challenge-box[data-category="${category}"]`);
                   if (box) {
-                    box.style.backgroundColor = "rgba(255, 255, 255, 0.1)"; box.style.borderColor = "var(--text)"; box.style.color = "var(--text)";  
+                    box.style.backgroundColor = "var(--text)"; box.style.borderColor = "var(--text)"; box.style.color = "var(--background)";  
                   }
                 });
               })
@@ -1243,8 +1244,8 @@
                 fetchTeamScores();
                 const solvedBox = document.querySelector(`.challenge-box[data-category="${currentCategory}"]`);
                 if (solvedBox) {
-                  solvedBox.style.backgroundColor = "#2467ea";
-                  solvedBox.style.color = "#ffffff";
+                  solvedBox.style.backgroundColor = "var(--text)";
+                  solvedBox.style.color = "var(--background)";
                 }
               } else {
                 flagResult.style.color = "var(--warning)";
