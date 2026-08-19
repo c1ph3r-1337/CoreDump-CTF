@@ -117,7 +117,7 @@ app.post('/api/admin/challenges', (req, res) => {
   if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
   const { category, text, flag, points } = req.body;
-  if (!category || !text) return res.status(400).json({ error: 'Category and text required.' });
+  if (!category || !text || !flag || !points) return res.status(400).json({ error: 'All fields (Category, Text, Flag, Points) are required.' });
   
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
   let flagsData = {};

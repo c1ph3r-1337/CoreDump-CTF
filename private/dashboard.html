@@ -280,7 +280,7 @@
       <div class="card-content" style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
         <input type="text" id="adminCatInput" placeholder="Category Name (e.g. Forensics)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
-        <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically, optional if updating text)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <button id="adminSubmitBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: 500;">Save Challenge</button>
         <p id="adminMsg" style="margin:0;"></p>
@@ -457,6 +457,12 @@
           const flag = document.getElementById('adminFlagInput').value;
           const points = document.getElementById('adminPointsInput').value;
           const msg = document.getElementById('adminMsg');
+          
+          if (!category || !text || !flag || !points) {
+            msg.style.color = 'var(--warning)';
+            msg.textContent = 'All fields (Category, Text, Flag, Points) are compulsory.';
+            return;
+          }
           
           fetch('/api/admin/challenges', {
             method: 'POST',
