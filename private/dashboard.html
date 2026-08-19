@@ -373,7 +373,7 @@
               <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem;">${category}</div>
               <div style="font-size:0.85rem; color:var(--text-muted);">${info.text}</div>
             </div>
-            <button onclick="deleteChallenge('${category}')" style="padding:0.5rem 1.25rem; background:transparent; color:var(--text); border:1px solid var(--border); border-radius:9999px; cursor:pointer; font-weight:500; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Delete</button>
+            <div style="display:flex; gap:0.5rem;"><button onclick="editChallenge('${category}')" style="padding:0.5rem 1.25rem; background:transparent; color:var(--text); border:1px solid var(--border); border-radius:9999px; cursor:pointer; font-weight:500; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Edit</button><button onclick="deleteChallenge('${category}')" style="padding:0.5rem 1.25rem; background:transparent; color:var(--text); border:1px solid var(--border); border-radius:9999px; cursor:pointer; font-weight:500; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Delete</button></div>
           `;
           adminList.appendChild(div);
         }
@@ -381,6 +381,16 @@
       
       // After rendering challenges, we also need to re-apply the solved colors if the user is in a team
       fetchMyTeam(); 
+    }
+    
+    
+    function editChallenge(category) {
+      if (!currentChallenges[category]) return;
+      document.getElementById('adminCatInput').value = category;
+      document.getElementById('adminTextInput').value = currentChallenges[category].text;
+      document.getElementById('adminFlagInput').value = '';
+      document.getElementById('adminCatInput').focus();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
     function deleteChallenge(category) {
@@ -443,7 +453,7 @@
             profileDiv.innerHTML = `<p style="color:var(--warning);">${data.error}</p>`;
           } else {
             const teamText = data.teamName ? data.teamName : 'No Team';
-            if (data.username === 'admin') { const a = document.getElementById('adminNavLi'); if(a) a.style.display = 'block'; }
+            if (data.isAdmin) { const a = document.getElementById('adminNavLi'); if(a) a.style.display = 'block'; }
             profileDiv.innerHTML = `
               <div id="displayUsernameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
                 <h3 style="font-size: 2rem; margin: 0;" id="displayUsername">${data.username}</h3>

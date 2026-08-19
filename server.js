@@ -115,7 +115,7 @@ app.get('/api/challenges', (req, res) => {
 app.post('/api/admin/challenges', (req, res) => {
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const currentUser = users.find(u => u.id === req.session.userId);
-  if (!currentUser || currentUser.username !== 'admin') return res.status(403).json({ error: 'Forbidden' });
+  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
   const { category, text, flag } = req.body;
   if (!category || !text) return res.status(400).json({ error: 'Category and text required.' });
@@ -142,7 +142,7 @@ app.post('/api/admin/challenges', (req, res) => {
 app.post('/api/admin/challenges/delete', (req, res) => {
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const currentUser = users.find(u => u.id === req.session.userId);
-  if (!currentUser || currentUser.username !== 'admin') return res.status(403).json({ error: 'Forbidden' });
+  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
   const { category } = req.body;
   if (!category) return res.status(400).json({ error: 'Category required.' });
@@ -211,7 +211,7 @@ app.get('/api/profile', (req, res) => {
     const myTeam = teams.find(t => t.id === currentUser.teamId);
     if (myTeam) teamName = myTeam.teamName;
   }
-  res.json({ username: currentUser.username, teamName });
+  res.json({ username: currentUser.username, teamName, isAdmin: currentUser.id === 'user_admin_1' });
 });
 
 app.post('/api/team/create', (req, res) => {
