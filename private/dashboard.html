@@ -330,6 +330,112 @@
     });
 
     // Fetch profile info
+
+    let currentChallenges = {};
+    
+    function fetchChallenges() {
+      fetch('/api/challenges')
+        .then(res => res.json())
+        .then(data => {
+          currentChallenges = data;
+          renderChallenges();
+        });
+    }
+
+    function renderChallenges() {
+      const catContainer = document.getElementById('challengeCategoriesContainer');
+      const adminList = document.getElementById('adminChallengesList');
+      
+      if (catContainer) catContainer.innerHTML = '';
+      if (adminList) adminList.innerHTML = '';
+      
+      // Fixed ordering
+      const orderedCategories = [
+        "Forensics", "Reverse Engineering", "Web Exploitation", "OSINT", 
+        "Crypto", "Steganography", "Binary Analysis", "Miscellaneous"
+      ];
+      
+      const allCategories = new Set([...orderedCategories, ...Object.keys(currentChallenges)]);
+      
+      for (const category of allCategories) {
+        if (!currentChallenges[category]) continue;
+        const info = currentChallenges[category];
+        
+        if (catContainer) {
+          const div = document.createElement('div');
+          div.className = 'challenge-box';
+          div.setAttribute('data-category', category);
+          div.textContent = category;
+          catContainer.appendChild(div);
+        }
+        
+        if (adminList) {
+          const div = document.createElement('div');
+          div.style.cssText = 'display:flex; justify-content:space-between; align-items:center; padding:1rem; background:var(--card-bg); border:1px solid var(--border); border-radius:8px;';
+          div.innerHTML = `
+            <div>
+              <strong>${category}</strong>
+              <div style="font-size:0.85rem; color:var(--text-muted);">${info.text}</div>
+            </div>
+            <button onclick="deleteChallenge('${category}')" style="padding:0.5rem 1rem; background:var(--danger); color:#fff; border:none; border-radius:6px; cursor:pointer;">Delete</button>
+          `;
+          adminList.appendChild(div);
+        }
+      }
+      
+      // After rendering challenges, we also need to re-apply the solved colors if the user is in a team
+      fetchMyTeam(); 
+    }
+    
+    function deleteChallenge(category) {
+      if(!confirm('Are you sure you want to delete ' + category + '?')) return;
+      fetch('/api/admin/challenges/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ category })
+      }).then(res => res.json()).then(data => {
+         if(data.error) alert(data.error);
+      });
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const submitBtn = document.getElementById('adminSubmitBtn');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+          const category = document.getElementById('adminCatInput').value;
+          const text = document.getElementById('adminTextInput').value;
+          const flag = document.getElementById('adminFlagInput').value;
+          const msg = document.getElementById('adminMsg');
+          
+          fetch('/api/admin/challenges', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ category, text, flag })
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.error) {
+              msg.style.color = 'var(--warning)';
+              msg.textContent = data.error;
+            } else {
+              msg.style.color = 'var(--success)';
+              msg.textContent = data.message;
+              document.getElementById('adminCatInput').value = '';
+              document.getElementById('adminTextInput').value = '';
+              document.getElementById('adminFlagInput').value = '';
+            }
+          });
+        });
+      }
+    });
+
+    if (typeof socket !== 'undefined') {
+      socket.on('challengesUpdate', () => {
+        fetchChallenges();
+      });
+    }
+
+
     function fetchProfile() {
       fetch('/api/profile')
         .then(res => res.json())
@@ -341,6 +447,7 @@
             profileDiv.innerHTML = `<p style="color:var(--warning);">${data.error}</p>`;
           } else {
             const teamText = data.teamName ? data.teamName : 'No Team';
+            if (data.username === 'admin') { const a = document.getElementById('adminNavLi'); if(a) a.style.display = 'block'; }
             profileDiv.innerHTML = `
               <div id="displayUsernameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
                 <h3 style="font-size: 2rem; margin: 0;" id="displayUsername">${data.username}</h3>
