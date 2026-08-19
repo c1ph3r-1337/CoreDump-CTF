@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require('express');
 const fs = require('fs');
 const multer = require('multer');
@@ -13,7 +14,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
