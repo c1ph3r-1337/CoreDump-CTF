@@ -270,7 +270,7 @@ app.get('/api/users', (req, res) => {
 // -----------------------
 
 app.get('/api/teams', (req, res) => {
-  const teamsWithNames = teams.map(team => {
+  const teamsWithNames = teams.filter(t => !t.teamName.toLowerCase().includes('admin')).map(team => {
     const membersNames = team.members
       .map(memberId => {
         const memberUser = users.find(u => u.id === memberId);
