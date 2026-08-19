@@ -56,7 +56,7 @@ try {
 // -----------------------
 
 app.post('/api/register', (req, res) => {
-  const { username: trimmedUser, email, password } = req.body;
+  const { username, email, password } = req.body;
   if (!username || !email || !password) {
     return res.status(400).json({ error: 'All fields required.' });
   }
@@ -282,7 +282,7 @@ app.get('/api/myteam', (req, res) => {
       return { category: cat, points: pts };
     });
     return {
-      username: mUser.username: trimmedUser,
+      username: mUser.username,
       totalPoints: userPoints,
       solvedChallenges: solved
     };
@@ -304,7 +304,7 @@ app.get('/api/profile', (req, res) => {
     const myTeam = teams.find(t => t.id === currentUser.teamId);
     if (myTeam) teamName = myTeam.teamName;
   }
-  res.json({ username: currentUser.username: trimmedUser, teamName, isAdmin: currentUser.id === 'user_admin_1' });
+  res.json({ username: currentUser.username, teamName, isAdmin: currentUser.id === 'user_admin_1' });
 });
 
 app.post('/api/team/create', (req, res) => {
