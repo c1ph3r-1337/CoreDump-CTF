@@ -761,9 +761,15 @@
         }
       });
       
-      const startTime = earliestTime - (15 * 60 * 1000); // Baseline 15 mins before first activity
       const now = Date.now();
-      const intervalMs = 15 * 60 * 1000; // 15 minute intervals
+      const startTime = ctfStartTime ? ctfStartTime : (earliestTime - (15 * 60 * 1000));
+      const durationMs = now - startTime;
+      let intervalMs = 15 * 60 * 1000;
+      if (durationMs <= 15 * 60 * 1000) intervalMs = 60 * 1000;
+      else if (durationMs <= 60 * 60 * 1000) intervalMs = 5 * 60 * 1000;
+      else if (durationMs <= 4 * 60 * 60 * 1000) intervalMs = 15 * 60 * 1000;
+      else if (durationMs <= 12 * 60 * 60 * 1000) intervalMs = 30 * 60 * 1000;
+      else intervalMs = 60 * 60 * 1000;
       
       const sortedTimestamps = [];
       for (let t = startTime; t <= now; t += intervalMs) {
