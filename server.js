@@ -25,6 +25,47 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 app.use(express.json());
+
+// Load Config
+const configFilePath = path.join(__dirname, 'private', 'config.json');
+let ctfConfig = { ctfStartTime: null };
+if (fs.existsSync(configFilePath)) {
+  ctfConfig = JSON.parse(fs.readFileSync(configFilePath, 'utf8'));
+} else {
+  fs.writeFileSync(configFilePath, JSON.stringify(ctfConfig, null, 2));
+}
+
+app.get('/api/config', (req, res) => {
+  res.json(ctfConfig);
+});
+
+app.post('/api/admin/start', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
+  
+  ctfConfig.ctfStartTime = Date.now();
+  fs.writeFileSync(configFilePath, JSON.stringify(ctfConfig, null, 2));
+  io.emit('configUpdate', ctfConfig);
+  
+  // Reset all teams' score history to start exactly at this new start time!
+  teams.forEach(team => {
+      // Clear old history
+      team.scoreHistory = [{ timestamp: ctfConfig.ctfStartTime, score: 0 }];
+      team.score = 0;
+      team.solvedChallenges = {};
+  });
+  users.forEach(user => {
+      user.solvedChallenges = [];
+  });
+  fs.writeFileSync(path.join(__dirname, 'teams.json'), JSON.stringify(teams, null, 2));
+  fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
+  io.emit('teamsUpdate');
+  io.emit('usersUpdate');
+  
+  res.json({ message: 'CTF Started! All scores reset.', config: ctfConfig });
+});
+
 app.use(express.urlencoded({ extended: false }));
 
 // Set up session middleware
@@ -402,6 +443,7 @@ app.post('/api/team/join', (req, res) => {
 });
 
 app.post('/api/challenge/flag', (req, res) => {
+  if (!ctfConfig.ctfStartTime) return res.status(403).json({ error: 'The CTF has not started yet!' });
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const { category, flag } = req.body;
   if (!category || !flag) return res.status(400).json({ error: 'Category and flag required.' });
