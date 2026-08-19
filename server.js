@@ -1,5 +1,18 @@
 const express = require('express');
 const fs = require('fs');
+const multer = require('multer');
+const downloadsDir = path.join(__dirname, 'public', 'downloads');
+if (!fs.existsSync(downloadsDir)) fs.mkdirSync(downloadsDir, { recursive: true });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) { cb(null, downloadsDir) },
+  filename: function (req, file, cb) {
+    const safeCat = (req.body.category || 'misc').replace(/[^a-zA-Z0-9]/g, '');
+    cb(null, safeCat + '_' + Date.now() + '_' + file.originalname.replace(/[^a-zA-Z0-9.]/g, ''));
+  }
+});
+const upload = multer({ storage: storage });
+
 const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -106,17 +119,22 @@ app.get('/api/challenges', (req, res) => {
   const flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
   const safeData = {};
   for (const key in flagsData) {
-    safeData[key] = { text: flagsData[key].text, points: flagsData[key].points || 500 };
+    safeData[key] = { 
+      text: flagsData[key].text, 
+      points: flagsData[key].points || 500,
+      resource: flagsData[key].resource,
+      originalResourceName: flagsData[key].originalResourceName
+    };
   }
   res.json(safeData);
 });
 
-app.post('/api/admin/challenges', (req, res) => {
+app.post('/api/admin/challenges', upload.single('resource'), (req, res) => {
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const currentUser = users.find(u => u.id === req.session.userId);
   if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
-  const { category, text, flag, points } = req.body;
+  const { category, text, flag, points, removeResource } = req.body;
   if (!category || !text || !flag || !points) return res.status(400).json({ error: 'All fields (Category, Text, Flag, Points) are required.' });
   
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
@@ -135,6 +153,15 @@ app.post('/api/admin/challenges', (req, res) => {
   const newPoints = parseInt(points) || 500;
   flagsData[category].text = text;
   flagsData[category].points = newPoints;
+  
+  if (req.file) {
+    flagsData[category].resource = req.file.filename;
+    flagsData[category].originalResourceName = req.file.originalname;
+  }
+  if (removeResource === 'true') {
+    delete flagsData[category].resource;
+    delete flagsData[category].originalResourceName;
+  }
   
   if (flag && flag !== '********') {
     flagsData[category].hash = bcrypt.hashSync(flag, 10);

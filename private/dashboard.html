@@ -282,6 +282,13 @@
         <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); padding:1rem; border-radius:16px;">
+          <label style="font-size:0.9rem; opacity:0.8;">Attach Resource File (Optional)</label>
+          <input type="file" id="adminResourceInput" style="font-size:0.85rem; color:var(--text-muted);">
+          <label style="font-size:0.85rem; display:flex; align-items:center; gap:0.5rem; margin-top:0.5rem; cursor:pointer;">
+            <input type="checkbox" id="adminRemoveResource"> Remove existing resource
+          </label>
+        </div>
         <button id="adminSubmitBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: 500;">Save Challenge</button>
         <p id="adminMsg" style="margin:0;"></p>
       </div>
@@ -320,6 +327,12 @@
       <span class="close">&times;</span>
       <h3 id="modalTitle">Challenge</h3>
       <p id="challengeDescription">Solve the challenge and submit your flag.</p>
+      <div id="resourceContainer" style="display:none; margin-bottom:1rem;">
+        <a id="downloadResourceBtn" href="#" download style="display:inline-block; padding:0.5rem 1rem; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:9999px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:all 0.2s;">
+          <svg style="width:14px; height:14px; vertical-align:middle; margin-right:4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download Resource
+        </a>
+      </div>
       <input type="text" id="flagInput" placeholder="Enter flag here" />
       <button id="submitFlagBtn">Submit Flag</button>
       <p id="flagResult"></p>
@@ -444,6 +457,10 @@
       document.getElementById('adminTextInput').value = currentChallenges[category].text;
       document.getElementById('adminFlagInput').value = '********';
       document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
+      const fileInput = document.getElementById('adminResourceInput');
+      if (fileInput) fileInput.value = '';
+      const removeCb = document.getElementById('adminRemoveResource');
+      if (removeCb) removeCb.checked = false;
       document.getElementById('adminFormCard').style.display = 'block';
       document.getElementById('adminCatInput').focus();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -493,10 +510,24 @@
             return;
           }
           
+          const formData = new FormData();
+          formData.append('category', category);
+          formData.append('text', text);
+          formData.append('flag', flag);
+          formData.append('points', points);
+          
+          const fileInput = document.getElementById('adminResourceInput');
+          if (fileInput && fileInput.files.length > 0) {
+            formData.append('resource', fileInput.files[0]);
+          }
+          const removeCb = document.getElementById('adminRemoveResource');
+          if (removeCb && removeCb.checked) {
+            formData.append('removeResource', 'true');
+          }
+
           fetch('/api/admin/challenges', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ category, text, flag, points })
+            body: formData
           })
           .then(res => res.json())
           .then(data => {
@@ -1208,6 +1239,15 @@
             // Set dynamic text from currentChallenges
             const text = currentChallenges[currentCategory] ? currentChallenges[currentCategory].text : 'Solve the ' + currentCategory + ' challenge and submit your flag.';
             document.getElementById('challengeDescription').textContent = text;
+            const resContainer = document.getElementById('resourceContainer');
+            const dlBtn = document.getElementById('downloadResourceBtn');
+            if (currentChallenges[currentCategory] && currentChallenges[currentCategory].resource) {
+              resContainer.style.display = 'block';
+              dlBtn.href = '/downloads/' + currentChallenges[currentCategory].resource;
+              dlBtn.setAttribute('download', currentChallenges[currentCategory].originalResourceName || currentChallenges[currentCategory].resource);
+            } else {
+              resContainer.style.display = 'none';
+            }
             
             flagInput.value = '';
             flagResult.textContent = '';
