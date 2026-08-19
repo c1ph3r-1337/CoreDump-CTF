@@ -282,11 +282,15 @@
         <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
-        <div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); padding:1rem; border-radius:16px;">
-          <label style="font-size:0.9rem; opacity:0.8;">Attach Resource File (Optional)</label>
-          <input type="file" id="adminResourceInput" style="font-size:0.85rem; color:var(--text-muted);">
-          <label style="font-size:0.85rem; display:flex; align-items:center; gap:0.5rem; margin-top:0.5rem; cursor:pointer;">
-            <input type="checkbox" id="adminRemoveResource"> Remove existing resource
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); padding:1.25rem; border-radius:16px;">
+          <label style="font-size:0.9rem; opacity:0.8; font-weight: 500;">Attach Resource File (Optional)</label>
+          <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+            <button type="button" style="padding: 0.5rem 1.5rem; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); border-radius: 9999px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;" onclick="document.getElementById('adminResourceInput').click()">Choose File</button>
+            <span id="fileNameDisplay" style="margin-left: 0.75rem; font-size: 0.85rem; color: var(--text-muted); max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No file chosen</span>
+            <input type="file" id="adminResourceInput" style="display: none;" onchange="document.getElementById('fileNameDisplay').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
+          </div>
+          <label style="font-size:0.85rem; display:flex; align-items:center; gap:0.5rem; margin-top:0.25rem; cursor:pointer; color: var(--text-muted);">
+            <input type="checkbox" id="adminRemoveResource" style="accent-color: var(--text); cursor: pointer; width: 16px; height: 16px;"> Remove existing resource
           </label>
         </div>
         <button id="adminSubmitBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: 500;">Save Challenge</button>
@@ -459,6 +463,8 @@
       document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
       const fileInput = document.getElementById('adminResourceInput');
       if (fileInput) fileInput.value = '';
+      const fileDisplay = document.getElementById('fileNameDisplay');
+      if (fileDisplay) fileDisplay.textContent = 'No file chosen';
       const removeCb = document.getElementById('adminRemoveResource');
       if (removeCb) removeCb.checked = false;
       document.getElementById('adminFormCard').style.display = 'block';
