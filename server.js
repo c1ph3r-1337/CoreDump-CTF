@@ -56,18 +56,17 @@ try {
 // -----------------------
 
 app.post('/api/register', (req, res) => {
-  const { username, email, password } = req.body;
+  const { username: trimmedUser, email, password } = req.body;
   if (!username || !email || !password) {
     return res.status(400).json({ error: 'All fields required.' });
   }
-  const existing = users.find(u => u.email === email);
-  if (existing) {
-    return res.status(400).json({ error: 'Email already in use.' });
-  }
+  const trimmedUser = username.trim();
+  if (users.find(u => u.email === email)) return res.status(400).json({ error: 'Email already in use.' });
+  if (users.find(u => u.username.toLowerCase() === trimmedUser.toLowerCase())) return res.status(400).json({ error: 'Username already in use.' });
   const hashedPassword = bcrypt.hashSync(password, 10);
   const newUser = {
     id: Date.now().toString(),
-    username,
+    username: trimmedUser,
     email,
     password: hashedPassword,
     teamId: null,
@@ -283,7 +282,7 @@ app.get('/api/myteam', (req, res) => {
       return { category: cat, points: pts };
     });
     return {
-      username: mUser.username,
+      username: mUser.username: trimmedUser,
       totalPoints: userPoints,
       solvedChallenges: solved
     };
@@ -305,7 +304,7 @@ app.get('/api/profile', (req, res) => {
     const myTeam = teams.find(t => t.id === currentUser.teamId);
     if (myTeam) teamName = myTeam.teamName;
   }
-  res.json({ username: currentUser.username, teamName, isAdmin: currentUser.id === 'user_admin_1' });
+  res.json({ username: currentUser.username: trimmedUser, teamName, isAdmin: currentUser.id === 'user_admin_1' });
 });
 
 app.post('/api/team/create', (req, res) => {
@@ -442,7 +441,7 @@ app.post('/api/profile/update', (req, res) => {
   }
   
   // Check if username is already taken
-  if (users.find(u => u.username.toLowerCase() === newUsername.trim().toLowerCase() && u.id !== req.session.userId)) {
+  if (users.find(u => u.username.trim().toLowerCase() === newUsername.trim().toLowerCase() && u.id !== req.session.userId)) {
     return res.status(400).json({ error: 'Username already taken.' });
   }
 
