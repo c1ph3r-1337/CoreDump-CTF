@@ -1,11 +1,34 @@
 {
-    "Forensics": "$2b$10$VSqzy6/j4Pa8p/tHFcVBx.K4p09a915OuMrO79ddlG6Oh.Na1TmC6",
-    "Reverse Engineering": "$2b$10$D6aKZyJ3q6q5Hf1eBfE1neZt0Xxq3P9YwW6I5i8p7D9e0Zk1aB2Ce",
-    "Web Exploitation": "$2b$10$Qj1uX9ZsF4o6D8kL3bC7GeOvF2p5W3JtL8nE2uI1sH9mQ7pR4aK8U",
-    "OSINT": "$2b$10$p.k52dWADvP7XVD0mpxGyeLx1/rLktEX.FKC.8KeUkJjte9x8eXvO",
-    "Crypto": "$2b$10$K1nX8pJ6tR3qS9wD4fG2BeYuV5iO7mL0aZ6cQ8rT3pF1sH9lD2kC7Ge",
-    "Steganography": "$2b$10$M2aL9rP6qT3wF8sK1dE0BeYuV4iO6nL7zQ5rS3pF8tH0uJ2cB1dE9K",
-    "Binary Analysis": "$2b$10$S4pF1qT9wD6mN2aL7zQ5rC3bE8kJ1uX8pH0sI2rT4dF7mO9cB3eK1Y",
-    "Miscellaneous": "$2b$10$F3rT8sD1mN6aL7zQ5uX8pJ4kC2bE9oI1tH0sR3pQ7dF5mN2aL8zQ5r"
+  "Forensics": {
+    "hash": "$2b$10$VSqzy6/j4Pa8p/tHFcVBx.K4p09a915OuMrO79ddlG6Oh.Na1TmC6",
+    "text": "Solve the Forensics challenge and submit your flag."
+  },
+  "Reverse Engineering": {
+    "hash": "$2b$10$D6aKZyJ3q6q5Hf1eBfE1neZt0Xxq3P9YwW6I5i8p7D9e0Zk1aB2Ce",
+    "text": "Solve the Reverse Engineering challenge and submit your flag."
+  },
+  "Web Exploitation": {
+    "hash": "$2b$10$Qj1uX9ZsF4o6D8kL3bC7GeOvF2p5W3JtL8nE2uI1sH9mQ7pR4aK8U",
+    "text": "Solve the Web Exploitation challenge and submit your flag."
+  },
+  "OSINT": {
+    "hash": "$2b$10$p.k52dWADvP7XVD0mpxGyeLx1/rLktEX.FKC.8KeUkJjte9x8eXvO",
+    "text": "Solve the OSINT challenge and submit your flag."
+  },
+  "Crypto": {
+    "hash": "$2b$10$K1nX8pJ6tR3qS9wD4fG2BeYuV5iO7mL0aZ6cQ8rT3pF1sH9lD2kC7Ge",
+    "text": "Solve the Crypto challenge and submit your flag."
+  },
+  "Steganography": {
+    "hash": "$2b$10$M2aL9rP6qT3wF8sK1dE0BeYuV4iO6nL7zQ5rS3pF8tH0uJ2cB1dE9K",
+    "text": "Solve the Steganography challenge and submit your flag."
+  },
+  "Binary Analysis": {
+    "hash": "$2b$10$S4pF1qT9wD6mN2aL7zQ5rC3bE8kJ1uX8pH0sI2rT4dF7mO9cB3eK1Y",
+    "text": "Solve the Binary Analysis challenge and submit your flag."
+  },
+  "Miscellaneous": {
+    "hash": "$2b$10$F3rT8sD1mN6aL7zQ5uX8pJ4kC2bE9oI1tH0sR3pQ7dF5mN2aL8zQ5r",
+    "text": "Solve the Miscellaneous challenge and submit your flag."
   }
-  
+}

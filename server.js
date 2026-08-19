@@ -100,6 +100,63 @@ app.post('/api/login', (req, res) => {
   res.json({ message: 'Login successful!' });
 });
 
+
+app.get('/api/challenges', (req, res) => {
+  const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
+  if (!fs.existsSync(flagsFilePath)) return res.json({});
+  const flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
+  const safeData = {};
+  for (const key in flagsData) {
+    safeData[key] = { text: flagsData[key].text };
+  }
+  res.json(safeData);
+});
+
+app.post('/api/admin/challenges', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || currentUser.username !== 'admin') return res.status(403).json({ error: 'Forbidden' });
+  
+  const { category, text, flag } = req.body;
+  if (!category || !text) return res.status(400).json({ error: 'Category and text required.' });
+  
+  const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
+  let flagsData = {};
+  if (fs.existsSync(flagsFilePath)) {
+    flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
+  }
+  
+  if (!flagsData[category]) {
+    flagsData[category] = {};
+  }
+  flagsData[category].text = text;
+  if (flag) {
+    flagsData[category].hash = bcrypt.hashSync(flag, 10);
+  }
+  
+  fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
+  io.emit('challengesUpdate');
+  res.json({ message: 'Challenge updated successfully.' });
+});
+
+app.post('/api/admin/challenges/delete', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || currentUser.username !== 'admin') return res.status(403).json({ error: 'Forbidden' });
+  
+  const { category } = req.body;
+  if (!category) return res.status(400).json({ error: 'Category required.' });
+  
+  const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
+  if (fs.existsSync(flagsFilePath)) {
+    let flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
+    delete flagsData[category];
+    fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
+  }
+  io.emit('challengesUpdate');
+  res.json({ message: 'Challenge deleted successfully.' });
+});
+
 app.get('/api/users', (req, res) => {
   res.json(users);
 });
@@ -228,9 +285,10 @@ app.post('/api/challenge/flag', (req, res) => {
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
   if (!fs.existsSync(flagsFilePath)) return res.status(500).json({ error: 'Flags file not found.' });
   const flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
-  const storedHash = flagsData[category];
+  const challengeObj = flagsData[category];
+  if (!challengeObj) return res.status(404).json({ error: 'Challenge not found for this category.' });
+  const storedHash = challengeObj.hash;
   if (!storedHash) return res.status(404).json({ error: 'Challenge not found for this category.' });
-  if (!bcrypt.compareSync(flag, storedHash)) return res.json({ message: 'Incorrect flag.' });
   
   const userId = req.session.userId;
   const currentUser = users.find(u => u.id === userId);

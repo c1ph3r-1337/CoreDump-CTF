@@ -147,6 +147,7 @@
           <li><a href="#" data-target="teams-section">Teams</a></li>
           <li><a href="#" data-target="scoreboard-section">Scoreboard</a></li>
           <li><a href="#" data-target="challenges-section">Challenges</a></li>
+          <li id="adminNavLi" style="display:none;"><a href="#" data-target="admin-section">Admin Portal</a></li>
         </ul>
       </div>
       <div class="nav-right">
@@ -253,8 +254,7 @@
   <!-- CHALLENGES SECTION -->
   <section id="challenges-section" class="info-section" style="display: none;">
     <h2>Challenges</h2>
-    <div class="challenge-categories">
-      <div class="challenge-box" data-category="Forensics">Forensics</div>
+    <div class="challenge-categories" id="challengeCategoriesContainer"></div>
       <div class="challenge-box" data-category="Reverse Engineering">Reverse Engineering</div>
       <div class="challenge-box" data-category="Web Exploitation">Web Exploitation</div>
       <div class="challenge-box" data-category="OSINT">OSINT</div>
@@ -265,6 +265,26 @@
     </div>
   </section>
 
+
+
+  
+  <!-- ADMIN SECTION -->
+  <section id="admin-section" class="info-section" style="display: none;">
+    <h2>Admin Portal</h2>
+    <p>Manage challenges below. Note: Adding a new challenge with an existing category name will update it.</p>
+    <div style="margin-bottom: 2rem; background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+      <h3>Add / Update Challenge</h3>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+        <input type="text" id="adminCatInput" placeholder="Category Name (e.g. Forensics)" style="padding:0.75rem; border-radius:8px; border:1px solid var(--border); background:transparent; color:var(--text);">
+        <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem; border-radius:8px; border:1px solid var(--border); background:transparent; color:var(--text);">
+        <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically, optional if updating text)" style="padding:0.75rem; border-radius:8px; border:1px solid var(--border); background:transparent; color:var(--text);">
+        <button id="adminSubmitBtn" style="padding:0.75rem; border:none; background:var(--primary); color:var(--background); border-radius:8px; cursor:pointer;">Save Challenge</button>
+        <p id="adminMsg" style="margin:0;"></p>
+      </div>
+    </div>
+    <h3>Existing Challenges</h3>
+    <div id="adminChallengesList" style="display:flex; flex-direction:column; gap:0.5rem;"></div>
+  </section>
 
 
   <!-- PROFILE SECTION -->
@@ -943,63 +963,78 @@
       }
     });
 
-    // CHALLENGE MODAL SCRIPT
+    
+    let currentCategory = '';
     document.addEventListener('DOMContentLoaded', () => {
-      const challengeBoxes = document.querySelectorAll('.challenge-box');
       const modal = document.getElementById('challengeModal');
       const modalTitle = document.getElementById('modalTitle');
       const flagInput = document.getElementById('flagInput');
       const flagResult = document.getElementById('flagResult');
       const submitFlagBtn = document.getElementById('submitFlagBtn');
-      let currentCategory = '';
-      challengeBoxes.forEach(box => {
-        box.addEventListener('click', () => {
-          currentCategory = box.getAttribute('data-category');
-          modalTitle.textContent = currentCategory + ' Challenge';
-          document.getElementById('challengeDescription').textContent = 'Solve the ' + currentCategory + ' challenge and submit your flag.';
-          flagInput.value = '';
-          flagResult.textContent = '';
-          modal.style.display = 'flex';
+      
+      const catContainer = document.getElementById('challengeCategoriesContainer');
+      if (catContainer) {
+        catContainer.addEventListener('click', (e) => {
+          if (e.target.classList.contains('challenge-box')) {
+            currentCategory = e.target.getAttribute('data-category');
+            modalTitle.textContent = currentCategory + ' Challenge';
+            
+            // Set dynamic text from currentChallenges
+            const text = currentChallenges[currentCategory] ? currentChallenges[currentCategory].text : 'Solve the ' + currentCategory + ' challenge and submit your flag.';
+            document.getElementById('challengeDescription').textContent = text;
+            
+            flagInput.value = '';
+            flagResult.textContent = '';
+            modal.style.display = 'flex';
+          }
         });
-      });
+      }
+      
       document.querySelector('.modal .close').addEventListener('click', () => { modal.style.display = 'none'; });
       window.addEventListener('click', (e) => { if (e.target == modal) modal.style.display = 'none'; });
-      submitFlagBtn.addEventListener('click', () => {
-        const flag = flagInput.value.trim();
-        if (!flag) {
-          flagResult.textContent = 'Please enter a flag.';
-          return;
-        }
-        fetch('/api/challenge/flag', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ category: currentCategory, flag })
-        })
-          .then(res => {
-            if (!res.ok) {
-              return res.json().then(data => { throw new Error(data.error || 'Error checking flag.'); });
-            }
-            return res.json();
+      if(submitFlagBtn) {
+        submitFlagBtn.addEventListener('click', () => {
+          const flag = flagInput.value.trim();
+          if (!flag) {
+            flagResult.textContent = 'Please enter a flag.';
+            return;
+          }
+          fetch('/api/challenge/flag', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ category: currentCategory, flag })
           })
-          .then(data => {
-            flagResult.textContent = data.message;
-            if (data.message.indexOf("Correct flag") !== -1) {
-              const solvedBox = document.querySelector(`.challenge-box[data-category="${currentCategory}"]`);
-              if (solvedBox) {
-                solvedBox.style.backgroundColor = "#2467ea";
+            .then(res => {
+              if (!res.ok) {
+                return res.json().then(data => { throw new Error(data.error || 'Error checking flag.'); });
               }
-            }
-            fetchTeamScores(); fetchTeams(); fetchMyTeam();
-            updateChallengeBoxesFromTeam();
-          })
-          .catch(err => {
-            console.error('Error checking flag:', err);
-            flagResult.textContent = err.message;
-          });
-      });
+              return res.json();
+            })
+            .then(data => {
+              flagResult.textContent = data.message || data.error;
+              if (data.message && !data.message.includes("Incorrect")) {
+                flagResult.style.color = "var(--success)";
+                fetchMyTeam();
+                fetchTeamScores();
+                const solvedBox = document.querySelector(`.challenge-box[data-category="${currentCategory}"]`);
+                if (solvedBox) {
+                  solvedBox.style.backgroundColor = "#2467ea";
+                  solvedBox.style.color = "#ffffff";
+                }
+              } else {
+                flagResult.style.color = "var(--warning)";
+              }
+            })
+            .catch(err => {
+              flagResult.textContent = err.message;
+            });
+        });
+      }
+      
+      // Fetch initial data
+      fetchChallenges();
     });
-
-    // Mobile Menu Toggle
+          });
     document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
       const body = document.body;
