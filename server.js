@@ -126,16 +126,50 @@ app.post('/api/admin/challenges', (req, res) => {
     flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
   }
   
+  let oldPoints = null;
   if (!flagsData[category]) {
     flagsData[category] = {};
+  } else {
+    oldPoints = flagsData[category].points !== undefined ? Number(flagsData[category].points) : 500;
   }
+  
+  const newPoints = parseInt(points) || 500;
   flagsData[category].text = text;
-  flagsData[category].points = parseInt(points) || 500;
+  flagsData[category].points = newPoints;
+  
   if (flag) {
     flagsData[category].hash = bcrypt.hashSync(flag, 10);
   }
   
   fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
+  
+  // Retroactively adjust scores if points changed
+  if (oldPoints !== null && oldPoints !== newPoints) {
+    const pointDiff = newPoints - oldPoints;
+    let teamsChanged = false;
+    
+    teams.forEach(team => {
+      const teamSolvedIt = team.members.some(memberId => {
+        const member = users.find(u => u.id === memberId);
+        return member && Array.isArray(member.solvedChallenges) && member.solvedChallenges.includes(category);
+      });
+      
+      if (teamSolvedIt) {
+        team.score += pointDiff;
+        if (!team.scoreHistory) {
+          team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score - pointDiff }];
+        }
+        team.scoreHistory.push({ timestamp: Date.now(), score: team.score });
+        teamsChanged = true;
+      }
+    });
+    
+    if (teamsChanged) {
+      fs.writeFileSync(path.join(__dirname, 'teams.json'), JSON.stringify(teams, null, 2));
+      io.emit('teamsUpdate');
+    }
+  }
+
   io.emit('challengesUpdate');
   res.json({ message: 'Challenge updated successfully.' });
 });
@@ -231,17 +265,35 @@ app.get('/api/myteam', (req, res) => {
   if (!currentUser || !currentUser.teamId) return res.json({ message: 'No team found for this user.' });
   const myTeam = teams.find(t => t.id === currentUser.teamId);
   if (!myTeam) return res.json({ message: 'No team found for this user.' });
-  const membersNames = myTeam.members
-    .map(memberId => {
-      const mUser = users.find(u => u.id === memberId);
-      return mUser ? mUser.username : null;
-    })
-    .filter(Boolean);
+  
+  const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
+  let flagsData = {};
+  if (fs.existsSync(flagsFilePath)) flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
+  
+  const membersNames = [];
+  const memberDetails = myTeam.members.map(memberId => {
+    const mUser = users.find(u => u.id === memberId);
+    if (!mUser) return null;
+    membersNames.push(mUser.username);
+    
+    let userPoints = 0;
+    const solved = (mUser.solvedChallenges || []).map(cat => {
+      const pts = flagsData[cat] && flagsData[cat].points !== undefined ? Number(flagsData[cat].points) : 500;
+      userPoints += pts;
+      return { category: cat, points: pts };
+    });
+    return {
+      username: mUser.username,
+      totalPoints: userPoints,
+      solvedChallenges: solved
+    };
+  }).filter(Boolean);
+  
   if (typeof myTeam.score !== 'number') myTeam.score = 0;
   if (!myTeam.solvedChallenges || typeof myTeam.solvedChallenges !== 'object') {
     myTeam.solvedChallenges = {};
   }
-  res.json({ team: { ...myTeam, membersNames } });
+  res.json({ team: { ...myTeam, membersNames, memberDetails } });
 });
 
 app.get('/api/profile', (req, res) => {
