@@ -16,5 +16,7 @@
 
 
 Easy → 100–200 pts
+
 Medium → 300–400 pts
+
 Hard → 500–600 pts
