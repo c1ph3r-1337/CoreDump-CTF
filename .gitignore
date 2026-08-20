@@ -1,2 +1,14 @@
-node_modules/
-sessions/
+# Ignore temporary node scripts created by AI
+*.js
+!server.js
+
+# Ignore dynamically updated database files
+teams.json
+users.json
+private/flags.json
+private/config.json
+changes.txt
+
+# Ignore session data and uploads
+cookie.txt
+public/downloads/
