@@ -353,7 +353,45 @@
 
   
   <!-- Custom Confirm Modal -->
-  <div id="customConfirmModal" class="modal" style="z-index: 10000; display: none;">
+  
+  <!-- INTRO MODAL -->
+  <div id="introModal" class="modal" style="display: none; z-index: 10000; align-items: center; justify-content: center;">
+    <div class="modal-content" style="max-width: 600px; padding: 2.5rem; text-align: left; border: 1px solid var(--accent); background: var(--glass-bg); box-shadow: inset 0 0 20px rgba(200, 214, 75, 0.05), 0 10px 40px rgba(0, 0, 0, 0.9); border-radius: 0;">
+      <h2 style="color: var(--accent); margin-bottom: 1.5rem; font-size: 2rem; border-bottom: 1px solid rgba(200, 214, 75, 0.2); padding-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">Welcome to CoreDump 2.0 CTF</h2>
+      
+      <div style="color: var(--text-primary); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">
+        <p style="margin-bottom: 1rem;">Prepare your tools and sharpen your skills. You are now entering the CoreDump 2.0 Cyber Range.</p>
+        
+        <h3 style="color: var(--accent-bright); font-size: 1.1rem; margin-bottom: 0.5rem; margin-top: 1.5rem;">🚩 Flag Format</h3>
+        <p style="margin-bottom: 0.5rem;">All flags must be submitted in the following format:</p>
+        <ul style="list-style: none; padding-left: 1rem; margin-bottom: 1rem; border-left: 2px solid var(--accent-soft);">
+          <li style="margin-bottom: 0.25rem;"><span style="color: var(--accent);">•</span> Must be wrapped in <code>coredump{...}</code></li>
+          <li style="margin-bottom: 0.25rem;"><span style="color: var(--accent);">•</span> All letters must be <strong>lowercase</strong></li>
+          <li style="margin-bottom: 0.25rem;"><span style="color: var(--accent);">•</span> Words or numbers must be separated by <strong>underscores (_)</strong></li>
+        </ul>
+        <div style="background: rgba(0,0,0,0.3); padding: 0.75rem; border: 1px dashed var(--accent-soft); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">
+          Example: <span style="color: var(--accent);">coredump{this_is_a_valid_flag_123}</span>
+        </div>
+
+        <h3 style="color: var(--accent-bright); font-size: 1.1rem; margin-bottom: 0.5rem;">⚠️ Rules of Engagement</h3>
+        <ul style="list-style: none; padding-left: 1rem; border-left: 2px solid var(--accent-soft);">
+          <li style="margin-bottom: 0.25rem;"><span style="color: var(--accent);">•</span> Do not attack the CTF infrastructure.</li>
+          <li style="margin-bottom: 0.25rem;"><span style="color: var(--accent);">•</span> Do not share flags with other teams.</li>
+          <li style="margin-bottom: 0.25rem;"><span style="color: var(--accent);">•</span> Bruteforcing flags on the platform is strictly prohibited.</li>
+        </ul>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding: 1rem; background: rgba(200, 214, 75, 0.05); border: 1px solid var(--accent-soft);">
+        <input type="checkbox" id="introAgreement" style="appearance: auto; width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer;">
+        <label for="introAgreement" style="font-size: 0.9rem; color: var(--text-primary); cursor: pointer; user-select: none;">I have read all the information and agree to follow the rules of engagement.</label>
+      </div>
+      
+      <div style="display: flex; justify-content: flex-end;">
+        <button id="introContinueBtn" disabled style="padding: 0.75rem 2rem; border: 1px solid var(--glass-border); background: var(--bg-secondary); color: var(--text-muted); border-radius: 0; cursor: not-allowed; font-weight: bold; font-size: 1rem; transition: all 0.2s;">Continue</button>
+      </div>
+    </div>
+  </div>
+\n  <div id="customConfirmModal" class="modal" style="z-index: 10000; display: none;">
     <div class="modal-content" style="max-width: 400px; text-align: center; padding: 2rem;">
       <h3 id="customConfirmTitle" style="margin-bottom: 1rem; font-size: 1.5rem;">Confirm</h3>
       <p id="customConfirmMessage" style="margin-bottom: 2rem; color: var(--text-muted);"></p>
@@ -369,6 +407,43 @@
   
   <!-- MAIN SCRIPT -->
   <script>
+
+    // Intro Modal Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!sessionStorage.getItem('coreDumpIntroSeen')) {
+        const introModal = document.getElementById('introModal');
+        const introAgreement = document.getElementById('introAgreement');
+        const introContinueBtn = document.getElementById('introContinueBtn');
+        
+        introModal.style.display = 'flex';
+        
+        introAgreement.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            introContinueBtn.disabled = false;
+            introContinueBtn.style.background = 'var(--accent-soft)';
+            introContinueBtn.style.color = 'var(--accent)';
+            introContinueBtn.style.borderColor = 'var(--accent)';
+            introContinueBtn.style.cursor = 'pointer';
+            introContinueBtn.style.boxShadow = '0 0 15px rgba(200, 214, 75, 0.2)';
+          } else {
+            introContinueBtn.disabled = true;
+            introContinueBtn.style.background = 'var(--bg-secondary)';
+            introContinueBtn.style.color = 'var(--text-muted)';
+            introContinueBtn.style.borderColor = 'var(--glass-border)';
+            introContinueBtn.style.cursor = 'not-allowed';
+            introContinueBtn.style.boxShadow = 'none';
+          }
+        });
+        
+        introContinueBtn.addEventListener('click', () => {
+          if (introAgreement.checked) {
+            introModal.style.display = 'none';
+            sessionStorage.setItem('coreDumpIntroSeen', 'true');
+          }
+        });
+      }
+    });
+
     function showSection(sectionId) {
       document.querySelectorAll('.info-section').forEach(sec => sec.style.display = 'none');
       const target = document.getElementById(sectionId);
