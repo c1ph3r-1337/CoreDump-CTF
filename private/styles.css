@@ -777,7 +777,6 @@ body::after {
 .chart-container {
   position: relative;
   width: 100%;
-  max-width: 700px;
-  height: 300px;
+  height: 500px;
   margin: 0 auto;
 }
