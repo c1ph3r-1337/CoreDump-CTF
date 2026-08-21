@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>CoreDump 2.0</title>
-  <link rel="stylesheet" href="/dashboard-styles.css?v=12" />
+  <link rel="stylesheet" href="/dashboard-styles.css?v=14" />
   <!-- You can include your scoreboard stylesheet if needed -->
   <link rel="stylesheet" href="styles-scoreboard.css" />
   <style>
@@ -270,8 +270,8 @@
         </div>
         <div class="tab-content" id="standings">
           <div class="standings-search" style="margin-bottom: 1rem; display: flex; gap: 1rem;">
-            <input type="text" id="standingsSearchInput" placeholder="Search standings..." style="flex:1; padding:0.5rem; border-radius:9999px; padding-left: 1rem; padding-right: 1rem; border:1px solid var(--border); background:transparent; color:var(--text);">
-            <button id="standingsSearchBtn" style="padding:0.5rem 1rem; border:none; background:var(--primary); color:var(--background); border-radius:9999px; padding-left: 1rem; padding-right: 1rem; cursor:pointer; box-shadow:none;">Search</button>
+            <input type="text" id="standingsSearchInput" placeholder="Search standings..." style="flex:1; padding:0.5rem; border-radius: 0; padding-left: 1rem; padding-right: 1rem; border:1px solid var(--border); background:transparent; color:var(--text);">
+            <button id="standingsSearchBtn" style="padding:0.5rem 1rem; border:none; background:var(--primary); color:var(--background); border-radius: 0; padding-left: 1rem; padding-right: 1rem; cursor:pointer; box-shadow:none;">Search</button>
           </div>
           <div class="standings-list" id="standingsList"></div>
         </div>
@@ -293,11 +293,11 @@
       <h3 style="margin: 0;">Existing Challenges</h3>
       
 <div style="display: flex; gap: 1rem; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-  <button id="toggleAdminFormBtn" style="padding:0.75rem; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:var(--text); border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; width: 44px; height: 44px;" title="Add Challenge">
+  <button id="toggleAdminFormBtn" style="padding:0.75rem; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:var(--text); border-radius: 0; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; width: 44px; height: 44px;" title="Add Challenge">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
   </button>
-  <button id="adminWipeDataBtn" style="padding:0.75rem 2rem; border:1px solid #b7410e; background:transparent; color:#b7410e; border-radius:9999px; cursor:pointer; font-weight: bold; transition:all 0.2s; margin-right: 0.5rem;">🗑 Wipe Data</button>
-  <button id="adminStartCtfBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: bold; transition:all 0.2s;">▶ Start CTF</button>
+  <button id="adminWipeDataBtn" style="padding:0.75rem 2rem; border:1px solid #b7410e; background:transparent; color:#b7410e; border-radius: 0; cursor:pointer; font-weight: bold; transition:all 0.2s; margin-right: 0.5rem;">🗑 Wipe Data</button>
+  <button id="adminStartCtfBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius: 0; cursor:pointer; font-weight: bold; transition:all 0.2s;">▶ Start CTF</button>
 </div>
 
     </div>
@@ -307,14 +307,14 @@
         <h3 style="margin: 0;">Challenge Details</h3>
       </div>
       <div class="card-content" style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-        <input type="text" id="adminCatInput" placeholder="Category Name (e.g. Forensics)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
-        <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
-        <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
-        <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
-        <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); padding:1.25rem; border-radius:16px;">
+        <input type="text" id="adminCatInput" placeholder="Category Name (e.g. Forensics)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); padding:1.25rem; border-radius: 0;">
           <label style="font-size:0.9rem; opacity:0.8; font-weight: 500;">Attach Resource File (Optional)</label>
           <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
-            <button type="button" style="padding: 0.5rem 1.5rem; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); border-radius: 9999px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;" onclick="document.getElementById('adminResourceInput').click()">Choose File</button>
+            <button type="button" style="padding: 0.5rem 1.5rem; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); border-radius: 0; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;" onclick="document.getElementById('adminResourceInput').click()">Choose File</button>
             <span id="fileNameDisplay" style="margin-left: 0.75rem; font-size: 0.85rem; color: var(--text-muted); max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No file chosen</span>
             <input type="file" id="adminResourceInput" style="display: none;" onchange="document.getElementById('fileNameDisplay').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
           </div>
@@ -322,7 +322,7 @@
             <input type="checkbox" id="adminRemoveResource" style="accent-color: var(--text); cursor: pointer; width: 16px; height: 16px;"> Remove existing resource
           </label>
         </div>
-        <button id="adminSubmitBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: 500;">Save Challenge</button>
+        <button id="adminSubmitBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius: 0; cursor:pointer; font-weight: 500;">Save Challenge</button>
         <p id="adminMsg" style="margin:0;"></p>
       </div>
     </div>
@@ -347,8 +347,8 @@
       <h3 id="customConfirmTitle" style="margin-bottom: 1rem; font-size: 1.5rem;">Confirm</h3>
       <p id="customConfirmMessage" style="margin-bottom: 2rem; color: var(--text-muted);"></p>
       <div style="display: flex; gap: 1rem; justify-content: center;">
-        <button id="customConfirmCancelBtn" style="padding: 0.75rem 2rem; border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 9999px; cursor: pointer; transition: all 0.2s;">Cancel</button>
-        <button id="customConfirmOkBtn" style="padding: 0.75rem 2rem; border: none; background: var(--text); color: var(--background); border-radius: 9999px; cursor: pointer; font-weight: 500;">OK</button>
+        <button id="customConfirmCancelBtn" style="padding: 0.75rem 2rem; border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 0; cursor: pointer; transition: all 0.2s;">Cancel</button>
+        <button id="customConfirmOkBtn" style="padding: 0.75rem 2rem; border: none; background: var(--text); color: var(--background); border-radius: 0; cursor: pointer; font-weight: 500;">OK</button>
       </div>
     </div>
   </div>
@@ -505,14 +505,14 @@
         
         if (adminList) {
           const div = document.createElement('div');
-          div.style.cssText = 'display:flex; flex-direction:column; justify-content:space-between; padding:1.25rem; background:var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border:1px solid var(--glass-border); border-radius:4px; min-height: 140px;';
+          div.style.cssText = 'display:flex; flex-direction:column; justify-content:space-between; padding:1.25rem; background:var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border:1px solid var(--glass-border); border-radius: 0; min-height: 140px;';
           div.innerHTML = `
             <div style="margin-bottom: 1.25rem;">
               <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem;">${category}</div>
               <div style="font-size:0.8rem; color:var(--primary); font-weight: 600; margin-bottom: 0.5rem;">${info.points || 500} pts</div>
               <div style="font-size:0.85rem; color:var(--text-muted); line-height: 1.4;">${info.text}</div>
             </div>
-            <div style="display:flex; gap:0.5rem; margin-top:auto;"><button onclick="editChallenge('${category}')" style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.05); color:var(--text-primary); border:none; border-radius:9999px; cursor:pointer; font-weight:500; letter-spacing: 1px; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">EDIT</button><button onclick="deleteChallenge('${category}')" style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.05); color:var(--text-primary); border:none; border-radius:9999px; cursor:pointer; font-weight:500; letter-spacing: 1px; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">DELETE</button></div>
+            <div style="display:flex; gap:0.5rem; margin-top:auto;"><button onclick="editChallenge('${category}')" style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.05); color:var(--text-primary); border:none; border-radius: 0; cursor:pointer; font-weight:500; letter-spacing: 1px; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">EDIT</button><button onclick="deleteChallenge('${category}')" style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.05); color:var(--text-primary); border:none; border-radius: 0; cursor:pointer; font-weight:500; letter-spacing: 1px; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">DELETE</button></div>
           `;
           adminList.appendChild(div);
         }
@@ -651,16 +651,16 @@
             const teamText = data.teamName ? data.teamName : 'No Team';
             if (data.isAdmin) { const a = document.getElementById('adminNavLi'); if(a) a.style.display = 'block'; }
             profileDiv.innerHTML = `
-              <div id="displayUsernameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+              <div id="displayUsernameContainer" style="display: flex; justify-content: flex-start; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
                 <h3 style="font-size: 2rem; margin: 0;" id="displayUsername">${data.username}</h3>
-                <button id="editUsernameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:50%; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Username">
+                <button id="editUsernameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius: 0; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Username">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                 </button>
               </div>
-              <div id="editUsernameForm" style="display: none; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                 <input type="text" id="newUsernameInput" value="${data.username}" style="padding:0.5rem 1rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
-                 <button id="saveUsernameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer;">Save</button>
-                 <button id="cancelUsernameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
+              <div id="editUsernameForm" style="display: none; justify-content: flex-start; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                 <input type="text" id="newUsernameInput" value="${data.username}" style="padding:0.5rem 1rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); text-align:left;" />
+                 <button id="saveUsernameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius: 0; cursor:pointer;">Save</button>
+                 <button id="cancelUsernameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius: 0; cursor:pointer;">Cancel</button>
               </div>
               <p style="font-size: 1.2rem;">Team: ${teamText}</p>
               <p id="profileMessage" style="margin-top: 1rem; color: #b7410e;"></p>
@@ -1010,14 +1010,14 @@
             myTeamInfo.innerHTML = `
               <div id="displayTeamNameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
                 <div id="displayTeamName" style="font-size: 1.5rem; margin: 0;"><strong>${data.team.teamName}</strong></div>
-                <button id="editTeamNameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:50%; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Team Name">
+                <button id="editTeamNameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius: 0; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Team Name">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                 </button>
               </div>
               <div id="editTeamNameForm" style="display: none; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                 <input type="text" id="newTeamNameInput" value="${data.team.teamName}" style="padding:0.5rem 1rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
-                 <button id="saveTeamNameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer;">Save</button>
-                 <button id="cancelTeamNameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
+                 <input type="text" id="newTeamNameInput" value="${data.team.teamName}" style="padding:0.5rem 1rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
+                 <button id="saveTeamNameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius: 0; cursor:pointer;">Save</button>
+                 <button id="cancelTeamNameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius: 0; cursor:pointer;">Cancel</button>
               </div>
               
               <div style="font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;">Total Team Score: <span style="color:var(--primary);">${data.team.score || 0} pts</span></div>
@@ -1025,7 +1025,7 @@
                 let html = '<div style="margin-top: 1.5rem; text-align: left; display: block; margin: 0 auto; width: 100%; max-width: 400px;">';
                 if (data.team.memberDetails) {
                   data.team.memberDetails.forEach(m => {
-                    html += '<div style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px;">';
+                    html += '<div style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 0;">';
                     html += '<div style="font-weight: 600; font-size: 1.1rem; display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><span>' + m.username + '</span> <span style="color:var(--primary); font-size:1rem;">' + m.totalPoints + ' pts</span></div>';
                     if (m.solvedChallenges && m.solvedChallenges.length > 0) {
                       m.solvedChallenges.forEach(c => {
@@ -1042,7 +1042,7 @@
               })()}
 
               <div style="margin-top: 1.5rem;">
-                <button id="leaveTeamBtn" style="padding:0.5rem 1rem; border:1px solid rgba(245,158,11,0.5); background:rgba(245,158,11,0.1); color:#b7410e; border-radius:9999px; cursor:pointer; font-size: 0.85rem; transition: all 0.2s;">Leave Team</button>
+                <button id="leaveTeamBtn" style="padding:0.5rem 1rem; border:1px solid rgba(245,158,11,0.5); background:rgba(245,158,11,0.1); color:#b7410e; border-radius: 0; cursor:pointer; font-size: 0.85rem; transition: all 0.2s;">Leave Team</button>
               </div>
               <p id="teamMessage" style="margin-top: 1rem; color: #b7410e;"></p>
             `;
@@ -1530,7 +1530,7 @@
     });
   </script>
 
-  <div id="ctfTimerDisplay" style="position: fixed; bottom: 40px; right: 20px; font-family: 'Share Tech Mono', monospace; font-size: 2rem; color: var(--primary); font-weight: bold; background: rgba(10, 14, 20, 0.9); padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid var(--primary); backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 10px rgba(200, 214, 75, 0.2);">--:--:--</div>
+  <div id="ctfTimerDisplay" style="position: fixed; bottom: 40px; right: 20px; font-family: 'Share Tech Mono', monospace; font-size: 2rem; color: var(--primary); font-weight: bold; background: rgba(10, 14, 20, 0.9); padding: 0.5rem 1rem; border-radius: 0; border: 1px solid var(--primary); backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 10px rgba(200, 214, 75, 0.2);">--:--:--</div>
 </body>
 </html>
 

@@ -1307,5 +1307,21 @@
         "score": 600
       }
     ]
+  },
+  {
+    "id": "1787310899606",
+    "teamName": "x",
+    "password": "$2b$10$j15ZbM./V1Y2LMOlODXt2.COJBAOEbT3Tb/QEJtes7FQuK9bLWE7W",
+    "members": [
+      "1787287824692"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787310899606,
+        "score": 0
+      }
+    ]
   }
 ]
