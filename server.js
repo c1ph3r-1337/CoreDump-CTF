@@ -472,13 +472,6 @@ app.post('/api/challenge/flag', (req, res) => {
   const flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
   const challengeObj = flagsData[category];
   if (!challengeObj) return res.status(404).json({ error: 'Challenge not found for this category.' });
-  const storedHash = challengeObj.hash;
-  if (!storedHash) return res.status(404).json({ error: 'Challenge not found for this category.' });
-  
-  if (!bcrypt.compareSync(flag, storedHash)) {
-    return res.status(400).json({ error: 'Incorrect flag.' });
-  }
-  
   const userId = req.session.userId;
   const currentUser = users.find(u => u.id === userId);
   if (!currentUser || !currentUser.teamId) return res.status(400).json({ error: 'You are not in a team.' });
@@ -491,7 +484,14 @@ app.post('/api/challenge/flag', (req, res) => {
   });
   
   if (alreadySolved) {
-    return res.json({ message: 'This challenge has already been solved by a team member.' });
+    return res.status(400).json({ error: 'This challenge has already been solved by your team.' });
+  }
+
+  const storedHash = challengeObj.hash;
+  if (!storedHash) return res.status(404).json({ error: 'Challenge not found for this category.' });
+  
+  if (!bcrypt.compareSync(flag, storedHash)) {
+    return res.status(400).json({ error: 'Incorrect flag.' });
   }
   
   if (!Array.isArray(currentUser.solvedChallenges)) {
