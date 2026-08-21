@@ -180,11 +180,23 @@ app.get('/api/challenges', (req, res) => {
   const flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
   const safeData = {};
   for (const key in flagsData) {
+    let solvesCount = 0;
+    teams.forEach(team => {
+      // Exclude admin teams from solve counts
+      if (team.teamName.toLowerCase().includes('admin')) return;
+      const teamSolvedIt = team.members.some(memberId => {
+        const member = users.find(u => u.id === memberId);
+        return member && Array.isArray(member.solvedChallenges) && member.solvedChallenges.includes(key);
+      });
+      if (teamSolvedIt) solvesCount++;
+    });
+
     safeData[key] = { 
       text: flagsData[key].text, 
       points: flagsData[key].points || 500,
       resource: flagsData[key].resource,
-      originalResourceName: flagsData[key].originalResourceName
+      originalResourceName: flagsData[key].originalResourceName,
+      solves: solvesCount
     };
   }
   res.json(safeData);
@@ -515,7 +527,7 @@ app.post('/api/challenge/flag', (req, res) => {
   
   io.emit('teamsUpdate');
   io.emit('usersUpdate');
-  return res.json({ message: 'Correct flag! 500 points added to your team.' });
+  return res.json({ message: `Correct flag! ${pointsEarned} points added to your team.` });
 });
 
 // -----------------------

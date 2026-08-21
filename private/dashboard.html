@@ -500,7 +500,7 @@
             <div class="c-title">${category}</div>
             <div class="c-subtitle">CTF // <span>${diff}</span> // ${pts} PTS</div>
           </div>
-          <div class="c-solves">${Math.floor(Math.random() * 500 + 100)} SOLVES</div>
+          <div class="c-solves">${info.solves || 0} SOLVES</div>
           <div class="c-arrow">&gt;</div>
           `;
           catContainer.appendChild(div);
