@@ -739,7 +739,7 @@ body::after {
   margin-left: auto; /* Pushes it to the right if next to brand */
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .mobile-menu-toggle { 
     display: flex; 
     align-items: center;
