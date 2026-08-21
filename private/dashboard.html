@@ -1215,7 +1215,7 @@
                 solvedSet.forEach(category => {
                   const box = document.querySelector(`.challenge-card[data-category="${category}"]`);
                   if (box) {
-                    box.style.backgroundColor = "var(--text)"; box.style.borderColor = "var(--text)"; box.style.color = "var(--background)";  
+                    box.style.backgroundColor = "var(--accent-soft)"; box.style.borderColor = "var(--accent)"; box.style.color = "var(--accent)";  
                   }
                 });
               })
@@ -1502,8 +1502,9 @@
                 fetchTeamScores();
                 const solvedBox = document.querySelector(`.challenge-card[data-category="${currentCategory}"]`);
                 if (solvedBox) {
-                  solvedBox.style.backgroundColor = "var(--text)";
-                  solvedBox.style.color = "var(--background)";
+                  solvedBox.style.backgroundColor = "var(--accent-soft)";
+                  solvedBox.style.borderColor = "var(--accent)";
+                  solvedBox.style.color = "var(--accent)";
                 }
               } else {
                 flagResult.style.color = "#b7410e";
