@@ -129,7 +129,7 @@
           <div class="category active" data-diff="EASY">EASY</div>
           <div class="category" data-diff="MEDIUM">MEDIUM</div>
           <div class="category" data-diff="HARD">HARD</div>
-          <div class="category" data-diff="BONUS">BONUS</div>
+          <div class="category" data-diff="BONUS" style="display: none;" id="bonusFilterTab">BONUS</div>
         </div>
         <div class="challenges-list" id="challengeCategoriesContainer">
           <!-- JS will populate here -->
@@ -487,7 +487,13 @@
       
       const allCategories = new Set([...orderedCategories, ...Object.keys(currentChallenges)]);
       
+      let hasBonus = false;
+      
       for (const category of allCategories) {
+        if (currentChallenges[category] && currentChallenges[category].difficulty === 'BONUS') {
+          hasBonus = true;
+        }
+
         if (!currentChallenges[category]) continue;
         const info = currentChallenges[category];
         
@@ -525,6 +531,11 @@
           `;
           adminList.appendChild(div);
         }
+      }
+      
+      const bonusTab = document.getElementById('bonusFilterTab');
+      if (bonusTab) {
+        bonusTab.style.display = hasBonus ? 'flex' : 'none';
       }
       
       // After rendering challenges, we also need to re-apply the solved colors if the user is in a team
