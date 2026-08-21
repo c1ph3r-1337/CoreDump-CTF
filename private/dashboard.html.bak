@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CoreDump 2.0</title>
+  <link rel="stylesheet" href="/dashboard-styles.css?v=2" />
+  <!-- You can include your scoreboard stylesheet if needed -->
+  <link rel="stylesheet" href="styles-scoreboard.css" />
+  <style>
+    /* HUD Decorative Elements */
+    .hud-decoration {
+      position: fixed;
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--primary);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      z-index: 10000;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .hud-decoration.top-left { top: 80px; left: 20px; }
+    .hud-decoration.top-right { top: 80px; right: 20px; }
+    
+    .hud-footer {
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      height: 30px;
+      background: rgba(10, 14, 20, 0.95);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--primary);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      z-index: 9998;
+      pointer-events: none;
+    }
+    
+    #dashboard-content .subtitle {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--primary);
+      letter-spacing: 4px;
+      margin-top: -1rem;
+      margin-bottom: 2rem;
+    }
+    
+    /* Chart legend styles (restored from original inline) */
+    #chart-legend {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-family: 'Share Tech Mono', monospace;
+    }
+    .legend-color {
+      width: 12px; height: 12px; border-radius: 0; box-shadow: 0 0 5px currentColor;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <!-- HUD DECORATIONS -->
+  <div class="hud-decoration top-left">SECTOR 7G<br>GRID X-07</div>
+  <div class="hud-decoration top-right">LAT 47.9<br>LON -122.3</div>
+  <div class="hud-footer">
+    <span>SYS: SECURE CONNECTION</span>
+    <span>VER: 1.07.3</span>
+    <span>STATUS: ONLINE</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="dashboard-navbar" id="navbar">
+    <div class="nav-left">
+      <div class="nav-brand">CTF // OPERATIONS</div>
+    </div>
+    <button class="mobile-menu-toggle" id="mobileMenuBtn">
+      <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <div class="nav-menu-container">
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="#" data-target="dashboard-content">Dashboard</a></li>
+          <li><a href="#" data-target="users-section">Users</a></li>
+          <li><a href="#" data-target="teams-section">Teams</a></li>
+          <li><a href="#" data-target="scoreboard-section">Scoreboard</a></li>
+          <li><a href="#" data-target="challenges-section">Challenges</a></li>
+          <li id="adminNavLi" style="display:none;"><a href="#" data-target="admin-section">Admin Portal</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#" id="teamPageLink" data-target="team-section">Team</a></li>
+          <li><a href="#" data-target="profile-section">Profile</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN SECTIONS -->
+  <section id="dashboard-content" class="info-section" style="background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+    <h1 style="font-size: 42px; font-weight: 300; letter-spacing: 0.28em; color: var(--text-primary);">CYBER OPERATIONS</h1>
+    <p class="subtitle" style="font-size: 16px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-top: 1rem;">CAPTURE THE FLAG // ACTIVE OPERATION</p>
+    
+    <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; margin-bottom: 2rem;">
+      <div class="stat-card" style="padding: 1.5rem 3rem; text-align: center; width: 220px;">
+        <div style="font-size: 2rem; color: var(--text-primary); margin-bottom: 0.5rem; font-family: 'Share Tech Mono', monospace;">24</div>
+        <div style="font-size: 13px; color: var(--text-muted); letter-spacing: 0.14em; text-transform: uppercase;">CHALLENGES</div>
+      </div>
+      <div class="stat-card" style="padding: 1.5rem 3rem; text-align: center; width: 220px;">
+        <div style="font-size: 2rem; color: var(--text-primary); margin-bottom: 0.5rem; font-family: 'Share Tech Mono', monospace;">1,240</div>
+        <div style="font-size: 13px; color: var(--text-muted); letter-spacing: 0.14em; text-transform: uppercase;">OPERATORS</div>
+      </div>
+      <div class="stat-card" style="padding: 1.5rem 3rem; text-align: center; width: 220px;">
+        <div style="font-size: 2rem; color: var(--text-primary); margin-bottom: 0.5rem; font-family: 'Share Tech Mono', monospace;">18,450</div>
+        <div style="font-size: 13px; color: var(--text-muted); letter-spacing: 0.14em; text-transform: uppercase;">POINTS</div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- USERS SECTION -->
+  <section id="users-section" class="info-section" style="display: none;">
+    <h2>Users</h2>
+    <div class="users-search">
+      <label for="userSearchInput">Search Users:</label>
+      <input type="text" id="userSearchInput" placeholder="Enter username" />
+      <button id="userSearchBtn">Search</button>
+    </div>
+    <div id="usersList"></div>
+    <div id="usersPagination"></div>
+  </section>
+
+  <!-- TEAMS LISTING SECTION -->
+  <section id="teams-section" class="info-section" style="display: none;">
+    <h2>Teams</h2>
+    <div class="teams-search">
+      <label for="teamSearchInput">Search Teams:</label>
+      <input type="text" id="teamSearchInput" placeholder="Enter team name" />
+      <button id="teamSearchBtn">Search</button>
+    </div>
+    <div id="teamsList"></div>
+    <div id="teamsPagination"></div>
+  </section>
+
+  <!-- MY TEAM SECTION -->
+  <section id="team-section" class="info-section" style="display: none;">
+    <section id="myTeamSection">
+      <h2>My Team</h2>
+      <div id="myTeamInfo"></div>
+      <div id="noTeamActions" style="display: none;">
+        <button id="showJoinForm">Join Team</button>
+        <button id="showCreateForm">Create Team</button>
+      </div>
+    </section>
+    <!-- Join Team Form -->
+    <section id="joinTeamSection" style="display: none;">
+      <h3>Join a Team</h3>
+      <input type="text" id="joinTeamName" placeholder="Team Name" />
+      <input type="password" id="joinTeamPassword" placeholder="Team Password" />
+      <button id="submitJoinTeam">Join</button>
+      <button id="cancelJoinTeam">Cancel</button>
+      <div id="joinTeamMessage"></div>
+    </section>
+    <!-- Create Team Form -->
+    <section id="createTeamSection" style="display: none;">
+      <h3>Create a Team</h3>
+      <input type="text" id="createTeamName" placeholder="Team Name" />
+      <input type="password" id="createTeamPassword" placeholder="Team Password" />
+      <button id="submitCreateTeam">Create</button>
+      <button id="cancelCreateTeam">Cancel</button>
+      <div id="createTeamMessage"></div>
+    </section>
+  </section>
+
+  <!-- SCOREBOARD SECTION -->
+  <section id="scoreboard-section" class="info-section" style="display: none;">
+    <div id="teamScoreDisplay">Your Team Score: N/A</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>Team Rankings</h2>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="score-graph">Score Graph</button>
+          <button class="tab-btn" data-tab="standings">Current Standings</button>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="tab-content active" id="score-graph">
+          <div class="chart-container">
+            <canvas id="scoreChart"></canvas>
+          </div>
+        </div>
+        <div class="tab-content" id="standings">
+          <div class="standings-search" style="margin-bottom: 1rem; display: flex; gap: 0.5rem;">
+            <input type="text" id="standingsSearchInput" placeholder="Search standings..." style="flex:1; padding:0.5rem; border-radius:9999px; padding-left: 1rem; padding-right: 1rem; border:1px solid var(--border); background:transparent; color:var(--text);">
+            <button id="standingsSearchBtn" style="padding:0.5rem 1rem; border:none; background:var(--primary); color:var(--background); border-radius:9999px; padding-left: 1rem; padding-right: 1rem; cursor:pointer; box-shadow:none;">Search</button>
+          </div>
+          <div class="standings-list" id="standingsList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES SECTION -->
+  <section id="challenges-section" class="info-section" style="display: none; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; max-width: 1400px; padding: 0;">
+    <div style="display: flex; gap: 2rem; align-items: flex-start; text-align: left;">
+      <!-- Left Panel -->
+      <div class="glass-panel" style="flex: 1; padding: 2.5rem;">
+        <h3 style="color: var(--accent); letter-spacing: 0.14em; font-size: 16px; font-weight: 400; text-transform: uppercase; margin-bottom: 2rem;">CHALLENGES</h3>
+        <div style="display: flex; gap: 2rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(180,190,185,0.10); padding-bottom: 1rem;">
+          <span class="category-tab active">EASY</span>
+          <span class="category-tab">MEDIUM</span>
+          <span class="category-tab">HARD</span>
+        </div>
+        <div class="challenge-categories" id="challengeCategoriesContainer"></div>
+      </div>
+      <!-- Right Panel Placeholder for Modal -->
+      <div id="challengeDetailsPanel" style="flex: 1;">
+        <!-- Challenge Modal (Moved from bottom) -->
+        <div id="challengeModal" class="modal" style="position: static; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; width: 100%; height: auto;">
+          <div class="modal-content" style="margin: 0; width: 100%; max-width: 100%; box-shadow: none;">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Challenge</h3>
+            <p id="challengeDescription" style="margin-bottom: 2rem;">Solve the challenge and submit your flag.</p>
+            <div id="resourceContainer" style="display:none; margin: 0 0 2rem 0;">
+              <a id="downloadResourceBtn" href="#" download style="display:inline-block; padding:0.5rem 1rem; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:9999px; color:var(--text); text-decoration:none; font-size:0.85rem; transition:all 0.2s;">
+                <svg style="width:14px; height:14px; vertical-align:middle; margin-right:4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                Download Resource
+              </a>
+            </div>
+            <input type="text" id="flagInput" placeholder="Enter flag here" />
+            <button id="submitFlagBtn">Submit Flag</button>
+            <p id="flagResult"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+  <!-- ADMIN SECTION -->
+  <section id="admin-section" class="info-section" style="display: none;">
+    <h2 style="margin-bottom: 0.5rem;">Admin Portal</h2>
+    <p style="color: var(--text-muted); margin-bottom: 2rem;">Manage challenges below. Adding a new challenge with an existing category name will update it.</p>
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <h3 style="margin: 0;">Existing Challenges</h3>
+      
+<div style="display: flex; gap: 1rem; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+  <button id="toggleAdminFormBtn" style="padding:0.75rem; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:var(--text); border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; width: 44px; height: 44px;" title="Add Challenge">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+  </button>
+  <button id="adminWipeDataBtn" style="padding:0.75rem 2rem; border:1px solid var(--warning); background:transparent; color:var(--warning); border-radius:9999px; cursor:pointer; font-weight: bold; transition:all 0.2s; margin-right: 0.5rem;">🗑 Wipe Data</button>
+  <button id="adminStartCtfBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: bold; transition:all 0.2s;">▶ Start CTF</button>
+</div>
+
+    </div>
+    
+    <div id="adminFormCard" class="card" style="margin-bottom: 2rem; display: none;">
+      <div class="card-header" style="text-align: center;">
+        <h3 style="margin: 0;">Challenge Details</h3>
+      </div>
+      <div class="card-content" style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <input type="text" id="adminCatInput" placeholder="Category Name (e.g. Forensics)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); padding:1.25rem; border-radius:16px;">
+          <label style="font-size:0.9rem; opacity:0.8; font-weight: 500;">Attach Resource File (Optional)</label>
+          <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+            <button type="button" style="padding: 0.5rem 1.5rem; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); border-radius: 9999px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;" onclick="document.getElementById('adminResourceInput').click()">Choose File</button>
+            <span id="fileNameDisplay" style="margin-left: 0.75rem; font-size: 0.85rem; color: var(--text-muted); max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No file chosen</span>
+            <input type="file" id="adminResourceInput" style="display: none;" onchange="document.getElementById('fileNameDisplay').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
+          </div>
+          <label style="font-size:0.85rem; display:flex; align-items:center; gap:0.5rem; margin-top:0.25rem; cursor:pointer; color: var(--text-muted);">
+            <input type="checkbox" id="adminRemoveResource" style="accent-color: var(--text); cursor: pointer; width: 16px; height: 16px;"> Remove existing resource
+          </label>
+        </div>
+        <button id="adminSubmitBtn" style="padding:0.75rem 2rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer; font-weight: 500;">Save Challenge</button>
+        <p id="adminMsg" style="margin:0;"></p>
+      </div>
+    </div>
+    
+    
+    <div id="adminChallengesList" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;"></div>
+  </section>
+
+
+  <!-- PROFILE SECTION -->
+  <section id="profile-section" class="info-section" style="display: none;">
+    <h2>Profile</h2>
+    <div id="profileInfo"></div>
+  </section>
+
+
+
+  
+  <!-- Custom Confirm Modal -->
+  <div id="customConfirmModal" class="modal" style="z-index: 10000;">
+    <div class="modal-content" style="max-width: 400px; text-align: center; padding: 2rem;">
+      <h3 id="customConfirmTitle" style="margin-bottom: 1rem; font-size: 1.5rem;">Confirm</h3>
+      <p id="customConfirmMessage" style="margin-bottom: 2rem; color: var(--text-muted);"></p>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <button id="customConfirmCancelBtn" style="padding: 0.75rem 2rem; border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 9999px; cursor: pointer; transition: all 0.2s;">Cancel</button>
+        <button id="customConfirmOkBtn" style="padding: 0.75rem 2rem; border: none; background: var(--text); color: var(--background); border-radius: 9999px; cursor: pointer; font-weight: 500;">OK</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- MAIN SCRIPT -->
+  <script>
+
+    let customConfirmCallback = null;
+    
+    function showCustomConfirm(title, message, isAlert, callback) {
+      document.getElementById('customConfirmTitle').textContent = title;
+      document.getElementById('customConfirmMessage').textContent = message;
+      document.getElementById('customConfirmModal').style.display = 'flex';
+      
+      const cancelBtn = document.getElementById('customConfirmCancelBtn');
+      if (isAlert) {
+        cancelBtn.style.display = 'none';
+      } else {
+        cancelBtn.style.display = 'block';
+      }
+      
+      customConfirmCallback = callback;
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('customConfirmCancelBtn').addEventListener('click', () => {
+        document.getElementById('customConfirmModal').style.display = 'none';
+        if (customConfirmCallback) customConfirmCallback(false);
+      });
+      document.getElementById('customConfirmOkBtn').addEventListener('click', () => {
+        document.getElementById('customConfirmModal').style.display = 'none';
+        if (customConfirmCallback) customConfirmCallback(true);
+      });
+    });
+
+    // Dashboard Tab Switching
+    const navLinks = document.querySelectorAll('.nav-links a[data-target]');
+    const sections = document.querySelectorAll('.info-section');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        sections.forEach(sec => sec.style.display = 'none');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) targetSection.style.display = 'block';
+        if (targetId === 'users-section') fetchUsers();
+        if (targetId === 'profile-section') fetchProfile();
+        if (targetId === 'scoreboard-section') {
+          fetchTeamScores(); fetchTeams(); fetchMyTeam();
+          updateChallengeBoxesFromTeam();
+        }
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+
+    // Fetch profile info
+
+    let currentChallenges = {};
+    
+    function fetchChallenges() {
+      fetch('/api/challenges')
+        .then(res => res.json())
+        .then(data => {
+          currentChallenges = data;
+          renderChallenges();
+          updateChallengeBoxesFromTeam();
+        });
+    }
+
+    function renderChallenges() {
+      const catContainer = document.getElementById('challengeCategoriesContainer');
+      const adminList = document.getElementById('adminChallengesList');
+      
+      if (catContainer) catContainer.innerHTML = '';
+      if (adminList) adminList.innerHTML = '';
+      
+      // Fixed ordering
+      const orderedCategories = [
+        "Forensics", "Reverse Engineering", "Web Exploitation", "OSINT", 
+        "Crypto", "Steganography", "Binary Analysis", "Miscellaneous"
+      ];
+      
+      const allCategories = new Set([...orderedCategories, ...Object.keys(currentChallenges)]);
+      
+      for (const category of allCategories) {
+        if (!currentChallenges[category]) continue;
+        const info = currentChallenges[category];
+        
+        if (catContainer) {
+          const div = document.createElement('div');
+          div.className = 'challenge-box';
+          div.setAttribute('data-category', category);
+          div.innerHTML = `<div style="font-weight: 600;">${category}</div><div style="font-size:0.85rem; margin-top:0.25rem; opacity:0.9;">${info.points || 500} pts</div>`;
+          catContainer.appendChild(div);
+        }
+        
+        if (adminList) {
+          const div = document.createElement('div');
+          div.style.cssText = 'display:flex; flex-direction:column; justify-content:space-between; padding:1.25rem; background:var(--card-bg); border:1px solid var(--border); border-radius:16px; min-height: 140px;';
+          div.innerHTML = `
+            <div style="margin-bottom: 1.25rem;">
+              <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem;">${category}</div>
+              <div style="font-size:0.8rem; color:var(--primary); font-weight: 600; margin-bottom: 0.5rem;">${info.points || 500} pts</div>
+              <div style="font-size:0.85rem; color:var(--text-muted); line-height: 1.4;">${info.text}</div>
+            </div>
+            <div style="display:flex; gap:0.5rem; margin-top:auto;"><button onclick="editChallenge('${category}')" style="flex:1; padding:0.5rem; background:transparent; color:var(--text); border:1px solid var(--border); border-radius:9999px; cursor:pointer; font-weight:500; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Edit</button><button onclick="deleteChallenge('${category}')" style="flex:1; padding:0.5rem; background:transparent; color:var(--text); border:1px solid var(--border); border-radius:9999px; cursor:pointer; font-weight:500; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">Delete</button></div>
+          `;
+          adminList.appendChild(div);
+        }
+      }
+      
+      // After rendering challenges, we also need to re-apply the solved colors if the user is in a team
+      fetchMyTeam(); 
+    }
+    
+    
+    function editChallenge(category) {
+      if (!currentChallenges[category]) return;
+      document.getElementById('adminCatInput').value = category;
+      document.getElementById('adminTextInput').value = currentChallenges[category].text;
+      document.getElementById('adminFlagInput').value = '********';
+      document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
+      const fileInput = document.getElementById('adminResourceInput');
+      if (fileInput) fileInput.value = '';
+      const fileDisplay = document.getElementById('fileNameDisplay');
+      if (fileDisplay) {
+        if (currentChallenges[category].originalResourceName) {
+           fileDisplay.textContent = 'Current: ' + currentChallenges[category].originalResourceName;
+        } else if (currentChallenges[category].resource) {
+           fileDisplay.textContent = 'Current: ' + currentChallenges[category].resource;
+        } else {
+           fileDisplay.textContent = 'No file chosen';
+        }
+      }
+      const removeCb = document.getElementById('adminRemoveResource');
+      if (removeCb) removeCb.checked = false;
+      document.getElementById('adminFormCard').style.display = 'block';
+      document.getElementById('adminCatInput').focus();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function deleteChallenge(category) {
+      showCustomConfirm("Delete Challenge", "Are you sure you want to delete " + category + "?", false, (confirmed) => {
+        if (!confirmed) return;
+        fetch('/api/admin/challenges/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ category })
+        }).then(res => res.json()).then(data => {
+           if(data.error) showCustomConfirm("Error", data.error, true, null);
+           else fetchChallenges();
+        });
+      });
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('toggleAdminFormBtn');
+      const formCard = document.getElementById('adminFormCard');
+      if (toggleBtn && formCard) {
+        toggleBtn.addEventListener('click', () => {
+          if (formCard.style.display === 'none') {
+            formCard.style.display = 'block';
+            document.getElementById('adminCatInput').focus();
+          } else {
+            formCard.style.display = 'none';
+          }
+        });
+      }
+
+      const submitBtn = document.getElementById('adminSubmitBtn');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+          const category = document.getElementById('adminCatInput').value;
+          const text = document.getElementById('adminTextInput').value;
+          const flag = document.getElementById('adminFlagInput').value;
+          const points = document.getElementById('adminPointsInput').value;
+          const msg = document.getElementById('adminMsg');
+          
+          if (!category || !text || !flag || !points) {
+            msg.style.color = 'var(--warning)';
+            msg.textContent = 'All fields (Category, Text, Flag, Points) are compulsory.';
+            return;
+          }
+          
+          const formData = new FormData();
+          formData.append('category', category);
+          formData.append('text', text);
+          formData.append('flag', flag);
+          formData.append('points', points);
+          
+          const fileInput = document.getElementById('adminResourceInput');
+          if (fileInput && fileInput.files.length > 0) {
+            formData.append('resource', fileInput.files[0]);
+          }
+          const removeCb = document.getElementById('adminRemoveResource');
+          if (removeCb && removeCb.checked) {
+            formData.append('removeResource', 'true');
+          }
+
+          fetch('/api/admin/challenges', {
+            method: 'POST',
+            body: formData
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.error) {
+              msg.style.color = 'var(--warning)';
+              msg.textContent = data.error;
+            } else {
+              msg.style.color = 'var(--success)';
+              msg.textContent = data.message;
+              document.getElementById('adminCatInput').value = '';
+              document.getElementById('adminTextInput').value = '';
+              document.getElementById('adminFlagInput').value = '';
+              const fInput = document.getElementById('adminResourceInput');
+              if(fInput) fInput.value = '';
+              const fDisplay = document.getElementById('fileNameDisplay');
+              if(fDisplay) fDisplay.textContent = 'No file chosen';
+              const rCb = document.getElementById('adminRemoveResource');
+              if(rCb) rCb.checked = false;
+              fetchChallenges(); // Force local update instantly
+            }
+          });
+        });
+      }
+    });
+
+
+
+    function fetchProfile() {
+      fetch('/api/profile')
+        .then(res => res.json())
+        .then(data => {
+          const profileDiv = document.getElementById('profileInfo');
+          if (!profileDiv) return;
+          if (data.error === "Not logged in") { window.location.href = "/"; return; }
+          if (data.error) {
+            profileDiv.innerHTML = `<p style="color:var(--warning);">${data.error}</p>`;
+          } else {
+            const teamText = data.teamName ? data.teamName : 'No Team';
+            if (data.isAdmin) { const a = document.getElementById('adminNavLi'); if(a) a.style.display = 'block'; }
+            profileDiv.innerHTML = `
+              <div id="displayUsernameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <h3 style="font-size: 2rem; margin: 0;" id="displayUsername">${data.username}</h3>
+                <button id="editUsernameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:50%; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Username">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </button>
+              </div>
+              <div id="editUsernameForm" style="display: none; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                 <input type="text" id="newUsernameInput" value="${data.username}" style="padding:0.5rem 1rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
+                 <button id="saveUsernameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer;">Save</button>
+                 <button id="cancelUsernameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
+              </div>
+              <p style="font-size: 1.2rem;">Team: ${teamText}</p>
+              <p id="profileMessage" style="margin-top: 1rem; color: var(--warning);"></p>
+            `;
+
+            document.getElementById('editUsernameBtn').addEventListener('click', () => {
+              document.getElementById('displayUsernameContainer').style.display = 'none';
+              document.getElementById('editUsernameForm').style.display = 'flex';
+            });
+            
+            document.getElementById('cancelUsernameBtn').addEventListener('click', () => {
+              document.getElementById('displayUsernameContainer').style.display = 'flex';
+              document.getElementById('editUsernameForm').style.display = 'none';
+              document.getElementById('profileMessage').textContent = '';
+            });
+
+            document.getElementById('saveUsernameBtn').addEventListener('click', () => {
+              const newUsername = document.getElementById('newUsernameInput').value.trim();
+              if(!newUsername) return;
+              fetch('/api/profile/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ newUsername })
+              }).then(res => res.json()).then(resp => {
+                if(resp.error) {
+                  document.getElementById('profileMessage').textContent = resp.error;
+                } else {
+                  fetchProfile();
+                }
+              }).catch(err => console.error(err));
+            });
+          }
+        })
+        .catch(err => console.error('Error fetching profile:', err));
+    }
+
+    // Users List with Search & Pagination
+    let allUsers = [];
+    let currentUsersPage = 1;
+    const usersPageSize = 5;
+    function fetchUsers() {
+      fetch('/api/users')
+        .then(response => response.json())
+        .then(data => {
+          allUsers = data;
+          currentUsersPage = 1;
+          renderUsersList();
+        })
+        .catch(err => console.error('Error fetching users:', err));
+    }
+    function renderUsersList() {
+      const searchInput = document.getElementById('userSearchInput');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      let filtered = allUsers.filter(user => user.username.toLowerCase().includes(query));
+      const totalPages = Math.ceil(filtered.length / usersPageSize);
+      if (currentUsersPage > totalPages) currentUsersPage = totalPages || 1;
+      const start = (currentUsersPage - 1) * usersPageSize;
+      const pageUsers = filtered.slice(start, start + usersPageSize);
+      const usersList = document.getElementById('usersList');
+      usersList.innerHTML = '';
+      pageUsers.forEach(user => {
+        const div = document.createElement('div');
+        div.className = 'user-item';
+        div.textContent = user.username;
+        usersList.appendChild(div);
+      });
+      renderUsersPagination(totalPages);
+    }
+        function renderUsersPagination(totalPages) {
+      createSmartPagination(totalPages, currentUsersPage, 'usersPagination', (page) => {
+        currentUsersPage = page;
+        renderUsersList();
+      });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const userSearchBtn = document.getElementById('userSearchBtn');
+      const userSearchInput = document.getElementById('userSearchInput');
+      if (userSearchBtn && userSearchInput) {
+        userSearchBtn.addEventListener('click', () => { currentUsersPage = 1; renderUsersList(); });
+        userSearchInput.addEventListener('keyup', () => { currentUsersPage = 1; renderUsersList(); });
+      }
+    });
+
+    // Scoreboard Functions (Updated for time-series chart)
+    let scoreChart;
+    let teamScoreHistory = {}; // Store score history for each team
+    let allStandingsData = [];
+    
+    function fetchTeamScores() {
+      fetch('/api/teams')
+        .then(res => res.json())
+        .then(data => {
+          // Sort teams by current score and append rank
+          const sortedTeams = data.sort((a, b) => {
+            if (b.score !== a.score) return b.score - a.score;
+            const getLastSolve = (team) => {
+              if (!team.solvedChallenges) return Infinity;
+              const keys = Object.keys(team.solvedChallenges);
+              if (keys.length === 0) return Infinity;
+              let max = 0;
+              for (const key of keys) {
+                if (team.solvedChallenges[key].timestamp > max) {
+                  max = team.solvedChallenges[key].timestamp;
+                }
+              }
+              return max;
+            };
+            const timeA = getLastSolve(a);
+            const timeB = getLastSolve(b);
+            if (timeA === Infinity && timeB === Infinity) return 0;
+            return timeA - timeB;
+          }).map((t, idx) => {
+            t.rank = idx + 1;
+            return t;
+          });
+          
+          allStandingsData = sortedTeams;
+          
+          // Take only top 10 teams
+          const topTeams = sortedTeams.slice(0, 10);
+          
+          updateTeamScoreDisplay();
+          updateTimeSeriesChart(topTeams);
+          renderStandings();
+        })
+        .catch(err => console.error('Error fetching teams:', err));
+    }
+    
+    function updateTeamScoreDisplay() {
+      fetch('/api/myteam')
+        .then(res => res.json())
+        .then(data => {
+          const teamScoreDiv = document.getElementById('teamScoreDisplay');
+          if (data.team && data.team.score != null) {
+            teamScoreDiv.textContent = `Your Team Score: ${data.team.score} pts`;
+          } else {
+            teamScoreDiv.textContent = 'Your Team Score: N/A';
+          }
+        })
+        .catch(err => console.error(err));
+    }
+    
+    function stringToColor(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      const h = Math.abs(hash) % 360;
+      return `hsl(${h}, 70%, 50%)`;
+    }
+
+    function updateTimeSeriesChart(topTeams) {
+      const ctx = document.getElementById('scoreChart').getContext('2d');
+      
+      let earliestTime = Date.now();
+      
+      topTeams.forEach(team => {
+        if (team.scoreHistory) {
+          team.scoreHistory.forEach(point => {
+            if (point.timestamp < earliestTime) earliestTime = point.timestamp;
+          });
+        }
+      });
+      
+      const now = Date.now();
+      const startTime = ctfStartTime ? ctfStartTime : (earliestTime - (15 * 60 * 1000));
+      const durationMs = now - startTime;
+      let intervalMs = 15 * 60 * 1000;
+      if (durationMs <= 15 * 60 * 1000) intervalMs = 60 * 1000;
+      else if (durationMs <= 60 * 60 * 1000) intervalMs = 5 * 60 * 1000;
+      else if (durationMs <= 4 * 60 * 60 * 1000) intervalMs = 15 * 60 * 1000;
+      else if (durationMs <= 12 * 60 * 60 * 1000) intervalMs = 30 * 60 * 1000;
+      else intervalMs = 60 * 60 * 1000;
+      
+      const sortedTimestamps = [];
+      for (let t = startTime; t <= now; t += intervalMs) {
+        sortedTimestamps.push(t);
+      }
+      // Ensure the very current time is also included at the end
+      if (sortedTimestamps[sortedTimestamps.length - 1] < now) {
+        sortedTimestamps.push(now);
+      }
+      
+      const labels = sortedTimestamps.map(timestamp => {
+        const diffMs = timestamp - startTime;
+        const diffMins = Math.floor(diffMs / 60000);
+        const hours = Math.floor(diffMins / 60);
+        const mins = diffMins % 60;
+        
+        if (hours <= 0 && mins <= 0) return 'Start';
+        if (hours === 0) return `${mins}m`;
+        if (mins === 0) return `${hours}h`;
+        return `${hours}h ${mins}m`;
+      });
+      
+      const datasets = topTeams.map((team) => {
+        const color = stringToColor(team.teamName);
+        
+        const data = sortedTimestamps.map(timestamp => {
+          if (!team.scoreHistory || team.scoreHistory.length === 0) return 0;
+          const historyPoints = team.scoreHistory.filter(point => point.timestamp <= timestamp);
+          if (historyPoints.length === 0) return 0;
+          return historyPoints[historyPoints.length - 1].score;
+        });
+        
+        return {
+          label: team.teamName,
+          data: data,
+          borderColor: color,
+          backgroundColor: color,
+          borderWidth: 2,
+          pointRadius: 3,
+          pointHoverRadius: 5,
+          pointHitRadius: 25,
+          tension: 0.4
+        };
+      });
+      
+      // Destroy previous chart if it exists
+      if (scoreChart) scoreChart.destroy();
+      
+      // Create new chart
+      scoreChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Score',
+                color: "#ffffff"
+              },
+              ticks: { color: "#ffffff" },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+            },
+            x: {
+              title: {
+                display: true,
+                text: 'Time',
+                color: "#ffffff"
+              },
+              ticks: { 
+                color: "#ffffff",
+                maxRotation: 45,
+                minRotation: 45
+              },
+              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+            }
+          },
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              usePointStyle: true,
+              mode: 'nearest',
+              intersect: true,
+              backgroundColor: 'rgba(13, 21, 38, 0.9)',
+              titleColor: '#ffffff',
+              bodyColor: '#ffffff',
+              borderColor: 'rgba(7, 178, 213, 0.5)',
+              borderWidth: 1,
+              padding: 10,
+              cornerRadius: 8,
+              callbacks: {
+                title: function(tooltipItems) {
+                  return tooltipItems[0].label;
+                },
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y + ' pts';
+                }
+              }
+            }
+          },
+          interaction: {
+            mode: 'nearest',
+            axis: 'x',
+            intersect: true
+          }
+        }
+      });
+    }
+    
+    
+    function renderStandings() {
+      const searchInput = document.getElementById('standingsSearchInput');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      
+      const filteredTeams = allStandingsData.filter(team => 
+        team.teamName.toLowerCase().includes(query)
+      );
+
+      const standingsList = document.getElementById('standingsList');
+      if (!standingsList) return;
+      standingsList.innerHTML = '';
+      
+      filteredTeams.forEach((team) => {
+        const item = document.createElement('div');
+        item.className = 'standing-item';
+        const color = stringToColor(team.teamName);
+        item.innerHTML = `
+          <div class="team-info">
+            <span class="team-name">${team.rank}. ${team.teamName}</span>
+          </div>
+          <span class="team-score">${team.score} pts</span>
+        `;
+        standingsList.appendChild(item);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const standingsSearchBtn = document.getElementById('standingsSearchBtn');
+      const standingsSearchInput = document.getElementById('standingsSearchInput');
+      if (standingsSearchBtn && standingsSearchInput) {
+        standingsSearchBtn.addEventListener('click', () => renderStandings());
+        standingsSearchInput.addEventListener('keyup', () => renderStandings());
+      }
+    });
+    
+    function setupScoreboardTabs() {
+      const tabButtons = document.querySelectorAll('#scoreboard-section .tab-btn');
+      const tabContents = document.querySelectorAll('#scoreboard-section .tab-content');
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(tc => tc.classList.remove('active'));
+          button.classList.add('active');
+          const tabId = button.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+    }
+    
+    function fetchMyTeam() {
+      fetch('/api/myteam')
+        .then(response => response.json())
+        .then(data => {
+          const myTeamInfo = document.getElementById('myTeamInfo');
+          const noTeamActions = document.getElementById('noTeamActions');
+          if (!myTeamInfo || !noTeamActions) return;
+          if (data.error === "Not logged in") { window.location.href = "/"; return; }
+          if (data.team) {
+            const members = data.team.membersNames && data.team.membersNames.length ? data.team.membersNames.join(', ') : 'No members';
+            myTeamInfo.innerHTML = `
+              <div id="displayTeamNameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <div id="displayTeamName" style="font-size: 1.5rem; margin: 0;"><strong>${data.team.teamName}</strong></div>
+                <button id="editTeamNameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius:50%; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Team Name">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                </button>
+              </div>
+              <div id="editTeamNameForm" style="display: none; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                 <input type="text" id="newTeamNameInput" value="${data.team.teamName}" style="padding:0.5rem 1rem; border-radius:9999px; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
+                 <button id="saveTeamNameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius:9999px; cursor:pointer;">Save</button>
+                 <button id="cancelTeamNameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:9999px; cursor:pointer;">Cancel</button>
+              </div>
+              
+              <div style="font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;">Total Team Score: <span style="color:var(--primary);">${data.team.score || 0} pts</span></div>
+              ${(() => {
+                let html = '<div style="margin-top: 1.5rem; text-align: left; display: block; margin: 0 auto; width: 100%; max-width: 400px;">';
+                if (data.team.memberDetails) {
+                  data.team.memberDetails.forEach(m => {
+                    html += '<div style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px;">';
+                    html += '<div style="font-weight: 600; font-size: 1.1rem; display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.5rem; margin-bottom: 0.5rem;"><span>' + m.username + '</span> <span style="color:var(--primary); font-size:1rem;">' + m.totalPoints + ' pts</span></div>';
+                    if (m.solvedChallenges && m.solvedChallenges.length > 0) {
+                      m.solvedChallenges.forEach(c => {
+                        html += '<div style="display:flex; justify-content:space-between; align-items:center; font-size:0.9rem; padding: 0.25rem 0;"><span>' + c.category + '</span><span style="opacity:0.7;">' + c.points + ' pts</span></div>';
+                      });
+                    } else {
+                      html += '<div style="font-size:0.9rem; opacity:0.5; font-style:italic; text-align:center; margin-top:0.5rem;">No challenges solved yet</div>';
+                    }
+                    html += '</div>';
+                  });
+                }
+                html += '</div>';
+                return html;
+              })()}
+
+              <div style="margin-top: 1.5rem;">
+                <button id="leaveTeamBtn" style="padding:0.5rem 1rem; border:1px solid rgba(245,158,11,0.5); background:rgba(245,158,11,0.1); color:var(--warning); border-radius:9999px; cursor:pointer; font-size: 0.85rem; transition: all 0.2s;">Leave Team</button>
+              </div>
+              <p id="teamMessage" style="margin-top: 1rem; color: var(--warning);"></p>
+            `;
+            
+            document.getElementById('leaveTeamBtn').addEventListener('click', () => {
+              showCustomConfirm("Leave Team", "Are you sure you want to leave this team?", false, (confirmed) => {
+                if (confirmed) {
+                  fetch('/api/team/leave', { method: 'POST' })
+                    .then(res => res.json())
+                    .then(resp => {
+                      if (resp.error) {
+                        document.getElementById('teamMessage').textContent = resp.error;
+                      } else {
+                        fetchMyTeam();
+                        fetchProfile();
+                        fetchTeamScores(); fetchTeams(); fetchMyTeam();
+                      }
+                    })
+                    .catch(err => console.error(err));
+                }
+              });
+            });
+
+            document.getElementById('editTeamNameBtn').addEventListener('click', () => {
+              document.getElementById('displayTeamNameContainer').style.display = 'none';
+              document.getElementById('editTeamNameForm').style.display = 'flex';
+            });
+            
+            document.getElementById('cancelTeamNameBtn').addEventListener('click', () => {
+              document.getElementById('displayTeamNameContainer').style.display = 'flex';
+              document.getElementById('editTeamNameForm').style.display = 'none';
+              document.getElementById('teamMessage').textContent = '';
+            });
+
+            document.getElementById('saveTeamNameBtn').addEventListener('click', () => {
+              const newTeamName = document.getElementById('newTeamNameInput').value.trim();
+              if(!newTeamName) return;
+              fetch('/api/team/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ newTeamName })
+              }).then(res => res.json()).then(resp => {
+                if(resp.error) {
+                  document.getElementById('teamMessage').textContent = resp.error;
+                } else {
+                  fetchMyTeam(); // reload team
+                  fetchTeamScores(); fetchTeams(); fetchMyTeam(); // update global standings to reflect new name
+                }
+              }).catch(err => console.error(err));
+            });
+            noTeamActions.style.display = 'none';
+          } else {
+            myTeamInfo.innerHTML = '<p>You are not in a team.</p>';
+            noTeamActions.style.display = 'block';
+          }
+        })
+        .catch(err => console.error('Error fetching my team:', err));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupScoreboardTabs();
+      fetchTeamScores(); fetchTeams(); fetchMyTeam();
+      updateChallengeBoxesFromTeam();
+      
+      
+      
+      fetchConfig();
+      function updateAdminStartButton() {
+        const btn = document.getElementById('adminStartCtfBtn');
+        if (!btn) return;
+        if (ctfStartTime) {
+          btn.innerHTML = '🛑 Stop CTF';
+          btn.style.background = 'transparent';
+          btn.style.border = '1px solid var(--warning)';
+          btn.style.color = 'var(--warning)';
+        } else {
+          btn.innerHTML = '▶ Start CTF';
+          btn.style.background = 'var(--text)';
+          btn.style.border = 'none';
+          btn.style.color = 'var(--background)';
+        }
+      }
+
+      const adminStartCtfBtn = document.getElementById('adminStartCtfBtn');
+      if (adminStartCtfBtn) {
+        adminStartCtfBtn.addEventListener('click', () => {
+          if (ctfStartTime) {
+            showCustomConfirm("Stop CTF?", "Are you sure you want to STOP the CTF? Players won't be able to submit flags.", false, (res) => {
+              if(!res) return;
+              fetch('/api/admin/stop', { method: 'POST' }).then(r=>r.json()).then(d => {
+                if(d.error) showCustomConfirm("Error", d.error, true, null);
+              });
+            });
+          } else {
+            showCustomConfirm("Start CTF?", "Are you sure you want to START the CTF timer? (This will NOT wipe data)", false, (res) => {
+              if(!res) return;
+              fetch('/api/admin/start', { method: 'POST' }).then(r=>r.json()).then(d => {
+                if(d.error) showCustomConfirm("Error", d.error, true, null);
+              });
+            });
+          }
+        });
+      }
+
+      const adminWipeDataBtn = document.getElementById('adminWipeDataBtn');
+      if (adminWipeDataBtn) {
+        adminWipeDataBtn.addEventListener('click', () => {
+          showCustomConfirm("Wipe Data?", "Are you sure you want to WIPE ALL scores and solve data? This action is irreversible!", false, (res) => {
+            if(!res) return;
+            fetch('/api/admin/wipe', { method: 'POST' }).then(r=>r.json()).then(d => {
+              if(d.error) showCustomConfirm("Error", d.error, true, null);
+              else showCustomConfirm("Success", d.message, true, null);
+            });
+          });
+        });
+      }
+      
+      const socket = io();
+      socket.on('configUpdate', (data) => {
+         ctfStartTime = data.ctfStartTime;
+         startLocalTimer();
+         updateAdminStartButton();
+         // If started, refresh everything to show wiped scores
+         fetchChallenges(); fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers();
+      });
+
+      socket.on('usersUpdate', () => { fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam(); });
+      socket.on('challengesUpdate', () => {
+        fetchChallenges();
+        // Live update the modal if it's currently open
+        if (typeof currentCategory !== 'undefined' && currentCategory) {
+          setTimeout(() => {
+            if (currentChallenges[currentCategory] && document.getElementById('challengeModal').style.display === 'flex') {
+              document.getElementById('challengeDescription').textContent = currentChallenges[currentCategory].text;
+              document.getElementById('modalTitle').textContent = currentCategory + ' Challenge';
+            }
+          }, 300); // Wait for fetchChallenges to populate data
+        }
+      });
+      socket.on('teamsUpdate', () => {
+        fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam();
+      });
+      
+      // Set up auto-refresh for scoreboard every 5 minutes as a fallback
+      setInterval(fetchTeamScores, 5 * 60 * 1000);
+    });
+
+    // Function to update challenge boxes based on team members' solved challenges
+    function updateChallengeBoxesFromTeam() {
+      fetch('/api/myteam')
+        .then(res => res.json())
+        .then(myTeamData => {
+          if (myTeamData.team && myTeamData.team.id) {
+            const myTeamId = myTeamData.team.id;
+            fetch('/api/users')
+              .then(res => res.json())
+              .then(allUsersData => {
+                const teamMembers = allUsersData.filter(user => user.teamId === myTeamId);
+                const solvedSet = new Set();
+                teamMembers.forEach(member => {
+                  if (Array.isArray(member.solvedChallenges)) {
+                    member.solvedChallenges.forEach(challenge => solvedSet.add(challenge));
+                  }
+                });
+                solvedSet.forEach(category => {
+                  const box = document.querySelector(`.challenge-box[data-category="${category}"]`);
+                  if (box) {
+                    box.style.backgroundColor = "var(--text)"; box.style.borderColor = "var(--text)"; box.style.color = "var(--background)";  
+                  }
+                });
+              })
+              .catch(err => console.error("Error fetching users for team:", err));
+          }
+        })
+        .catch(err => console.error("Error fetching my team:", err));
+    }
+
+    // TEAMS SCRIPT (listing teams, search, pagination)
+    let teamsData = [];
+    let currentPage = 1;
+    const pageSize = 5;
+    function fetchTeams() {
+      fetch('/api/teams')
+        .then(response => response.json())
+        .then(data => { teamsData = data; currentPage = 1; renderTeams(); })
+        .catch(error => console.error('Error fetching teams:', error));
+    }
+    function renderTeams() {
+      const searchInput = document.getElementById('teamSearchInput');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      let filtered = teamsData.filter(team =>
+        team.teamName.toLowerCase().includes(query)
+      );
+      const totalPages = Math.ceil(filtered.length / pageSize);
+      if (currentPage > totalPages) currentPage = totalPages || 1;
+      const start = (currentPage - 1) * pageSize;
+      const pageTeams = filtered.slice(start, start + pageSize);
+      const teamsList = document.getElementById('teamsList');
+      if (teamsList) {
+        teamsList.innerHTML = '';
+        pageTeams.forEach(team => {
+          const members = team.membersNames && team.membersNames.length ? team.membersNames.join(', ') : 'No members';
+          const div = document.createElement('div');
+          div.className = 'team-item';
+          div.innerHTML = `<strong>${team.teamName}</strong> — Members: ${members}`;
+          teamsList.appendChild(div);
+        });
+      }
+      renderPagination(totalPages);
+    }
+        function createSmartPagination(totalPages, activePage, containerId, renderCallback) {
+      const paginationDiv = document.getElementById(containerId);
+      if (!paginationDiv) return;
+      paginationDiv.innerHTML = '';
+      if (totalPages <= 1) return;
+
+      const addBtn = (pageNum, isEllipsis = false) => {
+        const btn = document.createElement('button');
+        btn.textContent = pageNum;
+        if (isEllipsis) {
+          btn.disabled = true;
+          btn.style.cursor = 'default';
+          btn.style.background = 'transparent';
+          btn.style.border = 'none';
+          btn.style.color = 'var(--text-muted)';
+        } else {
+          if (pageNum === activePage) btn.classList.add('active');
+          btn.addEventListener('click', () => { renderCallback(pageNum); });
+        }
+        paginationDiv.appendChild(btn);
+      };
+
+      if (totalPages <= 7) {
+        for (let i = 1; i <= totalPages; i++) addBtn(i);
+      } else {
+        if (activePage <= 4) {
+          for (let i = 1; i <= 5; i++) addBtn(i);
+          addBtn('...', true);
+          addBtn(totalPages);
+        } else if (activePage >= totalPages - 3) {
+          addBtn(1);
+          addBtn('...', true);
+          for (let i = totalPages - 4; i <= totalPages; i++) addBtn(i);
+        } else {
+          addBtn(1);
+          addBtn('...', true);
+          addBtn(activePage - 1);
+          addBtn(activePage);
+          addBtn(activePage + 1);
+          addBtn('...', true);
+          addBtn(totalPages);
+        }
+      }
+    }
+
+    function renderPagination(totalPages) {
+      createSmartPagination(totalPages, currentPage, 'teamsPagination', (page) => {
+        currentPage = page;
+        renderTeams();
+      });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchBtn = document.getElementById('teamSearchBtn');
+      const searchInput = document.getElementById('teamSearchInput');
+      if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', () => { currentPage = 1; renderTeams(); });
+        searchInput.addEventListener('keyup', () => { currentPage = 1; renderTeams(); });
+      }
+      fetchTeams();
+      fetchMyTeam();
+      const showJoinFormBtn = document.getElementById('showJoinForm');
+      const showCreateFormBtn = document.getElementById('showCreateForm');
+      const joinTeamSection = document.getElementById('joinTeamSection');
+      const createTeamSection = document.getElementById('createTeamSection');
+      if (showJoinFormBtn && joinTeamSection && createTeamSection) {
+        showJoinFormBtn.addEventListener('click', () => { joinTeamSection.style.display = 'block'; createTeamSection.style.display = 'none'; });
+      }
+      if (showCreateFormBtn && joinTeamSection && createTeamSection) {
+        showCreateFormBtn.addEventListener('click', () => { createTeamSection.style.display = 'block'; joinTeamSection.style.display = 'none'; });
+      }
+      const cancelJoinTeamBtn = document.getElementById('cancelJoinTeam');
+      if (cancelJoinTeamBtn) {
+        cancelJoinTeamBtn.addEventListener('click', () => { joinTeamSection.style.display = 'none'; });
+      }
+      const cancelCreateTeamBtn = document.getElementById('cancelCreateTeam');
+      if (cancelCreateTeamBtn) {
+        cancelCreateTeamBtn.addEventListener('click', () => { createTeamSection.style.display = 'none'; });
+      }
+      const submitJoinTeamBtn = document.getElementById('submitJoinTeam');
+      if (submitJoinTeamBtn) {
+        submitJoinTeamBtn.addEventListener('click', () => {
+          const teamName = document.getElementById('joinTeamName').value;
+          const teamPassword = document.getElementById('joinTeamPassword').value;
+          fetch('/api/team/join', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ teamName, password: teamPassword })
+          })
+            .then(res => res.json())
+            .then(data => {
+              const joinTeamMessage = document.getElementById('joinTeamMessage');
+              if (data.error === "Not logged in") { window.location.href = "/"; return; }
+          if (data.error) {
+                joinTeamMessage.innerText = data.error;
+              } else {
+                joinTeamMessage.innerText = data.message;
+                fetchMyTeam();
+                joinTeamSection.style.display = 'none';
+              }
+            })
+            .catch(err => {
+              console.error('Error joining team:', err);
+              document.getElementById('joinTeamMessage').innerText = 'Error joining team.';
+            });
+        });
+      }
+      const submitCreateTeamBtn = document.getElementById('submitCreateTeam');
+      if (submitCreateTeamBtn) {
+        submitCreateTeamBtn.addEventListener('click', () => {
+          const teamName = document.getElementById('createTeamName').value;
+          const teamPassword = document.getElementById('createTeamPassword').value;
+          fetch('/api/team/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ teamName, password: teamPassword })
+          })
+            .then(res => res.json())
+            .then(data => { 
+              const createTeamMessage = document.getElementById('createTeamMessage');
+              if (data.error === "Not logged in") { window.location.href = "/"; return; }
+          if (data.error) {
+                createTeamMessage.innerText = data.error;
+              } else {
+                createTeamMessage.innerText = data.message;
+                fetchMyTeam();
+                createTeamSection.style.display = 'none';
+              }
+            })
+            .catch(err => {
+              console.error('Error creating team:', err);
+              document.getElementById('createTeamMessage').innerText = 'Error creating team.';
+            });
+        });
+      }
+    });
+
+    
+    let currentCategory = '';
+    let ctfStartTime = null;
+    let timerInterval = null;
+
+    function formatTime(ms) {
+      if (ms < 0) return "00:00:00";
+      const totalSeconds = Math.floor(ms / 1000);
+      const h = Math.floor(totalSeconds / 3600);
+      const m = Math.floor((totalSeconds % 3600) / 60);
+      const s = totalSeconds % 60;
+      return [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
+    }
+
+    function updateTimerUI() {
+      const display = document.getElementById('ctfTimerDisplay');
+      if (!display) return;
+      if (!ctfStartTime) {
+        display.textContent = '--:--:--';
+        display.style.color = 'var(--text-muted)';
+        return;
+      }
+      display.style.color = 'var(--primary)';
+      display.textContent = formatTime(Date.now() - ctfStartTime);
+    }
+
+    function startLocalTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      updateTimerUI();
+      timerInterval = setInterval(updateTimerUI, 1000);
+    }
+
+    function fetchConfig() {
+      fetch('/api/config').then(r => r.json()).then(data => {
+        ctfStartTime = data.ctfStartTime;
+        startLocalTimer();
+        updateAdminStartButton();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('challengeModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const flagInput = document.getElementById('flagInput');
+      const flagResult = document.getElementById('flagResult');
+      const submitFlagBtn = document.getElementById('submitFlagBtn');
+      
+      const catContainer = document.getElementById('challengeCategoriesContainer');
+      if (catContainer) {
+        catContainer.addEventListener('click', (e) => {
+          const box = e.target.closest('.challenge-box');
+          if (box) {
+            currentCategory = box.getAttribute('data-category');
+            modalTitle.textContent = currentCategory + ' Challenge';
+            
+            // Set dynamic text from currentChallenges
+            const text = currentChallenges[currentCategory] ? currentChallenges[currentCategory].text : 'Solve the ' + currentCategory + ' challenge and submit your flag.';
+            document.getElementById('challengeDescription').textContent = text;
+            const resContainer = document.getElementById('resourceContainer');
+            const dlBtn = document.getElementById('downloadResourceBtn');
+            if (currentChallenges[currentCategory] && currentChallenges[currentCategory].resource) {
+              resContainer.style.display = 'block';
+              dlBtn.href = '/downloads/' + currentChallenges[currentCategory].resource;
+              dlBtn.setAttribute('download', currentChallenges[currentCategory].originalResourceName || currentChallenges[currentCategory].resource);
+            } else {
+              resContainer.style.display = 'none';
+            }
+            
+            flagInput.value = '';
+            flagResult.textContent = '';
+            modal.style.display = 'flex';
+          }
+        });
+      }
+      
+      document.querySelector('.modal .close').addEventListener('click', () => { modal.style.display = 'none'; });
+      window.addEventListener('click', (e) => { if (e.target == modal) modal.style.display = 'none'; });
+      if(submitFlagBtn) {
+        submitFlagBtn.addEventListener('click', () => {
+          const flag = flagInput.value.trim();
+          if (!flag) {
+            flagResult.textContent = 'Please enter a flag.';
+            return;
+          }
+          fetch('/api/challenge/flag', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ category: currentCategory, flag })
+          })
+            .then(res => {
+              if (!res.ok) {
+                return res.json().then(data => { throw new Error(data.error || 'Error checking flag.'); });
+              }
+              return res.json();
+            })
+            .then(data => {
+              flagResult.textContent = data.message || data.error;
+              if (data.message && !data.message.includes("Incorrect")) {
+                flagResult.style.color = "var(--success)";
+                fetchMyTeam();
+                fetchTeamScores();
+                const solvedBox = document.querySelector(`.challenge-box[data-category="${currentCategory}"]`);
+                if (solvedBox) {
+                  solvedBox.style.backgroundColor = "var(--text)";
+                  solvedBox.style.color = "var(--background)";
+                }
+              } else {
+                flagResult.style.color = "var(--warning)";
+              }
+            })
+            .catch(err => {
+              flagResult.textContent = err.message;
+            });
+        });
+      }
+      
+      // Fetch initial data
+      fetchChallenges();
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const body = document.body;
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+          body.classList.toggle('mobile-menu-open');
+        }); 
+      }
+    });
+  </script>
+
+  <div id="ctfTimerDisplay" style="position: fixed; bottom: 40px; right: 20px; font-family: 'Share Tech Mono', monospace; font-size: 2rem; color: var(--primary); font-weight: bold; background: rgba(10, 14, 20, 0.9); padding: 0.5rem 1rem; border-radius: 4px; border: 1px solid var(--primary); backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 10px rgba(200, 214, 75, 0.2);">--:--:--</div>
+</body>
+</html>
+

@@ -467,5 +467,13 @@
     "solvedChallenges": [
       "OSINT"
     ]
+  },
+  {
+    "id": "1787287824692",
+    "username": "h",
+    "email": "h@gmail.com",
+    "password": "$2b$10$vtkzw2uJb8IpnAL0iQExr.4yXSKvbfCqWUalex5zuSpqiV9DK6Lqi",
+    "teamId": null,
+    "solvedChallenges": []
   }
 ]
