@@ -772,3 +772,12 @@ body::after {
     margin-bottom: 0;
   }
 }
+
+/* Chart Container Sizing */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: 300px;
+  margin: 0 auto;
+}
