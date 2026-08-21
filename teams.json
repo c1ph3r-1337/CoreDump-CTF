@@ -1,7 +1,7 @@
 [
   {
     "id": "team_admin_1",
-    "teamName": "ADMIN_YOO",
+    "teamName": "ADMIN",
     "password": "$2b$10$2M5hlPz/B9Ydo/LBKHHtr.QR75uH3QvOMugAAvJGscgF/inI.avsS",
     "members": [
       "user_admin_1"
