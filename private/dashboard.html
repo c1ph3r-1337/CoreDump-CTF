@@ -296,6 +296,7 @@
       <h3 style="margin: 0;">Existing Challenges</h3>
       
 <div style="display: flex; gap: 1rem; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+  <button id="toggleBonusFormBtn" style="padding:0.75rem 1.25rem; border:1px solid var(--accent); background:var(--accent-soft); color:var(--accent); border-radius: 0; cursor:pointer; font-weight: bold; transition:all 0.2s;" title="Add Bonus Challenge">🌟 Bonus</button>
   <button id="toggleAdminFormBtn" style="padding:0.75rem; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:var(--text); border-radius: 0; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s; width: 44px; height: 44px;" title="Add Challenge">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
   </button>
@@ -313,6 +314,12 @@
         <input type="text" id="adminCatInput" placeholder="Category Name (e.g. Forensics)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="text" id="adminTextInput" placeholder="Challenge Text" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <input type="text" id="adminFlagInput" placeholder="Flag (will be hashed automatically)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <select id="adminDiffInput" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:var(--bg-secondary); color:var(--text-primary); width: 100%; max-width: 500px; text-align: center; cursor: pointer;">
+          <option value="EASY">Difficulty: EASY</option>
+          <option value="MEDIUM">Difficulty: MEDIUM</option>
+          <option value="HARD">Difficulty: HARD</option>
+          <option value="BONUS">Difficulty: BONUS</option>
+        </select>
         <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); padding:1.25rem; border-radius: 0;">
           <label style="font-size:0.9rem; opacity:0.8; font-weight: 500;">Attach Resource File (Optional)</label>
@@ -484,9 +491,7 @@
         const info = currentChallenges[category];
         
         const pts = info.points || 500;
-        let diff = 'EASY';
-        if (pts > 300 && pts <= 600) diff = 'MEDIUM';
-        else if (pts > 600) diff = 'HARD';
+        let diff = info.difficulty || 'EASY';
         
         if (catContainer) {
           const div = document.createElement('div');
@@ -570,6 +575,20 @@
     document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('toggleAdminFormBtn');
       const formCard = document.getElementById('adminFormCard');
+      const bonusBtn = document.getElementById('toggleBonusFormBtn');
+      if (bonusBtn && formCard) {
+        bonusBtn.addEventListener('click', () => {
+          formCard.style.display = formCard.style.display === 'none' ? 'block' : 'none';
+          if (formCard.style.display === 'block') {
+            document.getElementById('adminCatInput').value = 'Bonus';
+            document.getElementById('adminDiffInput').value = 'BONUS';
+            document.getElementById('adminTextInput').value = 'Hidden bonus challenge!';
+            document.getElementById('adminFlagInput').value = '';
+            document.getElementById('adminPointsInput').value = '1000';
+          }
+        });
+      }
+      
       if (toggleBtn && formCard) {
         toggleBtn.addEventListener('click', () => {
           if (formCard.style.display === 'none') {
@@ -588,6 +607,7 @@
           const text = document.getElementById('adminTextInput').value;
           const flag = document.getElementById('adminFlagInput').value;
           const points = document.getElementById('adminPointsInput').value;
+      const difficulty = document.getElementById('adminDiffInput').value;
           const msg = document.getElementById('adminMsg');
           
           if (!category || !text || !flag || !points) {
@@ -601,6 +621,7 @@
           formData.append('text', text);
           formData.append('flag', flag);
           formData.append('points', points);
+      formData.append('difficulty', difficulty);
           
           const fileInput = document.getElementById('adminResourceInput');
           if (fileInput && fileInput.files.length > 0) {
