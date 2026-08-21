@@ -924,13 +924,15 @@
               usePointStyle: true,
               mode: 'nearest',
               intersect: true,
-              backgroundColor: 'rgba(13, 21, 38, 0.9)',
-              titleColor: '#ffffff',
-              bodyColor: '#ffffff',
-              borderColor: 'rgba(7, 178, 213, 0.5)',
+              backgroundColor: 'rgba(13, 17, 18, 0.95)',
+              titleColor: '#e4e7e3',
+              bodyColor: '#9da39e',
+              titleFont: { family: "'Rajdhani', sans-serif", size: 14, weight: 'bold' },
+              bodyFont: { family: "'JetBrains Mono', monospace", size: 12 },
+              borderColor: 'rgba(180, 190, 185, 0.2)',
               borderWidth: 1,
-              padding: 10,
-              cornerRadius: 8,
+              padding: 12,
+              cornerRadius: 0,
               callbacks: {
                 title: function(tooltipItems) {
                   return tooltipItems[0].label;
