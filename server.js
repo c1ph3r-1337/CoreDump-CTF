@@ -475,6 +475,10 @@ app.post('/api/challenge/flag', (req, res) => {
   const storedHash = challengeObj.hash;
   if (!storedHash) return res.status(404).json({ error: 'Challenge not found for this category.' });
   
+  if (!bcrypt.compareSync(flag, storedHash)) {
+    return res.status(400).json({ error: 'Incorrect flag.' });
+  }
+  
   const userId = req.session.userId;
   const currentUser = users.find(u => u.id === userId);
   if (!currentUser || !currentUser.teamId) return res.status(400).json({ error: 'You are not in a team.' });
