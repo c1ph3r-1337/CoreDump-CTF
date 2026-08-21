@@ -225,7 +225,7 @@
 
   <!-- MY TEAM SECTION -->
   <section id="team-section" class="info-section" style="display: none;">
-    <section id="myTeamSection">
+    <section id="myTeamSection" style="text-align: left;">
       <h2>My Team</h2>
       <div id="myTeamInfo"></div>
       <div id="noTeamActions" style="display: none; margin-bottom: 2rem;">
@@ -234,7 +234,7 @@
       </div>
     </section>
     <!-- Join Team Form -->
-    <section id="joinTeamSection" style="display: none; margin-top: 2rem;">
+    <section id="joinTeamSection" style="display: none; margin-top: 2rem; text-align: left;">
       <h3>Join a Team</h3>
       <input type="text" id="joinTeamName" placeholder="Team Name" />
       <input type="password" id="joinTeamPassword" placeholder="Team Password" />
@@ -243,7 +243,7 @@
       <div id="joinTeamMessage"></div>
     </section>
     <!-- Create Team Form -->
-    <section id="createTeamSection" style="display: none; margin-top: 2rem;">
+    <section id="createTeamSection" style="display: none; margin-top: 2rem; text-align: left;">
       <h3>Create a Team</h3>
       <input type="text" id="createTeamName" placeholder="Team Name" />
       <input type="password" id="createTeamPassword" placeholder="Team Password" />
@@ -1011,21 +1011,21 @@
           if (data.team) {
             const members = data.team.membersNames && data.team.membersNames.length ? data.team.membersNames.join(', ') : 'No members';
             myTeamInfo.innerHTML = `
-              <div id="displayTeamNameContainer" style="display: flex; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <div id="displayTeamNameContainer" style="display: flex; justify-content: flex-start; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
                 <div id="displayTeamName" style="font-size: 1.5rem; margin: 0;"><strong>${data.team.teamName}</strong></div>
                 <button id="editTeamNameBtn" style="padding:0.4rem; border:1px solid var(--border); background:transparent; color:var(--text); border-radius: 0; cursor:pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center;" title="Edit Team Name">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                 </button>
               </div>
-              <div id="editTeamNameForm" style="display: none; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+              <div id="editTeamNameForm" style="display: none; justify-content: flex-start; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                  <input type="text" id="newTeamNameInput" value="${data.team.teamName}" style="padding:0.5rem 1rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); text-align:center;" />
                  <button id="saveTeamNameBtn" style="padding:0.5rem 1rem; border:none; background:var(--text); color:var(--background); border-radius: 0; cursor:pointer;">Save</button>
                  <button id="cancelTeamNameBtn" style="padding:0.5rem 1rem; border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius: 0; cursor:pointer;">Cancel</button>
               </div>
               
-              <div style="font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;">Total Team Score: <span style="color:var(--primary);">${data.team.score || 0} pts</span></div>
+              <div style="font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;"><div style="text-align: left;">Total Team Score: <span style="color:var(--primary);">${data.team.score || 0} pts</span></div></div>
               ${(() => {
-                let html = '<div style="margin-top: 1.5rem; text-align: left; display: block; margin: 0 auto; width: 100%; max-width: 400px;">';
+                let html = '<div style="margin-top: 1.5rem; text-align: left; display: block; width: 100%; max-width: 400px;">';
                 if (data.team.memberDetails) {
                   data.team.memberDetails.forEach(m => {
                     html += '<div style="margin-bottom: 1rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 0;">';
@@ -1044,10 +1044,10 @@
                 return html;
               })()}
 
-              <div style="margin-top: 1.5rem;">
+              <div style="margin-top: 1.5rem; text-align: left;">
                 <button id="leaveTeamBtn" style="padding:0.5rem 1rem; border:1px solid rgba(245,158,11,0.5); background:rgba(245,158,11,0.1); color:#b7410e; border-radius: 0; cursor:pointer; font-size: 0.85rem; transition: all 0.2s;">Leave Team</button>
               </div>
-              <p id="teamMessage" style="margin-top: 1rem; color: #b7410e;"></p>
+              <p id="teamMessage" style="margin-top: 1rem; color: #b7410e; text-align: left;"></p>
             `;
             
             document.getElementById('leaveTeamBtn').addEventListener('click', () => {
