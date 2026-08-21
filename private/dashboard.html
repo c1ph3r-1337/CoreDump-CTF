@@ -129,6 +129,7 @@
           <div class="category active" data-diff="EASY">EASY</div>
           <div class="category" data-diff="MEDIUM">MEDIUM</div>
           <div class="category" data-diff="HARD">HARD</div>
+          <div class="category" data-diff="BONUS">BONUS</div>
         </div>
         <div class="challenges-list" id="challengeCategoriesContainer">
           <!-- JS will populate here -->
@@ -538,6 +539,7 @@
       document.getElementById('adminTextInput').value = currentChallenges[category].text;
       document.getElementById('adminFlagInput').value = '********';
       document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
+      document.getElementById('adminDiffInput').value = currentChallenges[category].difficulty || 'EASY';
       const fileInput = document.getElementById('adminResourceInput');
       if (fileInput) fileInput.value = '';
       const fileDisplay = document.getElementById('fileNameDisplay');
