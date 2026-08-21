@@ -89,19 +89,19 @@ registerForm.addEventListener('submit', async (e) => {
       popup.style.top = '50%';
       popup.style.left = '50%';
       popup.style.transform = 'translate(-50%, -50%)';
-      popup.style.background = 'var(--card-bg, #18181b)';
+      popup.style.background = 'var(--glass-bg)';
       popup.style.padding = '2rem';
-      popup.style.borderRadius = '16px';
-      popup.style.border = '1px solid var(--border, rgba(255,255,255,0.1))';
-      popup.style.color = 'var(--text, #fafafa)';
+      popup.style.borderRadius = '0';
+      popup.style.border = '1px solid var(--accent)';
+      popup.style.color = 'var(--text-primary)';
       popup.style.zIndex = '10000';
       popup.style.textAlign = 'center';
-      popup.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)';
+      popup.style.boxShadow = 'inset 0 0 20px rgba(200, 214, 75, 0.1), 0 10px 30px rgba(0, 0, 0, 0.8)';
       
       popup.innerHTML = `
-        <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Success!</h3>
-        <p style="margin-bottom: 1.5rem; color: var(--text-muted, #a1a1aa);">${data.message}</p>
-        <button id="closePopupBtn" style="padding: 0.75rem 1.5rem; background: var(--text, #fafafa); color: var(--background, #09090b); border: none; border-radius: 9999px; cursor: pointer; font-weight: 500;">Login Now</button>
+        <h3 style="margin-bottom: 1rem; font-size: 1.5rem; color: var(--accent);">Success!</h3>
+        <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">${data.message}</p>
+        <button id="closePopupBtn" style="padding: 0.75rem 1.5rem; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); border-radius: 0; cursor: pointer; font-weight: 500;">Login Now</button>
       `;
       
       const overlay = document.createElement('div');
