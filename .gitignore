@@ -12,3 +12,4 @@ changes.txt
 # Ignore session data and uploads
 cookie.txt
 public/downloads/
+node_modules/
