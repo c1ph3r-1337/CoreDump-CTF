@@ -1,10 +1,12 @@
 {
   "Forensics": {
-    "hash": "$2b$10$VSqzy6/j4Pa8p/tHFcVBx.K4p09a915OuMrO79ddlG6Oh.Na1TmC6",
-    "text": "Solve the Forensics challenge and submit your flag.",
-    "points": 200,
-    "resource": "Forensics_1787320010552_patchshell.py",
-    "originalResourceName": "patch_shell.py"
+    "hash": "$2b$10$onuVSFLyCx02HcrGE5DZGO6voNT1G1JvF.JNo6b.XdIeY4fGmpOMa",
+    "text": "A file that doesn't look quite right has been left behind. Sometimes, the first step in solving a mystery is simply asking: what exactly am I looking at?",
+    "points": 100,
+    "resource": "Forensics_1787430748695_Forensics.zip",
+    "originalResourceName": "Forensics.zip",
+    "difficulty": "EASY",
+    "hint": "Don't judge a file by its extension. Let the MIME type speak."
   },
   "Reverse Engineering": {
     "hash": "$2b$10$D6aKZyJ3q6q5Hf1eBfE1neZt0Xxq3P9YwW6I5i8p7D9e0Zk1aB2Ce",
@@ -19,9 +21,13 @@
     "difficulty": "MEDIUM"
   },
   "OSINT": {
-    "hash": "$2b$10$k1PEVIxugEXqxmBdgjeqIunBiCHD1s490I4It5L/N7Mf2sCfSEVuy",
-    "text": "OSINT",
-    "points": 200
+    "hash": "$2b$10$vdMZ0pUAxAxUOodT5glOaeQX4rI0B0WXeZs4i1H3klmBTqx8leLNq",
+    "text": "A familiar car wash hides more than just dirty cars. Somewhere behind the business is a lawyer, and your job is to uncover his real name and phone number using publicly available information.",
+    "points": 200,
+    "difficulty": "EASY",
+    "hint": "Start with the car wash. Follow the trail through public records and business information.  Flag Format: coredump{abc_xyz_123_456}",
+    "resource": "OSINT_1787431176233_OSINT.zip",
+    "originalResourceName": "OSINT.zip"
   },
   "Crypto": {
     "hash": "$2b$10$aWplibE47e.IhXohaXLAoOqqIiE11TrszGr70dul1.nzsPUCHBXlW",
@@ -30,9 +36,13 @@
     "difficulty": "MEDIUM"
   },
   "Steganography": {
-    "hash": "$2b$10$M2aL9rP6qT3wF8sK1dE0BeYuV4iO6nL7zQ5rS3pF8tH0uJ2cB1dE9K",
-    "text": "Solve the Steganography challenge and submit your flag.",
-    "points": 100
+    "hash": "$2b$10$ASBCaQfU2tSByLfbARzsHOlVg.BLsO/vQsdIV.QKvw1LZ3FQ5BPXS",
+    "text": "This image looks innocent enough... but there's more hiding inside it than what meets the eye. Dig into its metadata and investigate what the image may be concealing.",
+    "points": 200,
+    "difficulty": "EASY",
+    "hint": "Start by examining the image's metadata. If that doesn't reveal everything, look for something hidden within the file itself.",
+    "resource": "Steganography_1787431294318_Steg.zip",
+    "originalResourceName": "Steg.zip"
   },
   "Binary Analysis": {
     "hash": "$2b$10$S4pF1qT9wD6mN2aL7zQ5rC3bE8kJ1uX8pH0sI2rT4dF7mO9cB3eK1Y",
@@ -41,14 +51,22 @@
     "difficulty": "HARD"
   },
   "Miscellaneous": {
-    "text": "Miscellaneous challenge",
+    "text": "My friend hid the flag somewhere inside a pile of complete gibberish — and then encoded the entire thing. Can you work your way through the mess and find what was hidden?",
     "points": 200,
-    "hash": "$2b$10$fQahKX8dRKStVHrDW6Efheygno2xJ6b9T8wzPZcDHPKwHguXfebSe"
+    "hash": "$2b$10$F0EwAdxajlUwHipjTl10su4XjGUbwwlK8DdtYONsp6ZdTjHiD3hg6",
+    "difficulty": "EASY",
+    "hint": "The gibberish isn't the only thing you need to decode. Sometimes, one layer of encoding leads to another.",
+    "resource": "Miscellaneous_1787431347872_Misc.zip",
+    "originalResourceName": "Misc.zip"
   },
   "Miscellaneous 2": {
-    "text": "Miscellaneous challenge",
+    "text": "I asked a cow for the flag, but all it gave me was a strange sequence of moos in two different tones. Maybe the cow is trying to tell you something...",
     "points": 150,
-    "hash": "$2b$10$5cCnK1k8BbR1urBGJSUw1efnQ1VGRL70OnPQ/y5TaDR2YfSj/XxPm"
+    "hash": "$2b$10$v1mKYbPUlL9qbqcj2RtK0OF3BvDV.EhopB8RCCuIkvzn1bSAwkwae",
+    "difficulty": "EASY",
+    "hint": "Two different tones. Two different symbols. Think about a code that only needs two states.",
+    "resource": "Miscellaneous2_1787431414804_Misc2.zip",
+    "originalResourceName": "Misc_2.zip"
   },
   "Network": {
     "text": "Network Challenge",
