@@ -52,9 +52,7 @@ app.get('/api/config', (req, res) => {
 });
 
 app.post('/api/admin/start', (req, res) => {
-  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const currentUser = users.find(u => u.id === req.session.userId);
-  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
   ctfConfig.ctfStartTime = Date.now();
   fs.writeFileSync(configFilePath, JSON.stringify(ctfConfig, null, 2));
@@ -204,7 +202,15 @@ app.get('/api/challenges', (req, res) => {
   res.json(safeData);
 });
 
-app.post('/api/admin/challenges', upload.single('resource'), (req, res) => {
+
+const isAdmin = (req, res, next) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
+  const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
+  next();
+};
+
+app.post('/api/admin/challenges', isAdmin, upload.single('resource'), (req, res) => {
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const currentUser = users.find(u => u.id === req.session.userId);
   if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
