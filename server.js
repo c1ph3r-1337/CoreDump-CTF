@@ -195,6 +195,7 @@ app.get('/api/challenges', (req, res) => {
       text: flagsData[key].text, 
       points: flagsData[key].points || 500,
       difficulty: flagsData[key].difficulty || "EASY",
+      hint: flagsData[key].hint || "",
       resource: flagsData[key].resource,
       originalResourceName: flagsData[key].originalResourceName,
       solves: solvesCount
@@ -208,7 +209,7 @@ app.post('/api/admin/challenges', upload.single('resource'), (req, res) => {
   const currentUser = users.find(u => u.id === req.session.userId);
   if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
-  const { category, text, flag, points, removeResource, difficulty } = req.body;
+  const { category, text, flag, points, removeResource, difficulty, hint } = req.body;
   if (!category || !text || !flag || !points) return res.status(400).json({ error: 'All fields (Category, Text, Flag, Points) are required.' });
   
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
@@ -228,6 +229,7 @@ app.post('/api/admin/challenges', upload.single('resource'), (req, res) => {
   flagsData[category].text = text;
   flagsData[category].points = newPoints;
   flagsData[category].difficulty = difficulty || "EASY";
+  flagsData[category].hint = hint || "";
   
   if (req.file) {
     flagsData[category].resource = req.file.filename;

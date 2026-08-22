@@ -165,9 +165,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
             HINT
           </div>
-          <div class="detail-text">
-            Look into small public exponents.
-          </div>
+          <div class="detail-text" id="challengeHint"></div>
         </div>
 
         <div class="detail-section" id="resourceContainer" style="display: none;">
@@ -322,7 +320,7 @@
           <option value="HARD" style="background: #080b0c; color: var(--accent);">Difficulty: HARD</option>
           <option value="BONUS" style="background: #080b0c; color: var(--accent);">Difficulty: BONUS</option>
         </select>
-        <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="text" id="adminHintInput" placeholder="Hint (Optional)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">\n        <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); padding:1.25rem; border-radius: 0;">
           <label style="font-size:0.9rem; opacity:0.8; font-weight: 500;">Attach Resource File (Optional)</label>
           <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
@@ -631,7 +629,7 @@
       document.getElementById('adminTextInput').value = currentChallenges[category].text;
       document.getElementById('adminFlagInput').value = '********';
       document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
-      document.getElementById('adminDiffInput').value = currentChallenges[category].difficulty || 'EASY';
+      document.getElementById('adminDiffInput').value = currentChallenges[category].difficulty || 'EASY';\n      document.getElementById('adminHintInput').value = currentChallenges[category].hint || '';
       const fileInput = document.getElementById('adminResourceInput');
       if (fileInput) fileInput.value = '';
       const fileDisplay = document.getElementById('fileNameDisplay');
@@ -647,7 +645,7 @@
       const removeCb = document.getElementById('adminRemoveResource');
       if (removeCb) removeCb.checked = false;
       document.getElementById('adminFormCard').style.display = 'block';
-      document.getElementById('adminCatInput').focus();
+      document.getElementById('adminHintInput').value = '';\n            document.getElementById('adminCatInput').focus();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
@@ -678,7 +676,7 @@
             document.getElementById('adminDiffInput').value = 'BONUS';
             document.getElementById('adminTextInput').value = 'Hidden bonus challenge!';
             document.getElementById('adminFlagInput').value = '';
-            document.getElementById('adminPointsInput').value = '1000';
+            document.getElementById('adminPointsInput').value = '1000';\n            document.getElementById('adminHintInput').value = '';
           }
         });
       }
@@ -701,7 +699,7 @@
           const text = document.getElementById('adminTextInput').value;
           const flag = document.getElementById('adminFlagInput').value;
           const points = document.getElementById('adminPointsInput').value;
-      const difficulty = document.getElementById('adminDiffInput').value;
+      const difficulty = document.getElementById('adminDiffInput').value;\n      const hint = document.getElementById('adminHintInput').value;
           const msg = document.getElementById('adminMsg');
           
           if (!category || !text || !flag || !points) {
@@ -715,7 +713,7 @@
           formData.append('text', text);
           formData.append('flag', flag);
           formData.append('points', points);
-      formData.append('difficulty', difficulty);
+      formData.append('difficulty', difficulty);\n      formData.append('hint', hint);
           
           const fileInput = document.getElementById('adminResourceInput');
           if (fileInput && fileInput.files.length > 0) {
@@ -1569,6 +1567,14 @@
             // Set dynamic text from currentChallenges
             const text = currentChallenges[currentCategory] ? currentChallenges[currentCategory].text : 'Solve the ' + currentCategory + ' challenge and submit your flag.';
             document.getElementById('challengeDescription').textContent = text;
+            const hintSection = document.getElementById('hintSection');
+            const hintText = document.getElementById('challengeHint');
+            if (currentChallenges[currentCategory] && currentChallenges[currentCategory].hint) {
+              hintSection.style.display = 'block';
+              hintText.textContent = currentChallenges[currentCategory].hint;
+            } else {
+              hintSection.style.display = 'none';
+            }
             const resContainer = document.getElementById('resourceContainer');
             const dlBtn = document.getElementById('downloadResourceBtn');
             if (currentChallenges[currentCategory] && currentChallenges[currentCategory].resource) {
