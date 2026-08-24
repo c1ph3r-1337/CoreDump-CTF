@@ -9,16 +9,22 @@
     "hint": "Don't judge a file by its extension. Let the MIME type speak."
   },
   "Reverse Engineering": {
-    "hash": "$2b$10$D6aKZyJ3q6q5Hf1eBfE1neZt0Xxq3P9YwW6I5i8p7D9e0Zk1aB2Ce",
+    "hash": "$2b$10$2uICLrX0GVxOweA9issRheLZ39PPGuav2wbsGkv3nKT7sOOK3u/q.",
     "text": "Solve the Reverse Engineering challenge and submit your flag.",
     "points": 800,
-    "difficulty": "HARD"
+    "difficulty": "HARD",
+    "hint": "There are way too many complex equations in this binary to solve by hand or brute force. Try using   \t\t\t  an advanced solver script like the Z3 Theorem Prover, or a symbolic execution framework like Angr to \t\t\t  find the mathematical path to success.",
+    "resource": "ReverseEngineering_1787589741486_ReverseEngineering.zip",
+    "originalResourceName": "Reverse_Engineering.zip"
   },
   "Web Exploitation": {
-    "hash": "$2b$10$Qj1uX9ZsF4o6D8kL3bC7GeOvF2p5W3JtL8nE2uI1sH9mQ7pR4aK8U",
-    "text": "Solve the Web Exploitation challenge and submit your flag.",
+    "hash": "$2b$10$ar8bqUhNPPXj6ikxo3Uh0eANLMz28aSD.copu1zXbhw/.SRO8ov8q",
+    "text": "We stumbled upon the new Employee Portal for CoreDump Corp. They claim their new architecture is incredibly secure and that employees can only view their own notes. See if you can prove them wrong and uncover the admin's secret.",
     "points": 300,
-    "difficulty": "MEDIUM"
+    "difficulty": "MEDIUM",
+    "hint": "username - elliot and password - angela",
+    "resource": "WebExploitation_1787589271945_WebExploitation.zip",
+    "originalResourceName": "Web_Exploitation.zip"
   },
   "OSINT": {
     "hash": "$2b$10$vdMZ0pUAxAxUOodT5glOaeQX4rI0B0WXeZs4i1H3klmBTqx8leLNq",
@@ -28,12 +34,6 @@
     "hint": "Start with the car wash. Follow the trail through public records and business information.  Flag Format: coredump{abc_xyz_123_456}",
     "resource": "OSINT_1787431176233_OSINT.zip",
     "originalResourceName": "OSINT.zip"
-  },
-  "Crypto": {
-    "hash": "$2b$10$aWplibE47e.IhXohaXLAoOqqIiE11TrszGr70dul1.nzsPUCHBXlW",
-    "text": "Solve the Crypto challenge and submit your flag.",
-    "points": 400,
-    "difficulty": "MEDIUM"
   },
   "Steganography": {
     "hash": "$2b$10$ASBCaQfU2tSByLfbARzsHOlVg.BLsO/vQsdIV.QKvw1LZ3FQ5BPXS",
@@ -45,10 +45,13 @@
     "originalResourceName": "Steg.zip"
   },
   "Binary Analysis": {
-    "hash": "$2b$10$S4pF1qT9wD6mN2aL7zQ5rC3bE8kJ1uX8pH0sI2rT4dF7mO9cB3eK1Y",
-    "text": "Solve the Binary Analysis challenge and submit your flag.",
+    "hash": "$2b$10$qKg0Parpal8SpRORZi4NbOecfExRoMxkg/6wSeMZhxKQk6Dl.2kMS",
+    "text": "One of our highly secure production servers experienced a fatal hardware failure and crashed. We managed to extract the executable and the resulting core memory dump. We believe the secret encryption flag was loaded into memory right before the crash. Since the binary is stripped, can you dive into the memory dump and find it?",
     "points": 600,
-    "difficulty": "HARD"
+    "difficulty": "HARD",
+    "hint": "The 'strings' command won't save you here because the flag isn't stored as continuous text in        \t\t\t  memory. Load the core dump into GDB along with the executable, figure out where the data was loaded, \t\t\t  and inspect the raw memory registers to pull out the raw hex values.",
+    "resource": "BinaryAnalysis_1787589817384_BinaryAnalysis.zip",
+    "originalResourceName": "Binary_Analysis.zip"
   },
   "Miscellaneous": {
     "text": "My friend hid the flag somewhere inside a pile of complete gibberish — and then encoded the entire thing. Can you work your way through the mess and find what was hidden?",
@@ -68,22 +71,37 @@
     "resource": "Miscellaneous2_1787431414804_Misc2.zip",
     "originalResourceName": "Misc_2.zip"
   },
-  "Network": {
-    "text": "Network Challenge",
-    "points": 300,
-    "hash": "$2b$10$VPSSI78Up0Mch2JnaJ3fQuDEE.6eVS0wKqa5IhrSyKrEUd3Ffz5VS",
-    "difficulty": "MEDIUM"
-  },
   "Pwn": {
-    "text": "Exploitation",
+    "text": "We managed to get a copy of the company's secure chat portal executable. It's heavily protected by modern memory mitigations (Stack Canaries). Can you find a way to bypass the protections and access the secret admin function to reveal the flag?",
     "points": 1000,
-    "hash": "$2b$10$9EALmYVPsbWT1Pjt0W3i.On3..PfRGGbeEz6j1KUUb0kxwtR42Kbi",
-    "difficulty": "HARD"
+    "hash": "$2b$10$BCJILLATRhbejiSzvUvnuO720MrSpasR2z.rVVIkvYB8cqsKDF1p.",
+    "difficulty": "HARD",
+    "hint": "The 'gets()' function gives you a classic buffer overflow, but the Stack Canary will crash the       \t\t\t  program before you can win. Notice how the program prints back your alias? Try entering format       \t\t\t  string specifiers (like %15$p) to leak the secret Canary off the stack so you can perfectly place it \t\t\t  back during your overflow.",
+    "resource": "Pwn_1787589783337_Pwn.zip",
+    "originalResourceName": "Pwn.zip"
   },
   "OSINT 2": {
     "text": "OSINT 2",
     "points": 400,
     "hash": "$2b$10$ai321HO12DV1Uggtnm4Fqe6WKrHAnDtrnGMn6OztjtjsM7btdDoxS",
     "difficulty": "MEDIUM"
+  },
+  "Networking": {
+    "text": "We intercepted a strange ping sweep on our network. It looks like normal diagnostic traffic, but our intrusion detection system flagged a weird payload signature. Can you extract the hidden data?",
+    "points": 300,
+    "difficulty": "MEDIUM",
+    "hint": "I am always before your eyes, but you scan right past me.",
+    "resource": "Networking_1787589391967_Networking.zip",
+    "originalResourceName": "Networking.zip",
+    "hash": "$2b$10$iYqdXiPscJuIXkZiYP4sa.8maDfRq/cZdHLqraN287NfrwNQCVxta"
+  },
+  "Cryptography": {
+    "text": "Two messages were encrypted using the exact same One-Time Pad (OTP) key.  \t\t\tWe know the plaintext of the first message is: \t\t\t\"The weather in London is terrible today.\"  \t\t\t- transmission1.hex contains the encrypted first message. \t\t\t- transmission2.hex contains the encrypted flag.  \t\t\tRecover the flag from transmission2.hex.",
+    "points": 400,
+    "difficulty": "MEDIUM",
+    "hint": "[ Transmission 1 = Plaintext 1 ⊕ Key ] , [ Transmission 2 = Plaintext 2 ⊕ Key ]",
+    "resource": "Cryptography_1787589537471_Cryptography.zip",
+    "originalResourceName": "Cryptography.zip",
+    "hash": "$2b$10$ruYxyw7UufpacIiPRAuRVOYuG/qzONdp.MZ4xNGwZOQ8aZka2XrBW"
   }
 }
