@@ -95,6 +95,17 @@ app.post('/api/admin/wipe', (req, res) => {
 });
 
 
+
+// -----------------------
+// Validation Utility
+// -----------------------
+const validateNoTags = (str, fieldName) => {
+  if (typeof str === 'string' && /[<>]/.test(str)) {
+    return `${fieldName} cannot contain '<' or '>' characters.`;
+  }
+  return null;
+};
+
 // -----------------------
 // Load Users
 // -----------------------
@@ -129,6 +140,8 @@ try {
 
 app.post('/api/register', (req, res) => {
   const { username, email, password } = req.body;
+  const tagError = validateNoTags(username, "Username");
+  if (tagError) return res.status(400).json({ error: tagError });
   if (!username || !email || !password) {
     return res.status(400).json({ error: 'All fields required.' });
   }
@@ -457,6 +470,8 @@ app.post('/api/team/join', (req, res) => {
   const userId = req.session.userId;
   if (!userId) return res.status(403).json({ error: 'Not logged in' });
   const { teamName, password } = req.body;
+  const tagError = validateNoTags(teamName, "Team name");
+  if (tagError) return res.status(400).json({ error: tagError });
   if (!teamName || !password) return res.status(400).json({ error: 'Team name and password required.' });
   const team = teams.find(t => t.teamName.toLowerCase() === teamName.toLowerCase());
   if (!team) return res.status(404).json({ error: 'Team not found.' });
@@ -553,6 +568,8 @@ app.post('/api/challenge/flag', (req, res) => {
 app.post('/api/profile/update', (req, res) => {
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const { newUsername } = req.body;
+  const tagError = validateNoTags(newUsername, "Username");
+  if (tagError) return res.status(400).json({ error: tagError });
   if (!newUsername || newUsername.trim() === '') {
     return res.status(400).json({ error: 'Username cannot be empty.' });
   }
@@ -575,6 +592,8 @@ app.post('/api/profile/update', (req, res) => {
 app.post('/api/team/update', (req, res) => {
   if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const { newTeamName } = req.body;
+  const tagError = validateNoTags(newTeamName, "Team name");
+  if (tagError) return res.status(400).json({ error: tagError });
   if (!newTeamName || newTeamName.trim() === '') {
     return res.status(400).json({ error: 'Team name cannot be empty.' });
   }
