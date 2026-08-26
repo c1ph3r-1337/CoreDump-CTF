@@ -189,7 +189,7 @@
 
         <div class="detail-section" style="margin-bottom: 0;">
           <label class="input-label">FLAG SUBMISSION</label>
-          <input type="text" id="flagInput" class="flag-input" placeholder="CTF{________________________________}">
+          <input type="text" id="flagInput" class="flag-input" placeholder="coredump{.......}">
           <button id="submitFlagBtn" class="submit-button">[ SUBMIT FLAG ]</button>
           <p id="flagResult" style="margin-top: 15px; font-family: 'JetBrains Mono', monospace; font-size: 13px;"></p>
         </div>
@@ -321,7 +321,7 @@
           <option value="BONUS" style="background: #080b0c; color: var(--accent);">Difficulty: BONUS</option>
         </select>
         <input type="text" id="adminHintInput" placeholder="Hint (Optional)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
-        <input type="number" id="adminPointsInput" placeholder="Points (default 500)" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
+        <input type="number" id="adminPointsInput" placeholder="Points (e.g. 0, 100, 500)" min="0" style="padding:0.75rem 1.25rem; border-radius: 0; border:1px solid var(--border); background:transparent; color:var(--text); width: 100%; max-width: 500px; text-align: center;">
         <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:100%; max-width:500px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); padding:1.25rem; border-radius: 0;">
           <label style="font-size:0.9rem; opacity:0.8; font-weight: 500;">Attach Resource File (Optional)</label>
           <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
@@ -592,7 +592,7 @@
         if (!currentChallenges[category]) continue;
         const info = currentChallenges[category];
         
-        const pts = info.points || 500;
+        const pts = info.points !== undefined ? Number(info.points) : 0;
         let diff = info.difficulty || 'EASY';
         
         if (catContainer) {
@@ -619,7 +619,7 @@
           div.innerHTML = `
             <div style="margin-bottom: 1.25rem;">
               <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem;">${escapeHTML(category)}</div>
-              <div style="font-size:0.8rem; color:var(--primary); font-weight: 600; margin-bottom: 0.5rem;">${info.points || 500} pts</div>
+              <div style="font-size:0.8rem; color:var(--primary); font-weight: 600; margin-bottom: 0.5rem;">${info.points !== undefined ? info.points : 0} pts</div>
               <div style="font-size:0.85rem; color:var(--text-muted); line-height: 1.4;">${escapeHTML(info.text)}</div>
             </div>
             <div style="display:flex; gap:0.5rem; margin-top:auto;"><button onclick="editChallenge('${category}')" style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.05); color:var(--text-primary); border:none; border-radius: 0; cursor:pointer; font-weight:500; letter-spacing: 1px; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">EDIT</button><button onclick="deleteChallenge('${category}')" style="flex:1; padding:0.5rem; background:rgba(255,255,255,0.05); color:var(--text-primary); border:none; border-radius: 0; cursor:pointer; font-weight:500; letter-spacing: 1px; transition:all 0.2s; text-align:center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">DELETE</button></div>
@@ -644,7 +644,7 @@
       document.getElementById('adminCatInput').value = category;
       document.getElementById('adminTextInput').value = currentChallenges[category].text;
       document.getElementById('adminFlagInput').value = '********';
-      document.getElementById('adminPointsInput').value = currentChallenges[category].points || 500;
+      document.getElementById('adminPointsInput').value = currentChallenges[category].points !== undefined ? currentChallenges[category].points : 0;
       document.getElementById('adminDiffInput').value = currentChallenges[category].difficulty || 'EASY';
       document.getElementById('adminHintInput').value = currentChallenges[category].hint || '';
       const fileInput = document.getElementById('adminResourceInput');
@@ -722,7 +722,7 @@
       const hint = document.getElementById('adminHintInput').value;
           const msg = document.getElementById('adminMsg');
           
-          if (!category || !text || !flag || !points) {
+          if (!category || !text || !flag || points === '' || points === null || points === undefined) {
             msg.style.color = '#b7410e';
             msg.textContent = 'All fields (Category, Text, Flag, Points) are compulsory.';
             return;
@@ -765,8 +765,13 @@
               const fDisplay = document.getElementById('fileNameDisplay');
               if(fDisplay) fDisplay.textContent = 'No file chosen';
               const rCb = document.getElementById('adminRemoveResource');
-              if(rCb) rCb.checked = false;
-              fetchChallenges(); // Force local update instantly
+              if (rCb) rCb.checked = false;
+              fetchChallenges();
+              fetchProfile();
+              fetchTeamScores();
+              fetchTeams();
+              fetchMyTeam();
+              fetchUsers();
             }
           });
         });
@@ -886,34 +891,51 @@
       fetch('/api/teams')
         .then(res => res.json())
         .then(data => {
-          // Sort teams by current score and append rank
-          const sortedTeams = data.sort((a, b) => {
-            if (b.score !== a.score) return b.score - a.score;
-            const getLastSolve = (team) => {
-              if (!team.solvedChallenges) return Infinity;
-              const keys = Object.keys(team.solvedChallenges);
-              if (keys.length === 0) return Infinity;
-              let max = 0;
-              for (const key of keys) {
-                if (team.solvedChallenges[key].timestamp > max) {
-                  max = team.solvedChallenges[key].timestamp;
-                }
+          const getLastSolveTime = (team) => {
+            if (typeof team.lastSolveTime === 'number' && team.lastSolveTime > 0) {
+              return team.lastSolveTime;
+            }
+            if (team.solvedChallenges && typeof team.solvedChallenges === 'object') {
+              const timestamps = Object.values(team.solvedChallenges).map(v => typeof v === 'object' && v.timestamp ? v.timestamp : 0).filter(Boolean);
+              if (timestamps.length > 0) return Math.max(...timestamps);
+            }
+            if (Array.isArray(team.scoreHistory) && team.scoreHistory.length > 0) {
+              const pointEntries = team.scoreHistory.filter(h => h.score > 0);
+              if (pointEntries.length > 0) {
+                return pointEntries[pointEntries.length - 1].timestamp;
               }
-              return max;
-            };
-            const timeA = getLastSolve(a);
-            const timeB = getLastSolve(b);
-            if (timeA === Infinity && timeB === Infinity) return 0;
-            return timeA - timeB;
-          }).map((t, idx) => {
-            t.rank = idx + 1;
+              return team.scoreHistory[0].timestamp || Infinity;
+            }
+            return Number(team.id) || Infinity;
+          };
+
+          let rankCounter = 1;
+          // Sort teams: Active teams first (Highest score first; on ties, the team that solved first gets top priority), Disqualified teams last
+          const sortedTeams = data.sort((a, b) => {
+            if (a.disqualified && !b.disqualified) return 1;
+            if (!a.disqualified && b.disqualified) return -1;
+            if (b.score !== a.score) {
+              return b.score - a.score;
+            }
+            const timeA = getLastSolveTime(a);
+            const timeB = getLastSolveTime(b);
+            if (timeA !== timeB) {
+              return timeA - timeB;
+            }
+            return (Number(a.id) || 0) - (Number(b.id) || 0);
+          }).map((t) => {
+            if (t.disqualified) {
+              t.rank = 'DQ';
+            } else {
+              t.rank = rankCounter++;
+            }
             return t;
           });
           
           allStandingsData = sortedTeams;
           
-          // Take only top 10 teams
-          const topTeams = sortedTeams.slice(0, 10);
+          // Take only top 10 non-disqualified teams for chart
+          const topTeams = sortedTeams.filter(t => !t.disqualified).slice(0, 10);
           
           updateTeamScoreDisplay();
           updateTimeSeriesChart(topTeams);
@@ -927,8 +949,12 @@
         .then(res => res.json())
         .then(data => {
           const teamScoreDiv = document.getElementById('teamScoreDisplay');
-          if (data.team && data.team.score != null) {
-            teamScoreDiv.textContent = `Your Team Score: ${data.team.score} pts`;
+          if (data.team) {
+            if (data.team.disqualified) {
+              teamScoreDiv.innerHTML = `<span style="color:#ef4444; font-weight:bold;">Your Team is Disqualified</span>`;
+            } else if (data.team.score != null) {
+              teamScoreDiv.textContent = `Your Team Score: ${data.team.score} pts`;
+            }
           } else {
             teamScoreDiv.textContent = 'Your Team Score: N/A';
           }
@@ -947,8 +973,8 @@
 
     function updateTimeSeriesChart(topTeams) {
       const ctx = document.getElementById('scoreChart').getContext('2d');
-      
-      let earliestTime = Date.now();
+      const now = (typeof getCurrentServerTime === 'function' ? getCurrentServerTime() : Date.now());
+      let earliestTime = now;
       
       topTeams.forEach(team => {
         if (team.scoreHistory) {
@@ -957,8 +983,6 @@
           });
         }
       });
-      
-      const now = Date.now();
       const startTime = ctfStartTime ? ctfStartTime : (earliestTime - (15 * 60 * 1000));
       const durationMs = now - startTime;
       let intervalMs = 15 * 60 * 1000;
@@ -1102,13 +1126,29 @@
       filteredTeams.forEach((team) => {
         const item = document.createElement('div');
         item.className = 'standing-item';
-        const color = stringToColor(team.teamName);
-        item.innerHTML = `
-          <div class="team-info">
-            <span class="team-name">${team.rank}. ${escapeHTML(team.teamName)}</span>
-          </div>
-          <span class="team-score">${team.score} pts</span>
-        `;
+        
+        if (team.disqualified) {
+          item.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+          item.style.background = 'rgba(239, 68, 68, 0.05)';
+          item.innerHTML = `
+            <div class="team-info">
+              <span class="team-name" style="text-decoration: line-through; opacity: 0.6;">${escapeHTML(team.teamName)}</span>
+            </div>
+            <span class="team-score" style="color:#ef4444; font-weight:700; font-size:0.9rem; letter-spacing:1px;">DISQUALIFIED</span>
+          `;
+        } else {
+          let medal = '';
+          if (team.rank === 1) medal = '<span style="font-size:1.25rem; margin-right:0.4rem; vertical-align:middle;" title="1st Place">🥇</span>';
+          else if (team.rank === 2) medal = '<span style="font-size:1.25rem; margin-right:0.4rem; vertical-align:middle;" title="2nd Place">🥈</span>';
+          else if (team.rank === 3) medal = '<span style="font-size:1.25rem; margin-right:0.4rem; vertical-align:middle;" title="3rd Place">🥉</span>';
+
+          item.innerHTML = `
+            <div class="team-info">
+              <span class="team-name">${medal}${team.rank}. ${escapeHTML(team.teamName)}</span>
+            </div>
+            <span class="team-score">${team.score} pts</span>
+          `;
+        }
         standingsList.appendChild(item);
       });
     }
@@ -1300,10 +1340,13 @@
       }
       
       const socket = io();
+
+      socket.on('connect', () => {
+        socket.emit('requestTimeSync');
+      });
+
       socket.on('configUpdate', (data) => {
-         ctfStartTime = data.ctfStartTime;
-         startLocalTimer();
-         updateAdminStartButton();
+         handleConfigData(data);
          // If started, refresh everything to show wiped scores
          fetchChallenges(); fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers();
       });
@@ -1311,12 +1354,22 @@
       socket.on('usersUpdate', () => { fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam(); });
       socket.on('challengesUpdate', () => {
         fetchChallenges();
+        fetchProfile();
+        fetchTeamScores();
+        fetchTeams();
+        fetchMyTeam();
+        fetchUsers();
+        updateChallengeBoxesFromTeam();
         // Live update the modal if it's currently open
         if (typeof currentCategory !== 'undefined' && currentCategory) {
           setTimeout(() => {
             if (currentChallenges[currentCategory] && document.getElementById('challengeModal').style.display === 'flex') {
               document.getElementById('challengeDescription').textContent = currentChallenges[currentCategory].text;
               document.getElementById('modalTitle').textContent = currentCategory + ' Challenge';
+              const ptEl = document.getElementById('modalPoints');
+              if (ptEl) ptEl.textContent = currentChallenges[currentCategory].points || 500;
+              const diffEl = document.getElementById('modalDiff');
+              if (diffEl) diffEl.textContent = currentChallenges[currentCategory].difficulty || 'EASY';
             }
           }, 300); // Wait for fetchChallenges to populate data
         }
@@ -1325,6 +1378,13 @@
         fetchProfile(); fetchTeamScores(); fetchTeams(); fetchMyTeam(); fetchUsers(); updateChallengeBoxesFromTeam();
       });
       
+      // Periodically sync time with server over websockets to prevent drift
+      setInterval(() => {
+        if (socket && socket.connected) {
+          socket.emit('requestTimeSync');
+        }
+      }, 30000);
+
       // Set up auto-refresh for scoreboard every 5 minutes as a fallback
       setInterval(fetchTeamScores, 5 * 60 * 1000);
     });
@@ -1527,7 +1587,12 @@
     
     let currentCategory = '';
     let ctfStartTime = null;
+    let serverTimeOffset = 0;
     let timerInterval = null;
+
+    function getCurrentServerTime() {
+      return Date.now() + serverTimeOffset;
+    }
 
     function formatTime(ms) {
       if (ms < 0) return "00:00:00";
@@ -1547,7 +1612,7 @@
         return;
       }
       display.style.color = 'var(--primary)';
-      display.textContent = formatTime(Date.now() - ctfStartTime);
+      display.textContent = formatTime(getCurrentServerTime() - ctfStartTime);
     }
 
     function startLocalTimer() {
@@ -1556,12 +1621,24 @@
       timerInterval = setInterval(updateTimerUI, 1000);
     }
 
-    function fetchConfig() {
-      fetch('/api/config').then(r => r.json()).then(data => {
-        ctfStartTime = data.ctfStartTime;
-        startLocalTimer();
+    function handleConfigData(data) {
+      if (data && typeof data.serverTime === 'number') {
+        serverTimeOffset = data.serverTime - Date.now();
+      }
+      ctfStartTime = data ? data.ctfStartTime : null;
+      startLocalTimer();
+      if (typeof updateAdminStartButton === 'function') {
         updateAdminStartButton();
-      });
+      }
+    }
+
+    function fetchConfig() {
+      fetch('/api/config')
+        .then(r => r.json())
+        .then(data => {
+          handleConfigData(data);
+        })
+        .catch(err => console.error('Error fetching config:', err));
     }
 
     document.addEventListener('DOMContentLoaded', () => {

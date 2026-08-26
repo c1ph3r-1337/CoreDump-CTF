@@ -9,7 +9,7 @@
     "membersNames": [
       "admin"
     ],
-    "score": 4650,
+    "score": 5950,
     "solvedChallenges": {},
     "scoreHistory": [
       {
@@ -63,7 +63,3358 @@
       {
         "timestamp": 1787684810911,
         "score": 4650
+      },
+      {
+        "timestamp": 1787704069031,
+        "score": 5650
+      },
+      {
+        "timestamp": 1787706975764,
+        "score": 5950
       }
-    ]
+    ],
+    "lastSolveTime": 1787706975764
+  },
+  {
+    "id": "1787698992398",
+    "teamName": "Tech Titans",
+    "password": "$2b$10$ozYAj4MDgb4a5kiZZxqX6.HVkXw1.9HdufWG7eYwNsBacOsa/VSfG",
+    "members": [
+      "1787698873149",
+      "1787698873062"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787709965737,
+        "userId": "1787698873149"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787698992398,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700399525,
+        "score": 100
+      },
+      {
+        "timestamp": 1787701791877,
+        "score": 300
+      },
+      {
+        "timestamp": 1787702362125,
+        "score": 1300
+      },
+      {
+        "timestamp": 1787702504703,
+        "score": 1900
+      },
+      {
+        "timestamp": 1787702690939,
+        "score": 2700
+      },
+      {
+        "timestamp": 1787702999239,
+        "score": 3100
+      },
+      {
+        "timestamp": 1787703124368,
+        "score": 3400
+      },
+      {
+        "timestamp": 1787703202854,
+        "score": 4600
+      },
+      {
+        "timestamp": 1787703573804,
+        "score": 3850
+      },
+      {
+        "timestamp": 1787704198101,
+        "score": 4850
+      },
+      {
+        "timestamp": 1787705197020,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787705566210,
+        "score": 6550
+      },
+      {
+        "timestamp": 1787706310494,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787707460817,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709706015,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709965737,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900002
+  },
+  {
+    "id": "1787699130586",
+    "teamName": "Cyber Idiotas",
+    "password": "$2b$10$Hi7s/k/zcoNCiao3IJwZ4..1a2juTY6UY6qvofuNTstbEXPRGLutq",
+    "members": [
+      "1787698871121",
+      "1787698845323"
+    ],
+    "score": 4850,
+    "solvedChallenges": {
+      "Forensics 2": {
+        "timestamp": 1787708053897,
+        "userId": "1787698871121"
+      },
+      "Pwn": {
+        "timestamp": 1787708985856,
+        "userId": "1787698871121"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699130586,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700499115,
+        "score": 150
+      },
+      {
+        "timestamp": 1787701791111,
+        "score": 250
+      },
+      {
+        "timestamp": 1787702383586,
+        "score": 450
+      },
+      {
+        "timestamp": 1787702854206,
+        "score": 650
+      },
+      {
+        "timestamp": 1787702906930,
+        "score": 850
+      },
+      {
+        "timestamp": 1787703544346,
+        "score": 1150
+      },
+      {
+        "timestamp": 1787705622787,
+        "score": 1750
+      },
+      {
+        "timestamp": 1787707183987,
+        "score": 2050
+      },
+      {
+        "timestamp": 1787707465628,
+        "score": 2450
+      },
+      {
+        "timestamp": 1787707605783,
+        "score": 2850
+      },
+      {
+        "timestamp": 1787708053897,
+        "score": 3850
+      },
+      {
+        "timestamp": 1787708985856,
+        "score": 4850
+      }
+    ],
+    "lastSolveTime": 1787708985856
+  },
+  {
+    "id": "1787699154000",
+    "teamName": "Team Rise",
+    "password": "$2b$10$ml/jm9wM5yIz09CMWmc5mOCSH.n2Y9vYGdYq/OjHsN45eXWmOQVya",
+    "members": [
+      "1787699089364",
+      "1787699132184"
+    ],
+    "score": 1200,
+    "solvedChallenges": {
+      "Forensics 2": {
+        "timestamp": 1787708460610,
+        "userId": "1787699089364"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699154000,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702036163,
+        "score": 200
+      },
+      {
+        "timestamp": 1787708460610,
+        "score": 1200
+      }
+    ],
+    "lastSolveTime": 1787708460610
+  },
+  {
+    "id": "1787699167191",
+    "teamName": "Invincibles",
+    "password": "$2b$10$DIFhOJUJ8uFY65u4QW1z..EGO5eSyqXWoMz/opt1WPNMLPef32rK.",
+    "members": [
+      "1787698793042"
+    ],
+    "score": 4000,
+    "solvedChallenges": {
+      "Networking": {
+        "timestamp": 1787707925133,
+        "userId": "1787698793042"
+      },
+      "Cryptography": {
+        "timestamp": 1787708159869,
+        "userId": "1787698793042"
+      },
+      "OSINT 2": {
+        "timestamp": 1787708281752,
+        "userId": "1787698793042"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699167191,
+        "score": 0
+      },
+      {
+        "timestamp": 1787703032767,
+        "score": 600
+      },
+      {
+        "timestamp": 1787705534520,
+        "score": 900
+      },
+      {
+        "timestamp": 1787705967528,
+        "score": 1900
+      },
+      {
+        "timestamp": 1787706759536,
+        "score": 2900
+      },
+      {
+        "timestamp": 1787707925133,
+        "score": 3200
+      },
+      {
+        "timestamp": 1787708159869,
+        "score": 3600
+      },
+      {
+        "timestamp": 1787708281752,
+        "score": 4000
+      }
+    ],
+    "lastSolveTime": 1787708281752
+  },
+  {
+    "id": "1787699178437",
+    "teamName": "CTU DESTROYERS",
+    "password": "$2b$10$0QQsgeroUIHbxuJ/dBNXHeShvy.pgpxcN1e.GczxIsWv/sduovFQy",
+    "members": [
+      "1787698901344",
+      "1787699370041"
+    ],
+    "score": 100,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699178437,
+        "score": 0
+      },
+      {
+        "timestamp": 1787703585043,
+        "score": 100
+      }
+    ],
+    "lastSolveTime": 1787703585043
+  },
+  {
+    "id": "1787699196684",
+    "teamName": "cyberx",
+    "password": "$2b$10$jVmSUIewR0FU59PrqP0hTuf3aFrflYZ0oz1iQIU9yyOOolrGUJ6Ny",
+    "members": [
+      "1787698880249"
+    ],
+    "score": 100,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699196684,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701332216,
+        "score": 100
+      }
+    ],
+    "lastSolveTime": 1787701332216
+  },
+  {
+    "id": "1787699254717",
+    "teamName": "Binaryduo",
+    "password": "$2b$10$2y/T2SqSGPChn4JxNPwvSOUnzSgLV7.K55nVuUJZidls80oO/oaq.",
+    "members": [
+      "1787699115680",
+      "1787699107314"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "OSINT 2": {
+        "timestamp": 1787707808340,
+        "userId": "1787699115680"
+      },
+      "Bonus": {
+        "timestamp": 1787708388640,
+        "userId": "1787699115680"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787709942222,
+        "userId": "1787699115680"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699254717,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702287391,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703981648,
+        "score": 300
+      },
+      {
+        "timestamp": 1787704313934,
+        "score": 500
+      },
+      {
+        "timestamp": 1787704634366,
+        "score": 650
+      },
+      {
+        "timestamp": 1787704714517,
+        "score": 850
+      },
+      {
+        "timestamp": 1787704954913,
+        "score": 1150
+      },
+      {
+        "timestamp": 1787705084469,
+        "score": 1450
+      },
+      {
+        "timestamp": 1787705188472,
+        "score": 1850
+      },
+      {
+        "timestamp": 1787705473181,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787705535593,
+        "score": 3250
+      },
+      {
+        "timestamp": 1787705636822,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787705677550,
+        "score": 5250
+      },
+      {
+        "timestamp": 1787707808340,
+        "score": 5650
+      },
+      {
+        "timestamp": 1787708388640,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709942222,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900040
+  },
+  {
+    "id": "1787699258358",
+    "teamName": "The Coders",
+    "password": "$2b$10$eRLHDQBzHemA6uNAbZGdION5oXFVDLuIYLO/UzWyJw25zlU6eDImC",
+    "members": [
+      "1787699088223"
+    ],
+    "score": 1100,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699258358,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702495377,
+        "score": 100
+      },
+      {
+        "timestamp": 1787705427458,
+        "score": 1100
+      }
+    ],
+    "lastSolveTime": 1787705427458
+  },
+  {
+    "id": "1787699258871",
+    "teamName": "AVENGERS",
+    "password": "$2b$10$C.kt21Ht4EUjIoRnNfILcu0bUTuNBYt.tP43UlI43zpVaiQe0gsES",
+    "members": [
+      "1787699166978"
+    ],
+    "score": 100,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699258871,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702526157,
+        "score": 100
+      }
+    ],
+    "lastSolveTime": 1787702526157
+  },
+  {
+    "id": "1787699265393",
+    "teamName": "404 angels",
+    "password": "$2b$10$ZWjlDYLkrsgnDcbNOtKjbOz/pydkD6mrShRMoP69ol2GQs4tW7wQe",
+    "members": [
+      "1787699150840",
+      "1787699165179"
+    ],
+    "score": 6600,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787710127699,
+        "userId": "1787699165179"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699265393,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701901484,
+        "score": 300
+      },
+      {
+        "timestamp": 1787702023211,
+        "score": 600
+      },
+      {
+        "timestamp": 1787702092004,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787702252740,
+        "score": 1600
+      },
+      {
+        "timestamp": 1787702367209,
+        "score": 2600
+      },
+      {
+        "timestamp": 1787702654496,
+        "score": 2800
+      },
+      {
+        "timestamp": 1787703049389,
+        "score": 2900
+      },
+      {
+        "timestamp": 1787703164168,
+        "score": 3100
+      },
+      {
+        "timestamp": 1787703311946,
+        "score": 4150
+      },
+      {
+        "timestamp": 1787703702354,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787705551522,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787706216642,
+        "score": 5350
+      },
+      {
+        "timestamp": 1787710127699,
+        "score": 6600
+      }
+    ],
+    "lastSolveTime": 1787710127699
+  },
+  {
+    "id": "1787699272797",
+    "teamName": "winner",
+    "password": "$2b$10$4K57HMcuYkkaXZaUtRgYcu5Fi/cLRAvxL.otEDgDnjylkXFj/967e",
+    "members": [],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699272797,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0
+  },
+  {
+    "id": "1787699274964",
+    "teamName": "naanbhature_nerd",
+    "password": "$2b$10$TMc4yU/9WteomAxu2irB1.DcDWbjklCgMK2wwnuwZ3KGvka3vZ1re",
+    "members": [
+      "1787699156386"
+    ],
+    "score": 300,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "timestamp": 1787707833494,
+        "userId": "1787699156386"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699274964,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702721809,
+        "score": 100
+      },
+      {
+        "timestamp": 1787707833494,
+        "score": 300
+      }
+    ],
+    "lastSolveTime": 1787707833494
+  },
+  {
+    "id": "1787699291636",
+    "teamName": "nullsync",
+    "password": "$2b$10$o6XK6UxjoX1n5Zvc86uY2.B6MmT.PdR7dikNkEvlcV9PZmrRIdQpu",
+    "members": [
+      "1787699142029",
+      "1787699127849"
+    ],
+    "score": 6600,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787709973205,
+        "userId": "1787699127849"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699291636,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700265186,
+        "score": 100
+      },
+      {
+        "timestamp": 1787700640374,
+        "score": 300
+      },
+      {
+        "timestamp": 1787700785295,
+        "score": 450
+      },
+      {
+        "timestamp": 1787700890849,
+        "score": 750
+      },
+      {
+        "timestamp": 1787701128395,
+        "score": 1150
+      },
+      {
+        "timestamp": 1787701210047,
+        "score": 1450
+      },
+      {
+        "timestamp": 1787701309107,
+        "score": 2450
+      },
+      {
+        "timestamp": 1787701425765,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787702079951,
+        "score": 3850
+      },
+      {
+        "timestamp": 1787703576646,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787703637142,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787705601755,
+        "score": 5350
+      },
+      {
+        "timestamp": 1787709973205,
+        "score": 6600
+      }
+    ],
+    "lastSolveTime": 1787709973205
+  },
+  {
+    "id": "1787699297465",
+    "teamName": "Team vitality",
+    "password": "$2b$10$X5CL9OAKSQdv1iWZZ/c6HuxeWaNuLrRfSqkhk1eGPLMoetu2yHKLC",
+    "members": [
+      "1787699206437",
+      "1787699199669"
+    ],
+    "score": 700,
+    "solvedChallenges": {
+      "Cryptography": {
+        "timestamp": 1787708050285,
+        "userId": "1787699206437"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699297465,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701548316,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703285060,
+        "score": 1200
+      },
+      {
+        "timestamp": 1787708050285,
+        "score": 700
+      }
+    ],
+    "lastSolveTime": 1787708050285
+  },
+  {
+    "id": "1787699302538",
+    "teamName": "Team Sukh",
+    "password": "$2b$10$WHapguf5ReDhMqHw2FGaUegl7XNLah3lW9OO58fZjIEsc0J6WZjS2",
+    "members": [
+      "1787699174478",
+      "1787699727353"
+    ],
+    "score": 450,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699302538,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702784741,
+        "score": 100
+      },
+      {
+        "timestamp": 1787704091428,
+        "score": 300
+      },
+      {
+        "timestamp": 1787705030864,
+        "score": 450
+      }
+    ],
+    "lastSolveTime": 1787705030864
+  },
+  {
+    "id": "1787699302794",
+    "teamName": "Team Coders",
+    "password": "$2b$10$zAg3tRt41PohGbD.yHs/X.NhoCgYrks/tY2XikRZdZYwXsNuT2fqy",
+    "members": [
+      "1787698994275",
+      "1787699140270"
+    ],
+    "score": 5350,
+    "solvedChallenges": {
+      "Steganography": {
+        "timestamp": 1787710093581,
+        "userId": "1787698994275"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699302794,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700615651,
+        "score": 100
+      },
+      {
+        "timestamp": 1787701048692,
+        "score": 300
+      },
+      {
+        "timestamp": 1787701358606,
+        "score": 450
+      },
+      {
+        "timestamp": 1787702083350,
+        "score": 1450
+      },
+      {
+        "timestamp": 1787702237919,
+        "score": 1750
+      },
+      {
+        "timestamp": 1787702292489,
+        "score": 2350
+      },
+      {
+        "timestamp": 1787702360205,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787702491260,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787703608338,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787705120489,
+        "score": 4850
+      },
+      {
+        "timestamp": 1787705904959,
+        "score": 5150
+      },
+      {
+        "timestamp": 1787710093581,
+        "score": 5350
+      }
+    ],
+    "lastSolveTime": 1787710093581
+  },
+  {
+    "id": "1787699305162",
+    "teamName": "0X2",
+    "password": "$2b$10$I0kqhmm3QFxvqHcAmpvxeOZY.44xnbby5VLH8gxF1dgajyfmRt74y",
+    "members": [
+      "1787699158213",
+      "1787700604576"
+    ],
+    "score": 7000,
+    "solvedChallenges": {
+      "OSINT 2": {
+        "timestamp": 1787708594415,
+        "userId": "1787699158213"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710105145,
+        "userId": "1787700604576"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699305162,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700379433,
+        "score": 100
+      },
+      {
+        "timestamp": 1787701823529,
+        "score": 300
+      },
+      {
+        "timestamp": 1787701983755,
+        "score": 500
+      },
+      {
+        "timestamp": 1787702221657,
+        "score": 650
+      },
+      {
+        "timestamp": 1787702369665,
+        "score": 1650
+      },
+      {
+        "timestamp": 1787703207036,
+        "score": 2850
+      },
+      {
+        "timestamp": 1787703368919,
+        "score": 3450
+      },
+      {
+        "timestamp": 1787703752857,
+        "score": 2850
+      },
+      {
+        "timestamp": 1787703993790,
+        "score": 3250
+      },
+      {
+        "timestamp": 1787704789914,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787705002581,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787706186528,
+        "score": 5550
+      },
+      {
+        "timestamp": 1787708594415,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787710105145,
+        "score": 7000
+      }
+    ],
+    "lastSolveTime": 1787710105145
+  },
+  {
+    "id": "1787699320428",
+    "teamName": "amrinder singh gill",
+    "password": "$2b$10$cbtj45h9wNcH6avV6eNuFOGcP3QRNVDTuYBpr/uKUEYXflYYb32sK",
+    "members": [],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699320428,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0
+  },
+  {
+    "id": "1787699325448",
+    "teamName": "SisCode",
+    "password": "$2b$10$WVaG4TBWng1L.NpGNuzIpu0G9e3Pr1IoogsiN3TZfuF0GKEhFrXoS",
+    "members": [
+      "1787698527604",
+      "1787699993473"
+    ],
+    "score": 5750,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699325448,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702716782,
+        "score": 200
+      },
+      {
+        "timestamp": 1787703076179,
+        "score": 1200
+      },
+      {
+        "timestamp": 1787705151850,
+        "score": 1300
+      },
+      {
+        "timestamp": 1787705215045,
+        "score": 2300
+      },
+      {
+        "timestamp": 1787705391431,
+        "score": 2700
+      },
+      {
+        "timestamp": 1787705472443,
+        "score": 3300
+      },
+      {
+        "timestamp": 1787705683861,
+        "score": 4100
+      },
+      {
+        "timestamp": 1787705795060,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787706020399,
+        "score": 4450
+      },
+      {
+        "timestamp": 1787706207780,
+        "score": 4750
+      },
+      {
+        "timestamp": 1787706475130,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787707304488,
+        "score": 5350
+      },
+      {
+        "timestamp": 1787707470121,
+        "score": 5750
+      }
+    ],
+    "lastSolveTime": 1787707470121
+  },
+  {
+    "id": "1787699331963",
+    "teamName": "OneBrainCell",
+    "password": "$2b$10$gajfSWfo5mmQgixNzYyqIuV7/IRUsmx3MnGhP5HfAuOwPcOS9SSvm",
+    "members": [
+      "1787699259421",
+      "1787699498385"
+    ],
+    "score": 500,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699331963,
+        "score": 0
+      },
+      {
+        "timestamp": 1787704401260,
+        "score": 100
+      },
+      {
+        "timestamp": 1787705611068,
+        "score": 300
+      },
+      {
+        "timestamp": 1787706076379,
+        "score": 500
+      }
+    ],
+    "lastSolveTime": 1787706076379
+  },
+  {
+    "id": "1787699343523",
+    "teamName": "TechVerse",
+    "password": "$2b$10$cMLDysmSSP8LjtxiD0y.3.GZD4SmaavIcN.WewF2UmTbqU3fcnht2",
+    "members": [
+      "1787699187301",
+      "1787699220512"
+    ],
+    "score": 6100,
+    "solvedChallenges": {
+      "Forensics": {
+        "timestamp": 1787707987631,
+        "userId": "1787699187301"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710116579,
+        "userId": "1787699187301"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699343523,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702920881,
+        "score": 200
+      },
+      {
+        "timestamp": 1787703321424,
+        "score": 350
+      },
+      {
+        "timestamp": 1787704336717,
+        "score": 1350
+      },
+      {
+        "timestamp": 1787704441981,
+        "score": 2350
+      },
+      {
+        "timestamp": 1787704596465,
+        "score": 2950
+      },
+      {
+        "timestamp": 1787706186456,
+        "score": 3750
+      },
+      {
+        "timestamp": 1787706386230,
+        "score": 4150
+      },
+      {
+        "timestamp": 1787706563657,
+        "score": 4450
+      },
+      {
+        "timestamp": 1787706777103,
+        "score": 4750
+      },
+      {
+        "timestamp": 1787707987631,
+        "score": 4850
+      },
+      {
+        "timestamp": 1787710116579,
+        "score": 6100
+      }
+    ],
+    "lastSolveTime": 1787710116579
+  },
+  {
+    "id": "1787699358263",
+    "teamName": "winnerteam",
+    "password": "$2b$10$WnO1GFoQWkWvvdla.Uf0i.Q1MXNGzcxNfRljbzNzD99zoLFR44ZO2",
+    "members": [
+      "1787699104570",
+      "1787699112193"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "OSINT": {
+        "timestamp": 1787708306243,
+        "userId": "1787699112193"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787709939587,
+        "userId": "1787699104570"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699358263,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701330604,
+        "score": 200
+      },
+      {
+        "timestamp": 1787702315027,
+        "score": 300
+      },
+      {
+        "timestamp": 1787702332952,
+        "score": 600
+      },
+      {
+        "timestamp": 1787702401772,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787702521040,
+        "score": 1300
+      },
+      {
+        "timestamp": 1787702921450,
+        "score": 1900
+      },
+      {
+        "timestamp": 1787703050278,
+        "score": 2900
+      },
+      {
+        "timestamp": 1787703682845,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787703911095,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787704019505,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787705070246,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787705461083,
+        "score": 6550
+      },
+      {
+        "timestamp": 1787707223784,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787708306243,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709939587,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900050
+  },
+  {
+    "id": "1787699361787",
+    "teamName": "Cyber & AI",
+    "password": "$2b$10$86LV0RGUxvMCEEtEn7kW5eZ7rcTBW0gKpNc7KeFn1HdDo3YON3FFe",
+    "members": [
+      "1787699107635",
+      "1787699150481"
+    ],
+    "score": 100,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699361787,
+        "score": 0
+      },
+      {
+        "timestamp": 1787704826564,
+        "score": 100
+      }
+    ],
+    "lastSolveTime": 1787704826564
+  },
+  {
+    "id": "1787699362719",
+    "teamName": "Moonlit Hash",
+    "password": "$2b$10$u1wFrlJ5E/xDjSlqhq36OeF/6MBaYU3aW1aZ6pzVz6tt4TkZRn26y",
+    "members": [
+      "1787699264731",
+      "1787699333923",
+      "1787700308182",
+      "1787700621165"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "OSINT": {
+        "timestamp": 1787708364303,
+        "userId": "1787700308182"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710049166,
+        "userId": "1787700308182"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699362719,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700738755,
+        "score": 100
+      },
+      {
+        "timestamp": 1787702345029,
+        "score": 300
+      },
+      {
+        "timestamp": 1787702478439,
+        "score": 600
+      },
+      {
+        "timestamp": 1787702917840,
+        "score": 750
+      },
+      {
+        "timestamp": 1787703338049,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787703458176,
+        "score": 2350
+      },
+      {
+        "timestamp": 1787703599856,
+        "score": 3350
+      },
+      {
+        "timestamp": 1787703725805,
+        "score": 3650
+      },
+      {
+        "timestamp": 1787704059130,
+        "score": 3850
+      },
+      {
+        "timestamp": 1787704266828,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787704672281,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787705458186,
+        "score": 6550
+      },
+      {
+        "timestamp": 1787706288459,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787708364303,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787710049166,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900003
+  },
+  {
+    "id": "1787699376708",
+    "teamName": "Doom",
+    "password": "$2b$10$YeANsKYJ6iznKI1cKBx3u.jI7w2tgDr83ZuG/JKB/hHtxAsYAY4Ne",
+    "members": [
+      "1787699142076"
+    ],
+    "score": 1300,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "timestamp": 1787708247472,
+        "userId": "1787699142076"
+      },
+      "Pwn": {
+        "timestamp": 1787708573950,
+        "userId": "1787699142076"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699376708,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702600806,
+        "score": 100
+      },
+      {
+        "timestamp": 1787708247472,
+        "score": 300
+      },
+      {
+        "timestamp": 1787708573950,
+        "score": 1300
+      }
+    ],
+    "lastSolveTime": 1787708573950
+  },
+  {
+    "id": "1787699406694",
+    "teamName": "SQUAD SYNTAX",
+    "password": "$2b$10$et8btNwrL6A3WURkAE8tAuY7iZ/hSAoDxbKvYEqIjqUHGDLRGEzIq",
+    "members": [
+      "1787699329093",
+      "1787699532715"
+    ],
+    "score": 100,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699406694,
+        "score": 0
+      },
+      {
+        "timestamp": 1787705907933,
+        "score": 100
+      }
+    ],
+    "lastSolveTime": 1787705907933
+  },
+  {
+    "id": "1787699444245",
+    "teamName": "Techbyte",
+    "password": "$2b$10$i4j5Cc6Xab.WBzsYB5zsVu3TO3fho/0NomxrNy0wpVOthVuFlxyI2",
+    "members": [
+      "1787699369835",
+      "1787699624804"
+    ],
+    "score": 6800,
+    "solvedChallenges": {
+      "OSINT 2": {
+        "timestamp": 1787707736946,
+        "userId": "1787699624804"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710122706,
+        "userId": "1787699624804"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699444245,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700652875,
+        "score": 100
+      },
+      {
+        "timestamp": 1787700850215,
+        "score": 400
+      },
+      {
+        "timestamp": 1787701292507,
+        "score": 700
+      },
+      {
+        "timestamp": 1787701366622,
+        "score": 1100
+      },
+      {
+        "timestamp": 1787701436691,
+        "score": 1300
+      },
+      {
+        "timestamp": 1787701554052,
+        "score": 1900
+      },
+      {
+        "timestamp": 1787701622063,
+        "score": 2900
+      },
+      {
+        "timestamp": 1787701782158,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787701973059,
+        "score": 3850
+      },
+      {
+        "timestamp": 1787704577843,
+        "score": 4850
+      },
+      {
+        "timestamp": 1787705507643,
+        "score": 6350
+      },
+      {
+        "timestamp": 1787707736946,
+        "score": 5550
+      },
+      {
+        "timestamp": 1787710122706,
+        "score": 6800
+      }
+    ],
+    "lastSolveTime": 1787710122706
+  },
+  {
+    "id": "1787699463059",
+    "teamName": "Byte Ninjas",
+    "password": "$2b$10$pLOT/t0cKtAHd9K2rJ4ku.PujgVxYlTWmQ1AuPKKkXp1mEvsjsqk.",
+    "members": [
+      "1787699333579",
+      "1787699965289"
+    ],
+    "score": 5500,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787710162874,
+        "userId": "1787699965289"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699463059,
+        "score": 0
+      },
+      {
+        "timestamp": 1787703439011,
+        "score": 200
+      },
+      {
+        "timestamp": 1787704539000,
+        "score": 350
+      },
+      {
+        "timestamp": 1787704998925,
+        "score": 650
+      },
+      {
+        "timestamp": 1787705108700,
+        "score": 1050
+      },
+      {
+        "timestamp": 1787705408543,
+        "score": 1350
+      },
+      {
+        "timestamp": 1787705409950,
+        "score": 1450
+      },
+      {
+        "timestamp": 1787705752334,
+        "score": 2050
+      },
+      {
+        "timestamp": 1787705842747,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787706137486,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787706474121,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787710162874,
+        "score": 5500
+      }
+    ],
+    "lastSolveTime": 1787710162874
+  },
+  {
+    "id": "1787699502206",
+    "teamName": "flag chor",
+    "password": "$2b$10$2KHidf4g7O0FubKfsPxn.erQwmqmB5JdSH1FlkBMPTbXqDEucsXU6",
+    "members": [
+      "1787698892998",
+      "1787698897020"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787709944861,
+        "userId": "1787698897020"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699502206,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700587960,
+        "score": 150
+      },
+      {
+        "timestamp": 1787700977727,
+        "score": 350
+      },
+      {
+        "timestamp": 1787701216002,
+        "score": 450
+      },
+      {
+        "timestamp": 1787701395200,
+        "score": 650
+      },
+      {
+        "timestamp": 1787702179194,
+        "score": 1450
+      },
+      {
+        "timestamp": 1787702487033,
+        "score": 1750
+      },
+      {
+        "timestamp": 1787702511067,
+        "score": 2350
+      },
+      {
+        "timestamp": 1787702659647,
+        "score": 3350
+      },
+      {
+        "timestamp": 1787702885812,
+        "score": 3650
+      },
+      {
+        "timestamp": 1787703178512,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787705462037,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787705731649,
+        "score": 6550
+      },
+      {
+        "timestamp": 1787706368060,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787707108419,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709944861,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900001
+  },
+  {
+    "id": "1787699523726",
+    "teamName": "Coders",
+    "password": "$2b$10$I2B2bGl3ITpmCNwtsd1BUOeid4bG.zSw0iePgubwMzPx1D1mjW3Aq",
+    "members": [
+      "1787699215699"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699523726,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0
+  },
+  {
+    "id": "1787699527619",
+    "teamName": "root raiders",
+    "password": "$2b$10$HtNfB/SB0SuHIsf/WiOiJuk0hLNMAHsI5.b5vZ2ZZc5Kha3ULoT0q",
+    "members": [
+      "1787699381576"
+    ],
+    "score": 5950,
+    "solvedChallenges": {
+      "OSINT 2": {
+        "timestamp": 1787708330628,
+        "userId": "1787699381576"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699527619,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700459745,
+        "score": 100
+      },
+      {
+        "timestamp": 1787701264432,
+        "score": 400
+      },
+      {
+        "timestamp": 1787701532792,
+        "score": 700
+      },
+      {
+        "timestamp": 1787701624042,
+        "score": 1100
+      },
+      {
+        "timestamp": 1787702452669,
+        "score": 1700
+      },
+      {
+        "timestamp": 1787702623531,
+        "score": 2700
+      },
+      {
+        "timestamp": 1787703124194,
+        "score": 2900
+      },
+      {
+        "timestamp": 1787703227893,
+        "score": 4600
+      },
+      {
+        "timestamp": 1787703267696,
+        "score": 4800
+      },
+      {
+        "timestamp": 1787703423625,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787703863351,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787704514791,
+        "score": 5250
+      },
+      {
+        "timestamp": 1787705712883,
+        "score": 6750
+      },
+      {
+        "timestamp": 1787708330628,
+        "score": 5950
+      }
+    ],
+    "lastSolveTime": 1787708330628
+  },
+  {
+    "id": "1787699529468",
+    "teamName": "Mehico Cártel",
+    "password": "$2b$10$HuDyMeOovXxxU.ZTbDM.oe.8bH0CqfNnqq3kBZjvXDQyGmZsl4aJu",
+    "members": [
+      "1787699192244",
+      "1787699357188"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Steganography": {
+        "timestamp": 1787707789986,
+        "userId": "1787699357188"
+      },
+      "Miscellaneous": {
+        "timestamp": 1787707935854,
+        "userId": "1787699192244"
+      },
+      "OSINT 2": {
+        "timestamp": 1787708257179,
+        "userId": "1787699192244"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710181462,
+        "userId": "1787699192244"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699529468,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700514865,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703661433,
+        "score": 500
+      },
+      {
+        "timestamp": 1787704607387,
+        "score": 800
+      },
+      {
+        "timestamp": 1787705251342,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787705911084,
+        "score": 1600
+      },
+      {
+        "timestamp": 1787706185182,
+        "score": 2600
+      },
+      {
+        "timestamp": 1787706309576,
+        "score": 3600
+      },
+      {
+        "timestamp": 1787706638052,
+        "score": 4400
+      },
+      {
+        "timestamp": 1787706914953,
+        "score": 4700
+      },
+      {
+        "timestamp": 1787707040987,
+        "score": 4850
+      },
+      {
+        "timestamp": 1787707234146,
+        "score": 5150
+      },
+      {
+        "timestamp": 1787707789986,
+        "score": 5350
+      },
+      {
+        "timestamp": 1787707935854,
+        "score": 5550
+      },
+      {
+        "timestamp": 1787708257179,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787710181462,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900060
+  },
+  {
+    "id": "1787699530125",
+    "teamName": "Vanshika",
+    "password": "$2b$10$TTCGaZYRn3XLFD7xbG3R8Oc6LiYuOzzXKvwI6lzjK1XqxyN1PNnqe",
+    "members": [],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699530125,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0
+  },
+  {
+    "id": "1787699547310",
+    "teamName": "Code Crafter",
+    "password": "$2b$10$xgRxLZRB3fTULIAYCw/PautIet84.PjRpOWnHywMF/UFEhYeala5.",
+    "members": [],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699547310,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0
+  },
+  {
+    "id": "1787699565731",
+    "teamName": "nidhish_hariman",
+    "password": "$2b$10$l03wW1iBprVyT6JCGPZvI.yDsn5MzdwHpCkEXjig4H4.7.AbhFvku",
+    "members": [
+      "1787699440070"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Pwn": {
+        "timestamp": 1787707753530,
+        "userId": "1787699440070"
+      },
+      "Forensics 2": {
+        "timestamp": 1787707817094,
+        "userId": "1787699440070"
+      },
+      "Bonus": {
+        "timestamp": 1787708416957,
+        "userId": "1787699440070"
+      },
+      "Miscellaneous 2": {
+        "timestamp": 1787708436232,
+        "userId": "1787699440070"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787709943685,
+        "userId": "1787699440070"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699565731,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701964160,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703483175,
+        "score": 300
+      },
+      {
+        "timestamp": 1787704404203,
+        "score": 500
+      },
+      {
+        "timestamp": 1787704671814,
+        "score": 700
+      },
+      {
+        "timestamp": 1787706138769,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787706845192,
+        "score": 1400
+      },
+      {
+        "timestamp": 1787706982576,
+        "score": 1700
+      },
+      {
+        "timestamp": 1787707051249,
+        "score": 2100
+      },
+      {
+        "timestamp": 1787707451725,
+        "score": 2900
+      },
+      {
+        "timestamp": 1787707578649,
+        "score": 3500
+      },
+      {
+        "timestamp": 1787707753530,
+        "score": 4500
+      },
+      {
+        "timestamp": 1787707817094,
+        "score": 5500
+      },
+      {
+        "timestamp": 1787708416957,
+        "score": 5800
+      },
+      {
+        "timestamp": 1787708436232,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709943685,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900070
+  },
+  {
+    "id": "1787699570025",
+    "teamName": "Zeroday",
+    "password": "$2b$10$PCUBEpNd4rDvcL4XTOZSdOTQkfk752uWxlG6uqxm20O10T2Leg4IO",
+    "members": [
+      "1787699241005",
+      "1787699696116"
+    ],
+    "score": 7000,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787710087882,
+        "userId": "1787699696116"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699570025,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702376555,
+        "score": 200
+      },
+      {
+        "timestamp": 1787702806869,
+        "score": 1200
+      },
+      {
+        "timestamp": 1787702847001,
+        "score": 1400
+      },
+      {
+        "timestamp": 1787703031137,
+        "score": 1550
+      },
+      {
+        "timestamp": 1787703166112,
+        "score": 1850
+      },
+      {
+        "timestamp": 1787703229120,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787703664549,
+        "score": 2950
+      },
+      {
+        "timestamp": 1787703763189,
+        "score": 3550
+      },
+      {
+        "timestamp": 1787703940372,
+        "score": 3950
+      },
+      {
+        "timestamp": 1787704307650,
+        "score": 4950
+      },
+      {
+        "timestamp": 1787704458132,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787705436426,
+        "score": 6550
+      },
+      {
+        "timestamp": 1787707252070,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787710087882,
+        "score": 7000
+      }
+    ],
+    "lastSolveTime": 1787710087882
+  },
+  {
+    "id": "1787699588303",
+    "teamName": "Hexhunters",
+    "password": "$2b$10$Dbd/3qSOJiPanfxPqkmjFOZNmIJF.hnYptpkWpojN9QLdDjfMNE52",
+    "members": [
+      "1787699372963",
+      "1787699776075"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "OSINT": {
+        "timestamp": 1787707979687,
+        "userId": "1787699372963"
+      },
+      "Reverse Engineering": {
+        "timestamp": 1787708353806,
+        "userId": "1787699372963"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710079969,
+        "userId": "1787699372963"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699588303,
+        "score": 0
+      },
+      {
+        "timestamp": 1787703697166,
+        "score": 1000
+      },
+      {
+        "timestamp": 1787703925690,
+        "score": 2000
+      },
+      {
+        "timestamp": 1787704032953,
+        "score": 2200
+      },
+      {
+        "timestamp": 1787704055803,
+        "score": 2800
+      },
+      {
+        "timestamp": 1787704700523,
+        "score": 3100
+      },
+      {
+        "timestamp": 1787704780747,
+        "score": 3500
+      },
+      {
+        "timestamp": 1787704897828,
+        "score": 3800
+      },
+      {
+        "timestamp": 1787705151214,
+        "score": 3950
+      },
+      {
+        "timestamp": 1787705270820,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787706361742,
+        "score": 4450
+      },
+      {
+        "timestamp": 1787706823178,
+        "score": 4450
+      },
+      {
+        "timestamp": 1787707703199,
+        "score": 4950
+      },
+      {
+        "timestamp": 1787707979687,
+        "score": 5150
+      },
+      {
+        "timestamp": 1787708353806,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787710079969,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900080
+  },
+  {
+    "id": "1787699592681",
+    "teamName": "HackHer-Duo",
+    "password": "$2b$10$9qUgETltkaNxRSgueUfgpumQzrKZtTETJdK.bEyfMjo/KsQ.0heyK",
+    "members": [
+      "1787699453076",
+      "1787699518347"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Bonus": {
+        "timestamp": 1787708198414,
+        "userId": "1787699518347"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787709944793,
+        "userId": "1787699518347"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699592681,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701382209,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703374360,
+        "score": 1200
+      },
+      {
+        "timestamp": 1787703801179,
+        "score": 500
+      },
+      {
+        "timestamp": 1787704345207,
+        "score": 650
+      },
+      {
+        "timestamp": 1787704477392,
+        "score": 950
+      },
+      {
+        "timestamp": 1787704580624,
+        "score": 1150
+      },
+      {
+        "timestamp": 1787705782812,
+        "score": 1550
+      },
+      {
+        "timestamp": 1787705919489,
+        "score": 1950
+      },
+      {
+        "timestamp": 1787706054431,
+        "score": 2250
+      },
+      {
+        "timestamp": 1787707278355,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787707469132,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787707555896,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787707653995,
+        "score": 5650
+      },
+      {
+        "timestamp": 1787708198414,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709944793,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900090
+  },
+  {
+    "id": "1787699604625",
+    "teamName": "zero-Day Knights",
+    "password": "$2b$10$i2Lj1e7ccBWjWLRuBFesv.Y3G83XxNsIOhXoyiBp7rUHeEFNnQSUy",
+    "members": [
+      "1787699329801",
+      "1787699700496"
+    ],
+    "score": 7000,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787710024779,
+        "userId": "1787699700496"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699604625,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702454864,
+        "score": 200
+      },
+      {
+        "timestamp": 1787702606782,
+        "score": 1200
+      },
+      {
+        "timestamp": 1787703030545,
+        "score": 1400
+      },
+      {
+        "timestamp": 1787703066945,
+        "score": 2200
+      },
+      {
+        "timestamp": 1787703112356,
+        "score": 2350
+      },
+      {
+        "timestamp": 1787703623939,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787703664615,
+        "score": 3250
+      },
+      {
+        "timestamp": 1787703892537,
+        "score": 3550
+      },
+      {
+        "timestamp": 1787703948223,
+        "score": 4550
+      },
+      {
+        "timestamp": 1787704318852,
+        "score": 4950
+      },
+      {
+        "timestamp": 1787704573019,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787705559240,
+        "score": 6550
+      },
+      {
+        "timestamp": 1787707245366,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787710024779,
+        "score": 7000
+      }
+    ],
+    "lastSolveTime": 1787710024779
+  },
+  {
+    "id": "1787699618588",
+    "teamName": "Dynamic Door",
+    "password": "$2b$10$7iJjwdQUB4MqJHoyP588ruQ5W5MajbrBcTD4knLsA3psRPaySJsb2",
+    "members": [
+      "1787699489743"
+    ],
+    "score": 5350,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699618588,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701335255,
+        "score": 100
+      },
+      {
+        "timestamp": 1787702117250,
+        "score": 300
+      },
+      {
+        "timestamp": 1787702713004,
+        "score": 600
+      },
+      {
+        "timestamp": 1787703071278,
+        "score": 900
+      },
+      {
+        "timestamp": 1787703208900,
+        "score": 2200
+      },
+      {
+        "timestamp": 1787704501784,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787704600506,
+        "score": 1650
+      },
+      {
+        "timestamp": 1787705247384,
+        "score": 2250
+      },
+      {
+        "timestamp": 1787705424653,
+        "score": 3250
+      },
+      {
+        "timestamp": 1787705651380,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787706316796,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787706666143,
+        "score": 5350
+      }
+    ],
+    "lastSolveTime": 1787706666143
+  },
+  {
+    "id": "1787699618787",
+    "teamName": "ACE SQUAD",
+    "password": "$2b$10$E094g6gCyitjIUEt4CasmOdYsrGcwkPHAIZESsNTCzCTaCMfRux/S",
+    "members": [
+      "1787699169970"
+    ],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699618787,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0
+  },
+  {
+    "id": "1787699634114",
+    "teamName": "Rootaccess",
+    "password": "$2b$10$/n9umz3RPwK41UyGqHsGv.oapadHdqGdsLOukXTeVe8uM585RmFgy",
+    "members": [
+      "1787699565465"
+    ],
+    "score": 7000,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787710041785,
+        "userId": "1787699565465"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699634114,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700538960,
+        "score": 100
+      },
+      {
+        "timestamp": 1787701066138,
+        "score": 300
+      },
+      {
+        "timestamp": 1787701333823,
+        "score": 450
+      },
+      {
+        "timestamp": 1787701530943,
+        "score": 750
+      },
+      {
+        "timestamp": 1787701600982,
+        "score": 950
+      },
+      {
+        "timestamp": 1787701784655,
+        "score": 1250
+      },
+      {
+        "timestamp": 1787702026865,
+        "score": 1650
+      },
+      {
+        "timestamp": 1787702318065,
+        "score": 2250
+      },
+      {
+        "timestamp": 1787702481140,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787703187560,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787703963550,
+        "score": 4450
+      },
+      {
+        "timestamp": 1787704678883,
+        "score": 5450
+      },
+      {
+        "timestamp": 1787705429430,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787710041785,
+        "score": 7000
+      }
+    ],
+    "lastSolveTime": 1787710041785
+  },
+  {
+    "id": "1787699636275",
+    "teamName": "flag hunters",
+    "password": "$2b$10$7i6BbJ4uoIRtsCPt2/QH6OUHGHRMzXOQqyKPoRP3eC4W/dgyiZMr.",
+    "members": [
+      "1787699141802"
+    ],
+    "score": 5350,
+    "solvedChallenges": {
+      "Pwn": {
+        "timestamp": 1787707964001,
+        "userId": "1787699141802"
+      },
+      "Bonus": {
+        "timestamp": 1787708024272,
+        "userId": "1787699141802"
+      },
+      "Forensics 2": {
+        "timestamp": 1787708062756,
+        "userId": "1787699141802"
+      },
+      "Reverse Engineering": {
+        "timestamp": 1787708812622,
+        "userId": "1787699141802"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699636275,
+        "score": 0
+      },
+      {
+        "timestamp": 1787703474648,
+        "score": 100
+      },
+      {
+        "timestamp": 1787705482474,
+        "score": 300
+      },
+      {
+        "timestamp": 1787705630768,
+        "score": 500
+      },
+      {
+        "timestamp": 1787706163550,
+        "score": 650
+      },
+      {
+        "timestamp": 1787706283421,
+        "score": 950
+      },
+      {
+        "timestamp": 1787706361680,
+        "score": 1250
+      },
+      {
+        "timestamp": 1787706439591,
+        "score": 1650
+      },
+      {
+        "timestamp": 1787707219349,
+        "score": 2250
+      },
+      {
+        "timestamp": 1787707964001,
+        "score": 3250
+      },
+      {
+        "timestamp": 1787708024272,
+        "score": 3550
+      },
+      {
+        "timestamp": 1787708062756,
+        "score": 4550
+      },
+      {
+        "timestamp": 1787708812622,
+        "score": 5350
+      }
+    ],
+    "lastSolveTime": 1787708812622
+  },
+  {
+    "id": "1787699637602",
+    "teamName": "Root Quest",
+    "password": "$2b$10$H5aW69pWE/t8XBRjcEhj3eeRrf7OHsMQ5ICVqWSXnNqQkArjuEacu",
+    "members": [
+      "1787699522549"
+    ],
+    "score": 6600,
+    "solvedChallenges": {
+      "Pwn": {
+        "timestamp": 1787708108316,
+        "userId": "1787699522549"
+      },
+      "Miscellaneous 2": {
+        "timestamp": 1787708231597,
+        "userId": "1787699522549"
+      },
+      "Forensics 2": {
+        "timestamp": 1787708260616,
+        "userId": "1787699522549"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787709953710,
+        "userId": "1787699522549"
+      },
+      "Bonus": {
+        "timestamp": 1787710260057,
+        "userId": "1787699522549"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699637602,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702245844,
+        "score": 200
+      },
+      {
+        "timestamp": 1787702989961,
+        "score": 400
+      },
+      {
+        "timestamp": 1787703999888,
+        "score": 500
+      },
+      {
+        "timestamp": 1787704269189,
+        "score": 1100
+      },
+      {
+        "timestamp": 1787707030158,
+        "score": 1500
+      },
+      {
+        "timestamp": 1787707174133,
+        "score": 1800
+      },
+      {
+        "timestamp": 1787707331641,
+        "score": 2100
+      },
+      {
+        "timestamp": 1787707596128,
+        "score": 2900
+      },
+      {
+        "timestamp": 1787708108316,
+        "score": 3900
+      },
+      {
+        "timestamp": 1787708231597,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787708260616,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787709953710,
+        "score": 6300
+      },
+      {
+        "timestamp": 1787710260057,
+        "score": 6600
+      }
+    ],
+    "lastSolveTime": 1787710260057
+  },
+  {
+    "id": "1787699641414",
+    "teamName": "BIPOLAR",
+    "password": "$2b$10$O0Tb4N0Wuw8FUBvdHjld5OuY33Zz9rb7di3T2fhiyyI9UitQ3qex.",
+    "members": [
+      "1787699554982",
+      "1787699294847"
+    ],
+    "score": 6100,
+    "solvedChallenges": {
+      "Miscellaneous 2": {
+        "timestamp": 1787708609143,
+        "userId": "1787699294847"
+      },
+      "Miscellaneous": {
+        "timestamp": 1787708976540,
+        "userId": "1787699294847"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710200949,
+        "userId": "1787699294847"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699641414,
+        "score": 0
+      },
+      {
+        "timestamp": 1787704722820,
+        "score": 100
+      },
+      {
+        "timestamp": 1787705010603,
+        "score": 1100
+      },
+      {
+        "timestamp": 1787705134530,
+        "score": 2100
+      },
+      {
+        "timestamp": 1787705207135,
+        "score": 2700
+      },
+      {
+        "timestamp": 1787706073676,
+        "score": 3500
+      },
+      {
+        "timestamp": 1787706305883,
+        "score": 3900
+      },
+      {
+        "timestamp": 1787706661726,
+        "score": 4200
+      },
+      {
+        "timestamp": 1787706714703,
+        "score": 4500
+      },
+      {
+        "timestamp": 1787708609143,
+        "score": 4650
+      },
+      {
+        "timestamp": 1787708976540,
+        "score": 4850
+      },
+      {
+        "timestamp": 1787710200949,
+        "score": 6100
+      }
+    ],
+    "lastSolveTime": 1787710200949
+  },
+  {
+    "id": "1787699650030",
+    "teamName": "RootRaiders",
+    "password": "$2b$10$e1yI6fbBN3TzNlGh9D5hH.fDudE6CnEDvB.3AXl0Nhh7J4MEB0MVS",
+    "members": [
+      "1787699207148",
+      "1787699802411"
+    ],
+    "score": 500,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699650030,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701623216,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703460338,
+        "score": 300
+      },
+      {
+        "timestamp": 1787705871966,
+        "score": 500
+      }
+    ],
+    "lastSolveTime": 1787705871966
+  },
+  {
+    "id": "1787699662689",
+    "teamName": "CTF2.0",
+    "password": "$2b$10$CQN6/kAOkJqNzv1gBVz0Eu.RrFUzsII69sL/4a03oZFw3p2YBcc4C",
+    "members": [
+      "1787699305262",
+      "1787699709666"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787709943153,
+        "userId": "1787699709666"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699662689,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701136385,
+        "score": 100
+      },
+      {
+        "timestamp": 1787702052620,
+        "score": 300
+      },
+      {
+        "timestamp": 1787702131890,
+        "score": 500
+      },
+      {
+        "timestamp": 1787702491967,
+        "score": 700
+      },
+      {
+        "timestamp": 1787702663651,
+        "score": 850
+      },
+      {
+        "timestamp": 1787702830067,
+        "score": 1250
+      },
+      {
+        "timestamp": 1787702955906,
+        "score": 1550
+      },
+      {
+        "timestamp": 1787703096423,
+        "score": 1850
+      },
+      {
+        "timestamp": 1787704716348,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787704855059,
+        "score": 3650
+      },
+      {
+        "timestamp": 1787704970216,
+        "score": 4250
+      },
+      {
+        "timestamp": 1787705527566,
+        "score": 4650
+      },
+      {
+        "timestamp": 1787706172432,
+        "score": 5650
+      },
+      {
+        "timestamp": 1787707529857,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787709943153,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900100
+  },
+  {
+    "id": "1787699696793",
+    "teamName": "Code Master",
+    "password": "$2b$10$VEyUXmtDtWcDpT2Y.NxK4ujg7mxe4g/ryH.AMt/yJcsPn4EBRncuS",
+    "members": [],
+    "score": 0,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699696793,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0
+  },
+  {
+    "id": "1787699729999",
+    "teamName": "lynxcor",
+    "password": "$2b$10$z3Ih.s9NdWSV2kNMPZDZ2u2HWO42kQ5Z85bJjFkgc5d6/.U2mKF2u",
+    "members": [
+      "1787699708995",
+      "1787699691057",
+      "1787701236318"
+    ],
+    "score": 500,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699729999,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702259144,
+        "score": 200
+      },
+      {
+        "timestamp": 1787703554033,
+        "score": 300
+      },
+      {
+        "timestamp": 1787706430877,
+        "score": 500
+      }
+    ],
+    "lastSolveTime": 1787706430877
+  },
+  {
+    "id": "1787699731073",
+    "teamName": "TechSlam",
+    "password": "$2b$10$pUOMHxy43C0A/4nfDrPYJuiK5dTBsh23Z.ZvZMjP2O7Zed8wS3dpC",
+    "members": [
+      "1787699334437"
+    ],
+    "score": 3550,
+    "solvedChallenges": {
+      "Miscellaneous": {
+        "timestamp": 1787708883555,
+        "userId": "1787699334437"
+      },
+      "Miscellaneous 2": {
+        "timestamp": 1787709059597,
+        "userId": "1787699334437"
+      },
+      "Networking": {
+        "timestamp": 1787709237642,
+        "userId": "1787699334437"
+      },
+      "Binary Analysis": {
+        "timestamp": 1787710260745,
+        "userId": "1787699334437"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699731073,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700813763,
+        "score": 100
+      },
+      {
+        "timestamp": 1787702647057,
+        "score": 300
+      },
+      {
+        "timestamp": 1787706051111,
+        "score": 800
+      },
+      {
+        "timestamp": 1787706400687,
+        "score": 1800
+      },
+      {
+        "timestamp": 1787706763549,
+        "score": 2200
+      },
+      {
+        "timestamp": 1787707345164,
+        "score": 2300
+      },
+      {
+        "timestamp": 1787708883555,
+        "score": 2500
+      },
+      {
+        "timestamp": 1787709059597,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787709237642,
+        "score": 2950
+      },
+      {
+        "timestamp": 1787710260745,
+        "score": 3550
+      }
+    ],
+    "lastSolveTime": 1787710260745
+  },
+  {
+    "id": "1787699837300",
+    "teamName": "Code Red",
+    "password": "$2b$10$HhPBOaqTcyaMQ4wxqoMyW.h4Rtkg.ujyBPiPYLBhZNxUQzrDPs9ji",
+    "members": [
+      "1787699791590",
+      "1787699769678"
+    ],
+    "score": 5600,
+    "solvedChallenges": {
+      "Bonus": {
+        "timestamp": 1787707852693,
+        "userId": "1787699769678"
+      },
+      "Web Exploitation": {
+        "timestamp": 1787708065510,
+        "userId": "1787699791590"
+      },
+      "Reverse Engineering": {
+        "timestamp": 1787708474657,
+        "userId": "1787699769678"
+      },
+      "Networking": {
+        "timestamp": 1787709082586,
+        "userId": "1787699769678"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710254441,
+        "userId": "1787699791590"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699837300,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701880515,
+        "score": 100
+      },
+      {
+        "timestamp": 1787702749015,
+        "score": 300
+      },
+      {
+        "timestamp": 1787703065786,
+        "score": 500
+      },
+      {
+        "timestamp": 1787703844797,
+        "score": 650
+      },
+      {
+        "timestamp": 1787704356123,
+        "score": 1650
+      },
+      {
+        "timestamp": 1787705086746,
+        "score": 2650
+      },
+      {
+        "timestamp": 1787707852693,
+        "score": 2950
+      },
+      {
+        "timestamp": 1787708065510,
+        "score": 3250
+      },
+      {
+        "timestamp": 1787708474657,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787709082586,
+        "score": 4350
+      },
+      {
+        "timestamp": 1787710254441,
+        "score": 5600
+      }
+    ],
+    "lastSolveTime": 1787710254441
+  },
+  {
+    "id": "1787699846090",
+    "teamName": "The Bug Slayers",
+    "password": "$2b$10$Y3//1jLFAWxZ5/tFqx.03u4OK6UBdjgW8ax8uev.55WgEDaDF6VWu",
+    "members": [
+      "1787699709463"
+    ],
+    "score": 7000,
+    "solvedChallenges": {
+      "OSINT 2": {
+        "timestamp": 1787709446841,
+        "userId": "1787699709463"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787709941128,
+        "userId": "1787699709463"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699846090,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701875204,
+        "score": 100
+      },
+      {
+        "timestamp": 1787702347495,
+        "score": 300
+      },
+      {
+        "timestamp": 1787702480494,
+        "score": 500
+      },
+      {
+        "timestamp": 1787702899493,
+        "score": 650
+      },
+      {
+        "timestamp": 1787703313351,
+        "score": 1850
+      },
+      {
+        "timestamp": 1787703464311,
+        "score": 1250
+      },
+      {
+        "timestamp": 1787703498766,
+        "score": 1650
+      },
+      {
+        "timestamp": 1787703734239,
+        "score": 2250
+      },
+      {
+        "timestamp": 1787703746161,
+        "score": 3050
+      },
+      {
+        "timestamp": 1787704258844,
+        "score": 4050
+      },
+      {
+        "timestamp": 1787706026219,
+        "score": 5050
+      },
+      {
+        "timestamp": 1787706295677,
+        "score": 5350
+      },
+      {
+        "timestamp": 1787709446841,
+        "score": 5750
+      },
+      {
+        "timestamp": 1787709941128,
+        "score": 7000
+      }
+    ],
+    "lastSolveTime": 1787709941128
+  },
+  {
+    "id": "1787699859688",
+    "teamName": "Code Warrior",
+    "password": "$2b$10$vGn9RzBSeS0YXX96Zo5dVeGye0/bv07u6m.aqZaMpMKMGtS2x/Vwi",
+    "members": [
+      "1787699494038",
+      "1787699297310"
+    ],
+    "score": 500,
+    "solvedChallenges": {},
+    "scoreHistory": [
+      {
+        "timestamp": 1787699859688,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701292315,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703754381,
+        "score": 300
+      },
+      {
+        "timestamp": 1787705631328,
+        "score": 500
+      }
+    ],
+    "lastSolveTime": 1787705631328
+  },
+  {
+    "id": "1787699998370",
+    "teamName": "THE SEMICOLONS;",
+    "password": "$2b$10$YU0QMNPDA6wqRTcqDhdhS.o6Pbxc7aBjH/Ke79HY3kpOWd5l3OhEu",
+    "members": [
+      "1787699373011"
+    ],
+    "score": 0,
+    "solvedChallenges": {
+      "OSINT 2": {
+        "timestamp": 1787708209926,
+        "userId": "1787699373011"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787699998370,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701286789,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703257228,
+        "score": 1300
+      },
+      {
+        "timestamp": 1787703431699,
+        "score": 700
+      },
+      {
+        "timestamp": 1787703525858,
+        "score": 1100
+      },
+      {
+        "timestamp": 1787704130612,
+        "score": 2100
+      },
+      {
+        "timestamp": 1787704597489,
+        "score": 2700
+      },
+      {
+        "timestamp": 1787704917420,
+        "score": 3500
+      },
+      {
+        "timestamp": 1787704984833,
+        "score": 4500
+      },
+      {
+        "timestamp": 1787705290792,
+        "score": 4700
+      },
+      {
+        "timestamp": 1787705406419,
+        "score": 6200
+      },
+      {
+        "timestamp": 1787706603015,
+        "score": 5400
+      },
+      {
+        "timestamp": 1787706615641,
+        "score": 5550
+      },
+      {
+        "timestamp": 1787708209926,
+        "score": 0
+      }
+    ],
+    "lastSolveTime": 0,
+    "disqualified": true
+  },
+  {
+    "id": "1787700117938",
+    "teamName": "anda",
+    "password": "$2b$10$MUaJd9fVynq8hzf.Q8Fyk.ve1PxjOZDYPtpJ5pMcqyCbgeWr/nyhu",
+    "members": [
+      "1787699909220"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Reverse Engg.": {
+        "timestamp": 1787710005123,
+        "userId": "1787699909220"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787700117938,
+        "score": 0
+      },
+      {
+        "timestamp": 1787700785651,
+        "score": 100
+      },
+      {
+        "timestamp": 1787700952328,
+        "score": 200
+      },
+      {
+        "timestamp": 1787702379926,
+        "score": 400
+      },
+      {
+        "timestamp": 1787702759846,
+        "score": 600
+      },
+      {
+        "timestamp": 1787703478960,
+        "score": 750
+      },
+      {
+        "timestamp": 1787703717396,
+        "score": 1750
+      },
+      {
+        "timestamp": 1787703859318,
+        "score": 2750
+      },
+      {
+        "timestamp": 1787704084676,
+        "score": 3350
+      },
+      {
+        "timestamp": 1787704373835,
+        "score": 4150
+      },
+      {
+        "timestamp": 1787705081615,
+        "score": 4550
+      },
+      {
+        "timestamp": 1787705361197,
+        "score": 4850
+      },
+      {
+        "timestamp": 1787705483894,
+        "score": 5250
+      },
+      {
+        "timestamp": 1787705826252,
+        "score": 6750
+      },
+      {
+        "timestamp": 1787706005924,
+        "score": 6050
+      },
+      {
+        "timestamp": 1787707402899,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787710005123,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900110
+  },
+  {
+    "id": "1787700170183",
+    "teamName": "Coderss",
+    "password": "$2b$10$AmNwWRdhvOXGYbubRi9PyuaGOi4RdyQuWB28XsUErihdVgg8YT6ha",
+    "members": [
+      "1787700121150"
+    ],
+    "score": 2650,
+    "solvedChallenges": {
+      "Cryptography": {
+        "timestamp": 1787709889290,
+        "userId": "1787700121150"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787700170183,
+        "score": 0
+      },
+      {
+        "timestamp": 1787701448206,
+        "score": 100
+      },
+      {
+        "timestamp": 1787702981277,
+        "score": 300
+      },
+      {
+        "timestamp": 1787703514137,
+        "score": 450
+      },
+      {
+        "timestamp": 1787703638977,
+        "score": 1050
+      },
+      {
+        "timestamp": 1787704180632,
+        "score": 1250
+      },
+      {
+        "timestamp": 1787706130438,
+        "score": 2250
+      },
+      {
+        "timestamp": 1787709889290,
+        "score": 2650
+      }
+    ],
+    "lastSolveTime": 1787709889290
+  },
+  {
+    "id": "1787700391068",
+    "teamName": "Hackers",
+    "password": "$2b$10$q/Tzf.3UgazqW4PtINyGZ.T2w3oqVd2Z4ZxXagOmqNNbHCw7G.r4S",
+    "members": [
+      "1787700121460"
+    ],
+    "score": 1500,
+    "solvedChallenges": {
+      "Forensics 2": {
+        "timestamp": 1787708421521,
+        "userId": "1787700121460"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787700391068,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702127044,
+        "score": 100
+      },
+      {
+        "timestamp": 1787703050119,
+        "score": 300
+      },
+      {
+        "timestamp": 1787703894603,
+        "score": 500
+      },
+      {
+        "timestamp": 1787708421521,
+        "score": 1500
+      }
+    ],
+    "lastSolveTime": 1787708421521
+  },
+  {
+    "id": "1787700864322",
+    "teamName": "Babbu_Maan_Fan_Club",
+    "password": "$2b$10$DOU2cGx6FoCfZKbd4/dLnuLlOAj72rWsXZGxb5e4fYJ8Mtr/Srzse",
+    "members": [
+      "1787699563441"
+    ],
+    "score": 7200,
+    "solvedChallenges": {
+      "Bonus": {
+        "timestamp": 1787708097989,
+        "userId": "1787699563441"
+      },
+      "Forensics 2": {
+        "timestamp": 1787708190916,
+        "userId": "1787699563441"
+      },
+      "Reverse Engg.": {
+        "timestamp": 1787710069508,
+        "userId": "1787699563441"
+      }
+    },
+    "scoreHistory": [
+      {
+        "timestamp": 1787700864322,
+        "score": 0
+      },
+      {
+        "timestamp": 1787702684041,
+        "score": 200
+      },
+      {
+        "timestamp": 1787704067347,
+        "score": 1200
+      },
+      {
+        "timestamp": 1787704240776,
+        "score": 1800
+      },
+      {
+        "timestamp": 1787704645088,
+        "score": 2600
+      },
+      {
+        "timestamp": 1787704759475,
+        "score": 2800
+      },
+      {
+        "timestamp": 1787705616702,
+        "score": 3100
+      },
+      {
+        "timestamp": 1787706230444,
+        "score": 3500
+      },
+      {
+        "timestamp": 1787706335325,
+        "score": 3800
+      },
+      {
+        "timestamp": 1787706429161,
+        "score": 4200
+      },
+      {
+        "timestamp": 1787706779269,
+        "score": 4450
+      },
+      {
+        "timestamp": 1787707494711,
+        "score": 4650
+      },
+      {
+        "timestamp": 1787708097989,
+        "score": 4950
+      },
+      {
+        "timestamp": 1787708190916,
+        "score": 5950
+      },
+      {
+        "timestamp": 1787710069508,
+        "score": 7200
+      }
+    ],
+    "lastSolveTime": 1787709900120
   }
 ]

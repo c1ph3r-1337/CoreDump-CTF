@@ -17,7 +17,1320 @@
       "Reverse Engineering",
       "Binary Analysis",
       "Pwn",
+      "OSINT 2",
+      "Forensics 2",
+      "Bonus"
+    ]
+  },
+  {
+    "id": "1787698527604",
+    "username": "Ritika Kalsi",
+    "email": "ritikakalsi684@gmail.com",
+    "password": "$2b$10$2JZ8Ad6uoCJZINBw2mnHYOEFmHGqz0lpo38hMFyini6pQT7R403ee",
+    "teamId": "1787699325448",
+    "solvedChallenges": [
+      "Steganography",
+      "Pwn",
+      "Forensics",
+      "Forensics 2",
+      "Cryptography",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Miscellaneous 2",
+      "Miscellaneous",
+      "Web Exploitation",
+      "Networking",
+      "Bonus",
       "OSINT 2"
     ]
+  },
+  {
+    "id": "1787698793042",
+    "username": "Aftab Singh Sandhu",
+    "email": "aftabbtibm2428@ctuniversity.in",
+    "password": "$2b$10$/cSVltGk6vhxiEY.IaL6D.EU6tMfoZHghgOiFMuychuiVfespueaK",
+    "teamId": "1787699167191",
+    "solvedChallenges": [
+      "Binary Analysis",
+      "Web Exploitation",
+      "Pwn",
+      "Forensics 2",
+      "Networking",
+      "Cryptography",
+      "OSINT 2"
+    ]
+  },
+  {
+    "id": "1787698845323",
+    "username": "Muskan",
+    "email": "gargmuskan804@gmail.com",
+    "password": "$2b$10$ClZFT8YlbryyrkiUQvppre/Tu5ep4mx.hKIGzkJAz0Fa51QIOOlU6",
+    "teamId": "1787699130586",
+    "solvedChallenges": [
+      "Steganography",
+      "Web Exploitation",
+      "Cryptography"
+    ]
+  },
+  {
+    "id": "1787698871121",
+    "username": "Kuldeep Singh Sembhi",
+    "email": "kuldeepsembhi295@gmail.com",
+    "password": "$2b$10$d0bm4a3UJV/Y7WLQWr/bRuom7/FlkAbU4qF3HoDjJcYBgBE0w6e5K",
+    "teamId": "1787699130586",
+    "solvedChallenges": [
+      "Miscellaneous 2",
+      "Forensics",
+      "OSINT",
+      "Miscellaneous",
+      "Binary Analysis",
+      "Networking",
+      "OSINT 2",
+      "Forensics 2",
+      "Pwn"
+    ]
+  },
+  {
+    "id": "1787698873062",
+    "username": "Vansh Sehgal",
+    "email": "vanshsehgal.info@gmail.com",
+    "password": "$2b$10$7fhpVXzm/H2RvGmsrsBqfOusM1iPa6/VXi8X1DLGyx8WyNEpfoEVO",
+    "teamId": "1787698992398",
+    "solvedChallenges": [
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "1787698873149",
+    "username": "Bhavit Gupta",
+    "email": "1942006guptabhavit@gmail.com",
+    "password": "$2b$10$JZvf/8v.20FaWRHs1PN9vu1FzQ5RqbvUqeUUh3b77e.oBjq.vzCNe",
+    "teamId": "1787698992398",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "Pwn",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Cryptography",
+      "Networking",
+      "Miscellaneous 2",
+      "Forensics 2",
+      "OSINT",
+      "Bonus",
+      "Steganography",
+      "OSINT 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787698880249",
+    "username": "Bhavishya & Ayan",
+    "email": "bhavishya055@gmail.com",
+    "password": "$2b$10$sgzaBFhvEMS6ZTXc8Udv7.OWUjeDt0nYRVpv3YfvNQnAihlL26ktK",
+    "teamId": "1787699196684",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787698892998",
+    "username": "tanishq_duniya_ka_papa",
+    "email": "tanishqd33p69@gmail.com",
+    "password": "$2b$10$KLrwgy82jVKAvn5mk4jwwuQ2iFWUB460Pi5U8ycfxBw98tv/K.bjO",
+    "teamId": "1787699502206",
+    "solvedChallenges": [
+      "Miscellaneous 2",
+      "Miscellaneous",
+      "Forensics",
+      "Steganography",
+      "Reverse Engineering",
+      "Binary Analysis",
+      "Pwn",
+      "Cryptography",
+      "Forensics 2",
+      "Bonus",
+      "OSINT 2"
+    ]
+  },
+  {
+    "id": "1787698897020",
+    "username": "kamalpreet kaur",
+    "email": "kml1204mine@gmail.com",
+    "password": "$2b$10$UWcDr2CaZQDL1VgdcXh8juat8Sj6Ksfmi8QJ6u.nX9V/Au9O3mOC2",
+    "teamId": "1787699502206",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Networking",
+      "OSINT",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787698901344",
+    "username": "HARSHSAINI",
+    "email": "hs1845356@gmail.com",
+    "password": "$2b$10$sp5Mtj/lENv5OolH.yuvEekMQdW2B6qppjMOFFfFoO8E6KtdbwD66",
+    "teamId": "1787699178437",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787698994275",
+    "username": "rishukumar7",
+    "email": "rishukumarpal7@gmail.com",
+    "password": "$2b$10$Rwn.bkXJ7aaDw5Tz2RnzzOJiDMsPuLAVvZDcYYhBbY51LktH.7oIu",
+    "teamId": "1787699302794",
+    "solvedChallenges": [
+      "Forensics",
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Forensics 2",
+      "Reverse Engineering",
+      "Bonus",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "1787699088223",
+    "username": "Vivek gogna",
+    "email": "vivekgogna0000@gmail.com",
+    "password": "$2b$10$iTGx1k5fEH0cEa9jYCTTuOQivPPNRxbTDHE.uFOXpJcXbe8l7DgQK",
+    "teamId": "1787699258358",
+    "solvedChallenges": [
+      "Forensics",
+      "Forensics 2"
+    ]
+  },
+  {
+    "id": "1787699089364",
+    "username": "Joban Singh",
+    "email": "jobansingh212005@gmail.com",
+    "password": "$2b$10$TML9RtQCc.zKFYttoSe08epdSwfmq.cew2z/xUgHucqaeBPnRj7Qu",
+    "teamId": "1787699154000",
+    "solvedChallenges": [
+      "Steganography",
+      "Forensics 2"
+    ]
+  },
+  {
+    "id": "1787699104570",
+    "username": "abhaypal singh",
+    "email": "abhaypalmaan@gmail.com",
+    "password": "$2b$10$XGh0ucJYXfwCQJrwlPlJpuK0/LVzh9A/fJGlOwQTE5/IXag5cmbs.",
+    "teamId": "1787699358263",
+    "solvedChallenges": [
+      "Forensics",
+      "Networking",
+      "Cryptography",
+      "Web Exploitation",
+      "Binary Analysis",
+      "Pwn",
+      "Miscellaneous 2",
+      "Forensics 2",
+      "Reverse Engineering",
+      "Bonus",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699107314",
+    "username": "Lakshdeep Singh",
+    "email": "lakshdeep031@gmail.com",
+    "password": "$2b$10$8/eAlqCOJSZGoWzd9R.BiO5ctZwLjpwp42uIyxFWS2NpJauUSQF0u",
+    "teamId": "1787699254717",
+    "solvedChallenges": [
+      "OSINT",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Reverse Engineering",
+      "Binary Analysis",
+      "Pwn",
+      "Forensics 2"
+    ]
+  },
+  {
+    "id": "1787699107635",
+    "username": "Aryan",
+    "email": "aryan20044002@gmail.com",
+    "password": "$2b$10$VmuPwD1jLq3z0OAiixJ6kOmfimrTV2SKJMMTQCsc9Lv2pglk771EC",
+    "teamId": "1787699361787",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699112193",
+    "username": "sanchit",
+    "email": "arorasanchit835@gmail.com",
+    "password": "$2b$10$JaHMjK.JCgjJs7LFfls24.D9MvyQtthfpjT7aIthKBdEFK.XVgvWG",
+    "teamId": "1787699358263",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Steganography",
+      "OSINT 2",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "1787699115680",
+    "username": "Vanshika",
+    "email": "vanshikasoni441@gmail.com",
+    "password": "$2b$10$ijw.t0AweEOtj8l.g7yc6.7.oPCtpqJw5/oTLecxqoGfcEp.9u5si",
+    "teamId": "1787699254717",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "OSINT 2",
+      "Bonus",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699127849",
+    "username": "Ankush1596",
+    "email": "ankushk238260@gmail.com",
+    "password": "$2b$10$OhbgqbYHdEbX5w62SRpPT.l42Jj/n3sltkcAsrVGBO.YPRTSAFFY.",
+    "teamId": "1787699291636",
+    "solvedChallenges": [
+      "Forensics",
+      "Cryptography",
+      "Networking",
+      "Pwn",
+      "Binary Analysis",
+      "Forensics 2",
+      "Bonus",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699132184",
+    "username": "Harmandeep Singh",
+    "email": "harmanlab07@gmail.com",
+    "password": "$2b$10$YXmM7GCkwZlYYJIH0TtUm.NIHSlsrBDlt7eG4ZBcr0qLozrjAxZqy",
+    "teamId": "1787699154000",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699140270",
+    "username": "mukram20",
+    "email": "pythonkro@gmail.com",
+    "password": "$2b$10$L0uSAhbad69oFskvloMCSu8TF6VNdX3IxSJuVuTeWBPSCnzWZ4eCW",
+    "teamId": "1787699302794",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Pwn",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "1787699141802",
+    "username": "mehakpreet",
+    "email": "mehakpreetsidhu005@gmail.com",
+    "password": "$2b$10$ZAo.NaNS2MZLlNsXAw3rYOeszi/gxRJB9EP5u5vOuO0AxSzU2RJke",
+    "teamId": "1787699636275",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "Steganography",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Binary Analysis",
+      "Pwn",
+      "Bonus",
+      "Forensics 2",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "1787699142029",
+    "username": "ISHTPREET KAUR",
+    "email": "ishtpreetkaurmatharu2004@gmail.com",
+    "password": "$2b$10$Et.QHlD64VW3pO9rRgp1sulm3dEfo7//y9pudxl9.ACSq/Bd9JV.a",
+    "teamId": "1787699291636",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "Reverse Engineering",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "1787699142076",
+    "username": "doom",
+    "email": "parasth1005x@gmail.com",
+    "password": "$2b$10$/7CAvJRYH1keZQ89pJAl6OZSXlEo/v1iI7r9cVE8Z/Ojh.vJiGGYe",
+    "teamId": "1787699376708",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "Pwn"
+    ]
+  },
+  {
+    "id": "1787699150481",
+    "username": "Charles V. Duo",
+    "email": "kingluahduo@gmail.com",
+    "password": "$2b$10$McxwEzFWDTkEtzWW9bLNeOr/7BcDuEaYS/7fK55/dM63JQx.JfkN6",
+    "teamId": "1787699361787",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699150840",
+    "username": "SHREYA CHAUHAN",
+    "email": "shrey3751@gmail.com",
+    "password": "$2b$10$xBlev6Bq13B2JWJPAnX0MuwITioJ6hK8fgD1PrdBXoE13sJp.TW32",
+    "teamId": "1787699265393",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Forensics",
+      "Steganography",
+      "Miscellaneous 2",
+      "Forensics 2",
+      "Bonus",
+      "Reverse Engineering"
+    ]
+  },
+  {
+    "id": "1787699156386",
+    "username": "harsh",
+    "email": "harshit708748@gmail.com",
+    "password": "$2b$10$d3WdqF98FRkcIbQcs4CDI.r3ZUcPxYkB1qg1yR45DVfLv/BsAacFC",
+    "teamId": "1787699274964",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "1787699158213",
+    "username": "Akash",
+    "email": "sandhuakash075@gmail.com",
+    "password": "$2b$10$imc9mNMvWFcg0kTY.hak1OhlCIslGt65sGT9WyQsSA4eGAjqbx62O",
+    "teamId": "1787699305162",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Web Exploitation",
+      "Networking",
+      "OSINT 2"
+    ]
+  },
+  {
+    "id": "1787699165179",
+    "username": "Ridhi Jhanji",
+    "email": "ridhijhanji2904@gmail.com",
+    "password": "$2b$10$5ORBv4DKLiipPpBvyWCYIODVPHkrMUdeaUTDaYKj6LeD14ngR8ynu",
+    "teamId": "1787699265393",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Binary Analysis",
+      "Pwn",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699166978",
+    "username": "AVENGERS",
+    "email": "gurleen01kaur09@gmail.com",
+    "password": "$2b$10$Vip7xOJf/5Nv1parVDN4ZeHhwmL.3UirG.RvAysDGIU0ivB1ozAXa",
+    "teamId": "1787699258871",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699169970",
+    "username": "ACESQUAD",
+    "email": "arshpk1201@gmail.com",
+    "password": "$2b$10$4V9d4YJwh/YmZ.RgDpt07ethlZ3hkI/WL7k0YaXLYE0jh/JPWsZRO",
+    "teamId": "1787699618787",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699174478",
+    "username": "Team Sukh",
+    "email": "prnavbhndari1001@gmail.com",
+    "password": "$2b$10$nmJRjd3ONA9PE6ZlzXiFXOryfErksfZoqv4tITK38yrmrL4krfswy",
+    "teamId": "1787699302538",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699187301",
+    "username": "Laksh",
+    "email": "lakshk988@gmail.com",
+    "password": "$2b$10$9cA744IjXNz//IVKzhEvIuTgJc7yvuMibhrnV94gREYvpJ7qBIIlC",
+    "teamId": "1787699343523",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Forensics 2",
+      "Pwn",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Cryptography",
+      "Networking",
+      "Web Exploitation",
+      "Forensics",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699192244",
+    "username": "Navdeep",
+    "email": "rustamrai786@gmail.com",
+    "password": "$2b$10$NuCj9uHKJyPtZF5mojN./uF0ipjPmpAgpCdv8V1cr4w7G8vpGufJe",
+    "teamId": "1787699529468",
+    "solvedChallenges": [
+      "Cryptography",
+      "Networking",
+      "OSINT",
+      "Pwn",
+      "Forensics 2",
+      "Reverse Engineering",
+      "Bonus",
+      "Web Exploitation",
+      "Miscellaneous",
+      "OSINT 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699199669",
+    "username": "Harshit",
+    "email": "harshitsuman050@gmail.com",
+    "password": "$2b$10$yWphcE8j5dFyUZHKqJVZg.qrVGoHVSj96/u.eujB0sx/VEDPnKj5S",
+    "teamId": "1787699297465",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699206437",
+    "username": "Arshjot Singh",
+    "email": "thatarsh10@gmail.com",
+    "password": "$2b$10$1jGeZG.JErQwfUZNKd7Uru/bUX.FK6PKIOZNjG6e.x6yHUr.p1SvS",
+    "teamId": "1787699297465",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Cryptography"
+    ]
+  },
+  {
+    "id": "1787699207148",
+    "username": "Amrinder Singh",
+    "email": "Amrindergad@gmail.com",
+    "password": "$2b$10$MRsrGsBGg98X6FkzK0.Zg.3aP09m29lAkhtvIiCORBvrj6huCEriu",
+    "teamId": "1787699650030",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699215699",
+    "username": "ChinkyAmrit",
+    "email": "chinkychinky14141@gmail.com",
+    "password": "$2b$10$dCJO8Qdd3fkwAkKVGUC2WeL/45ue5S3NgTWq2SYAG87E47UwIwvvG",
+    "teamId": "1787699523726",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699220512",
+    "username": "khushpreet",
+    "email": "anilralhan001@gmail.com",
+    "password": "$2b$10$aV7SNGvwOQzSvRgU6p9s/.Cypyqz1w3k/2xhg418gDJvaJMaLKiCe",
+    "teamId": "1787699343523",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699236909",
+    "username": "Techbyte",
+    "email": "techbyte@gmail.com",
+    "password": "$2b$10$qPMGyun2flz8SverrRexLed.KxilhNeMpreVHOmKzs1LZqQ7G88g.",
+    "teamId": null,
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699241005",
+    "username": "pratham",
+    "email": "ctu2500001@ctuniversity.in",
+    "password": "$2b$10$1lbk/soON2bOH69O5r3naORjxFhSMr8okPMqfWt5Syq8YF72SXxEW",
+    "teamId": "1787699570025",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699259421",
+    "username": "MANI",
+    "email": "singhrai1145@gmail.com",
+    "password": "$2b$10$Ya1a4PQ56TzosejZnRtw7OmgJW8EfqI2n5Q1Q15W4kdz9zpw7S6lW",
+    "teamId": "1787699331963",
+    "solvedChallenges": [
+      "OSINT",
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "1787699264731",
+    "username": "Harshika",
+    "email": "harshika8100@gmail.com",
+    "password": "$2b$10$PVgEyqs1.joILOm6TwkUquoj0cdPhCMKaLON39v3kAyY9Llyl8H7a",
+    "teamId": "1787699362719",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699294847",
+    "username": "Ginish Singla",
+    "email": "ginishsingla35@gmail.com",
+    "password": "$2b$10$9Tukj2BSIHkMRaHVIQ098u5zwmjx8Q3QsywWfUOzQCCDHxTtVRDDS",
+    "teamId": "1787699641414",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous 2",
+      "Miscellaneous",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699297310",
+    "username": "Ramandeep Singh",
+    "email": "ctu2500089@ctuniversity.in",
+    "password": "$2b$10$wqxS9eeFbPQ8UzRzJ0C/G.RJBfa0FWi/Q5Q/RPvI2Nbx/AV5cmiea",
+    "teamId": "1787699859688",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "1787699305262",
+    "username": "Armaanpreet Singh Gill",
+    "email": "armaanpreetgill721@gmail.com",
+    "password": "$2b$10$Pgn98.41w.UH.AMj.MH6nOlG5gVUNXzbxBX5ZTJ9fSzsvS/JiR/tm",
+    "teamId": "1787699662689",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "1787699329093",
+    "username": "saksham",
+    "email": "gsaksham011@gmail.com",
+    "password": "$2b$10$tjWZsPcDL.V1hmgrG3q9K.Od8wcteQf0w3KA5Bru7WtBM/OCuz1cq",
+    "teamId": "1787699406694",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699329801",
+    "username": "Gurwinder singh",
+    "email": "gurwindersingh22097@gmail.com",
+    "password": "$2b$10$JJqebC.pUkN1C/N7AS2H0OrVDY8MFHraXeboLgTT9x1hURxoilsgS",
+    "teamId": "1787699604625",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699333579",
+    "username": "aditi",
+    "email": "aditibtibm2428@ctuniversity.in",
+    "password": "$2b$10$P6iV71p2gl4az4UYZVEKIuRAysUJT1vZWqy6Kp3hNqVx3uNMEjXgC",
+    "teamId": "1787699463059",
+    "solvedChallenges": [
+      "Miscellaneous 2",
+      "Forensics",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "1787699333923",
+    "username": "Mehak",
+    "email": "mehakpassi829@gmail.com",
+    "password": "$2b$10$0N76HXkgvHRnRlC0RP0bG.4HCxqkUoc10BTSlJiGR6a7i6QK7bsDi",
+    "teamId": "1787699362719",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699334437",
+    "username": "Navjot Singh, Sneha",
+    "email": "72311568@ctuniversity.in",
+    "password": "$2b$10$oxwZTUxwaXqHL/YLRhz2tuJoAVIpzdDjpPZ/E1IzW4oSfMQCDKtre",
+    "teamId": "1787699731073",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Bonus",
+      "Forensics 2",
+      "Cryptography",
+      "Web Exploitation",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Networking",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "1787699357188",
+    "username": "GURI",
+    "email": "iguri12900@gmail.com",
+    "password": "$2b$10$tbFBcWhvzfqbDJ08W.yAX.zeZQoDOFQcemkJAblbyq6r6tYUB69Dm",
+    "teamId": "1787699529468",
+    "solvedChallenges": [
+      "Forensics",
+      "Binary Analysis",
+      "Miscellaneous 2",
+      "Steganography"
+    ]
+  },
+  {
+    "id": "1787699369835",
+    "username": "trimannjeet",
+    "email": "trimannjeet@gmail.com",
+    "password": "$2b$10$bMIwdaJozT7.cx.Gkd8Ga./4Av9MtvBHQZVepBKF2gqbuUlE734GG",
+    "teamId": "1787699444245",
+    "solvedChallenges": [
+      "Miscellaneous"
+    ]
+  },
+  {
+    "id": "1787699370041",
+    "username": "ANSHU VERMA",
+    "email": "anshuverma890890@gmail.com",
+    "password": "$2b$10$22lWs6ssU7a2/q9eN91Oi.brTMUv5faaGe0TyrqH6ueXA2aYGBLMO",
+    "teamId": "1787699178437",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699372963",
+    "username": "ranveer13",
+    "email": "ranveers136005@gmail.com",
+    "password": "$2b$10$KFdZ/GRUQVFZ81x0R4RbbOJDcYChF2QexRpMVadKSaLuWsHBFzedC",
+    "teamId": "1787699588303",
+    "solvedChallenges": [
+      "Forensics 2",
+      "Pwn",
+      "Binary Analysis",
+      "Miscellaneous 2",
+      "Forensics",
+      "OSINT 2",
+      "Bonus",
+      "Steganography",
+      "OSINT",
+      "Reverse Engineering",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699373011",
+    "username": "VANSHIKA_NIMESH",
+    "email": "8a26nimishsharma@gmail.com",
+    "password": "$2b$10$iCZexyhMN6LvER4GZvuKiuM65VhclfYYOgiTvmHq.Srcin3Jqe4/i",
+    "teamId": "1787699998370",
+    "solvedChallenges": [
+      "Forensics",
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Pwn",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Forensics 2",
+      "Miscellaneous",
+      "Bonus",
+      "Steganography",
+      "Miscellaneous 2",
+      "OSINT 2"
+    ]
+  },
+  {
+    "id": "1787699381576",
+    "username": "nandini",
+    "email": "nandisharma003@gmail.com",
+    "password": "$2b$10$l6dh8ziNU5LkCLrtnB2UAOSTbcv2beY.aaPE0Lcukez5cVwxwjNAy",
+    "teamId": "1787699527619",
+    "solvedChallenges": [
+      "Forensics",
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Binary Analysis",
+      "Pwn",
+      "Steganography",
+      "Reverse Engineering",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Forensics 2",
+      "OSINT",
+      "Bonus",
+      "OSINT 2"
+    ]
+  },
+  {
+    "id": "1787699440070",
+    "username": "Harimanjeet singh",
+    "email": "harimanjeetsinghkanda@gmail.com",
+    "password": "$2b$10$UcuGGwivYftgKAo5bY/CoOPSQg3Y3T0gLrpO3sR/Dr7hDuKLKMfsu",
+    "teamId": "1787699565731",
+    "solvedChallenges": [
+      "Forensics",
+      "OSINT",
+      "Steganography",
+      "Miscellaneous",
+      "Networking",
+      "OSINT 2",
+      "Web Exploitation",
+      "Cryptography",
+      "Reverse Engineering",
+      "Binary Analysis",
+      "Pwn",
+      "Forensics 2",
+      "Bonus",
+      "Miscellaneous 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699440989",
+    "username": "hae",
+    "email": "h@gmail.con",
+    "password": "$2b$10$be1eZZTytBVcDTyLDzifmOtDKULFooCDy2zzR4ODEduq3czv/RWOG",
+    "teamId": null,
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699453076",
+    "username": "lakshpreet25",
+    "email": "lakshsadhioura03@gmail.com",
+    "password": "$2b$10$KSFjN0GC2n1hM9VaJbq5JeMecgIf9GWDO8xFt2fV18Rm8CAw0RpEW",
+    "teamId": "1787699592681",
+    "solvedChallenges": [
+      "OSINT",
+      "Miscellaneous",
+      "Networking",
+      "Binary Analysis"
+    ]
+  },
+  {
+    "id": "1787699489743",
+    "username": "Neeru98",
+    "email": "neerugangarh@gmail.com",
+    "password": "$2b$10$twM7kt0e6.SxAJji6nE/.uNRmwnhISyyiw9b8GLvYuxOq5HICx4Vm",
+    "teamId": "1787699618588",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Steganography",
+      "Miscellaneous 2",
+      "Binary Analysis",
+      "Pwn",
+      "Forensics 2",
+      "Reverse Engineering",
+      "Bonus"
+    ]
+  },
+  {
+    "id": "1787699494038",
+    "username": "parbhat",
+    "email": "ctu250068@ctuniversity.in",
+    "password": "$2b$10$hegaS4DjyRwdhtbZ165szeYaxOK8r8wltr34aty21cMB1mf3qUzRu",
+    "teamId": "1787699859688",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699498385",
+    "username": "eknoor",
+    "email": "eknoor06kaur@gamil.com",
+    "password": "$2b$10$HFNAtliyWml2PtP6.jGheOwtyzepq7YWZC.sm3xhvHGsF2KfRuWq.",
+    "teamId": "1787699331963",
+    "solvedChallenges": [
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699510819",
+    "username": "jaiwant",
+    "email": "jaiwantsingh006@gmail.com",
+    "password": "$2b$10$Io6xgCAA5s8QBLF.5Va11eJ3j6SuSrL9.8enH2OGRuXbWIDccBtgW",
+    "teamId": null,
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699518347",
+    "username": "Sukhmanpreet Kaur",
+    "email": "jasmeetkaurchwl@gmail.com",
+    "password": "$2b$10$Ba8G1y869SHBrlkuzXVElOqiwJRmbSKOJ.ENOPlXmWQBSsCxSBQ4C",
+    "teamId": "1787699592681",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "OSINT 2",
+      "Cryptography",
+      "Reverse Engineering",
+      "Pwn",
+      "Forensics 2",
+      "Bonus",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699522549",
+    "username": "Root Quest",
+    "email": "yogitabtibm2428@ctuniversity.in",
+    "password": "$2b$10$.zyGqpudKSq6gVfA4ODDw.0pW5x23GuhV0gLsKgNRVfSDkN7CFPgW",
+    "teamId": "1787699637602",
+    "solvedChallenges": [
+      "Steganography",
+      "Miscellaneous",
+      "Forensics",
+      "Binary Analysis",
+      "Cryptography",
+      "Web Exploitation",
+      "Networking",
+      "Reverse Engineering",
+      "Pwn",
+      "Miscellaneous 2",
+      "Forensics 2",
+      "Reverse Engg.",
+      "Bonus"
+    ]
+  },
+  {
+    "id": "1787699532715",
+    "username": "PREET",
+    "email": "preetsharmkot@gmail.com",
+    "password": "$2b$10$Ir8/rrK91P4egOaldEmSsezu2Q2Gcy8vMgB6dna2UU1TF7jeiczqu",
+    "teamId": "1787699406694",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699554982",
+    "username": "mehakpreet singh",
+    "email": "mehakpreets916@gmail.com",
+    "password": "$2b$10$Fswm9uBL7dBhrtT8FGq0LOkDuLMiiTQAjNB0rC.7lydQmJzr1w3D.",
+    "teamId": "1787699641414",
+    "solvedChallenges": [
+      "Forensics 2",
+      "Pwn",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Cryptography",
+      "Networking",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "1787699563441",
+    "username": "jattandakaka01",
+    "email": "gurkirat79324@gmail.com",
+    "password": "$2b$10$Jj.kIrkN0HNr5QnBc4T4ou6AauhpHWPdv0RNVCJZUybU77wRhDteS",
+    "teamId": "1787700864322",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Pwn",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Miscellaneous",
+      "Web Exploitation",
+      "OSINT 2",
+      "Networking",
+      "Cryptography",
+      "Miscellaneous 2",
+      "OSINT",
+      "Bonus",
+      "Forensics 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699565465",
+    "username": "Rahul Bansal",
+    "email": "itzrahulbansal24@gmial.com",
+    "password": "$2b$10$seEShwUXAo9yLuDlbEBZheqsucvAAF3xqWGS/XK5J3QnSgohRwzgO",
+    "teamId": "1787699634114",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "Steganography",
+      "Networking",
+      "Cryptography",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Pwn",
+      "OSINT 2",
+      "Forensics 2",
+      "Bonus",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699624804",
+    "username": "gurvirkaur",
+    "email": "gurvirabc9@gmail.com",
+    "password": "$2b$10$BM/KpUNmPzb7uSqt7yUvtO118fFuwCstDM6H8Pm2b9..dngBA1Y1i",
+    "teamId": "1787699444245",
+    "solvedChallenges": [
+      "Forensics",
+      "Web Exploitation",
+      "Networking",
+      "Cryptography",
+      "Binary Analysis",
+      "Pwn",
+      "Miscellaneous 2",
+      "Reverse Engineering",
+      "Forensics 2",
+      "Bonus",
+      "OSINT 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699691057",
+    "username": "amritpal singh",
+    "email": "amritsama@gmail.com",
+    "password": "$2b$10$G45e.XSIoebWxLLDqc8iCebfMmvnoubxg3vEpM9evxw/LJbSGoCLa",
+    "teamId": "1787699729999",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787699696116",
+    "username": "mehreen",
+    "email": "mehreenk769@gmail.com",
+    "password": "$2b$10$imMWts2dD9i.qQQI5dE3uuWRubusVQShOVpMNbmwx2aqXHaZuBREW",
+    "teamId": "1787699570025",
+    "solvedChallenges": [
+      "Steganography",
+      "Pwn",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "Reverse Engineering",
+      "Networking",
+      "Binary Analysis",
+      "Cryptography",
+      "Forensics 2",
+      "Forensics",
+      "Bonus",
+      "OSINT 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699700496",
+    "username": "diksha pal",
+    "email": "dikshapal0817@gmail.com",
+    "password": "$2b$10$cPGJDwq5B93qsjqAyFRNbOMNepWty1Qehm7PKRoETjpl34EwzzqYi",
+    "teamId": "1787699604625",
+    "solvedChallenges": [
+      "Steganography",
+      "Pwn",
+      "Miscellaneous",
+      "Reverse Engineering",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "Binary Analysis",
+      "Networking",
+      "Forensics 2",
+      "Cryptography",
+      "Forensics",
+      "Bonus",
+      "OSINT 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699708995",
+    "username": "harpreet singh",
+    "email": "harpreetgill0289@gmail.com",
+    "password": "$2b$10$C6aBw1/xplF6G9LNHgaOOuU2jMID51YotQqiHyo5SIotX5eAq2wqG",
+    "teamId": "1787699729999",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Forensics"
+    ]
+  },
+  {
+    "id": "1787699709463",
+    "username": "Pourush",
+    "email": "pourushkashyap06@gmail.com",
+    "password": "$2b$10$fgVNGJBV5sLVER6qeP4qref0CLCJktosPO082NKS96E19XU1qJLDy",
+    "teamId": "1787699846090",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Networking",
+      "Web Exploitation",
+      "Cryptography",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "Pwn",
+      "Forensics 2",
+      "Bonus",
+      "OSINT 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699709666",
+    "username": "aryan shukla",
+    "email": "aryanshukla321321@gail.com",
+    "password": "$2b$10$QvvTciUrpAvY8LHHoEgt/.pbGtz424FZH4tm08PLSU5spmWgDcCHy",
+    "teamId": "1787699662689",
+    "solvedChallenges": [
+      "Forensics",
+      "OSINT",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "OSINT 2",
+      "Web Exploitation",
+      "Networking",
+      "Reverse Engineering",
+      "Pwn",
+      "Binary Analysis",
+      "Cryptography",
+      "Forensics 2",
+      "Bonus",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699727353",
+    "username": "pranav_bhandhari",
+    "email": "sukhmansingh5664@gmail.com",
+    "password": "$2b$10$wSt1CCXFaNHcWcnXk2kORejAdwMh8MhTxtBPhXapQGmM5EjyggC.m",
+    "teamId": "1787699302538",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Miscellaneous 2"
+    ]
+  },
+  {
+    "id": "1787699769678",
+    "username": "GILL6602",
+    "email": "kokrigill8671@gmail.com",
+    "password": "$2b$10$aJkfgrujVHLrc7SIGfb8b./h8G8MY.64kUaweuy/EF5LlirYA03n.",
+    "teamId": "1787699837300",
+    "solvedChallenges": [
+      "Forensics",
+      "Forensics 2",
+      "Pwn",
+      "Bonus",
+      "Reverse Engineering",
+      "Networking"
+    ]
+  },
+  {
+    "id": "1787699776075",
+    "username": "Harman Gill",
+    "email": "harmngill3884@gmail.com",
+    "password": "$2b$10$LNANUMWvKRfsx5DxF5NZgOCLqECWyhMjsRXSc/N29WkQOboPriE76",
+    "teamId": "1787699588303",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Networking",
+      "Cryptography",
+      "Web Exploitation"
+    ]
+  },
+  {
+    "id": "1787699791590",
+    "username": "codered",
+    "email": "12kareenasekhon@gmail.com",
+    "password": "$2b$10$vkpt1y1lKZXfWGwZDLjQRunVq61tNpnPz1/v/qdg4ZR3V9jpgOpFq",
+    "teamId": "1787699837300",
+    "solvedChallenges": [
+      "Steganography",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Web Exploitation",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699802411",
+    "username": "Harmanpreet Singh",
+    "email": "harmanpreetsingh18058@gmail.com",
+    "password": "$2b$10$UGrpGRQNGopVSSWnfuLx6unfeJUtlHYOs9tJ2xkGl85sAHZQ.CZt6",
+    "teamId": "1787699650030",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "OSINT"
+    ]
+  },
+  {
+    "id": "1787699909220",
+    "username": "dhinchakpooja",
+    "email": "arshdeep321q@gmail.com",
+    "password": "$2b$10$JC/wiDF1eKs/.CFXFnmiPegiPecwi/YSHNiTECyjpJhx9t7vKmLwe",
+    "teamId": "1787700117938",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Forensics 2",
+      "Pwn",
+      "Binary Analysis",
+      "Reverse Engineering",
+      "OSINT 2",
+      "Web Exploitation",
+      "Cryptography",
+      "Bonus",
+      "Networking",
+      "OSINT",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699965289",
+    "username": "Navdeep grewal",
+    "email": "grewaln066@gmail.com",
+    "password": "$2b$10$rqP.dVOLweoWM84lz68Xn.8HjyOvy8MSn3zAuj.TDxDm9b7LF.kJK",
+    "teamId": "1787699463059",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Networking",
+      "Cryptography",
+      "Web Exploitation",
+      "Binary Analysis",
+      "Pwn",
+      "Forensics 2",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787699993473",
+    "username": "Akanksha Arora",
+    "email": "akankshaarora67@gmail.com",
+    "password": "$2b$10$WXn8ihqoRlDjSUnyJ5cGuO6iqwgr46yFs4MRVFex/lJR51RTCtO0O",
+    "teamId": "1787699325448",
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787700121150",
+    "username": "ChinkyAmritk",
+    "email": "chinkychinky1414@gmail.com",
+    "password": "$2b$10$RhgQQuaUdjbl43/rTlZqhOBi.W6.DnvTRjeDFJCYpO86H94/OvkmK",
+    "teamId": "1787700170183",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Miscellaneous 2",
+      "Binary Analysis",
+      "Miscellaneous",
+      "Forensics 2",
+      "Cryptography"
+    ]
+  },
+  {
+    "id": "1787700121460",
+    "username": "Hackers",
+    "email": "navroopsidhu17@gmail.com",
+    "password": "$2b$10$ZDozfSOd73zAsP18QnDPB.bgL1ILWke.FRYRzJ1eQBVEdWl9LpwJa",
+    "teamId": "1787700391068",
+    "solvedChallenges": [
+      "Forensics",
+      "Steganography",
+      "Miscellaneous",
+      "Forensics 2"
+    ]
+  },
+  {
+    "id": "1787700308182",
+    "username": "Harshikaa",
+    "email": "harshika10k@gmail.com",
+    "password": "$2b$10$3uqCoWHCKXHYY1FeQVfqBuCcwuMCeCI1CN9se9ZR/FU2MXhKLk5ua",
+    "teamId": "1787699362719",
+    "solvedChallenges": [
+      "Forensics",
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Pwn",
+      "Binary Analysis",
+      "Forensics 2",
+      "Cryptography",
+      "Reverse Engineering",
+      "OSINT 2",
+      "OSINT",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787700418526",
+    "username": "donkey",
+    "email": "donkey@gmail.com",
+    "password": "$2b$10$m2DKKMHXRSvvLZeauQjUle1M8KQqSlBEuy02yVCRzdkL0dk1Ro2xa",
+    "teamId": null,
+    "solvedChallenges": []
+  },
+  {
+    "id": "1787700604576",
+    "username": "Sahib",
+    "email": "sahibjeetsingh373@gmail.com",
+    "password": "$2b$10$gmHZ6eoafGWp9kdyHsDTreCR76dKIwtqui8g8HAg2.yeU3g88wCOu",
+    "teamId": "1787699305162",
+    "solvedChallenges": [
+      "Miscellaneous",
+      "Miscellaneous 2",
+      "Pwn",
+      "Binary Analysis",
+      "Cryptography",
+      "Reverse Engineering",
+      "Forensics 2",
+      "Bonus",
+      "Reverse Engg."
+    ]
+  },
+  {
+    "id": "1787700621165",
+    "username": "Khushi",
+    "email": "passikhushi592@gmail.com",
+    "password": "$2b$10$SB7vuMVP.UQzkRbPmIj4Ee2Jv8wAa97M8kgrxuQm60boU.dyk6P3.",
+    "teamId": "1787699362719",
+    "solvedChallenges": [
+      "Web Exploitation",
+      "Networking",
+      "Steganography",
+      "Bonus"
+    ]
+  },
+  {
+    "id": "1787701236318",
+    "username": "amrit singh",
+    "email": "amritsama@522gmail.com",
+    "password": "$2b$10$DKOGpmZut6cdhfb.Vzz85OiBBvbZV5x.q.0icCzSrlMhmsG.TBTmi",
+    "teamId": "1787699729999",
+    "solvedChallenges": [
+      "Steganography"
+    ]
+  },
+  {
+    "id": "1787709942413",
+    "username": "Armaan",
+    "email": "ctuarmaan@gmail.com",
+    "password": "$2b$10$gkL2asZHn4jSviHh83YXweHD7uYGALIbAobwsW1etJmAa9kWQyDeG",
+    "teamId": null,
+    "solvedChallenges": []
   }
 ]

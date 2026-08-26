@@ -1,12 +1,12 @@
 {
   "Forensics": {
-    "hash": "$2b$10$onuVSFLyCx02HcrGE5DZGO6voNT1G1JvF.JNo6b.XdIeY4fGmpOMa",
+    "hash": "$2b$10$ofeP1oWn0BqrioKZFnAYjeGc9XfE3O0BeJIpsO30eHBHzDguYQiiq",
     "text": "A file that doesn't look quite right has been left behind. Sometimes, the first step in solving a mystery is simply asking: what exactly am I looking at?",
     "points": 100,
-    "resource": "Forensics_1787430748695_Forensics.zip",
+    "resource": "Forensics_1787703399601_Forensics.zip",
     "originalResourceName": "Forensics.zip",
     "difficulty": "EASY",
-    "hint": "Don't judge a file by its extension. Let the MIME type speak."
+    "hint": "Don't judge a file by its extension. Let the MIME type speak"
   },
   "Reverse Engineering": {
     "hash": "$2b$10$2uICLrX0GVxOweA9issRheLZ39PPGuav2wbsGkv3nKT7sOOK3u/q.",
@@ -106,5 +106,32 @@
     "resource": "Cryptography_1787589537471_Cryptography.zip",
     "originalResourceName": "Cryptography.zip",
     "hash": "$2b$10$ruYxyw7UufpacIiPRAuRVOYuG/qzONdp.MZ4xNGwZOQ8aZka2XrBW"
+  },
+  "Forensics 2": {
+    "text": "Our operative managed to exfiltrate a compressed archive from the enemy server.  \t\tHowever, the file transfer was intercepted, and they deployed an active countermeasure that scrambled the file's structural signatures before the download finished.  \t\tNo standard extraction tool can open this file anymore. It is completely broken. \t\tCan you get your hands dirty at the byte level and recover the flag?",
+    "points": 1000,
+    "difficulty": "HARD",
+    "hint": "",
+    "resource": "Forensics2_1787703448367_Forensics2.zip",
+    "originalResourceName": "Forensics_2.zip",
+    "hash": "$2b$10$qYOJqnabfxT6/8eA7iO55./zbv1LXPh.RTSLIYfnXBviZRu3t71Pq"
+  },
+  "Bonus": {
+    "text": "One of our rogue system administrators fled the country with the master backup keys. \t\tWe managed to recover an archived snapshot of a deleted forum post he made right before he went dark.  \t\tCan you follow his digital trail, analyze the evidence, and figure out the exact physical location where he hid the keys?",
+    "points": 300,
+    "difficulty": "BONUS",
+    "hint": "",
+    "resource": "Bonus_1787704971277_OSINT3.zip",
+    "originalResourceName": "OSINT_3.zip",
+    "hash": "$2b$10$uGZPWJTl.6Kx5Map2Wq2o.H1J0zOeC/KlHO.bCYMuUGjbXTcy.Wsu"
+  },
+  "Reverse Engg.": {
+    "text": "We discovered a classified vault terminal that runs on a custom virtual machine architecture never seen before. The terminal is locked behind an unknown unlock code. The system has anti-automation countermeasures. It will reject any piped, scripted, or redirected input. You must type the unlock code directly into the terminal with your own hands.  You have been given the VM engine and the vault program bytecode. Reverse engineer the VM, disassemble the bytecode, find the unlock code, and type it in manually to access the flag.  HOW TO START:   ./setup.sh  This will install dependencies and launch a locked fullscreen environment with a terminal. You cannot exit, switch apps, or minimize until you submit the correct flag. All the tools and challenge files are available inside the terminal.",
+    "points": 1250,
+    "difficulty": "BONUS",
+    "hint": "The VM binary is a custom bytecode interpreter. Open it in Ghidra and find the giant switch statement that handles each opcode. Map out the instruction set (what each hex opcode does). Then open vault.bin in a hex editor and manually disassemble it using the opcode table you built. The unlock code is compared character by character, but XOR-obfuscated. Reverse the XOR to recover each character.",
+    "resource": "ReverseEngg_1787709933529_DarkVM.zip",
+    "originalResourceName": "Dark_VM.zip",
+    "hash": "$2b$10$qr6EjL1eMNQOjSLvEZ/re.jWUHH6ywrqz8yM5U1ijtxDlapfWuWGm"
   }
 }

@@ -16,13 +16,159 @@ const upload = multer({ storage: storage });
 
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 const http = require('http');
 const { Server } = require('socket.io');
+
+// Custom persistent session store to eliminate Windows file-locking / EPERM rename collisions
+class PersistentSessionStore extends session.Store {
+  constructor(options = {}) {
+    super(options);
+    this.sessions = new Map();
+    this.sessionsFile = path.join(__dirname, 'sessions.json');
+    this.sessionsDir = path.join(__dirname, 'sessions');
+    this.loadSessions();
+  }
+
+  loadSessions() {
+    try {
+      if (fs.existsSync(this.sessionsDir)) {
+        const files = fs.readdirSync(this.sessionsDir);
+        for (const file of files) {
+          if (file.endsWith('.json') && !file.includes('.json.')) {
+            const sid = file.replace('.json', '');
+            try {
+              const content = JSON.parse(fs.readFileSync(path.join(this.sessionsDir, file), 'utf8'));
+              this.sessions.set(sid, content);
+            } catch (e) {}
+          }
+        }
+      }
+    } catch (e) {}
+
+    try {
+      if (fs.existsSync(this.sessionsFile)) {
+        const data = JSON.parse(fs.readFileSync(this.sessionsFile, 'utf8'));
+        for (const [id, sess] of Object.entries(data)) {
+          this.sessions.set(id, sess);
+        }
+      }
+    } catch (e) {}
+  }
+
+  saveSessions() {
+    if (this._saveTimer) return;
+    this._saveTimer = setTimeout(() => {
+      this._saveTimer = null;
+      try {
+        const data = {};
+        const now = Date.now();
+        for (const [id, sess] of this.sessions.entries()) {
+          if (sess && sess.cookie && sess.cookie.expires) {
+            if (new Date(sess.cookie.expires).getTime() <= now) continue;
+          }
+          data[id] = sess;
+        }
+        fs.writeFileSync(this.sessionsFile, JSON.stringify(data, null, 2));
+      } catch (e) {
+        console.error('Error writing sessions.json:', e);
+      }
+    }, 250);
+  }
+
+  get(sid, cb) {
+    try {
+      const sess = this.sessions.get(sid);
+      if (!sess) return cb(null, null);
+      if (sess.cookie && sess.cookie.expires) {
+        if (new Date(sess.cookie.expires).getTime() <= Date.now()) {
+          this.sessions.delete(sid);
+          this.saveSessions();
+          return cb(null, null);
+        }
+      }
+      return cb(null, sess);
+    } catch (err) {
+      return cb(err);
+    }
+  }
+
+  set(sid, sess, cb) {
+    try {
+      this.sessions.set(sid, sess);
+      this.saveSessions();
+      if (cb) cb(null);
+    } catch (err) {
+      if (cb) cb(err);
+    }
+  }
+
+  touch(sid, sess, cb) {
+    try {
+      const current = this.sessions.get(sid);
+      if (current) {
+        if (sess && sess.cookie) {
+          current.cookie = sess.cookie;
+        }
+        current.__lastAccess = Date.now();
+        this.sessions.set(sid, current);
+        this.saveSessions();
+      }
+      if (cb) cb(null);
+    } catch (err) {
+      if (cb) cb(err);
+    }
+  }
+
+  destroy(sid, cb) {
+    try {
+      this.sessions.delete(sid);
+      this.saveSessions();
+      if (cb) cb(null);
+    } catch (err) {
+      if (cb) cb(err);
+    }
+  }
+
+  all(cb) {
+    try {
+      const arr = [];
+      for (const sess of this.sessions.values()) {
+        arr.push(sess);
+      }
+      if (cb) cb(null, arr);
+    } catch (err) {
+      if (cb) cb(err);
+    }
+  }
+
+  clear(cb) {
+    try {
+      this.sessions.clear();
+      this.saveSessions();
+      if (cb) cb(null);
+    } catch (err) {
+      if (cb) cb(err);
+    }
+  }
+
+  length(cb) {
+    if (cb) cb(null, this.sessions.size);
+  }
+}
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
+
+io.on('connection', (socket) => {
+  // Immediately sync state and server timestamp to connected client
+  socket.emit('configUpdate', { ...ctfConfig, serverTime: Date.now() });
+
+  // Handle explicit time sync requests from clients
+  socket.on('requestTimeSync', () => {
+    socket.emit('configUpdate', { ...ctfConfig, serverTime: Date.now() });
+  });
+});
 
 app.use(express.json());
 
@@ -31,7 +177,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Set up session middleware
 app.use(session({
-  store: new FileStore({ path: './sessions', logFn: function(){} }),
+  store: new PersistentSessionStore(),
   secret: 'someRandomSecretKey',
   resave: false,
   saveUninitialized: false,
@@ -48,17 +194,20 @@ if (fs.existsSync(configFilePath)) {
 }
 
 app.get('/api/config', (req, res) => {
-  res.json(ctfConfig);
+  res.json({ ...ctfConfig, serverTime: Date.now() });
 });
 
 app.post('/api/admin/start', (req, res) => {
+  if (!req.session.userId) return res.status(403).json({ error: 'Not logged in' });
   const currentUser = users.find(u => u.id === req.session.userId);
+  if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
   ctfConfig.ctfStartTime = Date.now();
   fs.writeFileSync(configFilePath, JSON.stringify(ctfConfig, null, 2));
-  io.emit('configUpdate', ctfConfig);
+  const payload = { ...ctfConfig, serverTime: Date.now() };
+  io.emit('configUpdate', payload);
   
-  res.json({ message: 'CTF Started!', config: ctfConfig });
+  res.json({ message: 'CTF Started!', config: payload });
 });
 
 app.post('/api/admin/stop', (req, res) => {
@@ -68,9 +217,10 @@ app.post('/api/admin/stop', (req, res) => {
   
   ctfConfig.ctfStartTime = null;
   fs.writeFileSync(configFilePath, JSON.stringify(ctfConfig, null, 2));
-  io.emit('configUpdate', ctfConfig);
+  const payload = { ...ctfConfig, serverTime: Date.now() };
+  io.emit('configUpdate', payload);
   
-  res.json({ message: 'CTF Stopped!', config: ctfConfig });
+  res.json({ message: 'CTF Stopped!', config: payload });
 });
 
 app.post('/api/admin/wipe', (req, res) => {
@@ -133,6 +283,88 @@ try {
 } catch (err) {
   console.error("Error reading teams.json:", err);
 }
+
+const DISQUALIFIED_TEAMS = new Set([
+  'THE SEMICOLONS;',
+  'the semicolons;',
+  '1787699998370'
+]);
+
+// -----------------------
+// Dynamic Score Recalculation
+// -----------------------
+const recalculateAllScores = () => {
+  try {
+    if (fs.existsSync(usersFilePath)) {
+      users = JSON.parse(fs.readFileSync(usersFilePath, 'utf8'));
+    }
+    if (fs.existsSync(teamsFilePath)) {
+      teams = JSON.parse(fs.readFileSync(teamsFilePath, 'utf8'));
+    }
+  } catch (e) {
+    console.error("Error reading database files in recalculateAllScores:", e);
+  }
+
+  const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
+  let flagsData = {};
+  if (fs.existsSync(flagsFilePath)) {
+    try {
+      flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
+    } catch (e) {
+      console.error("Error reading flags.json in recalculateAllScores:", e);
+    }
+  }
+
+  let teamsChanged = false;
+  teams.forEach(team => {
+    let calculatedScore = 0;
+    if (team.disqualified || DISQUALIFIED_TEAMS.has(team.teamName) || DISQUALIFIED_TEAMS.has(team.teamName.trim().toLowerCase()) || DISQUALIFIED_TEAMS.has(team.id)) {
+      team.disqualified = true;
+      calculatedScore = 0;
+      team.lastSolveTime = 0;
+    } else {
+      const solvedSet = new Set();
+      if (Array.isArray(team.members)) {
+        team.members.forEach(memberId => {
+          const member = users.find(u => u.id === memberId);
+          if (member && Array.isArray(member.solvedChallenges)) {
+            member.solvedChallenges.forEach(cat => solvedSet.add(cat));
+          }
+        });
+      }
+
+      solvedSet.forEach(cat => {
+        if (flagsData[cat] && flagsData[cat].points !== undefined) {
+          calculatedScore += Number(flagsData[cat].points) || 0;
+        }
+      });
+    }
+
+    if (team.score !== calculatedScore) {
+      team.score = calculatedScore;
+      if (Array.isArray(team.scoreHistory) && team.scoreHistory.length > 0) {
+        const pointEntries = team.scoreHistory.filter(h => h.score > 0);
+        if (pointEntries.length > 0) {
+          pointEntries[pointEntries.length - 1].score = calculatedScore;
+          team.lastSolveTime = pointEntries[pointEntries.length - 1].timestamp;
+        }
+      }
+      teamsChanged = true;
+    }
+  });
+
+  if (teamsChanged) {
+    try {
+      fs.writeFileSync(teamsFilePath, JSON.stringify(teams, null, 2));
+    } catch (e) {
+      console.error("Error saving teams.json in recalculateAllScores:", e);
+    }
+  }
+  return teamsChanged;
+};
+
+// Initial sync on startup
+recalculateAllScores();
 
 // -----------------------
 // User Endpoints
@@ -204,7 +436,7 @@ app.get('/api/challenges', (req, res) => {
 
     safeData[key] = { 
       text: flagsData[key].text, 
-      points: flagsData[key].points || 500,
+      points: flagsData[key].points !== undefined ? Number(flagsData[key].points) : 0,
       difficulty: flagsData[key].difficulty || "EASY",
       hint: flagsData[key].hint || "",
       resource: flagsData[key].resource,
@@ -229,7 +461,9 @@ app.post('/api/admin/challenges', isAdmin, upload.single('resource'), (req, res)
   if (!currentUser || currentUser.id !== 'user_admin_1') return res.status(403).json({ error: 'Forbidden' });
   
   const { category, text, flag, points, removeResource, difficulty, hint } = req.body;
-  if (!category || !text || !flag || !points) return res.status(400).json({ error: 'All fields (Category, Text, Flag, Points) are required.' });
+  if (!category || !text || !flag || points === undefined || points === null || String(points).trim() === '') {
+    return res.status(400).json({ error: 'All fields (Category, Text, Flag, Points) are required.' });
+  }
   
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
   let flagsData = {};
@@ -237,14 +471,12 @@ app.post('/api/admin/challenges', isAdmin, upload.single('resource'), (req, res)
     flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
   }
   
-  let oldPoints = null;
   if (!flagsData[category]) {
     flagsData[category] = {};
-  } else {
-    oldPoints = flagsData[category].points !== undefined ? Number(flagsData[category].points) : 500;
   }
   
-  const newPoints = parseInt(points) || 500;
+  const parsedPoints = parseInt(points, 10);
+  const newPoints = isNaN(parsedPoints) ? 0 : parsedPoints;
   flagsData[category].text = text;
   flagsData[category].points = newPoints;
   flagsData[category].difficulty = difficulty || "EASY";
@@ -267,34 +499,12 @@ app.post('/api/admin/challenges', isAdmin, upload.single('resource'), (req, res)
   
   fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
   
-  // Retroactively adjust scores if points changed
-  if (oldPoints !== null && oldPoints !== newPoints) {
-    const pointDiff = newPoints - oldPoints;
-    let teamsChanged = false;
-    
-    teams.forEach(team => {
-      const teamSolvedIt = team.members.some(memberId => {
-        const member = users.find(u => u.id === memberId);
-        return member && Array.isArray(member.solvedChallenges) && member.solvedChallenges.includes(category);
-      });
-      
-      if (teamSolvedIt) {
-        team.score += pointDiff;
-        if (!team.scoreHistory) {
-          team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score - pointDiff }];
-        }
-        team.scoreHistory.push({ timestamp: Date.now(), score: team.score });
-        teamsChanged = true;
-      }
-    });
-    
-    if (teamsChanged) {
-      fs.writeFileSync(path.join(__dirname, 'teams.json'), JSON.stringify(teams, null, 2));
-      io.emit('teamsUpdate');
-    }
-  }
+  // Recalculate scores for all teams according to latest points
+  recalculateAllScores();
 
   io.emit('challengesUpdate');
+  io.emit('teamsUpdate');
+  io.emit('usersUpdate');
   res.json({ message: 'Challenge updated successfully.' });
 });
 
@@ -309,51 +519,29 @@ app.post('/api/admin/challenges/delete', (req, res) => {
   const flagsFilePath = path.join(__dirname, 'private', 'flags.json');
   if (fs.existsSync(flagsFilePath)) {
     let flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
-    const challengeObj = flagsData[category];
     
-    if (challengeObj) {
-      const pointsToDeduct = challengeObj.points !== undefined ? Number(challengeObj.points) : 500;
-      
-      // Remove points from teams that solved it
-      let teamsChanged = false;
-      teams.forEach(team => {
-        const teamSolvedIt = team.members.some(memberId => {
-          const member = users.find(u => u.id === memberId);
-          return member && Array.isArray(member.solvedChallenges) && member.solvedChallenges.includes(category);
-        });
-        
-        if (teamSolvedIt) {
-          team.score -= pointsToDeduct;
-          if (!team.scoreHistory) {
-            team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score + pointsToDeduct }];
-          }
-          team.scoreHistory.push({ timestamp: Date.now(), score: team.score });
-          teamsChanged = true;
-        }
-      });
-      
-      // Remove challenge from all users' solved lists
-      let usersChanged = false;
-      users.forEach(user => {
-        if (Array.isArray(user.solvedChallenges) && user.solvedChallenges.includes(category)) {
-          user.solvedChallenges = user.solvedChallenges.filter(c => c !== category);
-          usersChanged = true;
-        }
-      });
-      
-      // Save data
-      delete flagsData[category];
-      fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
-      
-      if (usersChanged || teamsChanged) {
-        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
-        fs.writeFileSync(path.join(__dirname, 'teams.json'), JSON.stringify(teams, null, 2));
-        io.emit('usersUpdate');
-        io.emit('teamsUpdate');
+    // Remove challenge from all users' solved lists
+    let usersChanged = false;
+    users.forEach(user => {
+      if (Array.isArray(user.solvedChallenges) && user.solvedChallenges.includes(category)) {
+        user.solvedChallenges = user.solvedChallenges.filter(c => c !== category);
+        usersChanged = true;
       }
+    });
+    
+    delete flagsData[category];
+    fs.writeFileSync(flagsFilePath, JSON.stringify(flagsData, null, 2));
+    
+    if (usersChanged) {
+      fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
     }
+    
+    recalculateAllScores();
+    
+    io.emit('usersUpdate');
+    io.emit('teamsUpdate');
+    io.emit('challengesUpdate');
   }
-  io.emit('challengesUpdate');
   res.json({ message: 'Challenge deleted successfully.' });
 });
 
@@ -366,6 +554,7 @@ app.get('/api/users', (req, res) => {
 // -----------------------
 
 app.get('/api/teams', (req, res) => {
+  recalculateAllScores();
   const teamsWithNames = teams.filter(t => !t.teamName.toLowerCase().includes('admin')).map(team => {
     const membersNames = team.members
       .map(memberId => {
@@ -373,11 +562,22 @@ app.get('/api/teams', (req, res) => {
         return memberUser ? memberUser.username : null;
       })
       .filter(Boolean);
-    if (typeof team.score !== 'number') team.score = 0;
+    if (typeof team.score !== 'number' || team.disqualified) team.score = 0;
     if (!team.solvedChallenges || typeof team.solvedChallenges !== 'object') {
       team.solvedChallenges = {};
     }
-    return { ...team, membersNames };
+
+    let lastSolveTime = team.lastSolveTime || 0;
+    if (team.disqualified) {
+      lastSolveTime = 0;
+    } else if (!lastSolveTime && Array.isArray(team.scoreHistory)) {
+      const pointEntries = team.scoreHistory.filter(h => h.score > 0);
+      if (pointEntries.length > 0) {
+        lastSolveTime = pointEntries[pointEntries.length - 1].timestamp;
+      }
+    }
+
+    return { ...team, disqualified: Boolean(team.disqualified), lastSolveTime, membersNames };
   });
   res.json(teamsWithNames);
 });
@@ -394,6 +594,7 @@ app.get('/api/myteam', (req, res) => {
   let flagsData = {};
   if (fs.existsSync(flagsFilePath)) flagsData = JSON.parse(fs.readFileSync(flagsFilePath, 'utf8'));
   
+  let teamTotalScore = 0;
   const membersNames = [];
   const memberDetails = myTeam.members.map(memberId => {
     const mUser = users.find(u => u.id === memberId);
@@ -402,10 +603,11 @@ app.get('/api/myteam', (req, res) => {
     
     let userPoints = 0;
     const solved = (mUser.solvedChallenges || []).map(cat => {
-      const pts = flagsData[cat] && flagsData[cat].points !== undefined ? Number(flagsData[cat].points) : 500;
+      const pts = flagsData[cat] && flagsData[cat].points !== undefined ? Number(flagsData[cat].points) : 0;
       userPoints += pts;
       return { category: cat, points: pts };
     });
+    teamTotalScore += userPoints;
     return {
       username: mUser.username,
       totalPoints: userPoints,
@@ -413,11 +615,11 @@ app.get('/api/myteam', (req, res) => {
     };
   }).filter(Boolean);
   
-  if (typeof myTeam.score !== 'number') myTeam.score = 0;
+  myTeam.score = teamTotalScore;
   if (!myTeam.solvedChallenges || typeof myTeam.solvedChallenges !== 'object') {
     myTeam.solvedChallenges = {};
   }
-  res.json({ team: { ...myTeam, membersNames, memberDetails } });
+  res.json({ team: { ...myTeam, score: teamTotalScore, membersNames, memberDetails } });
 });
 
 app.get('/api/profile', (req, res) => {
@@ -535,12 +737,20 @@ app.post('/api/challenge/flag', (req, res) => {
     currentUser.solvedChallenges = [];
   }
   currentUser.solvedChallenges.push(category);
-  const pointsEarned = challengeObj.points !== undefined ? Number(challengeObj.points) : 500;
+  
+  if (!team.solvedChallenges || typeof team.solvedChallenges !== 'object') {
+    team.solvedChallenges = {};
+  }
+  const solveTime = Date.now();
+  team.solvedChallenges[category] = { timestamp: solveTime, userId: currentUser.id };
+  team.lastSolveTime = solveTime;
+
+  const pointsEarned = challengeObj.points !== undefined ? Number(challengeObj.points) : 0;
   team.score += pointsEarned;
   if (!team.scoreHistory) {
-    team.scoreHistory = [{ timestamp: Date.now() - 1000, score: team.score - pointsEarned }];
+    team.scoreHistory = [{ timestamp: solveTime - 1000, score: team.score - pointsEarned }];
   }
-  team.scoreHistory.push({ timestamp: Date.now(), score: team.score });
+  team.scoreHistory.push({ timestamp: solveTime, score: team.score });
   
   try {
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
